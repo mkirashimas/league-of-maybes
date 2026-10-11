@@ -73,6 +73,11 @@ Push (an HTTPS service worker) and installing the app as a PWA both need HTTPS, 
 
 The full flow is in [workflow.md](workflow.md).
 
+## D-008: Feature-prefixed endpoint names; consent time from the device (2026-10-12)
+
+- **Endpoint names:** RTK Query endpoints carry the feature prefix (`legalGetUserDocument`, `legalAcceptTerms`, later `rosterGetPlayers` and so on). Every feature injects into one shared `api`, so short names like `getPlayerRefs`, which exist in both `dates` and `agenda`, would clash. This matches `prothext-facts`. The endpoint names in `architecture.md` are the short forms.
+- **Consent time:** `consent.acceptedAt` is the device time (`Date.now()`). The write's server time is already in `updatedAt`.
+
 ## Review fixes R1–R17 (2026-10-12)
 
 These came out of reviewing the plan. Each is applied in the stage listed.

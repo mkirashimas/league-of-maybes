@@ -37,5 +37,9 @@
     "body": "Esta sección se construye en una etapa posterior."
   },
   "loadError": "No se pudieron cargar los datos. Inténtalo de nuevo.",
-  "saveError": "No se pudieron guardar los cambios. Inténtalo de nuevo."
+  "saveError": "No se pudieron guardar los cambios. Inténtalo de nuevo.",
+  "legalLinks": {
+    "terms": "Condiciones",
+    "privacy": "Privacidad"
+  }
 }

@@ -37,5 +37,9 @@
     "body": "Această secțiune va fi construită într-o etapă ulterioară."
   },
   "loadError": "Datele nu au putut fi încărcate. Încearcă din nou.",
-  "saveError": "Modificările nu au putut fi salvate. Încearcă din nou."
+  "saveError": "Modificările nu au putut fi salvate. Încearcă din nou.",
+  "legalLinks": {
+    "terms": "Termeni",
+    "privacy": "Confidențialitate"
+  }
 }

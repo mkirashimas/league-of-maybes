@@ -1,0 +1,99 @@
+{
+  "version": "Versión {{version}}",
+  "gate": {
+    "loadError": "No se pudo cargar tu cuenta. Comprueba tu conexión e inténtalo de nuevo.",
+    "retry": "Reintentar"
+  },
+  "consent": {
+    "title": "Antes de empezar",
+    "intro": "League of Maybes es un cuaderno privado sobre las personas con las que sales. Lee y acepta estos puntos.",
+    "points": [
+      "Eres responsable de todo lo que escribes sobre otras personas.",
+      "Usa apodos, nunca nombres reales. El número de teléfono es opcional.",
+      "Tu plantilla es privada: solo tú puedes verla.",
+      "Las sugerencias de mensajes envían las notas relevantes a Google Gemini.",
+      "El brief de IA lo copias tú, en la herramienta de IA que elijas."
+    ],
+    "readFull": "Lee los textos completos:",
+    "terms": "Condiciones de uso",
+    "privacy": "Política de privacidad",
+    "checkbox": "He leído y acepto las Condiciones de uso y la Política de privacidad.",
+    "accept": "Aceptar y continuar",
+    "decline": "Cerrar sesión",
+    "saveError": "No se pudo guardar tu elección. Inténtalo de nuevo."
+  },
+  "terms": {
+    "title": "Condiciones de uso",
+    "sections": [
+      {
+        "title": "Qué es la aplicación",
+        "body": "League of Maybes es un cuaderno privado de un solo usuario que te ayuda a llevar el control de las personas que estás conociendo: notas, citas, planes y hábitos de chat. No es un servicio de citas y no te pone en contacto con nadie."
+      },
+      {
+        "title": "Tu cuenta",
+        "body": "Inicias sesión con tu cuenta de Google. Mantén esa cuenta segura: cualquiera que pueda acceder a ella puede ver tu plantilla."
+      },
+      {
+        "title": "Tu responsabilidad sobre los datos que introduces",
+        "body": "Todo lo que hay en la aplicación lo escribes tú, y gran parte trata sobre otras personas. Eres el único responsable de ese contenido y de tener derecho a conservarlo.\nUsa apodos, nunca nombres reales. No registres sobre nadie más de lo necesario y evita datos sensibles como salud, religión u opiniones políticas. El número de teléfono es opcional y solo sirve para abrir un chat."
+      },
+      {
+        "title": "Uso aceptable",
+        "body": "No uses la aplicación para acosar, rastrear, exponer o dañar a nadie. No compartas ni publiques lo que guardas sobre otras personas."
+      },
+      {
+        "title": "Funciones de IA",
+        "body": "Cuando pides sugerencias de mensajes, las notas relevantes sobre esa persona se envían a Google Gemini a través de Firebase para generarlas. Las sugerencias no se guardan.\nEl brief de IA se copia en tu portapapeles; si lo pegas en otra herramienta de IA, se aplican las condiciones de esa herramienta."
+      },
+      {
+        "title": "Sin garantía",
+        "body": "La aplicación se ofrece tal cual, sin garantía de disponibilidad ni de idoneidad para un fin. Los recordatorios y sugerencias son pistas, no consejos."
+      },
+      {
+        "title": "Fin del uso",
+        "body": "Puedes dejar de usar la aplicación en cualquier momento y eliminar tu cuenta y todos sus datos desde la página Cuenta."
+      },
+      {
+        "title": "Cambios",
+        "body": "Si estas condiciones cambian, la versión indicada arriba cambia y se te pedirá que las aceptes de nuevo antes de continuar."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "sections": [
+      {
+        "title": "Qué se guarda",
+        "body": "Tu perfil básico de Google (nombre, correo, foto) tal como lo proporciona Firebase Authentication, y el contenido que introduces: jugadores, rasgos, notas, citas, planes, ajustes de chat y, si activas las notificaciones, un token del dispositivo con su idioma."
+      },
+      {
+        "title": "Dónde se guarda",
+        "body": "En Google Firebase (Cloud Firestore), en la multirregión europea (eur3)."
+      },
+      {
+        "title": "Quién puede verlo",
+        "body": "Solo tú. Las reglas de seguridad permiten que cada cuenta lea y escriba únicamente sus propios datos. Los datos no se comparten, no se venden ni se usan para publicidad."
+      },
+      {
+        "title": "Procesamiento con IA",
+        "body": "Solo cuando pides sugerencias de mensajes, las notas seleccionadas sobre esa persona y el idioma de tu interfaz se envían a Google Gemini a través de Firebase AI Logic. La aplicación no guarda ni la petición ni la respuesta."
+      },
+      {
+        "title": "Notificaciones",
+        "body": "Si activas los avisos, se guarda el token push de tu dispositivo para que te lleguen los recordatorios. Las notificaciones usan un texto genérico y nunca muestran un apodo."
+      },
+      {
+        "title": "Guardado en tu navegador",
+        "body": "Tu tema, tu idioma y algunas pequeñas preferencias de visualización se guardan en el almacenamiento local de tu navegador."
+      },
+      {
+        "title": "Conservación y eliminación",
+        "body": "Tus datos se conservan hasta que los eliminas. Desde la página Cuenta puedes exportarlo todo en un archivo o eliminar tu cuenta junto con todos sus datos."
+      },
+      {
+        "title": "Contacto",
+        "body": "Para cualquier pregunta sobre tus datos, contacta con el propietario de esta aplicación."
+      }
+    ]
+  }
+}

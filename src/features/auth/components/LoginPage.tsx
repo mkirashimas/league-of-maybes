@@ -1,9 +1,9 @@
 import GoogleIcon from '@mui/icons-material/Google';
-import { Alert, Box, Button, Paper, Stack, Typography } from '@mui/material';
+import { Alert, Box, Button, Link, Paper, Stack, Typography } from '@mui/material';
 import { FirebaseError } from 'firebase/app';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Navigate } from 'react-router';
+import { Navigate, Link as RouterLink } from 'react-router';
 import { signInWithGoogle } from '../../../firebase/auth';
 import { useAppSelector } from '../../../store';
 import { selectCurrentUser } from '../../../store/authSlice';
@@ -38,14 +38,13 @@ export const LoginPage = () => {
 
   return (
     <Box
-      sx={(theme) => ({
-        minHeight: '100vh',
+      sx={{
+        flexGrow: 1,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         p: 2,
-        bgcolor: theme.palette.background.default,
-      })}
+      }}
     >
       <Paper variant="outlined" sx={{ p: 4, width: '100%', maxWidth: 420 }}>
         <Stack spacing={3} sx={{ alignItems: 'center', textAlign: 'center' }}>
@@ -75,6 +74,19 @@ export const LoginPage = () => {
           <Typography variant="caption" color="text.secondary">
             {t('privateNote')}
           </Typography>
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{ typography: 'caption', color: 'text.secondary' }}
+          >
+            <Link component={RouterLink} to={PATHS.TERMS} color="inherit">
+              {t('common:legalLinks.terms')}
+            </Link>
+            <span aria-hidden>·</span>
+            <Link component={RouterLink} to={PATHS.PRIVACY} color="inherit">
+              {t('common:legalLinks.privacy')}
+            </Link>
+          </Stack>
         </Stack>
       </Paper>
     </Box>

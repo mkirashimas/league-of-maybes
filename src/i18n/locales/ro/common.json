@@ -1,0 +1,41 @@
+{
+  "appName": "League of Maybes",
+  "motto": "Ieși cu amândoi (cu toți) și vezi cine e serios.",
+  "language": "Limbă",
+  "account": "Cont",
+  "openMenu": "Deschide meniul",
+  "signOut": "Deconectare",
+  "theme": {
+    "switchToDark": "Treci la modul întunecat",
+    "switchToLight": "Treci la modul luminos"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "it": "Italiano",
+    "ro": "Română"
+  },
+  "nav": {
+    "leagueTable": "Clasament",
+    "timeline": "Cronologie",
+    "upcoming": "Urmează",
+    "traits": "Trăsături",
+    "chatSettings": "Setări chat"
+  },
+  "actions": {
+    "cancel": "Anulează",
+    "save": "Salvează",
+    "delete": "Șterge",
+    "edit": "Editează",
+    "back": "Înapoi",
+    "create": "Creează",
+    "close": "Închide"
+  },
+  "comingSoon": {
+    "title": "În curând",
+    "body": "Această secțiune va fi construită într-o etapă ulterioară."
+  },
+  "loadError": "Datele nu au putut fi încărcate. Încearcă din nou.",
+  "saveError": "Modificările nu au putut fi salvate. Încearcă din nou."
+}

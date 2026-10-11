@@ -1,0 +1,41 @@
+{
+  "appName": "League of Maybes",
+  "motto": "Sors avec les deux (avec tous) et vois qui est sérieux.",
+  "language": "Langue",
+  "account": "Compte",
+  "openMenu": "Ouvrir le menu",
+  "signOut": "Se déconnecter",
+  "theme": {
+    "switchToDark": "Passer en mode sombre",
+    "switchToLight": "Passer en mode clair"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "it": "Italiano",
+    "ro": "Română"
+  },
+  "nav": {
+    "leagueTable": "Classement",
+    "timeline": "Chronologie",
+    "upcoming": "À venir",
+    "traits": "Traits",
+    "chatSettings": "Réglages du chat"
+  },
+  "actions": {
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "back": "Retour",
+    "create": "Créer",
+    "close": "Fermer"
+  },
+  "comingSoon": {
+    "title": "Bientôt disponible",
+    "body": "Cette section sera construite à une étape ultérieure."
+  },
+  "loadError": "Les données n'ont pas pu être chargées. Veuillez réessayer.",
+  "saveError": "Les modifications n'ont pas pu être enregistrées. Veuillez réessayer."
+}

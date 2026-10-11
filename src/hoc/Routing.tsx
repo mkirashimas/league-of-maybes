@@ -1,4 +1,5 @@
 import { Box, CircularProgress, Paper, Typography } from '@mui/material';
+import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate, Outlet, Route, Routes } from 'react-router';
 import { LoginPage } from '../features/auth';
@@ -8,6 +9,14 @@ import { selectAuthInitialized, selectCurrentUser } from '../store/authSlice';
 import { PATHS } from '../types';
 import { Layout } from './Layout';
 import { PublicLayout } from './PublicLayout';
+
+// App features load on demand (one chunk per feature); Layout shows a spinner meanwhile.
+const roster = () => import('../features/roster');
+const LeagueTablePage = lazy(() => roster().then((m) => ({ default: m.LeagueTablePage })));
+const PlayerFormPage = lazy(() => roster().then((m) => ({ default: m.PlayerFormPage })));
+const PlayerLayout = lazy(() => roster().then((m) => ({ default: m.PlayerLayout })));
+const PlayerProfilePage = lazy(() => roster().then((m) => ({ default: m.PlayerProfilePage })));
+const TraitSettingsPage = lazy(() => roster().then((m) => ({ default: m.TraitSettingsPage })));
 
 const Loading = () => (
   <Box sx={{ display: 'flex', justifyContent: 'center', mt: 8 }}>
@@ -58,10 +67,22 @@ export const Routing = () => (
       <Route element={<ConsentGate />}>
         <Route element={<Layout />}>
           <Route path={PATHS.HOME} element={<Navigate to={PATHS.ROSTER} replace />} />
-          <Route path={PATHS.ROSTER} element={<ComingSoon />} />
+          <Route path={PATHS.ROSTER} element={<LeagueTablePage />} />
+          <Route path={PATHS.PLAYER_NEW} element={<PlayerFormPage />} />
+
+          {/* Player page: the roster shell with one tab per feature. */}
+          <Route element={<PlayerLayout />}>
+            <Route path={PATHS.PLAYER} element={<PlayerProfilePage />} />
+            <Route path={PATHS.PLAYER_INTEL} element={<ComingSoon />} />
+            <Route path={PATHS.PLAYER_CHAT} element={<ComingSoon />} />
+            <Route path={PATHS.PLAYER_DATES} element={<ComingSoon />} />
+            <Route path={PATHS.PLAYER_AGENDA} element={<ComingSoon />} />
+            <Route path={PATHS.PLAYER_KEY_NOTES} element={<ComingSoon />} />
+          </Route>
+
           <Route path={PATHS.TIMELINE} element={<ComingSoon />} />
           <Route path={PATHS.AGENDA} element={<ComingSoon />} />
-          <Route path={PATHS.TRAIT_SETTINGS} element={<ComingSoon />} />
+          <Route path={PATHS.TRAIT_SETTINGS} element={<TraitSettingsPage />} />
           <Route path={PATHS.CHAT_SETTINGS} element={<ComingSoon />} />
           <Route path={PATHS.ACCOUNT} element={<ComingSoon />} />
         </Route>

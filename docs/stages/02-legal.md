@@ -1,6 +1,6 @@
 # Stage 2: Legal
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/02-legal`
+**Status:** ✅ done (2026-10-12), PR #3, tag `stage-02`
 
 ## 1. Goal
 

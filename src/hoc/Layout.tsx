@@ -10,6 +10,7 @@ import {
   AppBar,
   Avatar,
   Box,
+  CircularProgress,
   Container,
   Drawer,
   IconButton,
@@ -27,7 +28,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { useState, type MouseEvent } from 'react';
+import { Suspense, useState, type MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet, Link as RouterLink, useLocation } from 'react-router';
 import { signOut } from '../firebase/auth';
@@ -172,7 +173,15 @@ export const Layout = () => {
             [theme.breakpoints.down('md')]: { py: 2, px: 2 },
           })}
         >
-          <Outlet />
+          <Suspense
+            fallback={
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 8 }}>
+                <CircularProgress />
+              </Box>
+            }
+          >
+            <Outlet />
+          </Suspense>
         </Container>
       </Box>
     </Box>

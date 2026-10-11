@@ -1,0 +1,125 @@
+{
+  "title": "Classifica",
+  "addPlayer": "Aggiungi giocatore",
+  "notFound": "Questo giocatore non esiste.",
+  "backToRoster": "Torna alla classifica",
+  "filter": {
+    "label": "Mostra",
+    "current": "Rosa attuale",
+    "all": "Tutti"
+  },
+  "status": {
+    "prospect": "Promessa",
+    "active": "Attivo",
+    "bench": "Panchina",
+    "injuredReserve": "Infortunato",
+    "retired": "Ritirato"
+  },
+  "table": {
+    "nickname": "Soprannome",
+    "status": "Stato",
+    "overall": "Media",
+    "sortBy": "Ordina per"
+  },
+  "empty": {
+    "title": "La tua rosa è vuota",
+    "body": "Aggiungi il primo giocatore per iniziare la stagione.",
+    "filteredTitle": "Nessuno qui",
+    "filteredBody": "Nessun giocatore corrisponde a questo filtro."
+  },
+  "trait": {
+    "height": "Altezza",
+    "weight": "Peso",
+    "hot": "Attraente",
+    "funny": "Divertente",
+    "communication": "Comunicazione",
+    "chemistry": "Intesa",
+    "consistency": "Costanza",
+    "ambition": "Ambizione",
+    "crazyEyes": "Occhi folli",
+    "attachmentStyle": "Stile di attaccamento"
+  },
+  "traitOption": {
+    "attachmentStyle": {
+      "secure": "Sicuro",
+      "anxious": "Ansioso",
+      "avoidant": "Evitante",
+      "fearfulAvoidant": "Timoroso-evitante"
+    }
+  },
+  "unit": {
+    "cm": "cm",
+    "kg": "kg"
+  },
+  "kind": {
+    "scale": "Scala 1–10",
+    "number": "Numero",
+    "enum": "Scelta"
+  },
+  "color": {
+    "primary": "Ardesia",
+    "secondary": "Acciaio",
+    "info": "Blu",
+    "success": "Verde",
+    "warning": "Ambra",
+    "error": "Rosso"
+  },
+  "form": {
+    "titleNew": "Nuovo giocatore",
+    "titleEdit": "Modifica giocatore",
+    "nickname": "Soprannome",
+    "nicknameHelper": "Solo un soprannome. Mai un nome reale.",
+    "nicknameRequired": "Il soprannome è obbligatorio.",
+    "age": "Età",
+    "ageInvalid": "Inserisci un'età tra 18 e 120.",
+    "occupation": "Professione",
+    "city": "Città",
+    "metAt": "Conosciuto tramite",
+    "metAtHelper": "App, evento, amici…",
+    "metOn": "Conosciuto il",
+    "status": "Stato",
+    "color": "Colore dell'avatar",
+    "create": "Aggiungi alla rosa",
+    "responsibility": {
+      "title": "Sei responsabile di ciò che scrivi",
+      "body": "Qui si parla di persone reali. Usa soprannomi, conserva solo il necessario e non condividere mai nulla.",
+      "dismiss": "Ho capito"
+    }
+  },
+  "profile": {
+    "details": "Dettagli",
+    "traits": "Tratti",
+    "notRated": "Non valutato",
+    "clear": "Cancella",
+    "notSet": "Non impostato",
+    "noTraits": "Nessun tratto attivo. Attivane alcuni nelle impostazioni dei tratti.",
+    "manageTraits": "Gestisci tratti"
+  },
+  "tabs": {
+    "profile": "Profilo e tratti",
+    "intel": "Info",
+    "chat": "Chat",
+    "dates": "Appuntamenti",
+    "now": "Ora e prossimi",
+    "keyNotes": "Note chiave"
+  },
+  "traitSettings": {
+    "title": "Tratti",
+    "intro": "Scegli cosa valuti, in che ordine e quanto conta nella media.",
+    "add": "Aggiungi tratto",
+    "addTitle": "Nuovo tratto",
+    "label": "Nome",
+    "kind": "Tipo",
+    "unit": "Unità",
+    "options": "Opzioni",
+    "optionsHelper": "Almeno due, separate da virgole.",
+    "weight": "Peso",
+    "weightHelper": "Quanto conta nella media. 0 = non conta.",
+    "active": "Visibile",
+    "moveUp": "Sposta su",
+    "moveDown": "Sposta giù",
+    "custom": "personalizzato",
+    "deleteTitle": "Eliminare il tratto?",
+    "deleteMessage": "«{{label}}» sparirà da tutti i giocatori. I valori esistenti restano ma nascosti."
+  }
+}

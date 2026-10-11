@@ -4,7 +4,7 @@ Claude Code can't do these steps. Until each value is provided, the code uses a 
 
 | #   | Step                                                                                                                                                  | Needed from stage | Done |
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---- |
-| 1   | Create a Firebase project and register a **web app**                                                                                                  | 1                 | ⬜   |
+| 1   | Create a Firebase project and register a **web app**                                                                                                  | 1                 | ✅   |
 | 2   | Enable **Google** sign-in (Authentication → Sign-in method)                                                                                           | 1                 | ⬜   |
 | 3   | Create **Cloud Firestore** in production mode, location **`eur3`** (Europe multi-region)                                                              | 1                 | ⬜   |
 | 4   | Upgrade to the **Blaze** plan                                                                                                                         | 8                 | ⬜   |
@@ -17,12 +17,12 @@ Claude Code can't do these steps. Until each value is provided, the code uses a 
 
 All of these values are public. They are committed to the repo, not kept in env files (see [decisions.md](decisions.md)).
 
-| Value                                                                                           | File                                        | Placeholder                        |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------------------------- |
-| Project id                                                                                      | `.firebaserc`                               | `REPLACE_WITH_FIREBASE_PROJECT_ID` |
-| Web config (`apiKey`, `authDomain`, `projectId`, `storageBucket`, `messagingSenderId`, `appId`) | `src/firebase/config.ts`                    | `REPLACE_WITH_…` per field         |
-| Same web config, again                                                                          | `public/firebase-messaging-sw.js` (stage 8) | same fields                        |
-| App Check site key                                                                              | `src/firebase/config.ts` (stage 8)          | `REPLACE_WITH_APP_CHECK_SITE_KEY`  |
-| VAPID key                                                                                       | `src/firebase/messaging.ts` (stage 8)       | `REPLACE_WITH_VAPID_KEY`           |
+| Value                                                                                           | File                                        | Placeholder                       |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------- | --------------------------------- |
+| Project id                                                                                      | `.firebaserc`                               | set: `league-of-maybes`           |
+| Web config (`apiKey`, `authDomain`, `projectId`, `storageBucket`, `messagingSenderId`, `appId`) | `src/firebase/config.ts`                    | provided; written in stage 1      |
+| Same web config, again                                                                          | `public/firebase-messaging-sw.js` (stage 8) | same fields                       |
+| App Check site key                                                                              | `src/firebase/config.ts` (stage 8)          | `REPLACE_WITH_APP_CHECK_SITE_KEY` |
+| VAPID key                                                                                       | `src/firebase/messaging.ts` (stage 8)       | `REPLACE_WITH_VAPID_KEY`          |
 
 **Never commit:** service-account keys, App Check debug tokens, or any server credential.

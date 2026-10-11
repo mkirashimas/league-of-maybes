@@ -1,6 +1,6 @@
 # Stage 0: Setup
 
-**Status:** ⏸ in review (2026-10-12)
+**Status:** ✅ done (2026-10-12)
 
 ## 1. Goal
 
@@ -14,7 +14,7 @@ An empty app that builds, with the tooling, the Firebase project files and this 
 - ESLint (flat config) and Prettier
 - `firebase.json` (Firestore and Hosting with the SPA rewrite), `.firebaserc`, a deny-all `firestore.rules`, an empty `firestore.indexes.json`
 - `index.html` with the app name and the motto as the meta description; `public/favicon.svg`
-- `docs/`: README, architecture, decisions, prerequisites, and stage files 00–10
+- `docs/`: README, architecture, decisions, prerequisites, and stage files 00–10. The README was later moved to the app root in `chore/repo-setup` (see D-007).
 
 **Out**
 
@@ -62,7 +62,7 @@ None. i18n starts in stage 1. The `index.html` title and description stay in Eng
   - i18next 26.4.3
 - Toolchain: Node 22.14.0, Yarn 1.22.22.
 - `yarn format` also formats `docs/**/*.md`, so the docs follow Prettier too.
-- `league-of-maybes/` is not a git repository yet. The PHD workspace isn't one either.
+- The git repo was set up after this stage (D-007).
 
 ## 7. Deviations from plan
 
@@ -78,4 +78,4 @@ None.
 ## 9. Open issues / follow-ups
 
 - Prerequisites 1–3 (Firebase project, Google sign-in, Firestore in `eur3`) are needed to sign in during stage 1. Until then, stage 1 builds against placeholders.
-- Decide whether to run `git init` in `league-of-maybes/`.
+- ~~Decide whether to run `git init`.~~ Done: repo at github.com/mkirashimas/league-of-maybes (D-007).

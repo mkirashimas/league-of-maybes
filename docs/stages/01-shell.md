@@ -1,6 +1,6 @@
 # Stage 1: Shell
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/01-shell`
+**Status:** ✅ done (2026-10-12), PR #2, tag `stage-01`
 
 ## 1. Goal
 

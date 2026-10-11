@@ -6,7 +6,7 @@ Claude Code can't do these steps. Until each value is provided, the code uses a 
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---- |
 | 1   | Create a Firebase project and register a **web app**                                                                                                  | 1                 | ✅   |
 | 2   | Enable **Google** sign-in (Authentication → Sign-in method)                                                                                           | 1                 | ⬜   |
-| 3   | Create **Cloud Firestore** in production mode, location **`eur3`** (Europe multi-region)                                                              | 1                 | ⬜   |
+| 3   | Create **Cloud Firestore** in production mode, location **`eur3`** (Europe multi-region)                                                              | 1                 | ✅   |
 | 4   | Upgrade to the **Blaze** plan                                                                                                                         | 8                 | ⬜   |
 | 5   | Enable **Firebase AI Logic** (Gemini Developer API)                                                                                                   | 8                 | ⬜   |
 | 6   | Set up **App Check** with reCAPTCHA Enterprise. Register a debug token for local dev. Turn on enforcement for AI Logic, and later for Cloud Functions | 8                 | ⬜   |

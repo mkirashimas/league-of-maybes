@@ -1,9 +1,7 @@
 import {
-  DarkModeOutlined,
   EventOutlined,
   ForumOutlined,
   LeaderboardOutlined,
-  LightModeOutlined,
   Menu as MenuIcon,
   TimelineOutlined,
   TuneOutlined,
@@ -22,23 +20,23 @@ import {
   ListItemText,
   Menu,
   MenuItem,
-  Select,
+  Stack,
   Toolbar,
   Tooltip,
   Typography,
   useMediaQuery,
   useTheme,
-  type SelectChangeEvent,
 } from '@mui/material';
 import { useState, type MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet, Link as RouterLink, useLocation } from 'react-router';
 import { signOut } from '../firebase/auth';
-import { toLanguage } from '../i18n';
-import { useAppDispatch, useAppSelector } from '../store';
+import { useAppSelector } from '../store';
 import { selectCurrentUser } from '../store/authSlice';
-import { selectThemeMode, toggleThemeMode } from '../store/themeSlice';
-import { LANGUAGES, PATHS, type Language } from '../types';
+import { PATHS } from '../types';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { LegalLinks } from './LegalLinks';
+import { ThemeToggle } from './ThemeToggle';
 
 const SIDEBAR_WIDTH = 240;
 
@@ -51,21 +49,13 @@ const NAV_ITEMS = [
 ] as const;
 
 export const Layout = () => {
-  const { t, i18n } = useTranslation('common');
+  const { t } = useTranslation('common');
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
-  const dispatch = useAppDispatch();
   const user = useAppSelector(selectCurrentUser);
-  const themeMode = useAppSelector(selectThemeMode);
-  const themeToggleLabel = t(themeMode === 'light' ? 'theme.switchToDark' : 'theme.switchToLight');
   const { pathname } = useLocation();
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const handleLanguageChange = (event: SelectChangeEvent<Language>) => {
-    void i18n.changeLanguage(event.target.value);
-  };
 
   const handleSignOut = () => {
     setMenuAnchor(null);
@@ -106,33 +96,8 @@ export const Layout = () => {
             {t('appName')}
           </Link>
 
-          <Select
-            value={toLanguage(i18n.resolvedLanguage)}
-            onChange={handleLanguageChange}
-            variant="standard"
-            disableUnderline
-            renderValue={(language) =>
-              isSmall ? language.toUpperCase() : t(`languages.${language}`)
-            }
-            inputProps={{ 'aria-label': t('language') }}
-            sx={{ color: 'inherit', '& .MuiSvgIcon-root': { color: 'inherit' } }}
-          >
-            {LANGUAGES.map((language) => (
-              <MenuItem key={language} value={language}>
-                {t(`languages.${language}`)}
-              </MenuItem>
-            ))}
-          </Select>
-
-          <Tooltip title={themeToggleLabel}>
-            <IconButton
-              color="inherit"
-              onClick={() => dispatch(toggleThemeMode())}
-              aria-label={themeToggleLabel}
-            >
-              {themeMode === 'light' ? <DarkModeOutlined /> : <LightModeOutlined />}
-            </IconButton>
-          </Tooltip>
+          <LanguageSwitcher />
+          <ThemeToggle />
 
           <Tooltip title={t('account')}>
             <IconButton
@@ -191,11 +156,12 @@ export const Layout = () => {
             ))}
           </List>
         </Box>
-        <Box sx={{ p: 2 }}>
+        <Stack spacing={1} sx={{ p: 2 }}>
           <Typography variant="caption" color="text.secondary" sx={{ fontStyle: 'italic' }}>
             {t('motto')}
           </Typography>
-        </Box>
+          <LegalLinks />
+        </Stack>
       </Drawer>
 
       <Box component="main" sx={{ flexGrow: 1, minWidth: 0 }}>

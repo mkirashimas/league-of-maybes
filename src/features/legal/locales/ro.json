@@ -1,0 +1,99 @@
+{
+  "version": "Versiunea {{version}}",
+  "gate": {
+    "loadError": "Contul tău nu a putut fi încărcat. Verifică conexiunea și încearcă din nou.",
+    "retry": "Reîncearcă"
+  },
+  "consent": {
+    "title": "Înainte să începi",
+    "intro": "League of Maybes este un carnet privat despre persoanele cu care ieși. Te rugăm să citești și să accepți aceste puncte.",
+    "points": [
+      "Ești responsabil pentru tot ce scrii despre alte persoane.",
+      "Folosește porecle, niciodată nume reale. Numărul de telefon este opțional.",
+      "Lotul tău este privat: doar tu îl poți vedea.",
+      "Sugestiile de mesaje trimit notițele relevante către Google Gemini.",
+      "Brief-ul AI îl copiezi tu, în instrumentul AI pe care îl alegi."
+    ],
+    "readFull": "Citește textele complete:",
+    "terms": "Termeni de utilizare",
+    "privacy": "Politica de confidențialitate",
+    "checkbox": "Am citit și accept Termenii de utilizare și Politica de confidențialitate.",
+    "accept": "Acceptă și continuă",
+    "decline": "Deconectare",
+    "saveError": "Alegerea ta nu a putut fi salvată. Încearcă din nou."
+  },
+  "terms": {
+    "title": "Termeni de utilizare",
+    "sections": [
+      {
+        "title": "Ce este aplicația",
+        "body": "League of Maybes este un carnet privat, pentru un singur utilizator, care te ajută să ții evidența persoanelor pe care le cunoști: notițe, întâlniri, planuri și obiceiuri de chat. Nu este un serviciu de dating și nu te pune în legătură cu nimeni."
+      },
+      {
+        "title": "Contul tău",
+        "body": "Te conectezi cu contul tău Google. Păstrează acel cont în siguranță: oricine se poate conecta la el îți poate vedea lotul."
+      },
+      {
+        "title": "Responsabilitatea ta pentru datele introduse",
+        "body": "Tot ce există în aplicație este scris de tine, iar o mare parte se referă la alte persoane. Ești singurul responsabil pentru acest conținut și pentru dreptul de a-l păstra.\nFolosește porecle, niciodată nume reale. Nu înregistra despre nimeni mai mult decât este necesar și evită datele sensibile, cum ar fi sănătatea, religia sau opiniile politice. Numărul de telefon este opțional și servește doar la deschiderea unui chat."
+      },
+      {
+        "title": "Utilizare acceptabilă",
+        "body": "Nu folosi aplicația pentru a hărțui, urmări, expune sau răni pe cineva. Nu distribui și nu publica ce păstrezi despre alte persoane."
+      },
+      {
+        "title": "Funcții AI",
+        "body": "Când ceri sugestii de mesaje, notițele relevante despre acea persoană sunt trimise către Google Gemini prin Firebase pentru a le genera. Sugestiile nu sunt salvate.\nBrief-ul AI este copiat în clipboard; dacă îl lipești într-un alt instrument AI, se aplică termenii acelui instrument."
+      },
+      {
+        "title": "Fără garanție",
+        "body": "Aplicația este oferită ca atare, fără garanția disponibilității sau a potrivirii pentru un anumit scop. Mementourile și sugestiile sunt indicii, nu sfaturi."
+      },
+      {
+        "title": "Încetarea utilizării",
+        "body": "Poți înceta oricând să folosești aplicația și îți poți șterge contul împreună cu toate datele din pagina Cont."
+      },
+      {
+        "title": "Modificări",
+        "body": "Dacă acești termeni se schimbă, versiunea de mai sus se schimbă și ți se va cere să îi accepți din nou înainte de a continua."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Politica de confidențialitate",
+    "sections": [
+      {
+        "title": "Ce se salvează",
+        "body": "Profilul tău Google de bază (nume, e-mail, fotografie), așa cum îl furnizează Firebase Authentication, și conținutul pe care îl introduci: jucători, trăsături, notițe, întâlniri, planuri, setări de chat și, dacă activezi notificările, un token al dispozitivului împreună cu limba acestuia."
+      },
+      {
+        "title": "Unde se salvează",
+        "body": "În Google Firebase (Cloud Firestore), în multi-regiunea europeană (eur3)."
+      },
+      {
+        "title": "Cine le poate vedea",
+        "body": "Doar tu. Regulile de securitate permit fiecărui cont să citească și să scrie doar propriile date. Datele nu sunt distribuite, vândute sau folosite pentru publicitate."
+      },
+      {
+        "title": "Procesare AI",
+        "body": "Doar când ceri sugestii de mesaje, notițele selectate despre acea persoană și limba interfeței sunt trimise către Google Gemini prin Firebase AI Logic. Aplicația nu salvează nici cererea, nici răspunsul."
+      },
+      {
+        "title": "Notificări",
+        "body": "Dacă activezi mementourile, token-ul push al dispozitivului este salvat pentru ca mementourile să ajungă la tine. Notificările folosesc un text generic și nu afișează niciodată o poreclă."
+      },
+      {
+        "title": "Salvat în browser",
+        "body": "Tema, limba și câteva mici preferințe de afișare sunt păstrate în stocarea locală a browserului."
+      },
+      {
+        "title": "Păstrare și ștergere",
+        "body": "Datele tale sunt păstrate până când le ștergi. Din pagina Cont poți exporta totul într-un fișier sau îți poți șterge contul împreună cu toate datele."
+      },
+      {
+        "title": "Contact",
+        "body": "Pentru orice întrebare despre datele tale, contactează proprietarul acestei aplicații."
+      }
+    ]
+  }
+}

@@ -49,6 +49,30 @@ The app is called **League of Maybes**, which sums up the motto: everyone's a ma
 
 ESLint flat config, Prettier, the tsconfig files and the dependency versions are copied from `../prothext-facts`. This keeps the workspace apps consistent. The apps still share no code at runtime.
 
+## D-006: Keep Firebase Hosting (2026-10-12)
+
+Any static HTTPS host would work. Firebase Hosting is kept because:
+
+- It's free, and it lives in the same project and CLI.
+- Google sign-in works on `*.web.app` and `*.firebaseapp.com` with no extra setup.
+- The SPA rewrite is already in `firebase.json`.
+- Preview channels give each pull request its own URL.
+
+Push (an HTTPS service worker) and installing the app as a PWA both need HTTPS, which Hosting provides.
+
+## D-007: Repo, branches and CI (2026-10-12)
+
+- **Repo:** `league-of-maybes/` is its own git repo, `https://github.com/mkirashimas/league-of-maybes`.
+- **Branches:**
+  - `main` is production.
+  - `development` is the integration branch and the default target for pull requests.
+  - Work happens on `stage/NN-<slug>`, `chore/…`, `fix/…` and `docs/…` branches, which are squash-merged into `development`.
+  - Releases are pull requests from `development` into `main`, using a merge commit.
+- **CI:** `.github/workflows/ci.yml` runs `yarn install --frozen-lockfile`, `yarn lint` and `yarn build` on Node 22.
+- **README:** it lives at the app root, which is where GitHub shows it. The rest of the docs stay in `docs/`.
+
+The full flow is in [workflow.md](workflow.md).
+
 ## Review fixes R1–R17 (2026-10-12)
 
 These came out of reviewing the plan. Each is applied in the stage listed.

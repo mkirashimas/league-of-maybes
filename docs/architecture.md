@@ -17,6 +17,8 @@ This is the target design. Each stage file records what was actually built and a
 
 ```
 league-of-maybes/
+  README.md                  # overview, how to run, stage status
+  .github/workflows/ci.yml   # lint + build on PRs and pushes to development/main
   docs/                      # this folder
   functions/                 # Cloud Functions (stage 9), own package.json
     src/index.ts             # thin handlers

@@ -19,7 +19,7 @@ League of Maybes is a private, single-user "league manager" for dating. You keep
 | **AI openers**           | 2–3 opener suggestions with a tone, from Gemini through Firebase AI Logic, in the UI language.                                                                                                                                                                       |
 | **Nudges**               | Web push when it's time to write again. Sent hourly by a Cloud Function; respects quiet hours and time zones; generic text that never names the player.                                                                                                              |
 | **Account**              | Export everything as JSON. Delete the account only with a deletion code set beforehand; deletion is final and nothing can be recovered.                                                                                                                              |
-| **App**                  | Google sign-in, terms consent, 5 languages (en, es, fr, it, ro), light and dark modes, 10 colour themes (incl. Pride and three dark-only), installable as a PWA, works at phone width.                                                                               |
+| **App**                  | Google sign-in, terms consent, 5 languages (en, es, fr, it, ro), light and dark modes, [10 colour themes](https://claude.ai/artifact/3TNXkNWdiszFwU4fwhV8a5) (incl. Pride and three dark-only), installable as a PWA, works at phone width.                          |
 
 ## How to run
 

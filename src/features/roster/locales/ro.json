@@ -147,6 +147,9 @@
     "custom": "personalizată",
     "deleteTitle": "Ștergi trăsătura?",
     "deleteMessage": "„{{label}}” va dispărea de la toți jucătorii. Valorile existente se păstrează, dar sunt ascunse.",
-    "showInTable": "Afișează în clasament"
+    "showInTable": "Afișează în clasament",
+    "scores": "Punctează opțiunile",
+    "scoresTitle": "Punctaje pentru {{label}}",
+    "scoresIntro": "Cât valorează fiecare opțiune în scorul general, de la 1 (scăzut) la 10 (ridicat)."
   }
 }

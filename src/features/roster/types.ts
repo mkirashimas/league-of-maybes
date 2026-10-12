@@ -64,12 +64,14 @@ export interface TraitDefinition extends BaseDocument {
   unit: string;
   /** Allowed values of an enum trait. Built-in option labels come from `traitOption.<key>.<option>`. */
   options: string[];
-  /** Weight in the overall score; only scale traits count. 0 = not counted. */
+  /** Weight in the overall score, 1–10, for scale and choice traits. Number traits: 0 (not counted). */
   weight: number;
   order: number;
   active: boolean;
   /** Shows a scale trait as a League Table column. Missing on older docs: see isShownInTable. */
   showInTable?: boolean;
+  /** Choice traits: the 1–10 score of each option in the overall. Missing: see optionScore. */
+  optionScores?: Record<string, number>;
 }
 
 export type TraitDefinitionInput = Omit<TraitDefinition, keyof BaseDocument>;
@@ -86,7 +88,7 @@ const builtIn = (
   kind,
   unit: '',
   options: [],
-  weight: kind === 'scale' ? 1 : 0,
+  weight: kind === 'number' ? 0 : 1,
   order,
   active: true,
   ...extra,
@@ -163,10 +165,14 @@ export const isShownInTable = (definition: TraitDefinition): boolean =>
   definition.kind === 'scale' &&
   (definition.showInTable ?? TABLE_DEFAULT_KEYS.includes(definition.key));
 
-/** Weight of a scale trait in the overall score: 1–10. Other kinds don't count (weight 0). */
+/** Weight in the overall score: 1–10 for scale and choice traits. Number traits don't count (0). */
 export const MIN_TRAIT_WEIGHT = 1;
 export const MAX_TRAIT_WEIGHT = 10;
 
+/** Trait kinds that count in the overall score, and so have a weight. */
+export const isWeighted = (kind: TraitKind) => kind === 'scale' || kind === 'enum';
+
+/** The 1–10 values a weight or an option score can take. */
 export const TRAIT_WEIGHTS = Array.from(
   { length: MAX_TRAIT_WEIGHT - MIN_TRAIT_WEIGHT + 1 },
   (_, index) => MIN_TRAIT_WEIGHT + index,
@@ -184,12 +190,13 @@ export const toTraitInput = (definition: TraitDefinition): TraitDefinitionInput 
   order: definition.order,
   active: definition.active,
   showInTable: definition.showInTable ?? TABLE_DEFAULT_KEYS.includes(definition.key),
+  ...(definition.optionScores ? { optionScores: definition.optionScores } : {}),
 });
 
 /**
  * A stored definition brought up to date, or null when it already is:
  * - built-ins take the kind, unit and options of DEFAULT_TRAITS (the user can't edit those)
- * - scale traits weigh at least 1, since weight 0 is no longer an option
+ * - scale and choice traits weigh 1–10 (weight 0 is no longer an option); number traits 0
  * The user's own choices (order, active, table, weight) are kept.
  */
 export const upgradeDefinition = (stored: TraitDefinition): TraitDefinitionInput | null => {
@@ -199,8 +206,9 @@ export const upgradeDefinition = (stored: TraitDefinition): TraitDefinitionInput
   const kind = builtInDefault?.kind ?? stored.kind;
   const unit = builtInDefault?.unit ?? stored.unit;
   const options = builtInDefault?.options ?? stored.options;
-  const weight =
-    kind === 'scale' ? Math.min(MAX_TRAIT_WEIGHT, Math.max(MIN_TRAIT_WEIGHT, stored.weight)) : 0;
+  const weight = isWeighted(kind)
+    ? Math.min(MAX_TRAIT_WEIGHT, Math.max(MIN_TRAIT_WEIGHT, stored.weight))
+    : 0;
   const unchanged =
     kind === stored.kind &&
     unit === stored.unit &&
@@ -209,8 +217,28 @@ export const upgradeDefinition = (stored: TraitDefinition): TraitDefinitionInput
   return unchanged ? null : { ...toTraitInput(stored), kind, unit, options, weight };
 };
 
+/** Built-in choices whose default scores aren't simply spread by position. */
+const DEFAULT_OPTION_SCORES: Record<string, Record<string, number>> = {
+  attachmentStyle: { secure: 10, anxious: 5, avoidant: 4, fearfulAvoidant: 2 },
+};
+
 /**
- * Weighted average of the active scale traits that have a value (weights 1–10),
+ * The 1–10 score of a choice: the user's score for it, else the built-in default, else spread
+ * evenly by position (first option 1, last 10). Null when the option isn't in the list.
+ */
+export const optionScore = (definition: TraitDefinition, option: string): number | null => {
+  const index = definition.options.indexOf(option);
+  if (index < 0) return null;
+  const stored =
+    definition.optionScores?.[option] ?? DEFAULT_OPTION_SCORES[definition.key]?.[option];
+  if (stored !== undefined) return stored;
+  const last = definition.options.length - 1;
+  return last > 0 ? Math.round(1 + (9 * index) / last) : MAX_TRAIT_WEIGHT;
+};
+
+/**
+ * Weighted average of the active scale and choice traits that have a value (weights 1–10;
+ * a choice counts with its option score),
  * or null when nothing counts yet. Computed on the client, never stored.
  */
 export const computeOverall = (
@@ -220,16 +248,17 @@ export const computeOverall = (
   let total = 0;
   let weights = 0;
   definitions.forEach((definition) => {
+    if (!definition.active || definition.weight <= 0) return;
     const value = traits[definition.key];
-    if (
-      definition.active &&
-      definition.kind === 'scale' &&
-      definition.weight > 0 &&
-      typeof value === 'number'
-    ) {
-      total += value * definition.weight;
-      weights += definition.weight;
-    }
+    const score =
+      definition.kind === 'scale' && typeof value === 'number'
+        ? value
+        : definition.kind === 'enum' && typeof value === 'string'
+          ? optionScore(definition, value)
+          : null;
+    if (score === null) return;
+    total += score * definition.weight;
+    weights += definition.weight;
   });
   return weights > 0 ? total / weights : null;
 };

@@ -147,6 +147,9 @@
     "custom": "personalizzato",
     "deleteTitle": "Eliminare il tratto?",
     "deleteMessage": "«{{label}}» sparirà da tutti i giocatori. I valori esistenti restano ma nascosti.",
-    "showInTable": "Mostra in classifica"
+    "showInTable": "Mostra in classifica",
+    "scores": "Assegna i punteggi",
+    "scoresTitle": "Punteggi per {{label}}",
+    "scoresIntro": "Quanto vale ogni scelta nel punteggio complessivo, da 1 (basso) a 10 (alto)."
   }
 }

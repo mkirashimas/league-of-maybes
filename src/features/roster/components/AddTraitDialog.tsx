@@ -12,7 +12,14 @@ import {
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRosterUpsertTraitDefinitionMutation } from '../api';
-import { ROSTER_NAMESPACE, toTraitKey, TRAIT_KINDS, TRAIT_WEIGHTS, type TraitKind } from '../types';
+import {
+  isWeighted,
+  ROSTER_NAMESPACE,
+  toTraitKey,
+  TRAIT_KINDS,
+  TRAIT_WEIGHTS,
+  type TraitKind,
+} from '../types';
 
 const FORM_ID = 'add-trait-form';
 
@@ -68,7 +75,7 @@ export const AddTraitDialog = ({ open, nextOrder, onClose }: AddTraitDialogProps
       kind,
       unit: kind === 'number' ? unit.trim() : '',
       options: kind === 'enum' ? parseOptions(options) : [],
-      weight: kind === 'scale' ? weight : 0,
+      weight: isWeighted(kind) ? weight : 0,
       order: nextOrder,
       active: true,
     });
@@ -108,7 +115,7 @@ export const AddTraitDialog = ({ open, nextOrder, onClose }: AddTraitDialogProps
               </MenuItem>
             ))}
           </TextField>
-          {kind === 'scale' && (
+          {isWeighted(kind) && (
             <TextField
               select
               label={t('traitSettings.weight')}

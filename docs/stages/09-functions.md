@@ -1,6 +1,6 @@
 # Stage 9: Cloud Functions and Account
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/09-functions`
+**Status:** ✅ done (2026-10-12), PR #10, tag `stage-09`. Follow-up `fix/feedback-after-stage-9` puts `deleteAccount` behind a deletion code (D-015).
 
 ## 1. Goal
 
@@ -65,14 +65,16 @@
 - [x] `yarn build` and `yarn lint` are clean, at the root and in `functions/`. Prettier is clean.
 - [x] i18n parity: 0 missing keys.
 - [x] Quiet hours checked against the compiled function: 23:30 and 08:30 inside 22:00–09:00, 09:00 and 15:00 outside, an equal start and end means none.
-- [ ] Deploy: `firebase deploy --only functions,firestore:indexes` (prerequisite 9).
-- [ ] Nudges on (stage 8 items, including in Brave after the push setting): `users/{uid}/devices` has one doc.
+- [x] Deploy: `firebase deploy --only functions,firestore:indexes` (prerequisite 9).
+- [x] Nudges on (stage 8 items, including in Brave after the push setting): `users/{uid}/devices` has one doc.
 - [ ] In the Firestore console, set a chat state's `nextNudgeAt` in the past. Google Cloud console → Cloud Scheduler → `firebase-schedule-sendNudges-europe-west1` → **Force run**. The push arrives, a click opens the chat tab with the nudge banner, and `nextNudgeAt` becomes null with `nudgedAt` set.
 - [ ] Set quiet hours around the current time and repeat: nothing arrives and `nextNudgeAt` stays. A retired player's state is cleared without a push.
 - [ ] Account → **Download export**: the JSON file holds the players and their records.
-- [ ] Account → **Delete account** on a test account: all of `users/{uid}` and the auth user are gone, and the app lands on Login.
+- [ ] Account → set a deletion code, then **Delete account** on a test account with it: all of `users/{uid}`, `deletionCodes/{uid}` and the auth user are gone, and the app lands on Login. A wrong code is refused, and 5 wrong codes lock it (D-015).
 
 ## 9. Open issues / follow-ups
+
+- The Force-run nudge, quiet-hours and retired-player checks above are still open.
 
 - The notification link points at the Hosting URL, so a click on a nudge opens the deployed app even when testing on `localhost`.
 - Stage 10: deploy Hosting, then test push on iPhone (installed app).

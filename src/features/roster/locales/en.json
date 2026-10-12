@@ -31,15 +31,37 @@
     "height": "Height",
     "weight": "Weight",
     "hot": "Hot",
+    "sex": "Sex",
     "funny": "Funny",
     "communication": "Communication",
     "chemistry": "Chemistry",
     "consistency": "Consistency",
     "ambition": "Ambition",
     "crazyEyes": "Crazy eyes",
-    "attachmentStyle": "Attachment style"
+    "attachmentStyle": "Attachment style",
+    "openness": "Openness",
+    "conscientiousness": "Conscientiousness",
+    "extraversion": "Extraversion",
+    "agreeableness": "Agreeableness",
+    "neuroticism": "Neuroticism"
   },
   "traitOption": {
+    "height": {
+      "under160": "Under 160 cm",
+      "160to169": "160–169 cm",
+      "170to179": "170–179 cm",
+      "180to189": "180–189 cm",
+      "190plus": "190 cm or more"
+    },
+    "weight": {
+      "under50": "Under 50 kg",
+      "50to59": "50–59 kg",
+      "60to69": "60–69 kg",
+      "70to79": "70–79 kg",
+      "80to89": "80–89 kg",
+      "90to99": "90–99 kg",
+      "100plus": "100 kg or more"
+    },
     "attachmentStyle": {
       "secure": "Secure",
       "anxious": "Anxious",
@@ -93,7 +115,11 @@
     "clear": "Clear",
     "notSet": "Not set",
     "noTraits": "No active traits. Turn some on in the trait settings.",
-    "manageTraits": "Manage traits"
+    "manageTraits": "Manage traits",
+    "delete": "Delete player",
+    "deleteTitle": "Delete {{nickname}}?",
+    "deleteMessage": "The player and everything linked to them (intel, chat, dates, plans and key notes) will be deleted for good. This cannot be undone. To keep the history, set the status to Retired instead.",
+    "deleteError": "The player could not be deleted. Please try again."
   },
   "tabs": {
     "profile": "Profile & Traits",
@@ -114,12 +140,13 @@
     "options": "Options",
     "optionsHelper": "At least two, separated by commas.",
     "weight": "Weight",
-    "weightHelper": "How much it counts in the overall score. 0 = not counted.",
+    "weightHelper": "How much it counts in the overall score, from 1 (a little) to 10 (a lot).",
     "active": "Shown",
     "moveUp": "Move up",
     "moveDown": "Move down",
     "custom": "custom",
     "deleteTitle": "Delete trait?",
-    "deleteMessage": "\"{{label}}\" will disappear from every player. Existing values are kept but hidden."
+    "deleteMessage": "\"{{label}}\" will disappear from every player. Existing values are kept but hidden.",
+    "showInTable": "Show in League Table"
   }
 }

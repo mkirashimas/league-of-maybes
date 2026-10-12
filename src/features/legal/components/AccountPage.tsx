@@ -1,29 +1,11 @@
-import { DeleteForeverOutlined, DownloadOutlined } from '@mui/icons-material';
-import {
-  Alert,
-  Avatar,
-  Button,
-  Checkbox,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  FormControlLabel,
-  Paper,
-  Stack,
-  Typography,
-} from '@mui/material';
-import { useState } from 'react';
+import { DownloadOutlined } from '@mui/icons-material';
+import { Alert, Avatar, Button, Paper, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router';
-import { signOut } from '../../../firebase/auth';
-import { useAppDispatch, useAppSelector } from '../../../store';
-import { api } from '../../../store/api';
+import { useAppSelector } from '../../../store';
 import { selectCurrentUser } from '../../../store/authSlice';
-import { PATHS } from '../../../types';
-import { useLegalDeleteAccountMutation, useLegalExportAccountMutation } from '../api';
+import { useLegalExportAccountMutation } from '../api';
 import { LEGAL_NAMESPACE, type AccountExport } from '../types';
+import { DeleteAccountCard } from './DeleteAccountCard';
 
 /** Saves the export as league-of-maybes-YYYY-MM-DD.json. */
 const download = (data: AccountExport) => {
@@ -36,39 +18,16 @@ const download = (data: AccountExport) => {
   URL.revokeObjectURL(url);
 };
 
-const cardSx = { p: 3 } as const;
-
-/** Account: who is signed in, export everything as JSON, or delete the account with all its data. */
+/** Account: who is signed in, an export of everything as JSON, and deleting the account. */
 export const AccountPage = () => {
   const { t } = useTranslation(LEGAL_NAMESPACE);
   const user = useAppSelector(selectCurrentUser);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const [exportAccount, { isLoading: isExporting, isError: exportFailed }] =
     useLegalExportAccountMutation();
-  const [deleteAccount, { isLoading: isDeleting, isError: deleteFailed, reset: resetDelete }] =
-    useLegalDeleteAccountMutation();
-  const [confirmOpen, setConfirmOpen] = useState(false);
-  const [understood, setUnderstood] = useState(false);
 
   const handleExport = async () => {
     const result = await exportAccount();
     if ('data' in result && result.data) download(result.data);
-  };
-
-  const openConfirm = () => {
-    resetDelete();
-    setUnderstood(false);
-    setConfirmOpen(true);
-  };
-
-  const handleDelete = async () => {
-    const result = await deleteAccount();
-    if ('error' in result) return;
-    // The auth user is gone server-side: leave the session and drop every cached document (R15).
-    await signOut();
-    dispatch(api.util.resetApiState());
-    void navigate(PATHS.LOGIN, { replace: true });
   };
 
   return (
@@ -79,7 +38,7 @@ export const AccountPage = () => {
 
       <Paper
         variant="outlined"
-        sx={(theme) => ({ ...cardSx, [theme.breakpoints.down('sm')]: { p: 2 } })}
+        sx={(theme) => ({ p: 3, [theme.breakpoints.down('sm')]: { p: 2 } })}
       >
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center', minWidth: 0 }}>
           <Avatar src={user?.photoURL ?? undefined} alt={user?.displayName ?? ''} />
@@ -94,7 +53,7 @@ export const AccountPage = () => {
 
       <Paper
         variant="outlined"
-        sx={(theme) => ({ ...cardSx, [theme.breakpoints.down('sm')]: { p: 2 } })}
+        sx={(theme) => ({ p: 3, [theme.breakpoints.down('sm')]: { p: 2 } })}
       >
         <Stack spacing={2}>
           <Typography variant="h6" component="h2">
@@ -116,65 +75,7 @@ export const AccountPage = () => {
         </Stack>
       </Paper>
 
-      <Paper
-        variant="outlined"
-        sx={(theme) => ({
-          ...cardSx,
-          borderColor: theme.palette.error.main,
-          [theme.breakpoints.down('sm')]: { p: 2 },
-        })}
-      >
-        <Stack spacing={2}>
-          <Typography variant="h6" component="h2" color="error">
-            {t('account.delete.title')}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {t('account.delete.body')}
-          </Typography>
-          <Button
-            variant="outlined"
-            color="error"
-            startIcon={<DeleteForeverOutlined />}
-            onClick={openConfirm}
-            sx={{ alignSelf: 'flex-start' }}
-          >
-            {t('account.delete.action')}
-          </Button>
-        </Stack>
-      </Paper>
-
-      <Dialog open={confirmOpen} onClose={() => !isDeleting && setConfirmOpen(false)}>
-        <DialogTitle>{t('account.delete.confirmTitle')}</DialogTitle>
-        <DialogContent>
-          <Stack spacing={2}>
-            <DialogContentText>{t('account.delete.confirmBody')}</DialogContentText>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={understood}
-                  onChange={(event) => setUnderstood(event.target.checked)}
-                />
-              }
-              label={t('account.delete.understood')}
-            />
-            {deleteFailed && <Alert severity="error">{t('account.delete.error')}</Alert>}
-          </Stack>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setConfirmOpen(false)} disabled={isDeleting}>
-            {t('account.delete.cancel')}
-          </Button>
-          <Button
-            color="error"
-            variant="contained"
-            onClick={() => void handleDelete()}
-            disabled={!understood}
-            loading={isDeleting}
-          >
-            {t('account.delete.confirm')}
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <DeleteAccountCard />
     </Stack>
   );
 };

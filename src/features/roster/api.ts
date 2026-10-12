@@ -14,8 +14,8 @@ import {
 import { api } from '../../store/api';
 import { requireUid, runQuery, syncWhileCached } from '../../store/realtime';
 import {
-  DEFAULT_TRAITS,
   PLAYERS_COLLECTION,
+  rangeOf,
   TRAIT_DEFINITIONS_COLLECTION,
   type Player,
   type PlayerInput,
@@ -93,6 +93,14 @@ const rosterApi = api
             return null;
           }),
       }),
+      /** Deletes the player doc only; the onPlayerDeleted function removes their records. */
+      rosterDeletePlayer: build.mutation<null, string>({
+        queryFn: (playerId, { getState }) =>
+          runQuery(async () => {
+            await deleteDocument(playersPath(requireUid(getState)), playerId);
+            return null;
+          }),
+      }),
 
       rosterGetTraitDefinitions: build.query<TraitDefinition[], void>({
         queryFn: (_arg, { getState }) =>
@@ -140,19 +148,49 @@ const rosterApi = api
             return null;
           }),
       }),
-      /** Idempotent: the document id is the trait key, so a repeated run rewrites the same docs. */
-      rosterSeedDefaultTraits: build.mutation<null, void>({
-        queryFn: (_arg, { getState }) =>
+      /**
+       * Writes new or upgraded definitions in one batch (idempotent: the document id is the
+       * trait key). Players' numbers for a trait that became a list of ranges (height, weight)
+       * are moved into the matching range in the same batch.
+       */
+      rosterSyncTraitDefinitions: build.mutation<null, TraitDefinitionInput[]>({
+        queryFn: (definitions, { getState }) =>
           runQuery(async () => {
-            const path = traitsPath(requireUid(getState));
-            await runBatch(
-              DEFAULT_TRAITS.map((definition) => ({
-                type: 'set',
+            const uid = requireUid(getState);
+            const path = traitsPath(uid);
+            const ranged = definitions.filter((definition) => definition.kind === 'enum');
+            const players = ranged.length ? await getDocuments<Player>(playersPath(uid)) : [];
+            const playerUpdates = players.flatMap((player) => {
+              const traits = { ...player.traits };
+              let changed = false;
+              ranged.forEach(({ key }) => {
+                const value = traits[key];
+                if (typeof value !== 'number') return;
+                const option = rangeOf(key, value);
+                if (option) traits[key] = option;
+                else delete traits[key];
+                changed = true;
+              });
+              return changed
+                ? [
+                    {
+                      type: 'update' as const,
+                      path: playersPath(uid),
+                      id: player.id,
+                      data: { traits },
+                    },
+                  ]
+                : [];
+            });
+            await runBatch([
+              ...definitions.map((definition) => ({
+                type: 'set' as const,
                 path,
                 id: definition.key,
                 data: definition,
               })),
-            );
+              ...playerUpdates,
+            ]);
             return null;
           }),
       }),
@@ -166,9 +204,10 @@ export const {
   useRosterUpdatePlayerMutation,
   useRosterSetPlayerStatusMutation,
   useRosterUpdatePlayerTraitsMutation,
+  useRosterDeletePlayerMutation,
   useRosterGetTraitDefinitionsQuery,
   useRosterUpsertTraitDefinitionMutation,
   useRosterDeleteTraitDefinitionMutation,
   useRosterReorderTraitDefinitionsMutation,
-  useRosterSeedDefaultTraitsMutation,
+  useRosterSyncTraitDefinitionsMutation,
 } = rosterApi;

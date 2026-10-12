@@ -51,7 +51,7 @@
       },
       {
         "title": "Ending use",
-        "body": "You can stop using the app at any time and delete your account and all its data from the Account page."
+        "body": "You can stop using the app at any time. From the Account page you can export your data and delete your account with all its data, using the deletion code you set beforehand. Deletion is final: the data cannot be recovered."
       },
       {
         "title": "Changes",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Retention and deletion",
-        "body": "Your data is kept until you delete it. From the Account page you can export everything as a file or delete your account together with all its data."
+        "body": "Your data is kept until you delete it. From the Account page you can export everything as a file, or delete your account with all its data using your deletion code. Deletion is immediate and permanent; nothing can be recovered afterwards. The deletion code is stored only as a secure hash."
       },
       {
         "title": "Contact",
@@ -106,14 +106,30 @@
     },
     "delete": {
       "title": "Delete account",
-      "body": "Permanently deletes your account and all its data. This cannot be undone. Export your data first if you want to keep a copy.",
+      "finalTitle": "Deletion is final and cannot be undone",
+      "finalBody": "Deleting your account permanently erases your whole roster and everything in it (players, notes, dates, plans, chat settings and devices), together with your sign-in. Nothing is kept: there is no backup, no recycle bin and no undo. Neither you nor the owner of the app can recover the data afterwards. Export your data first if you might ever want it again.",
       "action": "Delete account…",
-      "confirmTitle": "Delete your account?",
-      "confirmBody": "Your whole roster and everything linked to it will be deleted, together with your sign-in. You will be signed out.",
-      "understood": "I understand that this cannot be undone.",
-      "cancel": "Cancel",
-      "confirm": "Delete everything",
+      "confirmTitle": "Delete your account for good?",
+      "confirmBody": "Enter your deletion code to confirm. Your data is erased the moment you press the button.",
+      "understood": "I understand that my account and all its data will be permanently deleted and can never be recovered.",
+      "cancel": "Keep my account",
+      "confirm": "Delete permanently",
       "error": "The account could not be deleted. Please try again."
+    },
+    "code": {
+      "intro": "Deleting the account needs a deletion code, so it can never happen by accident. Set one now and keep it somewhere safe: you need it to delete the account and to change the code.",
+      "current": "Current deletion code",
+      "new": "New deletion code",
+      "repeat": "Repeat the code",
+      "label": "Deletion code",
+      "helper": "At least {{min}} characters.",
+      "mismatch": "The codes don’t match.",
+      "set": "Set deletion code",
+      "change": "Change code",
+      "setOn": "Deletion code set on {{date}}.",
+      "forgot": "Forgot it? Contact the owner of the app.",
+      "wrong": "Wrong deletion code.",
+      "locked": "Too many wrong codes. The code is locked for an hour."
     }
   }
 }

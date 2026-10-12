@@ -51,7 +51,7 @@
       },
       {
         "title": "Fin d'utilisation",
-        "body": "Vous pouvez cesser d'utiliser l'application à tout moment et supprimer votre compte et toutes ses données depuis la page Compte."
+        "body": "Vous pouvez cesser d’utiliser l’application à tout moment. Depuis la page Compte, vous pouvez exporter vos données et supprimer votre compte avec toutes ses données, grâce au code de suppression défini au préalable. La suppression est définitive : les données ne peuvent pas être récupérées."
       },
       {
         "title": "Modifications",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Conservation et suppression",
-        "body": "Vos données sont conservées jusqu'à ce que vous les supprimiez. Depuis la page Compte, vous pouvez tout exporter dans un fichier ou supprimer votre compte avec toutes ses données."
+        "body": "Vos données sont conservées jusqu’à ce que vous les supprimiez. Depuis la page Compte, vous pouvez tout exporter dans un fichier, ou supprimer votre compte avec toutes ses données grâce à votre code de suppression. La suppression est immédiate et définitive ; rien ne peut être récupéré ensuite. Le code de suppression n’est conservé que sous forme de hachage sécurisé."
       },
       {
         "title": "Contact",
@@ -106,14 +106,30 @@
     },
     "delete": {
       "title": "Supprimer le compte",
-      "body": "Supprime définitivement votre compte et toutes ses données. C’est irréversible. Exportez d’abord vos données si vous voulez en garder une copie.",
+      "finalTitle": "La suppression est définitive et irréversible",
+      "finalBody": "Supprimer votre compte efface définitivement tout votre effectif et tout son contenu (joueurs, notes, rendez-vous, projets, réglages du chat et appareils), ainsi que votre accès. Rien n’est conservé : pas de sauvegarde, pas de corbeille, aucune annulation possible. Ni vous ni le propriétaire de l’application ne pourrez récupérer les données ensuite. Exportez d’abord vos données si vous pourriez un jour en avoir besoin.",
       "action": "Supprimer le compte…",
-      "confirmTitle": "Supprimer votre compte ?",
-      "confirmBody": "Tout votre effectif et tout ce qui y est lié seront supprimés, avec votre accès. Vous serez déconnecté.",
-      "understood": "Je comprends que c’est irréversible.",
-      "cancel": "Annuler",
-      "confirm": "Tout supprimer",
+      "confirmTitle": "Supprimer définitivement votre compte ?",
+      "confirmBody": "Saisissez votre code de suppression pour confirmer. Vos données sont effacées dès que vous appuyez sur le bouton.",
+      "understood": "Je comprends que mon compte et toutes ses données seront supprimés définitivement et ne pourront jamais être récupérés.",
+      "cancel": "Garder mon compte",
+      "confirm": "Supprimer définitivement",
       "error": "Le compte n’a pas pu être supprimé. Veuillez réessayer."
+    },
+    "code": {
+      "intro": "Supprimer le compte nécessite un code de suppression, pour que cela n’arrive jamais par accident. Définissez-le maintenant et gardez-le en lieu sûr : il vous faudra pour supprimer le compte et pour changer le code.",
+      "current": "Code de suppression actuel",
+      "new": "Nouveau code de suppression",
+      "repeat": "Répétez le code",
+      "label": "Code de suppression",
+      "helper": "Au moins {{min}} caractères.",
+      "mismatch": "Les codes ne correspondent pas.",
+      "set": "Définir le code de suppression",
+      "change": "Changer le code",
+      "setOn": "Code de suppression défini le {{date}}.",
+      "forgot": "Oublié ? Contactez le propriétaire de l’application.",
+      "wrong": "Code de suppression incorrect.",
+      "locked": "Trop de codes incorrects. Le code est bloqué pendant une heure."
     }
   }
 }

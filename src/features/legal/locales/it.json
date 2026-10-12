@@ -51,7 +51,7 @@
       },
       {
         "title": "Fine dell'utilizzo",
-        "body": "Puoi smettere di usare l'app in qualsiasi momento ed eliminare il tuo account e tutti i suoi dati dalla pagina Account."
+        "body": "Puoi smettere di usare l’app in qualsiasi momento. Dalla pagina Account puoi esportare i tuoi dati ed eliminare il tuo account con tutti i suoi dati, usando il codice di eliminazione impostato in precedenza. L’eliminazione è definitiva: i dati non possono essere recuperati."
       },
       {
         "title": "Modifiche",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Conservazione ed eliminazione",
-        "body": "I tuoi dati vengono conservati finché non li elimini. Dalla pagina Account puoi esportare tutto in un file oppure eliminare il tuo account insieme a tutti i suoi dati."
+        "body": "I tuoi dati vengono conservati finché non li elimini. Dalla pagina Account puoi esportare tutto in un file, oppure eliminare il tuo account con tutti i suoi dati usando il tuo codice di eliminazione. L’eliminazione è immediata e permanente; dopo non si può recuperare nulla. Il codice di eliminazione è conservato solo come hash sicuro."
       },
       {
         "title": "Contatti",
@@ -106,14 +106,30 @@
     },
     "delete": {
       "title": "Elimina account",
-      "body": "Elimina definitivamente il tuo account e tutti i suoi dati. Non si può annullare. Esporta prima i tuoi dati se vuoi conservarne una copia.",
+      "finalTitle": "L’eliminazione è definitiva e non si può annullare",
+      "finalBody": "Eliminare l’account cancella per sempre tutta la tua rosa e tutto il suo contenuto (giocatori, note, appuntamenti, piani, impostazioni della chat e dispositivi), insieme al tuo accesso. Non resta nulla: nessun backup, nessun cestino, nessun annullamento. Né tu né il proprietario dell’app potrete recuperare i dati in seguito. Esporta prima i tuoi dati se un giorno potrebbero servirti.",
       "action": "Elimina account…",
-      "confirmTitle": "Eliminare il tuo account?",
-      "confirmBody": "Tutta la tua rosa e tutto ciò che è collegato verranno eliminati, insieme al tuo accesso. Verrai disconnesso.",
-      "understood": "Capisco che non si può annullare.",
-      "cancel": "Annulla",
-      "confirm": "Elimina tutto",
+      "confirmTitle": "Eliminare il tuo account per sempre?",
+      "confirmBody": "Inserisci il codice di eliminazione per confermare. I tuoi dati vengono cancellati appena premi il pulsante.",
+      "understood": "Capisco che il mio account e tutti i suoi dati verranno eliminati per sempre e non potranno mai essere recuperati.",
+      "cancel": "Tieni il mio account",
+      "confirm": "Elimina per sempre",
       "error": "Impossibile eliminare l’account. Riprova."
+    },
+    "code": {
+      "intro": "Per eliminare l’account serve un codice di eliminazione, così non può mai succedere per sbaglio. Impostalo ora e conservalo in un posto sicuro: ti servirà per eliminare l’account e per cambiare il codice.",
+      "current": "Codice di eliminazione attuale",
+      "new": "Nuovo codice di eliminazione",
+      "repeat": "Ripeti il codice",
+      "label": "Codice di eliminazione",
+      "helper": "Almeno {{min}} caratteri.",
+      "mismatch": "I codici non coincidono.",
+      "set": "Imposta il codice di eliminazione",
+      "change": "Cambia codice",
+      "setOn": "Codice di eliminazione impostato il {{date}}.",
+      "forgot": "L’hai dimenticato? Contatta il proprietario dell’app.",
+      "wrong": "Codice di eliminazione errato.",
+      "locked": "Troppi codici errati. Il codice è bloccato per un’ora."
     }
   }
 }

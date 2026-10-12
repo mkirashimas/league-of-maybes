@@ -4,9 +4,11 @@ import { runQuery, syncWhileCached } from '../../store/realtime';
 import {
   DELETE_ACCOUNT_FUNCTION,
   EXPORT_ACCOUNT_FUNCTION,
+  SET_DELETION_CODE_FUNCTION,
   TERMS_VERSION,
   USERS_COLLECTION,
   type AccountExport,
+  type SetDeletionCodeRequest,
   type UserDocument,
 } from './types';
 
@@ -44,13 +46,21 @@ const legalApi = api.enhanceEndpoints({ addTagTypes: ['UserDocument'] }).injectE
         }),
       invalidatesTags: (_result, _error, uid) => [{ type: 'UserDocument', id: uid }],
     }),
-    // Both run server-side for the signed-in user only; the uid comes from the auth token.
+    // These run server-side for the signed-in user only; the uid comes from the auth token.
     legalExportAccount: build.mutation<AccountExport, void>({
       queryFn: () =>
         runQuery(() => callFunction<null, AccountExport>(EXPORT_ACCOUNT_FUNCTION, null)),
     }),
-    legalDeleteAccount: build.mutation<null, void>({
-      queryFn: () => runQuery(() => callFunction<null, null>(DELETE_ACCOUNT_FUNCTION, null)),
+    // users/{uid}.deletionCodeSetAt is written by the function; the realtime user doc picks it up.
+    legalSetDeletionCode: build.mutation<null, SetDeletionCodeRequest>({
+      queryFn: (request) =>
+        runQuery(() =>
+          callFunction<SetDeletionCodeRequest, null>(SET_DELETION_CODE_FUNCTION, request),
+        ),
+    }),
+    legalDeleteAccount: build.mutation<null, string>({
+      queryFn: (code) =>
+        runQuery(() => callFunction<{ code: string }, null>(DELETE_ACCOUNT_FUNCTION, { code })),
     }),
   }),
 });
@@ -59,5 +69,6 @@ export const {
   useLegalGetUserDocumentQuery,
   useLegalAcceptTermsMutation,
   useLegalExportAccountMutation,
+  useLegalSetDeletionCodeMutation,
   useLegalDeleteAccountMutation,
 } = legalApi;

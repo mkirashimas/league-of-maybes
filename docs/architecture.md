@@ -64,7 +64,7 @@ Every document gets `createdAt` and `updatedAt` (server timestamps) from the hel
 
 ```
 users/{uid}                          # legal
-│   consent: { termsVersion, acceptedAt }
+│   consent: { termsVersion, acceptedAt }, deletionCodeSetAt?  (set by setDeletionCode)
 ├── players/{playerId}               # roster
 │     nickname, age | null, occupation, city, metAt, metOn (yyyy-mm-dd | '')
 │     avatarColor: primary | secondary | info | success | warning | error (palette key)
@@ -98,6 +98,8 @@ users/{uid}                          # legal
 │     playerId, kind: now | event | plan, title, notes?, when | null, done
 └── keyNotes/{noteId}                # keyNotes
       playerId, category, text, pinned, importance (1 low | 2 medium | 3 high)
+
+deletionCodes/{uid}                  # Cloud Functions only (no client rule): salt, hash, failedAttempts, lockedUntil
 ```
 
 **Rules for the data**
@@ -114,14 +116,14 @@ users/{uid}                          # legal
 | `chatNotes` | humor, pace, emoji, pattern, other                                          |
 | `keyNotes`  | birthday, family, pets, allergies, insideJoke, giftIdea, noGoTopic, other   |
 
-**Default traits** (seeded on first login)
+**Default traits** (seeded on first login; built-ins added later are seeded for existing accounts, and stored built-ins follow the kind and options below). Scale traits weigh 1–10 in `overall`; other kinds don't count. The League Table shows the active scale traits with `showInTable`; it defaults to on for hot, sex and crazyEyes.
 
-| Trait                                                        | Kind       | Weight |
-| ------------------------------------------------------------ | ---------- | ------ |
-| height (cm), weight (kg)                                     | number     | 0      |
-| hot, funny, communication, chemistry, consistency, ambition  | scale 1–10 | 1      |
-| crazyEyes                                                    | scale 1–10 | 0      |
-| attachmentStyle (secure, anxious, avoidant, fearfulAvoidant) | enum       | 0      |
+| Trait                                                                           | Kind       | Weight |
+| ------------------------------------------------------------------------------- | ---------- | ------ |
+| height (ranges: under 160 … 190+ cm), weight (ranges: under 50 … 100+ kg)       | enum       | –      |
+| hot, sex, funny, communication, chemistry, consistency, ambition, crazyEyes     | scale 1–10 | 1      |
+| Big Five: openness, conscientiousness, extraversion, agreeableness, neuroticism | scale 1–10 | 1      |
+| attachmentStyle (secure, anxious, avoidant, fearfulAvoidant)                    | enum       | –      |
 
 ## 5. Security rules and indexes
 
@@ -193,8 +195,8 @@ AuthGuard → redirects to LOGIN if signed out
 
 | Feature    | Endpoints                                                                                                                                                                                                                                       |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `legal`    | `getConsent*`, `acceptTerms`, `exportAccount`, `deleteAccount`                                                                                                                                                                                  |
-| `roster`   | `getPlayers*`, `getPlayer`, `createPlayer`, `updatePlayer`, `setPlayerStatus`, `updatePlayerTraits`, `getTraitDefinitions*`, `upsertTraitDefinition`, `reorderTraitDefinitions`, `seedDefaultTraits`                                            |
+| `legal`    | `getConsent*`, `acceptTerms`, `exportAccount`, `setDeletionCode`, `deleteAccount`                                                                                                                                                               |
+| `roster`   | `getPlayers*`, `getPlayer`, `createPlayer`, `updatePlayer`, `setPlayerStatus`, `updatePlayerTraits`, `deletePlayer`, `getTraitDefinitions*`, `upsertTraitDefinition`, `reorderTraitDefinitions`, `syncTraitDefinitions`                         |
 | `intel`    | `getIntel*`, `addIntel`, `updateIntel`, `deleteIntel`                                                                                                                                                                                           |
 | `chat`     | `getChatProfile`, `setChatProfile`, `getChatNotes`, `addChatNote`, `deleteChatNote`, `getChatState*`, `logInbound`, `logOutbound`, `getChatSettings`, `setChatSettings`, `registerDevice`, `removeDevice`, `getBriefContext`, `generateOpeners` |
 | `dates`    | `getDates`, `getDateSummaries*`, `getPlayerRefs*`, `createDate`, `updateDate`, `deleteDate`                                                                                                                                                     |

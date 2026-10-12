@@ -31,15 +31,37 @@
     "height": "Înălțime",
     "weight": "Greutate",
     "hot": "Atrăgător",
+    "sex": "Sex",
     "funny": "Amuzant",
     "communication": "Comunicare",
     "chemistry": "Chimie",
     "consistency": "Consecvență",
     "ambition": "Ambiție",
     "crazyEyes": "Privire nebună",
-    "attachmentStyle": "Stil de atașament"
+    "attachmentStyle": "Stil de atașament",
+    "openness": "Deschidere",
+    "conscientiousness": "Conștiinciozitate",
+    "extraversion": "Extraversiune",
+    "agreeableness": "Agreabilitate",
+    "neuroticism": "Nevrotism"
   },
   "traitOption": {
+    "height": {
+      "under160": "Sub 160 cm",
+      "160to169": "160–169 cm",
+      "170to179": "170–179 cm",
+      "180to189": "180–189 cm",
+      "190plus": "190 cm sau mai mult"
+    },
+    "weight": {
+      "under50": "Sub 50 kg",
+      "50to59": "50–59 kg",
+      "60to69": "60–69 kg",
+      "70to79": "70–79 kg",
+      "80to89": "80–89 kg",
+      "90to99": "90–99 kg",
+      "100plus": "100 kg sau mai mult"
+    },
     "attachmentStyle": {
       "secure": "Securizant",
       "anxious": "Anxios",
@@ -93,7 +115,11 @@
     "clear": "Șterge",
     "notSet": "Nesetat",
     "noTraits": "Nicio trăsătură activă. Activează câteva din setările trăsăturilor.",
-    "manageTraits": "Gestionează trăsăturile"
+    "manageTraits": "Gestionează trăsăturile",
+    "delete": "Șterge jucătorul",
+    "deleteTitle": "Ștergi pe {{nickname}}?",
+    "deleteMessage": "Jucătorul și tot ce ține de el (informații, chat, întâlniri, planuri și notițe cheie) vor fi șterse definitiv. Acțiunea nu poate fi anulată. Ca să păstrezi istoricul, schimbă mai bine statusul în Retras.",
+    "deleteError": "Jucătorul nu a putut fi șters. Încearcă din nou."
   },
   "tabs": {
     "profile": "Profil și trăsături",
@@ -114,12 +140,13 @@
     "options": "Opțiuni",
     "optionsHelper": "Cel puțin două, separate prin virgulă.",
     "weight": "Pondere",
-    "weightHelper": "Cât contează în medie. 0 = nu contează.",
+    "weightHelper": "Cât contează în scorul general, de la 1 (puțin) la 10 (mult).",
     "active": "Afișată",
     "moveUp": "Mută sus",
     "moveDown": "Mută jos",
     "custom": "personalizată",
     "deleteTitle": "Ștergi trăsătura?",
-    "deleteMessage": "„{{label}}” va dispărea de la toți jucătorii. Valorile existente se păstrează, dar sunt ascunse."
+    "deleteMessage": "„{{label}}” va dispărea de la toți jucătorii. Valorile existente se păstrează, dar sunt ascunse.",
+    "showInTable": "Afișează în clasament"
   }
 }

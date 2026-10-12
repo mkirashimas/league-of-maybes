@@ -3,11 +3,14 @@ import {
   ArrowDownwardOutlined,
   ArrowUpwardOutlined,
   DeleteOutlined,
+  TableChart,
+  TableChartOutlined,
 } from '@mui/icons-material';
 import {
   Alert,
   Box,
   Button,
+  Checkbox,
   CircularProgress,
   IconButton,
   List,
@@ -30,26 +33,9 @@ import {
 } from '../api';
 import { useTraitDefinitions } from '../hooks/useTraitDefinitions';
 import { useTraitLabels } from '../hooks/useTraitLabels';
-import {
-  MAX_TRAIT_WEIGHT,
-  ROSTER_NAMESPACE,
-  type TraitDefinition,
-  type TraitDefinitionInput,
-} from '../types';
+import { ROSTER_NAMESPACE, toTraitInput, TRAIT_WEIGHTS, type TraitDefinition } from '../types';
 import { AddTraitDialog } from './AddTraitDialog';
 import { ConfirmDialog } from './ConfirmDialog';
-
-const toInput = (definition: TraitDefinition): TraitDefinitionInput => ({
-  key: definition.key,
-  builtIn: definition.builtIn,
-  customLabel: definition.customLabel,
-  kind: definition.kind,
-  unit: definition.unit,
-  options: definition.options,
-  weight: definition.weight,
-  order: definition.order,
-  active: definition.active,
-});
 
 export const TraitSettingsPage = () => {
   const { t } = useTranslation([ROSTER_NAMESPACE, 'common']);
@@ -136,22 +122,45 @@ export const TraitSettingsPage = () => {
                       label={t('traitSettings.weight')}
                       value={definition.weight}
                       onChange={(event) =>
-                        void upsert({ ...toInput(definition), weight: Number(event.target.value) })
+                        void upsert({
+                          ...toTraitInput(definition),
+                          weight: Number(event.target.value),
+                        })
                       }
                       sx={(theme) => ({ width: theme.spacing(12) })}
                     >
-                      {Array.from({ length: MAX_TRAIT_WEIGHT + 1 }, (_, value) => (
+                      {TRAIT_WEIGHTS.map((value) => (
                         <MenuItem key={value} value={value}>
                           {value}
                         </MenuItem>
                       ))}
                     </TextField>
                   )}
+                  {definition.kind === 'scale' && (
+                    <Tooltip title={t('traitSettings.showInTable')}>
+                      <Checkbox
+                        icon={<TableChartOutlined />}
+                        checkedIcon={<TableChart />}
+                        checked={toTraitInput(definition).showInTable}
+                        onChange={(event) =>
+                          void upsert({
+                            ...toTraitInput(definition),
+                            showInTable: event.target.checked,
+                          })
+                        }
+                        slotProps={{
+                          input: {
+                            'aria-label': `${t('traitSettings.showInTable')}: ${traitLabel(definition)}`,
+                          },
+                        }}
+                      />
+                    </Tooltip>
+                  )}
                   <Tooltip title={t('traitSettings.active')}>
                     <Switch
                       checked={definition.active}
                       onChange={(event) =>
-                        void upsert({ ...toInput(definition), active: event.target.checked })
+                        void upsert({ ...toTraitInput(definition), active: event.target.checked })
                       }
                       slotProps={{
                         input: {

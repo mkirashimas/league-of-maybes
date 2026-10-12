@@ -8,6 +8,7 @@ import { LEGAL_NAMESPACE } from './types';
 
 registerNamespace(LEGAL_NAMESPACE, { en, es, fr, it, ro });
 
+export { AccountPage } from './components/AccountPage';
 export { ConsentGate } from './components/ConsentGate';
 export { ConsentPage } from './components/ConsentPage';
 export { PrivacyPage, TermsPage } from './components/LegalPage';

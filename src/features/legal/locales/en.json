@@ -95,5 +95,25 @@
         "body": "For any question about your data, contact the owner of this app."
       }
     ]
+  },
+  "account": {
+    "title": "Account",
+    "export": {
+      "title": "Export your data",
+      "body": "Download everything stored in your account as a JSON file: players, traits, notes, dates, plans, chat settings and devices.",
+      "action": "Download export",
+      "error": "The export could not be created. Please try again."
+    },
+    "delete": {
+      "title": "Delete account",
+      "body": "Permanently deletes your account and all its data. This cannot be undone. Export your data first if you want to keep a copy.",
+      "action": "Delete account…",
+      "confirmTitle": "Delete your account?",
+      "confirmBody": "Your whole roster and everything linked to it will be deleted, together with your sign-in. You will be signed out.",
+      "understood": "I understand that this cannot be undone.",
+      "cancel": "Cancel",
+      "confirm": "Delete everything",
+      "error": "The account could not be deleted. Please try again."
+    }
   }
 }

@@ -95,5 +95,25 @@
         "body": "Pentru orice întrebare despre datele tale, contactează proprietarul acestei aplicații."
       }
     ]
+  },
+  "account": {
+    "title": "Cont",
+    "export": {
+      "title": "Exportă datele",
+      "body": "Descarcă tot ce este salvat în contul tău ca fișier JSON: jucători, trăsături, notițe, întâlniri, planuri, setări de chat și dispozitive.",
+      "action": "Descarcă exportul",
+      "error": "Exportul nu a putut fi creat. Încearcă din nou."
+    },
+    "delete": {
+      "title": "Șterge contul",
+      "body": "Șterge definitiv contul tău și toate datele lui. Acțiunea nu poate fi anulată. Exportă mai întâi datele dacă vrei să păstrezi o copie.",
+      "action": "Șterge contul…",
+      "confirmTitle": "Ștergi contul?",
+      "confirmBody": "Tot lotul tău și tot ce ține de el vor fi șterse, împreună cu accesul tău. Vei fi deconectat.",
+      "understood": "Înțeleg că acțiunea nu poate fi anulată.",
+      "cancel": "Anulează",
+      "confirm": "Șterge tot",
+      "error": "Contul nu a putut fi șters. Încearcă din nou."
+    }
   }
 }

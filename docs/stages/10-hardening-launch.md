@@ -10,7 +10,7 @@ Final security rules, indexes and tests. Polish for mobile and accessibility, th
 
 **In**
 
-- Final `firestore.rules` and `firestore.indexes.json`, including the collection-group override on `chatStates.nextNudgeAt` (R17)
+- Final `firestore.rules` and `firestore.indexes.json`, including the collection-group override on `chatStates.nextNudgeAt` (R17, already shipped in stage 9)
 - Emulator rule tests with `@firebase/rules-unit-testing` in `tests/rules/`:
   - The owner can read and write.
   - Another user and anonymous users are denied.

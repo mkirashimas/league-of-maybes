@@ -95,5 +95,25 @@
         "body": "Per qualsiasi domanda sui tuoi dati, contatta il proprietario di questa app."
       }
     ]
+  },
+  "account": {
+    "title": "Account",
+    "export": {
+      "title": "Esporta i tuoi dati",
+      "body": "Scarica tutto ciò che è salvato nel tuo account come file JSON: giocatori, tratti, note, appuntamenti, piani, impostazioni della chat e dispositivi.",
+      "action": "Scarica esportazione",
+      "error": "Impossibile creare l’esportazione. Riprova."
+    },
+    "delete": {
+      "title": "Elimina account",
+      "body": "Elimina definitivamente il tuo account e tutti i suoi dati. Non si può annullare. Esporta prima i tuoi dati se vuoi conservarne una copia.",
+      "action": "Elimina account…",
+      "confirmTitle": "Eliminare il tuo account?",
+      "confirmBody": "Tutta la tua rosa e tutto ciò che è collegato verranno eliminati, insieme al tuo accesso. Verrai disconnesso.",
+      "understood": "Capisco che non si può annullare.",
+      "cancel": "Annulla",
+      "confirm": "Elimina tutto",
+      "error": "Impossibile eliminare l’account. Riprova."
+    }
   }
 }

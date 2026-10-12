@@ -1,7 +1,20 @@
 import { getDocument, setDocument, subscribeToDocument } from '../../firebase/firestore';
 import { api } from '../../store/api';
 import { runQuery, syncWhileCached } from '../../store/realtime';
-import { TERMS_VERSION, USERS_COLLECTION, type UserDocument } from './types';
+import {
+  DELETE_ACCOUNT_FUNCTION,
+  EXPORT_ACCOUNT_FUNCTION,
+  TERMS_VERSION,
+  USERS_COLLECTION,
+  type AccountExport,
+  type UserDocument,
+} from './types';
+
+// Loaded on first use, so the Functions SDK stays out of the startup bundle.
+const callFunction = async <Request, Response>(name: string, data: Request) => {
+  const functions = await import('../../firebase/functions');
+  return functions.callFunction<Request, Response>(name, data);
+};
 
 // The user document is realtime, so accepting the terms in one tab unlocks the others too.
 const legalApi = api.enhanceEndpoints({ addTagTypes: ['UserDocument'] }).injectEndpoints({
@@ -31,7 +44,20 @@ const legalApi = api.enhanceEndpoints({ addTagTypes: ['UserDocument'] }).injectE
         }),
       invalidatesTags: (_result, _error, uid) => [{ type: 'UserDocument', id: uid }],
     }),
+    // Both run server-side for the signed-in user only; the uid comes from the auth token.
+    legalExportAccount: build.mutation<AccountExport, void>({
+      queryFn: () =>
+        runQuery(() => callFunction<null, AccountExport>(EXPORT_ACCOUNT_FUNCTION, null)),
+    }),
+    legalDeleteAccount: build.mutation<null, void>({
+      queryFn: () => runQuery(() => callFunction<null, null>(DELETE_ACCOUNT_FUNCTION, null)),
+    }),
   }),
 });
 
-export const { useLegalGetUserDocumentQuery, useLegalAcceptTermsMutation } = legalApi;
+export const {
+  useLegalGetUserDocumentQuery,
+  useLegalAcceptTermsMutation,
+  useLegalExportAccountMutation,
+  useLegalDeleteAccountMutation,
+} = legalApi;

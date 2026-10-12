@@ -8,6 +8,17 @@ export const components: Components<Omit<Theme, 'components'>> = {
         backgroundColor: theme.palette.background.default,
         color: theme.palette.text.primary,
         borderBottom: `1px solid ${theme.palette.divider}`,
+        ...(theme.palette.surface.stripe && {
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: theme.spacing(0.5),
+            backgroundImage: theme.palette.surface.stripe,
+          },
+        }),
       }),
     },
   },

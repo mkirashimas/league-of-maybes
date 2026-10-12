@@ -7,7 +7,25 @@
   "signOut": "Cerrar sesión",
   "theme": {
     "switchToDark": "Cambiar a modo oscuro",
-    "switchToLight": "Cambiar a modo claro"
+    "switchToLight": "Cambiar a modo claro",
+    "darkOnly": "Este tema solo tiene modo oscuro",
+    "choose": "Tema de color",
+    "groups": {
+      "lightDark": "Claro y oscuro",
+      "darkOnly": "Solo oscuro"
+    },
+    "names": {
+      "slate": "Pizarra",
+      "roseCourt": "Cancha Rosé",
+      "floodlight": "Focos",
+      "pitchTrophy": "Césped y Trofeo",
+      "mangoTango": "Mango Tango",
+      "lagoon": "Laguna",
+      "pride": "Orgullo",
+      "velvetLounge": "Salón de Terciopelo",
+      "deepEnd": "Aguas Profundas",
+      "blackout": "Apagón"
+    }
   },
   "languages": {
     "en": "English",

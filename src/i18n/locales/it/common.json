@@ -7,7 +7,25 @@
   "signOut": "Esci",
   "theme": {
     "switchToDark": "Passa alla modalità scura",
-    "switchToLight": "Passa alla modalità chiara"
+    "switchToLight": "Passa alla modalità chiara",
+    "darkOnly": "Questo tema ha solo la modalità scura",
+    "choose": "Tema colore",
+    "groups": {
+      "lightDark": "Chiaro e scuro",
+      "darkOnly": "Solo scuro"
+    },
+    "names": {
+      "slate": "Ardesia",
+      "roseCourt": "Campo Rosé",
+      "floodlight": "Riflettori",
+      "pitchTrophy": "Prato e Trofeo",
+      "mangoTango": "Mango Tango",
+      "lagoon": "Laguna",
+      "pride": "Orgoglio",
+      "velvetLounge": "Salotto di Velluto",
+      "deepEnd": "Acque Profonde",
+      "blackout": "Blackout"
+    }
   },
   "languages": {
     "en": "English",

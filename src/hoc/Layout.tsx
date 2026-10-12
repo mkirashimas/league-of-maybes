@@ -37,6 +37,7 @@ import { selectCurrentUser } from '../store/authSlice';
 import { PATHS } from '../types';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { LegalLinks } from './LegalLinks';
+import { ThemePicker } from './ThemePicker';
 import { ThemeToggle } from './ThemeToggle';
 
 const SIDEBAR_WIDTH = 240;
@@ -99,6 +100,7 @@ export const Layout = () => {
 
           <LanguageSwitcher />
           <ThemeToggle />
+          <ThemePicker />
 
           <Tooltip title={t('account')}>
             <IconButton

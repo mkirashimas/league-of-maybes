@@ -12,13 +12,7 @@ import {
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRosterUpsertTraitDefinitionMutation } from '../api';
-import {
-  MAX_TRAIT_WEIGHT,
-  ROSTER_NAMESPACE,
-  toTraitKey,
-  TRAIT_KINDS,
-  type TraitKind,
-} from '../types';
+import { ROSTER_NAMESPACE, toTraitKey, TRAIT_KINDS, TRAIT_WEIGHTS, type TraitKind } from '../types';
 
 const FORM_ID = 'add-trait-form';
 
@@ -122,7 +116,7 @@ export const AddTraitDialog = ({ open, nextOrder, onClose }: AddTraitDialogProps
               onChange={(event) => setWeight(Number(event.target.value))}
               helperText={t('traitSettings.weightHelper')}
             >
-              {Array.from({ length: MAX_TRAIT_WEIGHT + 1 }, (_, value) => (
+              {TRAIT_WEIGHTS.map((value) => (
                 <MenuItem key={value} value={value}>
                   {value}
                 </MenuItem>

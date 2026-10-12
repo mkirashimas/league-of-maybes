@@ -38,9 +38,30 @@
     "consistency": "Consistency",
     "ambition": "Ambition",
     "crazyEyes": "Crazy eyes",
-    "attachmentStyle": "Attachment style"
+    "attachmentStyle": "Attachment style",
+    "openness": "Openness",
+    "conscientiousness": "Conscientiousness",
+    "extraversion": "Extraversion",
+    "agreeableness": "Agreeableness",
+    "neuroticism": "Neuroticism"
   },
   "traitOption": {
+    "height": {
+      "under160": "Under 160 cm",
+      "160to169": "160–169 cm",
+      "170to179": "170–179 cm",
+      "180to189": "180–189 cm",
+      "190plus": "190 cm or more"
+    },
+    "weight": {
+      "under50": "Under 50 kg",
+      "50to59": "50–59 kg",
+      "60to69": "60–69 kg",
+      "70to79": "70–79 kg",
+      "80to89": "80–89 kg",
+      "90to99": "90–99 kg",
+      "100plus": "100 kg or more"
+    },
     "attachmentStyle": {
       "secure": "Secure",
       "anxious": "Anxious",
@@ -119,7 +140,7 @@
     "options": "Options",
     "optionsHelper": "At least two, separated by commas.",
     "weight": "Weight",
-    "weightHelper": "How much it counts in the overall score. 0 = not counted.",
+    "weightHelper": "How much it counts in the overall score, from 1 (a little) to 10 (a lot).",
     "active": "Shown",
     "moveUp": "Move up",
     "moveDown": "Move down",

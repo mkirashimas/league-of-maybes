@@ -1,4 +1,4 @@
-import { DeleteOutlined, EditOutlined, TuneOutlined } from '@mui/icons-material';
+import { EditOutlined, TuneOutlined } from '@mui/icons-material';
 import {
   Alert,
   Box,
@@ -12,10 +12,9 @@ import {
 } from '@mui/material';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link as RouterLink, useNavigate, useParams } from 'react-router';
+import { Link as RouterLink, useParams } from 'react-router';
 import { PATHS } from '../../../types';
 import {
-  useRosterDeletePlayerMutation,
   useRosterGetPlayerQuery,
   useRosterSetPlayerStatusMutation,
   useRosterUpdatePlayerTraitsMutation,
@@ -28,7 +27,6 @@ import {
   type PlayerStatus,
   type TraitValue,
 } from '../types';
-import { ConfirmDialog } from './ConfirmDialog';
 import { EditPlayerDialog } from './EditPlayerDialog';
 import { TraitEditor } from './TraitEditor';
 
@@ -62,9 +60,6 @@ export const PlayerProfilePage = () => {
   const [setStatus] = useRosterSetPlayerStatusMutation();
   const [updateTraits, { isError: traitsFailed }] = useRosterUpdatePlayerTraitsMutation();
   const [editing, setEditing] = useState(false);
-  const [deletePlayer, { isError: deleteFailed }] = useRosterDeletePlayerMutation();
-  const [confirmingDelete, setConfirmingDelete] = useState(false);
-  const navigate = useNavigate();
 
   // PlayerLayout handles loading and not-found; this tab only renders with a player.
   if (!player) {
@@ -72,12 +67,6 @@ export const PlayerProfilePage = () => {
   }
 
   const overall = computeOverall(player.traits, traits.definitions);
-
-  const handleDelete = async () => {
-    setConfirmingDelete(false);
-    const result = await deletePlayer(player.id);
-    if (!('error' in result)) void navigate(PATHS.ROSTER, { replace: true });
-  };
 
   const handleTraitChange = (key: string, value: TraitValue | null) => {
     const next = { ...player.traits };
@@ -151,17 +140,6 @@ export const PlayerProfilePage = () => {
             </Box>
           ))}
         </Box>
-        {deleteFailed && <Alert severity="error">{t('profile.deleteError')}</Alert>}
-        <Box>
-          <Button
-            size="small"
-            color="error"
-            startIcon={<DeleteOutlined />}
-            onClick={() => setConfirmingDelete(true)}
-          >
-            {t('profile.delete')}
-          </Button>
-        </Box>
       </Section>
 
       <Section
@@ -219,14 +197,6 @@ export const PlayerProfilePage = () => {
       </Section>
 
       <EditPlayerDialog player={player} open={editing} onClose={() => setEditing(false)} />
-      <ConfirmDialog
-        open={confirmingDelete}
-        title={t('profile.deleteTitle', { nickname: player.nickname })}
-        message={t('profile.deleteMessage')}
-        confirmLabel={t('common:actions.delete')}
-        onConfirm={() => void handleDelete()}
-        onClose={() => setConfirmingDelete(false)}
-      />
     </Box>
   );
 };

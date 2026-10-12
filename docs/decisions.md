@@ -151,7 +151,7 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 ## D-015: Player delete, no account delete, League Table columns (2026-10-12)
 
 - **No account delete in the app.** The `deleteAccount` callable, the Account page card and its texts are removed. The Account page keeps the export. Terms and Privacy now say to contact the owner for a full deletion. `TERMS_VERSION` is bumped, so the terms are accepted again. This reverses the account part of R15.
-- **Players can be hard-deleted.** "Delete player" is on the profile page, with a confirmation. `roster` deletes only the player doc. The `onPlayerDeleted` Firestore trigger then deletes the player's records:
+- **Players can be hard-deleted.** "Delete player" is in the player's Edit dialog, with a confirmation. `roster` deletes only the player doc. The `onPlayerDeleted` Firestore trigger then deletes the player's records:
   - by `playerId` in `intel`, `chatNotes`, `dates`, `agendaItems`, `keyNotes`
   - by doc id in `chatProfiles`, `chatStates`, `dateSummaries`
 
@@ -159,3 +159,6 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 
 - **New built-in trait `sex`** (scale 1–10, weight 1, right after `hot`). `useTraitDefinitions` now seeds every missing built-in, not only an empty list. Built-ins can't be deleted, so a missing key is always a new one.
 - **League Table columns:** Name (40% wide, left), then Status, Overall and the traits with `showInTable`, all centered. Each scale trait has a table toggle in Trait settings. Docs without the field use the defaults: hot, sex, crazyEyes.
+- **Trait weights are 1–10** (was 0–3), and every scale trait counts in `overall`, crazyEyes included. Stored weights of 0 become 1, and other stored weights stay as they are.
+- **Height and weight are ranges** (enum), because nobody knows the exact numbers. Height has 5 ranges and weight has 7. When a stored definition is upgraded, numbers already entered on players move into the matching range in the same batch (`rosterSyncTraitDefinitions`, which replaces `seedDefaultTraits`). The `number` kind stays available for custom traits.
+- **The Big Five** (openness, conscientiousness, extraversion, agreeableness, neuroticism) are built-in 1–10 traits with weight 1, placed after attachmentStyle and off in the League Table.

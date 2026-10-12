@@ -38,9 +38,30 @@
     "consistency": "Constance",
     "ambition": "Ambition",
     "crazyEyes": "Regard fou",
-    "attachmentStyle": "Style d'attachement"
+    "attachmentStyle": "Style d'attachement",
+    "openness": "Ouverture",
+    "conscientiousness": "Conscienciosité",
+    "extraversion": "Extraversion",
+    "agreeableness": "Agréabilité",
+    "neuroticism": "Névrosisme"
   },
   "traitOption": {
+    "height": {
+      "under160": "Moins de 160 cm",
+      "160to169": "160–169 cm",
+      "170to179": "170–179 cm",
+      "180to189": "180–189 cm",
+      "190plus": "190 cm ou plus"
+    },
+    "weight": {
+      "under50": "Moins de 50 kg",
+      "50to59": "50–59 kg",
+      "60to69": "60–69 kg",
+      "70to79": "70–79 kg",
+      "80to89": "80–89 kg",
+      "90to99": "90–99 kg",
+      "100plus": "100 kg ou plus"
+    },
     "attachmentStyle": {
       "secure": "Sécure",
       "anxious": "Anxieux",
@@ -119,7 +140,7 @@
     "options": "Options",
     "optionsHelper": "Au moins deux, séparées par des virgules.",
     "weight": "Poids",
-    "weightHelper": "Combien cela compte dans la note globale. 0 = non compté.",
+    "weightHelper": "Son poids dans le score global, de 1 (peu) à 10 (beaucoup).",
     "active": "Affiché",
     "moveUp": "Monter",
     "moveDown": "Descendre",

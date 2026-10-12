@@ -10,13 +10,17 @@ import {
   userPath,
 } from '../../firebase/firestore';
 import type { BaseDocument } from '../../types';
+import { generateJson } from '../../firebase/ai';
 import { api } from '../../store/api';
 import { requireUid, runQuery, syncWhileCached } from '../../store/realtime';
+import { buildOpenersPrompt, OPENERS_SCHEMA } from './openers';
 import {
   CHAT_NOTES_COLLECTION,
   CHAT_PROFILES_COLLECTION,
   CHAT_SETTINGS_ID,
   CHAT_STATES_COLLECTION,
+  deviceIdOf,
+  DEVICES_COLLECTION,
   INTEL_COLLECTION,
   KEY_NOTES_COLLECTION,
   PLAYERS_COLLECTION,
@@ -30,6 +34,8 @@ import {
   type ChatSettingsInput,
   type ChatState,
   type ChatStateWrite,
+  type Device,
+  type Opener,
   type Sender,
 } from './types';
 
@@ -49,7 +55,7 @@ const playerNotesConstraints = ({ playerId, limit: max }: NotesArg) => [
   limit(max),
 ];
 
-/** Read-only shapes of the other features' documents used by the brief. */
+/** Read-only shapes of the other features' documents used by the brief and openers. */
 interface NoteRef extends BaseDocument {
   category: string;
   text: string;
@@ -57,6 +63,31 @@ interface NoteRef extends BaseDocument {
 interface PlayerNameRef extends BaseDocument {
   nickname: string;
 }
+
+/** Nickname, pinned key notes and the latest 10 intel entries of a player (read-only). */
+const loadBriefContext = async (uid: string, playerId: string): Promise<BriefContext> => {
+  const [player, pinned, intel] = await Promise.all([
+    getDocument<PlayerNameRef>(userPath(uid, PLAYERS_COLLECTION), playerId),
+    getDocuments<NoteRef>(
+      userPath(uid, KEY_NOTES_COLLECTION),
+      where('playerId', '==', playerId),
+      where('pinned', '==', true),
+      orderBy('importance', 'desc'),
+    ),
+    getDocuments<NoteRef>(
+      userPath(uid, INTEL_COLLECTION),
+      where('playerId', '==', playerId),
+      orderBy('createdAt', 'desc'),
+      limit(10),
+    ),
+  ]);
+  const pick = ({ category, text }: NoteRef) => ({ category, text });
+  return {
+    nickname: player?.nickname ?? '',
+    pinnedNotes: pinned.map(pick),
+    intel: intel.map(pick),
+  };
+};
 
 const chatApi = api.injectEndpoints({
   endpoints: (build) => ({
@@ -205,31 +236,47 @@ const chatApi = api.injectEndpoints({
      */
     chatGetBriefContext: build.query<BriefContext, string>({
       queryFn: (playerId, { getState }) =>
-        runQuery(async () => {
-          const uid = requireUid(getState);
-          const [player, pinned, intel] = await Promise.all([
-            getDocument<PlayerNameRef>(userPath(uid, PLAYERS_COLLECTION), playerId),
-            getDocuments<NoteRef>(
-              userPath(uid, KEY_NOTES_COLLECTION),
-              where('playerId', '==', playerId),
-              where('pinned', '==', true),
-              orderBy('importance', 'desc'),
-            ),
-            getDocuments<NoteRef>(
-              userPath(uid, INTEL_COLLECTION),
-              where('playerId', '==', playerId),
-              orderBy('createdAt', 'desc'),
-              limit(10),
-            ),
-          ]);
-          const pick = ({ category, text }: NoteRef) => ({ category, text });
-          return {
-            nickname: player?.nickname ?? '',
-            pinnedNotes: pinned.map(pick),
-            intel: intel.map(pick),
-          };
-        }),
+        runQuery(() => loadBriefContext(requireUid(getState), playerId)),
       keepUnusedDataFor: 0,
+    }),
+
+    /**
+     * Asks Gemini (Firebase AI Logic, with App Check) for 2–3 openers. Sends only the brief
+     * context, the chat profile, state and style. The answer is not stored.
+     */
+    chatGenerateOpeners: build.mutation<
+      Opener[],
+      Omit<Parameters<typeof buildOpenersPrompt>[0], 'context' | 'now'> & { playerId: string }
+    >({
+      queryFn: ({ playerId, ...input }, { getState }) =>
+        runQuery(async () => {
+          const context = await loadBriefContext(requireUid(getState), playerId);
+          const prompt = buildOpenersPrompt({ ...input, context, now: new Date() });
+          const { openers } = await generateJson<{ openers: Opener[] }>(prompt, OPENERS_SCHEMA);
+          return openers.filter((opener) => opener.text?.trim()).slice(0, 3);
+        }),
+    }),
+
+    /** Saves this browser's push token; the doc id is its SHA-256, so it is an upsert. */
+    chatRegisterDevice: build.mutation<string, { token: string; language: string }>({
+      queryFn: ({ token, language }, { getState }) =>
+        runQuery(async () => {
+          const deviceId = await deviceIdOf(token);
+          await setDocument<Device>(
+            userPath(requireUid(getState), DEVICES_COLLECTION),
+            deviceId,
+            { token, language, userAgent: navigator.userAgent },
+            { merge: true },
+          );
+          return deviceId;
+        }),
+    }),
+    chatRemoveDevice: build.mutation<null, string>({
+      queryFn: (deviceId, { getState }) =>
+        runQuery(async () => {
+          await deleteDocument(userPath(requireUid(getState), DEVICES_COLLECTION), deviceId);
+          return null;
+        }),
     }),
   }),
 });
@@ -245,4 +292,7 @@ export const {
   useChatGetChatSettingsQuery,
   useChatSetChatSettingsMutation,
   useLazyChatGetBriefContextQuery,
+  useChatGenerateOpenersMutation,
+  useChatRegisterDeviceMutation,
+  useChatRemoveDeviceMutation,
 } = chatApi;

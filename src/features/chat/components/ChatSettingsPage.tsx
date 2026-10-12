@@ -14,6 +14,7 @@ import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useChatSetChatSettingsMutation } from '../api';
 import { useChatSettings } from '../hooks/useChatSettings';
+import { NudgesCard } from './NudgesCard';
 import {
   browserTimeZone,
   CHAT_NAMESPACE,
@@ -180,7 +181,10 @@ export const ChatSettingsPage = () => {
       ) : isError ? (
         <Alert severity="error">{t('common:loadError')}</Alert>
       ) : (
-        <SettingsForm initial={settings} />
+        <>
+          <NudgesCard enabled={settings.nudgesEnabled} />
+          <SettingsForm initial={settings} />
+        </>
       )}
     </Stack>
   );

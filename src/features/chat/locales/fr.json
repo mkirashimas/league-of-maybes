@@ -152,5 +152,36 @@
     "quietEnd": "Fin des heures calmes",
     "timeZone": "Fuseau horaire : {{zone}} (de cet appareil).",
     "saved": "Enregistré"
+  },
+  "openers": {
+    "suggest": "Proposer des messages",
+    "privacy": "Envoie le profil de ce joueur, les notes épinglées et les infos récentes à Google Gemini. Rien n’est enregistré.",
+    "error": "Impossible de générer des messages. Réessayez dans un instant.",
+    "none": "Aucun message reçu. Réessayez.",
+    "use": "Utiliser",
+    "tone": {
+      "playful": "Joueur",
+      "warm": "Chaleureux",
+      "curious": "Curieux",
+      "bold": "Audacieux"
+    }
+  },
+  "nudge": {
+    "banner": "Ouvert depuis un rappel. Vérifiez l’état du chat ci-dessus, puis demandez des messages.",
+    "confirm": "C’est juste, proposer des messages",
+    "foreground": "C’est le moment de relancer une discussion.",
+    "open": "Ouvrir"
+  },
+  "nudges": {
+    "title": "Rappels",
+    "intro": "Une notification quand il est temps de relancer une discussion. Le texte n’affiche jamais de surnom.",
+    "on": "Les rappels sont activés",
+    "off": "Les rappels sont désactivés",
+    "addDevice": "Prévenir aussi cet appareil",
+    "thisDevice": "Cet appareil reçoit les rappels.",
+    "unsupported": "Ce navigateur ne peut pas recevoir de notifications. Sur iPhone, ajoutez d’abord l’app à l’écran d’accueil et ouvrez-la depuis là.",
+    "denied": "Les notifications sont bloquées pour ce site. Autorisez-les dans les réglages du navigateur, puis réessayez.",
+    "failed": "Impossible de modifier les rappels. Réessayez.",
+    "pushService": "Ce navigateur a bloqué son service de notifications push. Dans Brave, activez « Use Google services for push messaging » (brave://settings/privacy), redémarrez le navigateur et réessayez."
   }
 }

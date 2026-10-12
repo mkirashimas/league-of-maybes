@@ -262,3 +262,32 @@ export interface BriefContext {
   pinnedNotes: { category: string; text: string }[];
   intel: { category: string; text: string }[];
 }
+
+// ---------- Devices and openers (push and AI) ----------
+
+export const DEVICES_COLLECTION = 'devices';
+
+/** devices/{sha256(token)}: one doc per browser that receives nudges. */
+export interface Device extends BaseDocument {
+  token: string;
+  language: string;
+  userAgent: string;
+}
+
+/** This browser's device doc id, kept so it can be removed when nudges are turned off. */
+export const DEVICE_ID_STORAGE_KEY = 'chat.deviceId';
+
+export const OPENER_TONES = ['playful', 'warm', 'curious', 'bold'] as const;
+
+export type OpenerTone = (typeof OPENER_TONES)[number];
+
+export interface Opener {
+  text: string;
+  tone: OpenerTone;
+}
+
+/** Hex SHA-256 of the push token: a stable doc id, so registering twice is an upsert. */
+export const deviceIdOf = async (token: string): Promise<string> => {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
+};

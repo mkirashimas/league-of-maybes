@@ -152,5 +152,36 @@
     "quietEnd": "Fin de horas de silencio",
     "timeZone": "Zona horaria: {{zone}} (de este dispositivo).",
     "saved": "Guardado"
+  },
+  "openers": {
+    "suggest": "Sugerir mensajes",
+    "privacy": "Envía el perfil de este jugador, las notas fijadas y la información reciente a Google Gemini. No se guarda nada.",
+    "error": "No se pudieron generar mensajes. Inténtalo de nuevo en un momento.",
+    "none": "No llegó ningún mensaje. Inténtalo de nuevo.",
+    "use": "Usar",
+    "tone": {
+      "playful": "Divertido",
+      "warm": "Cálido",
+      "curious": "Curioso",
+      "bold": "Atrevido"
+    }
+  },
+  "nudge": {
+    "banner": "Abierto desde un aviso. Revisa el estado del chat y luego pide mensajes.",
+    "confirm": "Está bien, sugerir mensajes",
+    "foreground": "Es momento de retomar un chat.",
+    "open": "Abrir"
+  },
+  "nudges": {
+    "title": "Avisos",
+    "intro": "Una notificación cuando toca retomar un chat. El texto nunca muestra un apodo.",
+    "on": "Los avisos están activados",
+    "off": "Los avisos están desactivados",
+    "addDevice": "Avisar también en este dispositivo",
+    "thisDevice": "Este dispositivo recibe avisos.",
+    "unsupported": "Este navegador no puede recibir notificaciones. En iPhone, añade primero la app a la pantalla de inicio y ábrela desde ahí.",
+    "denied": "Las notificaciones están bloqueadas para este sitio. Permítelas en los ajustes del navegador y vuelve a intentarlo.",
+    "failed": "No se pudieron cambiar los avisos. Inténtalo de nuevo.",
+    "pushService": "Este navegador bloqueó su servicio de notificaciones push. En Brave, activa «Use Google services for push messaging» (brave://settings/privacy), reinicia el navegador y vuelve a intentarlo."
   }
 }

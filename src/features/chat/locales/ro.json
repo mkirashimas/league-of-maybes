@@ -152,5 +152,36 @@
     "quietEnd": "Sfârșitul orelor de liniște",
     "timeZone": "Fus orar: {{zone}} (de pe acest dispozitiv).",
     "saved": "Salvat"
+  },
+  "openers": {
+    "suggest": "Sugerează mesaje",
+    "privacy": "Trimite către Google Gemini profilul acestui jucător, notele fixate și informațiile recente. Nu se salvează nimic.",
+    "error": "Mesajele nu au putut fi generate. Încearcă din nou peste puțin timp.",
+    "none": "Nu a venit niciun mesaj. Încearcă din nou.",
+    "use": "Folosește",
+    "tone": {
+      "playful": "Jucăuș",
+      "warm": "Cald",
+      "curious": "Curios",
+      "bold": "Îndrăzneț"
+    }
+  },
+  "nudge": {
+    "banner": "Deschis dintr-un memento. Verifică starea chatului de mai sus, apoi cere mesaje.",
+    "confirm": "E corect, sugerează mesaje",
+    "foreground": "E momentul să reiei o conversație.",
+    "open": "Deschide"
+  },
+  "nudges": {
+    "title": "Mementouri",
+    "intro": "O notificare când e momentul să reiei o conversație. Textul nu afișează niciodată o poreclă.",
+    "on": "Mementourile sunt pornite",
+    "off": "Mementourile sunt oprite",
+    "addDevice": "Anunță și pe acest dispozitiv",
+    "thisDevice": "Acest dispozitiv primește mementouri.",
+    "unsupported": "Acest browser nu poate primi notificări. Pe iPhone, adaugă întâi aplicația pe ecranul principal și deschide-o de acolo.",
+    "denied": "Notificările sunt blocate pentru acest site. Permite-le din setările browserului, apoi încearcă din nou.",
+    "failed": "Mementourile nu au putut fi schimbate. Încearcă din nou.",
+    "pushService": "Acest browser și-a blocat serviciul de notificări push. În Brave, activează „Use Google services for push messaging” (brave://settings/privacy), repornește browserul și încearcă din nou."
   }
 }

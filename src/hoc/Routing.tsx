@@ -1,5 +1,5 @@
 import { Box, CircularProgress, Paper, Typography } from '@mui/material';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate, Outlet, Route, Routes } from 'react-router';
 import { LoginPage } from '../features/auth';
@@ -26,6 +26,7 @@ const UpcomingPage = lazy(() => agenda().then((m) => ({ default: m.UpcomingPage 
 const chat = () => import('../features/chat');
 const ChatTab = lazy(() => chat().then((m) => ({ default: m.ChatTab })));
 const ChatSettingsPage = lazy(() => chat().then((m) => ({ default: m.ChatSettingsPage })));
+const NudgeListener = lazy(() => chat().then((m) => ({ default: m.NudgeListener })));
 const IntelTab = lazy(() => import('../features/intel').then((m) => ({ default: m.IntelTab })));
 const KeyNotesTab = lazy(() =>
   import('../features/keyNotes').then((m) => ({ default: m.KeyNotesTab })),
@@ -78,7 +79,17 @@ export const Routing = () => (
 
       {/* The app itself: signed in and current terms accepted. */}
       <Route element={<ConsentGate />}>
-        <Route element={<Layout />}>
+        <Route
+          element={
+            <>
+              <Layout />
+              {/* Shows nudges that arrive while the app is open. */}
+              <Suspense fallback={null}>
+                <NudgeListener />
+              </Suspense>
+            </>
+          }
+        >
           <Route path={PATHS.HOME} element={<Navigate to={PATHS.ROSTER} replace />} />
           <Route path={PATHS.ROSTER} element={<LeagueTablePage />} />
           <Route path={PATHS.PLAYER_NEW} element={<PlayerFormPage />} />

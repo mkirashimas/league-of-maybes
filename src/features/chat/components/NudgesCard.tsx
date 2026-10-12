@@ -52,6 +52,7 @@ export const NudgesCard = ({ enabled }: { enabled: boolean }) => {
   const [deviceId, setDeviceId] = useState(readDeviceId);
   const [busy, setBusy] = useState(false);
   const [problem, setProblem] = useState<Problem>(null);
+  const [detail, setDetail] = useState('');
   const [registerDevice] = useChatRegisterDeviceMutation();
   const [removeDevice] = useChatRemoveDeviceMutation();
   const [saveSettings] = useChatSetChatSettingsMutation();
@@ -89,9 +90,16 @@ export const NudgesCard = ({ enabled }: { enabled: boolean }) => {
   const run = async (action: () => Promise<unknown>) => {
     setBusy(true);
     setProblem(null);
+    setDetail('');
     try {
       await action();
-    } catch {
+    } catch (error) {
+      // Keep the real reason visible: push setup fails for browser-specific reasons.
+      console.error('Changing nudges failed', error);
+      const code =
+        typeof error === 'object' && error !== null && 'code' in error ? String(error.code) : '';
+      const message = error instanceof Error ? error.message : String(error);
+      setDetail(code ? `${code}: ${message}` : message);
       setProblem('failed');
     } finally {
       setBusy(false);
@@ -135,7 +143,20 @@ export const NudgesCard = ({ enabled }: { enabled: boolean }) => {
         {(support === 'denied' || problem === 'denied') && (
           <Alert severity="warning">{t('nudges.denied')}</Alert>
         )}
-        {problem === 'failed' && <Alert severity="error">{t('nudges.failed')}</Alert>}
+        {problem === 'failed' && (
+          <Alert severity="error">
+            {t('nudges.failed')}
+            {detail && (
+              <Typography
+                variant="caption"
+                component="div"
+                sx={{ mt: 0.5, overflowWrap: 'anywhere' }}
+              >
+                {detail}
+              </Typography>
+            )}
+          </Alert>
+        )}
       </Stack>
     </Paper>
   );

@@ -1,0 +1,50 @@
+{
+  "tab": {
+    "title": "Ora e prossimi",
+    "add": "Aggiungi",
+    "empty": "Ancora niente. Aggiungi cosa sta succedendo o cosa pianifichi.",
+    "loadMore": "Carica altri",
+    "showPast": "Mostra passati e fatti ({{total}})",
+    "hidePast": "Nascondi passati e fatti"
+  },
+  "section": {
+    "now": "In questo momento",
+    "comingUp": "In arrivo",
+    "someday": "Prima o poi",
+    "past": "Passati e fatti"
+  },
+  "kind": {
+    "now": "Ora",
+    "event": "Evento",
+    "plan": "Piano"
+  },
+  "kindHelp": {
+    "now": "Cosa succede con questa persona in questi giorni.",
+    "event": "Qualcosa in un giorno preciso.",
+    "plan": "Qualcosa che vuoi fare; il giorno è facoltativo."
+  },
+  "form": {
+    "titleNew": "Aggiungi a Ora e prossimi",
+    "titleEdit": "Modifica elemento",
+    "kind": "Tipo",
+    "title": "Cosa",
+    "titleRequired": "Scrivi di cosa si tratta.",
+    "day": "Giorno",
+    "dayOptional": "Facoltativo per i piani.",
+    "time": "Ora",
+    "notes": "Note"
+  },
+  "row": {
+    "markDone": "Segna «{{title}}» come fatto"
+  },
+  "delete": {
+    "title": "Eliminare questo elemento?",
+    "message": "Viene rimosso da Ora e prossimi e da In arrivo."
+  },
+  "upcoming": {
+    "title": "In arrivo",
+    "intro": "Cosa succede ora e cosa arriva, per tutta la rosa.",
+    "now": "In questo momento",
+    "empty": "Niente in arrivo. Aggiungi eventi e piani nella scheda Ora e prossimi di un giocatore."
+  }
+}

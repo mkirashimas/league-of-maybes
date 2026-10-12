@@ -137,8 +137,7 @@ users/{uid}                          # legal
 | -------------------- | ----------------------------------------------- | --------------------------------- |
 | `intel`, `chatNotes` | `playerId ==`, `createdAt desc`                 | collection                        |
 | `dates`              | `playerId ==`, `date desc`                      | collection                        |
-| `agendaItems`        | `playerId ==`, `when asc`                       | collection                        |
-| `agendaItems`        | `done ==`, `kind ==`                            | collection                        |
+| `agendaItems`        | `playerId ==`, `createdAt desc`                 | collection                        |
 | `agendaItems`        | `done ==`, `when asc`                           | collection                        |
 | `keyNotes`           | `playerId ==`, `pinned desc`, `importance desc` | collection                        |
 | `chatStates`         | `nextNudgeAt asc`                               | collection group (field override) |

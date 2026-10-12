@@ -66,12 +66,13 @@ Every document gets `createdAt` and `updatedAt` (server timestamps) from the hel
 users/{uid}                          # legal
 │   consent: { termsVersion, acceptedAt }
 ├── players/{playerId}               # roster
-│     nickname, age?, occupation?, city?, metAt?, metOn?, avatarColor
+│     nickname, age | null, occupation, city, metAt, metOn (yyyy-mm-dd | '')
+│     avatarColor: primary | secondary | info | success | warning | error (palette key)
 │     status: prospect | active | bench | injuredReserve | retired
 │     traits: { [traitKey]: number | string }
 ├── traitDefinitions/{traitKey}      # roster; doc id = key, so seeding is idempotent
-│     key, labelKey | customLabel, kind: scale | number | enum
-│     unit?, options?, weight, order, active
+│     key, builtIn, customLabel, kind: scale | number | enum
+│     unit, options[], weight (0–3), order, active
 ├── intel/{intelId}                  # intel
 │     playerId, category, text
 ├── chatProfiles/{playerId}          # chat

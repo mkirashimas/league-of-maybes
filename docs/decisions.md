@@ -78,6 +78,16 @@ The full flow is in [workflow.md](workflow.md).
 - **Endpoint names:** RTK Query endpoints carry the feature prefix (`legalGetUserDocument`, `legalAcceptTerms`, later `rosterGetPlayers` and so on). Every feature injects into one shared `api`, so short names like `getPlayerRefs`, which exist in both `dates` and `agenda`, would clash. This matches `prothext-facts`. The endpoint names in `architecture.md` are the short forms.
 - **Consent time:** `consent.acceptedAt` is the device time (`Date.now()`). The write's server time is already in `updatedAt`.
 
+## D-009: Roster details and bundle splitting (2026-10-12)
+
+- **Trait labels:** `traitDefinitions` stores `builtIn` + `customLabel`, not a translation key. A built-in trait's label comes from `roster:trait.<key>`, so changing a translation never needs a data migration.
+- **Live player:** `rosterGetPlayer` is realtime. The player header and the trait editors stay live. The edit dialog copies the player only when it opens, so a concurrent update can't overwrite a form being edited.
+- **Deleting traits:** custom traits can be deleted (definition only; stored values stay hidden). Built-in traits can only be hidden.
+- **Bundle:**
+  - Feature pages load lazily from `hoc/Routing.tsx`, one chunk per feature.
+  - Vendor code is grouped into `react`, `mui` and `firebase` chunks (rolldown `codeSplitting`).
+  - The warning limit is 600 kB, because the Firebase SDK alone is a ~545 kB chunk.
+
 ## Review fixes R1–R17 (2026-10-12)
 
 These came out of reviewing the plan. Each is applied in the stage listed.

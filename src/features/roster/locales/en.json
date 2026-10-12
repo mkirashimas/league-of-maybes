@@ -1,0 +1,125 @@
+{
+  "title": "League Table",
+  "addPlayer": "Add player",
+  "notFound": "This player does not exist.",
+  "backToRoster": "Back to the League Table",
+  "filter": {
+    "label": "Show",
+    "current": "Current roster",
+    "all": "Everyone"
+  },
+  "status": {
+    "prospect": "Prospect",
+    "active": "Active",
+    "bench": "Bench",
+    "injuredReserve": "Injured reserve",
+    "retired": "Retired"
+  },
+  "table": {
+    "nickname": "Nickname",
+    "status": "Status",
+    "overall": "Overall",
+    "sortBy": "Sort by"
+  },
+  "empty": {
+    "title": "Your roster is empty",
+    "body": "Add your first player to start the season.",
+    "filteredTitle": "Nobody here",
+    "filteredBody": "No player matches this filter."
+  },
+  "trait": {
+    "height": "Height",
+    "weight": "Weight",
+    "hot": "Hot",
+    "funny": "Funny",
+    "communication": "Communication",
+    "chemistry": "Chemistry",
+    "consistency": "Consistency",
+    "ambition": "Ambition",
+    "crazyEyes": "Crazy eyes",
+    "attachmentStyle": "Attachment style"
+  },
+  "traitOption": {
+    "attachmentStyle": {
+      "secure": "Secure",
+      "anxious": "Anxious",
+      "avoidant": "Avoidant",
+      "fearfulAvoidant": "Fearful-avoidant"
+    }
+  },
+  "unit": {
+    "cm": "cm",
+    "kg": "kg"
+  },
+  "kind": {
+    "scale": "Scale 1–10",
+    "number": "Number",
+    "enum": "Choice"
+  },
+  "color": {
+    "primary": "Slate",
+    "secondary": "Steel",
+    "info": "Blue",
+    "success": "Green",
+    "warning": "Amber",
+    "error": "Red"
+  },
+  "form": {
+    "titleNew": "New player",
+    "titleEdit": "Edit player",
+    "nickname": "Nickname",
+    "nicknameHelper": "A nickname only. Never use a real name.",
+    "nicknameRequired": "A nickname is required.",
+    "age": "Age",
+    "ageInvalid": "Enter an age between 18 and 120.",
+    "occupation": "Occupation",
+    "city": "City",
+    "metAt": "Met at",
+    "metAtHelper": "App, event, friends…",
+    "metOn": "Met on",
+    "status": "Status",
+    "color": "Avatar color",
+    "create": "Add to roster",
+    "responsibility": {
+      "title": "You are responsible for what you write",
+      "body": "Everything here is about real people. Use nicknames, keep only what you need, and never share it.",
+      "dismiss": "Got it"
+    }
+  },
+  "profile": {
+    "details": "Details",
+    "traits": "Traits",
+    "notRated": "Not rated",
+    "clear": "Clear",
+    "notSet": "Not set",
+    "noTraits": "No active traits. Turn some on in the trait settings.",
+    "manageTraits": "Manage traits"
+  },
+  "tabs": {
+    "profile": "Profile & Traits",
+    "intel": "Intel",
+    "chat": "Chat",
+    "dates": "Dates",
+    "now": "Now & Next",
+    "keyNotes": "Key Notes"
+  },
+  "traitSettings": {
+    "title": "Traits",
+    "intro": "Choose what you rate, its order, and how much it counts in the overall score.",
+    "add": "Add trait",
+    "addTitle": "New trait",
+    "label": "Name",
+    "kind": "Type",
+    "unit": "Unit",
+    "options": "Options",
+    "optionsHelper": "At least two, separated by commas.",
+    "weight": "Weight",
+    "weightHelper": "How much it counts in the overall score. 0 = not counted.",
+    "active": "Shown",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "custom": "custom",
+    "deleteTitle": "Delete trait?",
+    "deleteMessage": "\"{{label}}\" will disappear from every player. Existing values are kept but hidden."
+  }
+}

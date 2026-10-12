@@ -9,7 +9,7 @@ const palettes: Record<ThemeMode, PaletteOptions> = {
     secondary: { main: '#4a5157' },
     background: { default: '#e6e8e9', paper: '#f6f7f7' },
     surface: { sidebar: '#dadddf' },
-    text: { primary: '#1e2124', secondary: '#5e646a' },
+    text: { primary: '#1e2124', secondary: '#585e64' }, // secondary ≥ 4.5:1 on every light surface
     divider: '#d3d7da',
     action: { hover: '#dde0e2', selected: '#f6f7f7' },
   },

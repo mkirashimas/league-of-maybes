@@ -1,0 +1,156 @@
+{
+  "tab": {
+    "title": "Chat",
+    "settingsLink": "Réglages du chat"
+  },
+  "state": {
+    "title": "État du chat",
+    "lastMe": "Vous avez écrit en dernier, {{ago}}.",
+    "lastThem": "Cette personne a écrit en dernier, {{ago}}.",
+    "none": "Pas encore d’état. Indiquez qui a écrit en dernier.",
+    "theyReplied": "Réponse reçue",
+    "iReplied": "J’ai répondu",
+    "at": "À (facultatif)",
+    "atHelper": "Vide = maintenant"
+  },
+  "reminders": {
+    "title": "Rappels",
+    "noState": "Indiquez qui a écrit en dernier pour recevoir des rappels. Vos règles actives :",
+    "noneActive": "Rien à surveiller pour l’instant.",
+    "noDoubleText": "Vous avez écrit en dernier. Attendez une réponse, ou jusqu’au {{date}}.",
+    "noDoubleTextNoDate": "Vous avez écrit en dernier. Attendez une réponse.",
+    "noInstantReply": "Ne répondez pas tout de suite. Répondez après {{time}}.",
+    "matchLength": "Alignez-vous sur la longueur de ses messages.",
+    "matchPace": "Cette personne répond en général {{pace}}. Suivez ce rythme.",
+    "quietHours": "Heures calmes. Envoyez plus tard.",
+    "resumeAfter": "C’est le moment de relancer la discussion."
+  },
+  "pace": {
+    "minutes": "en quelques minutes",
+    "hours": "en quelques heures",
+    "sameDay": "dans la journée",
+    "days": "après quelques jours"
+  },
+  "rules": {
+    "noDoubleText": "Ne pas relancer deux fois de suite",
+    "noInstantReply": "Ne pas répondre tout de suite",
+    "matchLength": "Suivre la longueur de ses messages",
+    "matchPace": "Suivre son rythme de réponse",
+    "quietHours": "Respecter les heures calmes",
+    "resumeAfter": "Relancer après une pause"
+  },
+  "profile": {
+    "title": "Profil de discussion",
+    "completeness": "{{filled}} sur {{total}} remplis",
+    "platform": "Plateforme",
+    "textingStyle": "Style d’écriture",
+    "replyTime": "Délai de réponse",
+    "initiator": "Qui commence",
+    "bestTime": "Meilleur moment pour écrire",
+    "topicsThatLand": "Sujets qui marchent",
+    "topicsToAvoid": "Sujets à éviter",
+    "topicsHelper": "Tapez puis appuyez sur Entrée pour ajouter.",
+    "notSet": "Non défini",
+    "phone": "Téléphone (facultatif)",
+    "phoneHelper": "Format international, chiffres uniquement, p. ex. 33612345678.",
+    "phoneInvalid": "Chiffres uniquement, indicatif pays d’abord, sans zéro initial (7 à 15 chiffres).",
+    "saved": "Enregistré"
+  },
+  "option": {
+    "platform": {
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "sms": "SMS",
+      "other": "Autre"
+    },
+    "textingStyle": {
+      "dry": "Court et sec",
+      "chatty": "Bavard",
+      "emoji": "Beaucoup d’emojis",
+      "voiceNotes": "Messages vocaux",
+      "memes": "Mèmes et liens"
+    },
+    "replyTime": {
+      "minutes": "Minutes",
+      "hours": "Heures",
+      "sameDay": "Dans la journée",
+      "days": "Jours"
+    },
+    "initiator": {
+      "me": "Surtout moi",
+      "them": "Surtout cette personne",
+      "both": "Les deux"
+    },
+    "bestTime": {
+      "morning": "Matin",
+      "afternoon": "Après-midi",
+      "evening": "Soir",
+      "lateNight": "Tard la nuit"
+    }
+  },
+  "quirks": {
+    "title": "Manies d’écriture",
+    "category": "Type",
+    "text": "Manie",
+    "add": "Ajouter",
+    "empty": "Pas encore de manies. Notez sa façon d’écrire.",
+    "loadMore": "Voir plus"
+  },
+  "category": {
+    "humor": "Humour",
+    "pace": "Rythme",
+    "emoji": "Emojis",
+    "pattern": "Habitude",
+    "other": "Autre"
+  },
+  "send": {
+    "title": "Envoyer",
+    "message": "Message",
+    "copy": "Copier",
+    "copied": "Copié",
+    "whatsapp": "Ouvrir dans WhatsApp",
+    "noPhone": "Pas de téléphone enregistré : WhatsApp vous demandera de choisir le contact."
+  },
+  "brief": {
+    "title": "Brief IA",
+    "intro": "Copiez tout ce dont votre outil d’IA a besoin pour vous aider à répondre, puis collez ses derniers messages à la fin.",
+    "copy": "Copier le brief IA",
+    "copied": "Copié dans le presse-papiers",
+    "copyError": "Le brief n’a pas pu être copié. Vérifiez votre connexion et l’accès au presse-papiers.",
+    "aiNotes": "Notes pour le brief de ce joueur",
+    "aiNotesHelper": "Ajoutées à « Mon style » quand vous copiez le brief. Enregistrées en quittant le champ."
+  },
+  "tpl": {
+    "role": "Rôle : tu es mon coach de messages. Propose 2 ou 3 réponses que je pourrais envoyer.",
+    "rules": "Les règles que je suis :",
+    "about": "À propos de cette personne ({{nickname}}) :",
+    "pinned": "Faits clés :",
+    "intel": "Ce que je sais :",
+    "state": "État du chat : dernier message de {{sender}}, {{ago}}.",
+    "stateNone": "État du chat : inconnu.",
+    "me": "moi",
+    "them": "cette personne",
+    "style": "Mon style :",
+    "latest": "Ses derniers messages :",
+    "paste": "[coller ici]"
+  },
+  "settings": {
+    "title": "Réglages du chat",
+    "intro": "Vos règles d’écriture, les délais et la base de chaque brief IA.",
+    "aiTitle": "Brief IA",
+    "aiInstructions": "Mon style (instructions de base)",
+    "aiInstructionsHelper": "Utilisé dans chaque brief IA. Chaque joueur peut ajouter ses propres notes dans son onglet Chat.",
+    "defaultInstructions": "Court, joueur et sûr de soi. Que ça sonne comme moi, pas comme un assistant. Pas de phrases toutes faites, pas de pression.",
+    "rulesTitle": "Règles",
+    "timingTitle": "Délais",
+    "resumeAfterHours": "Relancer après (heures)",
+    "resumeAfterHelper": "Quand proposer de relancer une discussion silencieuse.",
+    "minReplyDelayMin": "Attendre avant de répondre (minutes)",
+    "minReplyDelayHelper": "Utilisé par « Ne pas répondre tout de suite ».",
+    "quietStart": "Début des heures calmes",
+    "quietEnd": "Fin des heures calmes",
+    "timeZone": "Fuseau horaire : {{zone}} (de cet appareil).",
+    "saved": "Enregistré"
+  }
+}

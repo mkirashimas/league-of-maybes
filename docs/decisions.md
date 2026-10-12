@@ -99,6 +99,13 @@ The full flow is in [workflow.md](workflow.md).
 - **No composite index for `done == false, kind == 'now'`.** An equality-only query is served by Firestore's automatic single-field indexes, and deploying a composite index for it fails as "not necessary". This replaces the `(done, kind)` row of R2.
 - **The player tab orders by `createdAt desc`, not `when asc`.** With `when asc`, undated items come first and later events fall past the page limit. Newest-created first keeps current items on the first page, and the tab sorts into sections on the client. Index: `(playerId, createdAt desc)`.
 
+## D-012: Chat state as Timestamps; one log endpoint (2026-10-12)
+
+- **Timestamps:** `chatStates` times (`lastInboundAt`, `lastOutboundAt`, `nextNudgeAt`, `nudgedAt`, `stateUpdatedAt`) are written as `Date`s, so Firestore stores Timestamps. The stage 9 function compares `nextNudgeAt <= now` server-side. The client reads them back as millis.
+- **One log endpoint:** `chatLogMessage({ sender })` replaces `logInbound` and `logOutbound`. Same writes, one code path.
+- **Live profile:** `chatGetChatProfile` is realtime. The profile form copies it on mount and remounts when the stored fields (not `aiNotes`) change.
+- **Nudges switch later:** the nudges toggle moves to stage 8, next to the notification permission it needs.
+
 ## Review fixes R1–R17 (2026-10-12)
 
 These came out of reviewing the plan. Each is applied in the stage listed.

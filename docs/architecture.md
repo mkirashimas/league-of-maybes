@@ -81,7 +81,7 @@ users/{uid}                          # legal
 ├── chatNotes/{noteId}               # chat
 │     playerId, category, text
 ├── chatStates/{playerId}            # chat
-│     lastSender: me | them, lastInboundAt, lastOutboundAt
+│     playerId, lastSender: me | them, lastInboundAt, lastOutboundAt (Timestamps)
 │     nextNudgeAt | null, nudgedAt | null, stateUpdatedAt
 ├── settings/chat                    # chat; missing doc = defaults
 │     aiInstructions, rules: { [ruleKey]: boolean }

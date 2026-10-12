@@ -1,0 +1,156 @@
+{
+  "tab": {
+    "title": "Chat",
+    "settingsLink": "Setări chat"
+  },
+  "state": {
+    "title": "Starea chatului",
+    "lastMe": "Tu ai scris ultimul, {{ago}}.",
+    "lastThem": "A scris ultima dată, {{ago}}.",
+    "none": "Nicio stare încă. Notează cine a scris ultimul.",
+    "theyReplied": "Mi-a răspuns",
+    "iReplied": "Am răspuns eu",
+    "at": "La (opțional)",
+    "atHelper": "Gol = acum"
+  },
+  "reminders": {
+    "title": "Mementouri",
+    "noState": "Notează cine a scris ultimul ca să primești mementouri. Regulile tale active:",
+    "noneActive": "Nimic de urmărit acum.",
+    "noDoubleText": "Tu ai scris ultimul. Așteaptă un răspuns sau până pe {{date}}.",
+    "noDoubleTextNoDate": "Tu ai scris ultimul. Așteaptă un răspuns.",
+    "noInstantReply": "Nu răspunde imediat. Răspunde după {{time}}.",
+    "matchLength": "Potrivește lungimea mesajelor cu a lor.",
+    "matchPace": "De obicei răspunde {{pace}}. Păstrează același ritm.",
+    "quietHours": "Ore de liniște. Trimite mai târziu.",
+    "resumeAfter": "E momentul să reiei conversația."
+  },
+  "pace": {
+    "minutes": "în câteva minute",
+    "hours": "în câteva ore",
+    "sameDay": "în aceeași zi",
+    "days": "după câteva zile"
+  },
+  "rules": {
+    "noDoubleText": "Nu scrie de două ori la rând",
+    "noInstantReply": "Nu răspunde imediat",
+    "matchLength": "Potrivește lungimea mesajelor",
+    "matchPace": "Potrivește ritmul răspunsurilor",
+    "quietHours": "Respectă orele de liniște",
+    "resumeAfter": "Reia conversația după o pauză"
+  },
+  "profile": {
+    "title": "Profil de chat",
+    "completeness": "{{filled}} din {{total}} completate",
+    "platform": "Platformă",
+    "textingStyle": "Stil de scris",
+    "replyTime": "Timp de răspuns",
+    "initiator": "Cine începe",
+    "bestTime": "Cel mai bun moment pentru mesaje",
+    "topicsThatLand": "Subiecte care merg",
+    "topicsToAvoid": "Subiecte de evitat",
+    "topicsHelper": "Scrie și apasă Enter ca să adaugi.",
+    "notSet": "Nesetat",
+    "phone": "Telefon (opțional)",
+    "phoneHelper": "Format internațional, doar cifre, de ex. 40712345678.",
+    "phoneInvalid": "Doar cifre, întâi prefixul țării, fără zero la început (7–15 cifre).",
+    "saved": "Salvat"
+  },
+  "option": {
+    "platform": {
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "sms": "SMS",
+      "other": "Altele"
+    },
+    "textingStyle": {
+      "dry": "Scurt și sec",
+      "chatty": "Vorbăreț",
+      "emoji": "Multe emoji",
+      "voiceNotes": "Mesaje vocale",
+      "memes": "Meme și linkuri"
+    },
+    "replyTime": {
+      "minutes": "Minute",
+      "hours": "Ore",
+      "sameDay": "Aceeași zi",
+      "days": "Zile"
+    },
+    "initiator": {
+      "me": "Mai mult eu",
+      "them": "Mai mult persoana",
+      "both": "Amândoi"
+    },
+    "bestTime": {
+      "morning": "Dimineața",
+      "afternoon": "După-amiaza",
+      "evening": "Seara",
+      "lateNight": "Noaptea târziu"
+    }
+  },
+  "quirks": {
+    "title": "Obiceiuri în chat",
+    "category": "Tip",
+    "text": "Obicei",
+    "add": "Adaugă",
+    "empty": "Niciun obicei încă. Notează cum scrie.",
+    "loadMore": "Încarcă mai multe"
+  },
+  "category": {
+    "humor": "Umor",
+    "pace": "Ritm",
+    "emoji": "Emoji",
+    "pattern": "Tipar",
+    "other": "Altele"
+  },
+  "send": {
+    "title": "Trimite",
+    "message": "Mesaj",
+    "copy": "Copiază",
+    "copied": "Copiat",
+    "whatsapp": "Deschide în WhatsApp",
+    "noPhone": "Niciun telefon salvat: WhatsApp îți va cere să alegi contactul."
+  },
+  "brief": {
+    "title": "Brief AI",
+    "intro": "Copiază tot ce îi trebuie instrumentului tău AI ca să te ajute să răspunzi. Apoi lipește ultimele lor mesaje la final.",
+    "copy": "Copiază brief-ul AI",
+    "copied": "Copiat în clipboard",
+    "copyError": "Brief-ul nu a putut fi copiat. Verifică conexiunea și permisiunea pentru clipboard.",
+    "aiNotes": "Note pentru brief-ul acestui jucător",
+    "aiNotesHelper": "Adăugate la „Stilul meu” când copiezi brief-ul. Se salvează când ieși din câmp."
+  },
+  "tpl": {
+    "role": "Rol: ești coach-ul meu pentru mesaje. Propune 2–3 răspunsuri pe care le-aș putea trimite.",
+    "rules": "Reguli pe care le urmez:",
+    "about": "Despre persoană ({{nickname}}):",
+    "pinned": "Lucruri cheie:",
+    "intel": "Ce știu:",
+    "state": "Starea chatului: ultimul mesaj de la {{sender}}, {{ago}}.",
+    "stateNone": "Starea chatului: necunoscută.",
+    "me": "mine",
+    "them": "persoană",
+    "style": "Stilul meu:",
+    "latest": "Ultimele lor mesaje:",
+    "paste": "[lipește aici]"
+  },
+  "settings": {
+    "title": "Setări chat",
+    "intro": "Regulile tale de scris, timpii și baza fiecărui brief AI.",
+    "aiTitle": "Brief AI",
+    "aiInstructions": "Stilul meu (instrucțiuni de bază)",
+    "aiInstructionsHelper": "Folosit în fiecare brief AI. Fiecare jucător poate avea propriile note în fila Chat.",
+    "defaultInstructions": "Scurt, jucăuș și sigur pe mine. Să sune ca mine, nu ca un asistent. Fără replici clișeu, fără presiune.",
+    "rulesTitle": "Reguli",
+    "timingTitle": "Timpi",
+    "resumeAfterHours": "Reia conversația după (ore)",
+    "resumeAfterHelper": "Când să sugereze reluarea unei conversații oprite.",
+    "minReplyDelayMin": "Așteaptă înainte să răspunzi (minute)",
+    "minReplyDelayHelper": "Folosit de „Nu răspunde imediat”.",
+    "quietStart": "Începutul orelor de liniște",
+    "quietEnd": "Sfârșitul orelor de liniște",
+    "timeZone": "Fus orar: {{zone}} (de pe acest dispozitiv).",
+    "saved": "Salvat"
+  }
+}

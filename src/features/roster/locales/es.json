@@ -147,6 +147,9 @@
     "custom": "personalizado",
     "deleteTitle": "¿Eliminar rasgo?",
     "deleteMessage": "«{{label}}» desaparecerá de todos los jugadores. Los valores existentes se conservan pero quedan ocultos.",
-    "showInTable": "Mostrar en la clasificación"
+    "showInTable": "Mostrar en la clasificación",
+    "scores": "Puntuar las opciones",
+    "scoresTitle": "Puntuaciones de {{label}}",
+    "scoresIntro": "Lo que vale cada opción en la puntuación global, de 1 (bajo) a 10 (alto)."
   }
 }

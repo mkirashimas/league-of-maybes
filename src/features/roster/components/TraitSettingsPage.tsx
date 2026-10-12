@@ -3,6 +3,7 @@ import {
   ArrowDownwardOutlined,
   ArrowUpwardOutlined,
   DeleteOutlined,
+  ScoreboardOutlined,
   TableChart,
   TableChartOutlined,
 } from '@mui/icons-material';
@@ -33,9 +34,17 @@ import {
 } from '../api';
 import { useTraitDefinitions } from '../hooks/useTraitDefinitions';
 import { useTraitLabels } from '../hooks/useTraitLabels';
-import { ROSTER_NAMESPACE, toTraitInput, TRAIT_WEIGHTS, type TraitDefinition } from '../types';
+import {
+  isWeighted,
+  optionScore,
+  ROSTER_NAMESPACE,
+  toTraitInput,
+  TRAIT_WEIGHTS,
+  type TraitDefinition,
+} from '../types';
 import { AddTraitDialog } from './AddTraitDialog';
 import { ConfirmDialog } from './ConfirmDialog';
+import { OptionScoresDialog } from './OptionScoresDialog';
 
 export const TraitSettingsPage = () => {
   const { t } = useTranslation([ROSTER_NAMESPACE, 'common']);
@@ -46,6 +55,7 @@ export const TraitSettingsPage = () => {
   const [deleteTrait] = useRosterDeleteTraitDefinitionMutation();
   const [adding, setAdding] = useState(false);
   const [deleting, setDeleting] = useState<TraitDefinition | null>(null);
+  const [scoring, setScoring] = useState<TraitDefinition | null>(null);
 
   const move = (index: number, offset: -1 | 1) => {
     const keys = definitions.map((definition) => definition.key);
@@ -59,7 +69,11 @@ export const TraitSettingsPage = () => {
     if (definition.kind === 'number' && definition.unit)
       return `${kind} · ${unitLabel(definition)}`;
     if (definition.kind === 'enum') {
-      return `${kind} · ${definition.options.map((option) => optionLabel(definition, option)).join(', ')}`;
+      // Each choice with its score in the overall, e.g. "Secure (10)".
+      const choices = definition.options.map(
+        (option) => `${optionLabel(definition, option)} (${optionScore(definition, option)})`,
+      );
+      return `${kind} · ${choices.join(', ')}`;
     }
     return kind;
   };
@@ -115,7 +129,7 @@ export const TraitSettingsPage = () => {
                   sx={(theme) => ({ minWidth: theme.spacing(20), flex: '1 1 auto' })}
                 />
                 <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-                  {definition.kind === 'scale' && (
+                  {isWeighted(definition.kind) && (
                     <TextField
                       select
                       size="small"
@@ -135,6 +149,17 @@ export const TraitSettingsPage = () => {
                         </MenuItem>
                       ))}
                     </TextField>
+                  )}
+                  {definition.kind === 'enum' && (
+                    <Tooltip title={t('traitSettings.scores')}>
+                      <IconButton
+                        size="small"
+                        onClick={() => setScoring(definition)}
+                        aria-label={`${t('traitSettings.scores')}: ${traitLabel(definition)}`}
+                      >
+                        <ScoreboardOutlined fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
                   )}
                   {definition.kind === 'scale' && (
                     <Tooltip title={t('traitSettings.showInTable')}>
@@ -201,6 +226,7 @@ export const TraitSettingsPage = () => {
         </Paper>
       )}
 
+      <OptionScoresDialog definition={scoring} onClose={() => setScoring(null)} />
       <AddTraitDialog
         open={adding}
         nextOrder={definitions.reduce((max, definition) => Math.max(max, definition.order), -1) + 1}

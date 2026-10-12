@@ -147,6 +147,9 @@
     "custom": "custom",
     "deleteTitle": "Delete trait?",
     "deleteMessage": "\"{{label}}\" will disappear from every player. Existing values are kept but hidden.",
-    "showInTable": "Show in League Table"
+    "showInTable": "Show in League Table",
+    "scores": "Score the choices",
+    "scoresTitle": "Scores for {{label}}",
+    "scoresIntro": "What each choice is worth in the overall score, from 1 (low) to 10 (high)."
   }
 }

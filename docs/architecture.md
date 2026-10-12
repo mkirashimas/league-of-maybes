@@ -116,14 +116,14 @@ deletionCodes/{uid}                  # Cloud Functions only (no client rule): sa
 | `chatNotes` | humor, pace, emoji, pattern, other                                          |
 | `keyNotes`  | birthday, family, pets, allergies, insideJoke, giftIdea, noGoTopic, other   |
 
-**Default traits** (seeded on first login; built-ins added later are seeded for existing accounts, and stored built-ins follow the kind and options below). Scale traits weigh 1–10 in `overall`; other kinds don't count. The League Table shows the active scale traits with `showInTable`; it defaults to on for hot, sex and crazyEyes.
+**Default traits** (seeded on first login; built-ins added later are seeded for existing accounts, and stored built-ins follow the kind and options below). Scale and choice (enum) traits weigh 1–10 in `overall`. A choice counts with its option score (1–10, set per option in Trait settings; defaults spread by position, attachmentStyle secure 10, anxious 5, avoidant 4, fearfulAvoidant 2). Number traits don't count. The League Table shows the active scale traits with `showInTable`; it defaults to on for hot, sex and crazyEyes.
 
 | Trait                                                                           | Kind       | Weight |
 | ------------------------------------------------------------------------------- | ---------- | ------ |
-| height (ranges: under 160 … 190+ cm), weight (ranges: under 50 … 100+ kg)       | enum       | –      |
+| height (ranges: under 160 … 190+ cm), weight (ranges: under 50 … 100+ kg)       | enum       | 1      |
 | hot, sex, funny, communication, chemistry, consistency, ambition, crazyEyes     | scale 1–10 | 1      |
 | Big Five: openness, conscientiousness, extraversion, agreeableness, neuroticism | scale 1–10 | 1      |
-| attachmentStyle (secure, anxious, avoidant, fearfulAvoidant)                    | enum       | –      |
+| attachmentStyle (secure, anxious, avoidant, fearfulAvoidant)                    | enum       | 1      |
 
 ## 5. Security rules and indexes
 

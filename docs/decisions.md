@@ -166,3 +166,9 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 - **Trait weights are 1–10** (was 0–3), and every scale trait counts in `overall`, crazyEyes included. Stored weights of 0 become 1, and other stored weights stay as they are.
 - **Height and weight are ranges** (enum), because nobody knows the exact numbers. Height has 5 ranges and weight has 7. When a stored definition is upgraded, numbers already entered on players move into the matching range in the same batch (`rosterSyncTraitDefinitions`, which replaces `seedDefaultTraits`). The `number` kind stays available for custom traits.
 - **The Big Five** (openness, conscientiousness, extraversion, agreeableness, neuroticism) are built-in 1–10 traits with weight 1, placed after attachmentStyle and off in the League Table.
+
+## D-016: Choice traits count in Overall (2026-10-12)
+
+- **Weights:** choice (enum) traits now have a 1–10 weight, like scale traits. Stored choice traits with weight 0 become 1. Number traits still don't count.
+- **Option scores:** each choice has a 1–10 score, set in Trait settings with "Score the choices" and stored in `traitDefinitions.optionScores`. Without stored scores, the default is spread evenly by position (first 1, last 10). attachmentStyle has fixed defaults: secure 10, anxious 5, avoidant 4, fearfulAvoidant 2.
+- **Overall:** the weighted average of active scale values and choice scores. Empty values are skipped, as before.

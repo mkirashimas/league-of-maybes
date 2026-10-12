@@ -7,7 +7,25 @@
   "signOut": "Deconectare",
   "theme": {
     "switchToDark": "Treci la modul întunecat",
-    "switchToLight": "Treci la modul luminos"
+    "switchToLight": "Treci la modul luminos",
+    "darkOnly": "Această temă are doar modul întunecat",
+    "choose": "Temă de culoare",
+    "groups": {
+      "lightDark": "Luminos și întunecat",
+      "darkOnly": "Doar întunecat"
+    },
+    "names": {
+      "slate": "Ardezie",
+      "roseCourt": "Teren Rosé",
+      "floodlight": "Reflectoare",
+      "pitchTrophy": "Gazon și Trofeu",
+      "mangoTango": "Mango Tango",
+      "lagoon": "Lagună",
+      "pride": "Mândrie",
+      "velvetLounge": "Salon de Catifea",
+      "deepEnd": "Ape Adânci",
+      "blackout": "Întuneric total"
+    }
   },
   "languages": {
     "en": "English",

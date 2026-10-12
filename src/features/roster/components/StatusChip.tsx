@@ -2,11 +2,12 @@ import { Chip, type ChipProps } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { ROSTER_NAMESPACE, type PlayerStatus } from '../types';
 
+// Each colour theme sets success/info/warning/error to its own status colours.
 const STATUS_COLORS: Record<PlayerStatus, ChipProps['color']> = {
   prospect: 'info',
   active: 'success',
-  bench: 'default',
-  injuredReserve: 'warning',
+  bench: 'warning',
+  injuredReserve: 'error',
   retired: 'default',
 };
 

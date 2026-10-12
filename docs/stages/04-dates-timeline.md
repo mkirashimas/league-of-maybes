@@ -1,6 +1,6 @@
 # Stage 4: Dates and Timeline
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/04-dates-timeline`
+**Status:** ✅ done (2026-10-12), PR #5, tag `stage-04`
 
 ## 1. Goal
 

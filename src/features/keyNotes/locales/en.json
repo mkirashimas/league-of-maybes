@@ -1,0 +1,48 @@
+{
+  "tab": {
+    "title": "Key Notes",
+    "intro": "Facts worth remembering. Pin the ones you must never forget.",
+    "empty": "No key notes yet.",
+    "loadMore": "Load more"
+  },
+  "form": {
+    "category": "Category",
+    "importance": "Importance",
+    "text": "Note",
+    "pinned": "Pin to the top",
+    "add": "Add"
+  },
+  "category": {
+    "birthday": "Birthday",
+    "family": "Family",
+    "pets": "Pets",
+    "allergies": "Allergies",
+    "insideJoke": "Inside joke",
+    "giftIdea": "Gift idea",
+    "noGoTopic": "No-go topic",
+    "other": "Other"
+  },
+  "placeholder": {
+    "birthday": "Day and month",
+    "family": "Siblings, parents…",
+    "pets": "Names, species",
+    "allergies": "Food, pets, pollen…",
+    "insideJoke": "The joke and where it came from",
+    "giftIdea": "Something they would love",
+    "noGoTopic": "What not to bring up",
+    "other": "Anything else"
+  },
+  "importance": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "card": {
+    "pin": "Pin",
+    "unpin": "Unpin"
+  },
+  "delete": {
+    "title": "Delete this key note?",
+    "message": "It is removed from the Key Notes tab."
+  }
+}

@@ -97,7 +97,7 @@ users/{uid}                          # legal
 ├── agendaItems/{itemId}             # agenda
 │     playerId, kind: now | event | plan, title, notes?, when | null, done
 └── keyNotes/{noteId}                # keyNotes
-      playerId, category, text, pinned, importance
+      playerId, category, text, pinned, importance (1 low | 2 medium | 3 high)
 ```
 
 **Rules for the data**

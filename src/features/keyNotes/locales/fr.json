@@ -1,0 +1,48 @@
+{
+  "tab": {
+    "title": "Notes clés",
+    "intro": "Les faits à retenir. Épinglez ceux qu’il ne faut jamais oublier.",
+    "empty": "Pas encore de notes clés.",
+    "loadMore": "Voir plus"
+  },
+  "form": {
+    "category": "Catégorie",
+    "importance": "Importance",
+    "text": "Note",
+    "pinned": "Épingler en haut",
+    "add": "Ajouter"
+  },
+  "category": {
+    "birthday": "Anniversaire",
+    "family": "Famille",
+    "pets": "Animaux",
+    "allergies": "Allergies",
+    "insideJoke": "Blague privée",
+    "giftIdea": "Idée cadeau",
+    "noGoTopic": "Sujet à éviter",
+    "other": "Autre"
+  },
+  "placeholder": {
+    "birthday": "Jour et mois",
+    "family": "Frères et sœurs, parents…",
+    "pets": "Noms, espèce",
+    "allergies": "Aliments, animaux, pollen…",
+    "insideJoke": "La blague et son origine",
+    "giftIdea": "Quelque chose qui lui plairait",
+    "noGoTopic": "Ce qu’il ne faut pas aborder",
+    "other": "Tout le reste"
+  },
+  "importance": {
+    "high": "Haute",
+    "medium": "Moyenne",
+    "low": "Basse"
+  },
+  "card": {
+    "pin": "Épingler",
+    "unpin": "Désépingler"
+  },
+  "delete": {
+    "title": "Supprimer cette note clé ?",
+    "message": "Elle est retirée de l’onglet Notes clés."
+  }
+}

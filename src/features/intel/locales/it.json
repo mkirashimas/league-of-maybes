@@ -1,0 +1,35 @@
+{
+  "tab": {
+    "title": "Info",
+    "intro": "Note di scouting: ciò che scopri prima e durante gli appuntamenti.",
+    "empty": "Ancora nessuna info. Aggiungi ciò che sai.",
+    "loadMore": "Carica altri"
+  },
+  "form": {
+    "category": "Categoria",
+    "text": "Nota",
+    "add": "Aggiungi"
+  },
+  "category": {
+    "howWeMet": "Come ci siamo conosciuti",
+    "socials": "Social",
+    "interests": "Interessi",
+    "greenFlag": "Segnali verdi",
+    "redFlag": "Segnali rossi",
+    "mutualFriends": "Amici in comune",
+    "openerIdea": "Idee per iniziare"
+  },
+  "placeholder": {
+    "howWeMet": "Dove e come vi siete conosciuti",
+    "socials": "Profili, cosa pubblica",
+    "interests": "Hobby, musica, cibo…",
+    "greenFlag": "Qualcosa che ti è piaciuto",
+    "redFlag": "Qualcosa da tenere d’occhio",
+    "mutualFriends": "Chi conoscete entrambi",
+    "openerIdea": "Una frase per iniziare a chattare"
+  },
+  "delete": {
+    "title": "Eliminare questa nota?",
+    "message": "Viene rimossa dalla scheda Info."
+  }
+}

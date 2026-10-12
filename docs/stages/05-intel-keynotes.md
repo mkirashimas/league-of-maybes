@@ -1,6 +1,6 @@
 # Stage 5: Intel and Key Notes
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/05-intel-keynotes`
+**Status:** ✅ done (2026-10-12), PR #6, tag `stage-05`
 
 ## 1. Goal
 

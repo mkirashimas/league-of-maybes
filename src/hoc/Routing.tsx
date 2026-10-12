@@ -20,6 +20,9 @@ const TraitSettingsPage = lazy(() => roster().then((m) => ({ default: m.TraitSet
 const dates = () => import('../features/dates');
 const DatesTab = lazy(() => dates().then((m) => ({ default: m.DatesTab })));
 const TimelinePage = lazy(() => dates().then((m) => ({ default: m.TimelinePage })));
+const agenda = () => import('../features/agenda');
+const AgendaTab = lazy(() => agenda().then((m) => ({ default: m.AgendaTab })));
+const UpcomingPage = lazy(() => agenda().then((m) => ({ default: m.UpcomingPage })));
 const IntelTab = lazy(() => import('../features/intel').then((m) => ({ default: m.IntelTab })));
 const KeyNotesTab = lazy(() =>
   import('../features/keyNotes').then((m) => ({ default: m.KeyNotesTab })),
@@ -83,12 +86,12 @@ export const Routing = () => (
             <Route path={PATHS.PLAYER_INTEL} element={<IntelTab />} />
             <Route path={PATHS.PLAYER_CHAT} element={<ComingSoon />} />
             <Route path={PATHS.PLAYER_DATES} element={<DatesTab />} />
-            <Route path={PATHS.PLAYER_AGENDA} element={<ComingSoon />} />
+            <Route path={PATHS.PLAYER_AGENDA} element={<AgendaTab />} />
             <Route path={PATHS.PLAYER_KEY_NOTES} element={<KeyNotesTab />} />
           </Route>
 
           <Route path={PATHS.TIMELINE} element={<TimelinePage />} />
-          <Route path={PATHS.AGENDA} element={<ComingSoon />} />
+          <Route path={PATHS.AGENDA} element={<UpcomingPage />} />
           <Route path={PATHS.TRAIT_SETTINGS} element={<TraitSettingsPage />} />
           <Route path={PATHS.CHAT_SETTINGS} element={<ComingSoon />} />
           <Route path={PATHS.ACCOUNT} element={<ComingSoon />} />

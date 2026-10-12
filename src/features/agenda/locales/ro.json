@@ -1,0 +1,50 @@
+{
+  "tab": {
+    "title": "Acum și urmează",
+    "add": "Adaugă",
+    "empty": "Nimic încă. Adaugă ce se întâmplă sau ce plănuiești.",
+    "loadMore": "Încarcă mai multe",
+    "showPast": "Arată trecute și făcute ({{total}})",
+    "hidePast": "Ascunde trecute și făcute"
+  },
+  "section": {
+    "now": "Chiar acum",
+    "comingUp": "Urmează",
+    "someday": "Cândva",
+    "past": "Trecute și făcute"
+  },
+  "kind": {
+    "now": "Acum",
+    "event": "Eveniment",
+    "plan": "Plan"
+  },
+  "kindHelp": {
+    "now": "Ce se întâmplă cu persoana asta zilele acestea.",
+    "event": "Ceva într-o zi anume.",
+    "plan": "Ceva ce vrei să faci; ziua este opțională."
+  },
+  "form": {
+    "titleNew": "Adaugă la Acum și urmează",
+    "titleEdit": "Editează elementul",
+    "kind": "Tip",
+    "title": "Ce",
+    "titleRequired": "Spune ce este.",
+    "day": "Ziua",
+    "dayOptional": "Opțional pentru planuri.",
+    "time": "Ora",
+    "notes": "Notițe"
+  },
+  "row": {
+    "markDone": "Marchează „{{title}}” ca făcut"
+  },
+  "delete": {
+    "title": "Ștergi acest element?",
+    "message": "Este eliminat din Acum și urmează și din Urmează."
+  },
+  "upcoming": {
+    "title": "Urmează",
+    "intro": "Ce se întâmplă acum și ce urmează, pentru tot lotul.",
+    "now": "Chiar acum",
+    "empty": "Nu urmează nimic. Adaugă evenimente și planuri în fila Acum și urmează a unui jucător."
+  }
+}

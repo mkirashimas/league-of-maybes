@@ -94,6 +94,11 @@ The full flow is in [workflow.md](workflow.md).
 - **Date list:** `datesGetDates` is realtime with a `limit` ("Load more"), like every player-tab list.
 - **Days:** a date is stored as its local calendar day (`yyyy-mm-dd`), not a timestamp. "Days since" is counted in calendar days.
 
+## D-011: Agenda indexes (2026-10-12)
+
+- **No composite index for `done == false, kind == 'now'`.** An equality-only query is served by Firestore's automatic single-field indexes, and deploying a composite index for it fails as "not necessary". This replaces the `(done, kind)` row of R2.
+- **The player tab orders by `createdAt desc`, not `when asc`.** With `when asc`, undated items come first and later events fall past the page limit. Newest-created first keeps current items on the first page, and the tab sorts into sections on the client. Index: `(playerId, createdAt desc)`.
+
 ## Review fixes R1–R17 (2026-10-12)
 
 These came out of reviewing the plan. Each is applied in the stage listed.

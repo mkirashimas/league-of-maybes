@@ -10,6 +10,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
+import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { generatePath, Outlet, Link as RouterLink, useLocation, useParams } from 'react-router';
 import { PATHS } from '../../../types';
@@ -103,7 +104,16 @@ export const PlayerLayout = () => {
         ))}
       </Tabs>
 
-      <Outlet />
+      {/* Tabs of other features load lazily; only the tab area waits, the header stays. */}
+      <Suspense
+        fallback={
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+            <CircularProgress />
+          </Box>
+        }
+      >
+        <Outlet />
+      </Suspense>
     </Stack>
   );
 };

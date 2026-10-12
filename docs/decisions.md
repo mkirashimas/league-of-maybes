@@ -88,6 +88,12 @@ The full flow is in [workflow.md](workflow.md).
   - Vendor code is grouped into `react`, `mui` and `firebase` chunks (rolldown `codeSplitting`).
   - The warning limit is 600 kB, because the Firebase SDK alone is a ~545 kB chunk.
 
+## D-010: Date summaries by re-query; realtime date list (2026-10-12)
+
+- **Summaries:** after each date create, update or delete, the client re-reads all of that player's dates and overwrites `dateSummaries/{playerId}`. Firestore web transactions can read documents but not run queries, so R7's "recompute in a transaction" can't hold the date list. The re-query is idempotent and always converges on the current dates. This replaces R7 for summaries.
+- **Date list:** `datesGetDates` is realtime with a `limit` ("Load more"), like every player-tab list.
+- **Days:** a date is stored as its local calendar day (`yyyy-mm-dd`), not a timestamp. "Days since" is counted in calendar days.
+
 ## Review fixes R1–R17 (2026-10-12)
 
 These came out of reviewing the plan. Each is applied in the stage listed.

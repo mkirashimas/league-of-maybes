@@ -1,0 +1,53 @@
+{
+  "tab": {
+    "title": "Citas",
+    "add": "Registrar cita",
+    "empty": "Todavía no hay citas. Registra la primera después de veros.",
+    "loadMore": "Cargar más"
+  },
+  "form": {
+    "titleNew": "Registrar cita",
+    "titleEdit": "Editar cita",
+    "date": "Día",
+    "dateRequired": "Elige el día.",
+    "outcome": "Cómo fue",
+    "activity": "Actividad",
+    "activityHelper": "Copas, cena, un paseo…",
+    "venue": "Lugar",
+    "rating": "Valoración",
+    "ratingNone": "Sin valorar",
+    "highlights": "Lo mejor",
+    "nextStep": "Siguiente paso",
+    "nextStepHelper": "Lo que quieres hacer después."
+  },
+  "outcome": {
+    "great": "Genial",
+    "good": "Bien",
+    "meh": "Regular",
+    "bad": "Mal"
+  },
+  "card": {
+    "untitled": "Cita",
+    "edit": "Editar cita",
+    "delete": "Eliminar cita",
+    "rating": "{{rating}}/10",
+    "nextStep": "Siguiente: {{step}}"
+  },
+  "delete": {
+    "title": "¿Eliminar esta cita?",
+    "message": "Se quita del registro y de la cronología."
+  },
+  "timeline": {
+    "title": "Cronología",
+    "intro": "Tiempo desde la última cita con cada jugador activo o en el banquillo. Los puntos muestran las citas de los últimos {{days}} días.",
+    "legend": {
+      "fresh": "Menos de {{days}} días",
+      "cooling": "{{from}}–{{to}} días",
+      "cold": "{{days}}+ días"
+    },
+    "never": "Sin citas",
+    "total": "Citas: {{total}}",
+    "empty": "Todavía no hay jugadores activos ni en el banquillo.",
+    "dotsLabel": "Citas de los últimos {{days}} días"
+  }
+}

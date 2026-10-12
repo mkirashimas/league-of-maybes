@@ -1,0 +1,53 @@
+{
+  "tab": {
+    "title": "Dates",
+    "add": "Log a date",
+    "empty": "No dates yet. Log the first one after you meet.",
+    "loadMore": "Load more"
+  },
+  "form": {
+    "titleNew": "Log a date",
+    "titleEdit": "Edit date",
+    "date": "Day",
+    "dateRequired": "Pick the day.",
+    "outcome": "How it went",
+    "activity": "Activity",
+    "activityHelper": "Drinks, dinner, a walk…",
+    "venue": "Place",
+    "rating": "Rating",
+    "ratingNone": "Not rated",
+    "highlights": "Highlights",
+    "nextStep": "Next step",
+    "nextStepHelper": "What you want to do next."
+  },
+  "outcome": {
+    "great": "Great",
+    "good": "Good",
+    "meh": "Meh",
+    "bad": "Bad"
+  },
+  "card": {
+    "untitled": "Date",
+    "edit": "Edit date",
+    "delete": "Delete date",
+    "rating": "{{rating}}/10",
+    "nextStep": "Next: {{step}}"
+  },
+  "delete": {
+    "title": "Delete this date?",
+    "message": "It is removed from the log and from the Timeline."
+  },
+  "timeline": {
+    "title": "Timeline",
+    "intro": "Time since the last date with each active and bench player. Dots show dates in the last {{days}} days.",
+    "legend": {
+      "fresh": "Under {{days}} days",
+      "cooling": "{{from}}–{{to}} days",
+      "cold": "{{days}}+ days"
+    },
+    "never": "Never dated",
+    "total": "Dates: {{total}}",
+    "empty": "No active or bench players yet.",
+    "dotsLabel": "Dates in the last {{days}} days"
+  }
+}

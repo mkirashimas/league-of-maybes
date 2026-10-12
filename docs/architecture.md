@@ -90,10 +90,10 @@ users/{uid}                          # legal
 ├── devices/{sha256(token)}          # chat
 │     token, language, userAgent
 ├── dates/{dateId}                   # dates
-│     playerId, date, venue, activity, rating 1–10
+│     playerId, date (yyyy-mm-dd, local day), venue, activity, rating 1–10 | null
 │     outcome: great | good | meh | bad, highlights, nextStep?
-├── dateSummaries/{playerId}         # dates; recomputed in a transaction
-│     lastDateAt, count, recentDates[] (last 90 days)
+├── dateSummaries/{playerId}         # dates; re-query + overwrite after each date write (D-010)
+│     playerId, lastDateAt (yyyy-mm-dd | null), count, recentDates[] (last 90 days)
 ├── agendaItems/{itemId}             # agenda
 │     playerId, kind: now | event | plan, title, notes?, when | null, done
 └── keyNotes/{noteId}                # keyNotes

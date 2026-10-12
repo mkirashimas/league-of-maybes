@@ -152,5 +152,35 @@
     "quietEnd": "Quiet hours end",
     "timeZone": "Time zone: {{zone}} (from this device).",
     "saved": "Saved"
+  },
+  "openers": {
+    "suggest": "Suggest openers",
+    "privacy": "Sends this player’s profile, pinned notes and recent intel to Google Gemini. Nothing is stored.",
+    "error": "Openers could not be generated. Try again in a moment.",
+    "none": "No openers came back. Try again.",
+    "use": "Use",
+    "tone": {
+      "playful": "Playful",
+      "warm": "Warm",
+      "curious": "Curious",
+      "bold": "Bold"
+    }
+  },
+  "nudge": {
+    "banner": "Opened from a nudge. Check the chat state above, then get openers.",
+    "confirm": "Looks right, suggest openers",
+    "foreground": "Time to restart a chat.",
+    "open": "Open"
+  },
+  "nudges": {
+    "title": "Nudges",
+    "intro": "A notification when it is time to restart a chat. The text never shows a nickname.",
+    "on": "Nudges are on",
+    "off": "Nudges are off",
+    "addDevice": "Also notify this device",
+    "thisDevice": "This device receives nudges.",
+    "unsupported": "This browser cannot receive notifications. On iPhone, add the app to the Home Screen first and open it from there.",
+    "denied": "Notifications are blocked for this site. Allow them in the browser settings, then try again.",
+    "failed": "Nudges could not be changed. Try again."
   }
 }

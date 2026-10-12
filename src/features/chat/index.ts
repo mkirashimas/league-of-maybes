@@ -10,3 +10,4 @@ registerNamespace(CHAT_NAMESPACE, { en, es, fr, it, ro });
 
 export { ChatSettingsPage } from './components/ChatSettingsPage';
 export { ChatTab } from './components/ChatTab';
+export { NudgeListener } from './components/NudgeListener';

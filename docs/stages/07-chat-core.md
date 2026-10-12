@@ -1,6 +1,6 @@
 # Stage 7: Chat core
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/07-chat-core`
+**Status:** ✅ done (2026-10-12), PR #8, tag `stage-07`
 
 ## 1. Goal
 

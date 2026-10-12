@@ -5,14 +5,25 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react()],
   build: {
-    // The Firebase SDK (Auth + Firestore) is one ~545 kB vendor chunk; everything else stays well below.
+    // The Firebase core chunk (App, Auth, Firestore, App Check) is ~550 kB; everything else stays well below.
     chunkSizeWarningLimit: 600,
     rolldownOptions: {
       output: {
         // Vendor libraries in their own long-lived chunks; app features are split by route.
         codeSplitting: {
           groups: [
-            { name: 'firebase', test: /node_modules[\\/](@firebase|firebase)[\\/]/ },
+            // AI Logic and Messaging are used by the chat feature only: keep them out of startup.
+            { name: 'firebase-ai', test: /node_modules[\\/]@firebase[\\/]ai[\\/]/, priority: 2 },
+            {
+              name: 'firebase-messaging',
+              test: /node_modules[\\/]@firebase[\\/]messaging[\\/]/,
+              priority: 2,
+            },
+            {
+              name: 'firebase',
+              test: /node_modules[\\/](@firebase|firebase)[\\/]/,
+              priority: 1,
+            },
             { name: 'mui', test: /node_modules[\\/](@mui|@emotion)[\\/]/ },
             {
               name: 'react',

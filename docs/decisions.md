@@ -106,6 +106,15 @@ The full flow is in [workflow.md](workflow.md).
 - **Live profile:** `chatGetChatProfile` is realtime. The profile form copies it on mount and remounts when the stored fields (not `aiNotes`) change.
 - **Nudges switch later:** the nudges toggle moves to stage 8, next to the notification permission it needs.
 
+## D-013: AI openers and push (2026-10-12)
+
+- **Model:** `gemini-3.8-flash`, the latest Flash model listed by Firebase AI Logic (checked 2026-10-12). It's one constant in `src/firebase/ai.ts`.
+- **App Check provider:** reCAPTCHA Enterprise, now named "Google Cloud Fraud Defense" in the console. It's still `ReCaptchaEnterpriseProvider` in code: a score-based key for `league-of-maybes.web.app`, `league-of-maybes.firebaseapp.com` and `localhost`. Enforcement waits until the metrics show verified traffic.
+- **Openers in the Send card:** openers and the message box share one card, so "Use" fills the message directly.
+- **Notification clicks:** handled by the FCM SDK through `webpush.fcmOptions.link` (set by the stage 9 function), with no custom service-worker click handler.
+- **Turning nudges off is global** (`nudgesEnabled: false`) and also removes this browser's device doc. A foreground nudge shows as a snackbar, through `NudgeListener` mounted next to `Layout`.
+- **Chunks:** `firebase-ai` and `firebase-messaging` are separate chunks, so the Firebase core chunk stays under the 600 kB warning limit.
+
 ## Review fixes R1–R17 (2026-10-12)
 
 These came out of reviewing the plan. Each is applied in the stage listed.

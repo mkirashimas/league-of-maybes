@@ -1,6 +1,7 @@
-import { Alert, Box, CircularProgress, Link, Stack, Typography } from '@mui/material';
+import { Alert, Box, Button, CircularProgress, Link, Stack, Typography } from '@mui/material';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link as RouterLink, useParams } from 'react-router';
+import { Link as RouterLink, useParams, useSearchParams } from 'react-router';
 import { PATHS } from '../../../types';
 import { useChatGetChatProfileQuery, useChatGetChatStateQuery } from '../api';
 import { useChatSettings } from '../hooks/useChatSettings';
@@ -35,6 +36,15 @@ export const ChatTab = () => {
   const profileQuery = useChatGetChatProfileQuery(playerId, { skip: !playerId });
   const stateQuery = useChatGetChatStateQuery(playerId, { skip: !playerId });
   const { settings, isLoading: settingsLoading, isError: settingsFailed } = useChatSettings();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const fromNudge = searchParams.get('nudge') === '1';
+  const [openersRequest, setOpenersRequest] = useState(0);
+
+  // Opened from a push: once the user confirms the chat state, drop ?nudge=1 and suggest openers.
+  const confirmNudge = () => {
+    setSearchParams({}, { replace: true });
+    setOpenersRequest((current) => current + 1);
+  };
 
   if (profileQuery.isLoading || stateQuery.isLoading || settingsLoading) {
     return (
@@ -64,6 +74,18 @@ export const ChatTab = () => {
           {t('tab.settingsLink')}
         </Link>
       </Stack>
+      {fromNudge && (
+        <Alert
+          severity="info"
+          action={
+            <Button color="inherit" size="small" onClick={confirmNudge}>
+              {t('nudge.confirm')}
+            </Button>
+          }
+        >
+          {t('nudge.banner')}
+        </Alert>
+      )}
       <Box
         sx={(theme) => ({
           display: 'grid',
@@ -81,7 +103,13 @@ export const ChatTab = () => {
             profile={profile}
             now={now}
           />
-          <SendCard phone={profile.phone} />
+          <SendCard
+            playerId={playerId}
+            profile={profile}
+            settings={settings}
+            state={state}
+            openersRequest={openersRequest}
+          />
           <AiBriefCard playerId={playerId} profile={profile} settings={settings} state={state} />
         </Stack>
         <Stack spacing={2}>

@@ -152,5 +152,35 @@
     "quietEnd": "Fine ore di silenzio",
     "timeZone": "Fuso orario: {{zone}} (da questo dispositivo).",
     "saved": "Salvato"
+  },
+  "openers": {
+    "suggest": "Suggerisci messaggi",
+    "privacy": "Invia a Google Gemini il profilo di questo giocatore, le note fissate e le info recenti. Non viene salvato nulla.",
+    "error": "Impossibile generare messaggi. Riprova tra poco.",
+    "none": "Nessun messaggio ricevuto. Riprova.",
+    "use": "Usa",
+    "tone": {
+      "playful": "Giocoso",
+      "warm": "Caloroso",
+      "curious": "Curioso",
+      "bold": "Audace"
+    }
+  },
+  "nudge": {
+    "banner": "Aperto da un promemoria. Controlla lo stato della chat qui sopra, poi chiedi i messaggi.",
+    "confirm": "È giusto, suggerisci messaggi",
+    "foreground": "È il momento di riprendere una chat.",
+    "open": "Apri"
+  },
+  "nudges": {
+    "title": "Promemoria",
+    "intro": "Una notifica quando è il momento di riprendere una chat. Il testo non mostra mai un soprannome.",
+    "on": "I promemoria sono attivi",
+    "off": "I promemoria sono disattivati",
+    "addDevice": "Avvisa anche questo dispositivo",
+    "thisDevice": "Questo dispositivo riceve i promemoria.",
+    "unsupported": "Questo browser non può ricevere notifiche. Su iPhone, aggiungi prima l’app alla schermata Home e aprila da lì.",
+    "denied": "Le notifiche sono bloccate per questo sito. Consentile nelle impostazioni del browser, poi riprova.",
+    "failed": "Impossibile modificare i promemoria. Riprova."
   }
 }

@@ -12,7 +12,8 @@ Claude Code can't do these steps. Until each value is provided, the code uses a 
 | 6   | Set up **App Check** with reCAPTCHA Enterprise. Register a debug token for local dev. Turn on enforcement for AI Logic (callables enforce it in code)                                     | 8                 | 🟡 key registered, AI Logic enforcement pending |
 | 7   | Generate a **web push VAPID key** (Project settings → Cloud Messaging → Web Push certificates)                                                                                            | 8                 | ✅                                              |
 | 8   | Set a **budget alert** on the billing account                                                                                                                                             | 8                 | ✅                                              |
-| 9   | Deploy the functions and the indexes: `firebase deploy --only functions,firestore:indexes`. The first deploy turns on Cloud Functions, Cloud Build, Artifact Registry and Cloud Scheduler | 9                 | ⬜                                              |
+| 9   | Deploy the functions and the indexes: `firebase deploy --only functions,firestore:indexes`. The first deploy turns on Cloud Functions, Cloud Build, Artifact Registry and Cloud Scheduler | 9                 | ✅                                              |
+| 10  | Deploy the whole app: `yarn build`, then `firebase deploy` (Hosting, rules, indexes, functions). Check that the indexes show "Enabled"                                                    | 10                | ⬜                                              |
 
 ## Where each value goes
 

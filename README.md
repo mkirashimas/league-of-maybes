@@ -28,6 +28,7 @@ yarn install
 yarn dev        # http://localhost:5173
 yarn build      # tsc -b && vite build
 yarn lint
+yarn test:rules # security rule tests in the Firestore emulator (needs Java)
 ```
 
 In dev, App Check prints a debug token in the browser console. Register it once in the Firebase console (App Check → Apps → Manage debug tokens).
@@ -44,7 +45,8 @@ yarn lint
 Deploy (from the app root):
 
 ```sh
-firebase deploy --only functions,firestore:rules,firestore:indexes
+yarn build
+firebase deploy   # Hosting, Firestore rules and indexes, functions
 ```
 
 The Firebase console steps are listed in [docs/prerequisites.md](docs/prerequisites.md).
@@ -103,14 +105,14 @@ Status: ⬜ planned · 🟡 in progress · ⏸ in review · ✅ done
 | 7   | [Chat core](docs/stages/07-chat-core.md)                   | ✅     |
 | 8   | [AI and push](docs/stages/08-ai-push.md)                   | ✅     |
 | 9   | [Cloud Functions](docs/stages/09-functions.md)             | ✅     |
-| 10  | [Hardening and launch](docs/stages/10-hardening-launch.md) | ⬜     |
+| 10  | [Hardening and launch](docs/stages/10-hardening-launch.md) | ⏸      |
 
 Changes after stage 9, from testing feedback (see [docs/decisions.md](docs/decisions.md)):
 
 - **D-015:** player delete with cascade, account delete behind a deletion code, League Table columns per trait, the Sex trait, height and weight ranges, 1–10 weights, the Big Five.
 - **D-016:** choice traits count in Overall, with a 1–10 score per choice.
 
-Each stage is built on its own branch and merged into `development` by pull request (see [docs/workflow.md](docs/workflow.md)). CI runs `yarn lint` and `yarn build`, at the root and in `functions/`.
+Each stage is built on its own branch and merged into `development` by pull request (see [docs/workflow.md](docs/workflow.md)). CI runs `yarn lint` and `yarn build` at the root and in `functions/`, and the rule tests.
 
 ## Stack
 

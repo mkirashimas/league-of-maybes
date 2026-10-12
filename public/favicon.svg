@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#1f2937"/>
-  <text x="32" y="44" font-family="system-ui, sans-serif" font-size="34" font-weight="700" text-anchor="middle" fill="#f9fafb">M?</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><title>The Roster</title><rect width="100" height="100" rx="22" fill="#0B1020"/>
+  <path d="M35.39 39.39A15 15 0 0 1 56.61 60.61" fill="none" stroke="#4C7DFF" stroke-width="11" stroke-linecap="round"/>
+  <path d="M56.61 60.61A15 15 0 0 1 35.39 39.39" fill="none" stroke="#FF2E88" stroke-width="11" stroke-linecap="round"/>
+  <path d="M56.61 39.39L74 22M64 22H74V32" fill="none" stroke="#4C7DFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 65V86M38 77H54" fill="none" stroke="#FF2E88" stroke-width="11" stroke-linecap="round"/></svg>

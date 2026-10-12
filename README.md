@@ -1,6 +1,6 @@
 # League of Maybes
 
-> Just date them both (all) and see who's serious.
+![League of Maybes](docs/images/banner.png)
 
 League of Maybes is a private, single-user "league manager" for dating. You keep a roster of players and, for each one, rate them, scout them, track the chat, log dates, plan what's next and pin the facts worth remembering. Only you can see your data.
 

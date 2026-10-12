@@ -4,6 +4,9 @@ import { defineConfig } from 'vite';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // Fixed port: the Firebase browser API key only allows http://localhost:5173/* as a dev referrer.
+  server: { port: 5173, strictPort: true },
+  preview: { port: 5173, strictPort: true },
   build: {
     // The Firebase core chunk (App, Auth, Firestore, App Check) is ~550 kB; everything else stays well below.
     chunkSizeWarningLimit: 600,

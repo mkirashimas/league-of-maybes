@@ -1,0 +1,53 @@
+{
+  "tab": {
+    "title": "Rendez-vous",
+    "add": "Noter un rendez-vous",
+    "empty": "Pas encore de rendez-vous. Notez le premier après votre rencontre.",
+    "loadMore": "Voir plus"
+  },
+  "form": {
+    "titleNew": "Noter un rendez-vous",
+    "titleEdit": "Modifier le rendez-vous",
+    "date": "Jour",
+    "dateRequired": "Choisissez le jour.",
+    "outcome": "Comment c'était",
+    "activity": "Activité",
+    "activityHelper": "Un verre, un dîner, une balade…",
+    "venue": "Lieu",
+    "rating": "Note",
+    "ratingNone": "Non noté",
+    "highlights": "Moments forts",
+    "nextStep": "Prochaine étape",
+    "nextStepHelper": "Ce que vous voulez faire ensuite."
+  },
+  "outcome": {
+    "great": "Génial",
+    "good": "Bien",
+    "meh": "Bof",
+    "bad": "Mauvais"
+  },
+  "card": {
+    "untitled": "Rendez-vous",
+    "edit": "Modifier le rendez-vous",
+    "delete": "Supprimer le rendez-vous",
+    "rating": "{{rating}}/10",
+    "nextStep": "Ensuite : {{step}}"
+  },
+  "delete": {
+    "title": "Supprimer ce rendez-vous ?",
+    "message": "Il est retiré du journal et de la chronologie."
+  },
+  "timeline": {
+    "title": "Chronologie",
+    "intro": "Temps écoulé depuis le dernier rendez-vous avec chaque joueur actif ou sur le banc. Les points montrent les rendez-vous des {{days}} derniers jours.",
+    "legend": {
+      "fresh": "Moins de {{days}} jours",
+      "cooling": "{{from}}–{{to}} jours",
+      "cold": "{{days}}+ jours"
+    },
+    "never": "Jamais vu",
+    "total": "Rendez-vous : {{total}}",
+    "empty": "Pas encore de joueur actif ou sur le banc.",
+    "dotsLabel": "Rendez-vous des {{days}} derniers jours"
+  }
+}

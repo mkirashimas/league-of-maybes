@@ -41,8 +41,8 @@ Status: ⬜ planned · 🟡 in progress · ⏸ in review · ✅ done
 | 0   | [Setup](docs/stages/00-setup.md)                           | ✅     |
 | 1   | [Shell](docs/stages/01-shell.md)                           | ✅     |
 | 2   | [Legal](docs/stages/02-legal.md)                           | ✅     |
-| 3   | [Roster](docs/stages/03-roster.md)                         | ⏸      |
-| 4   | [Dates and Timeline](docs/stages/04-dates-timeline.md)     | ⬜     |
+| 3   | [Roster](docs/stages/03-roster.md)                         | ✅     |
+| 4   | [Dates and Timeline](docs/stages/04-dates-timeline.md)     | ⏸      |
 | 5   | [Intel and Key Notes](docs/stages/05-intel-keynotes.md)    | ⬜     |
 | 6   | [Agenda](docs/stages/06-agenda.md)                         | ⬜     |
 | 7   | [Chat core](docs/stages/07-chat-core.md)                   | ⬜     |

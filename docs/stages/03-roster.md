@@ -1,6 +1,6 @@
 # Stage 3: Roster
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/03-roster`
+**Status:** ✅ done (2026-10-12), PR #4, tag `stage-03`
 
 ## 1. Goal
 

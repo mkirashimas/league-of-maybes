@@ -1,0 +1,53 @@
+{
+  "tab": {
+    "title": "Appuntamenti",
+    "add": "Registra appuntamento",
+    "empty": "Ancora nessun appuntamento. Registra il primo dopo esservi visti.",
+    "loadMore": "Carica altri"
+  },
+  "form": {
+    "titleNew": "Registra appuntamento",
+    "titleEdit": "Modifica appuntamento",
+    "date": "Giorno",
+    "dateRequired": "Scegli il giorno.",
+    "outcome": "Com’è andata",
+    "activity": "Attività",
+    "activityHelper": "Aperitivo, cena, una passeggiata…",
+    "venue": "Luogo",
+    "rating": "Voto",
+    "ratingNone": "Senza voto",
+    "highlights": "Momenti migliori",
+    "nextStep": "Prossimo passo",
+    "nextStepHelper": "Cosa vuoi fare dopo."
+  },
+  "outcome": {
+    "great": "Ottimo",
+    "good": "Bene",
+    "meh": "Così così",
+    "bad": "Male"
+  },
+  "card": {
+    "untitled": "Appuntamento",
+    "edit": "Modifica appuntamento",
+    "delete": "Elimina appuntamento",
+    "rating": "{{rating}}/10",
+    "nextStep": "Prossimo: {{step}}"
+  },
+  "delete": {
+    "title": "Eliminare questo appuntamento?",
+    "message": "Viene rimosso dal registro e dalla cronologia."
+  },
+  "timeline": {
+    "title": "Cronologia",
+    "intro": "Tempo dall’ultimo appuntamento con ogni giocatore attivo o in panchina. I punti mostrano gli appuntamenti degli ultimi {{days}} giorni.",
+    "legend": {
+      "fresh": "Meno di {{days}} giorni",
+      "cooling": "{{from}}–{{to}} giorni",
+      "cold": "{{days}}+ giorni"
+    },
+    "never": "Mai visto",
+    "total": "Appuntamenti: {{total}}",
+    "empty": "Ancora nessun giocatore attivo o in panchina.",
+    "dotsLabel": "Appuntamenti degli ultimi {{days}} giorni"
+  }
+}

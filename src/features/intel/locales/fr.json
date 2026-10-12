@@ -1,0 +1,35 @@
+{
+  "tab": {
+    "title": "Infos",
+    "intro": "Notes de repérage : ce que vous apprenez avant et pendant les rendez-vous.",
+    "empty": "Pas encore d’infos. Ajoutez ce que vous savez.",
+    "loadMore": "Voir plus"
+  },
+  "form": {
+    "category": "Catégorie",
+    "text": "Note",
+    "add": "Ajouter"
+  },
+  "category": {
+    "howWeMet": "Notre rencontre",
+    "socials": "Réseaux",
+    "interests": "Centres d’intérêt",
+    "greenFlag": "Signaux verts",
+    "redFlag": "Signaux rouges",
+    "mutualFriends": "Amis communs",
+    "openerIdea": "Idées d’accroche"
+  },
+  "placeholder": {
+    "howWeMet": "Où et comment vous vous êtes rencontrés",
+    "socials": "Comptes, ce qu’il ou elle publie",
+    "interests": "Loisirs, musique, cuisine…",
+    "greenFlag": "Quelque chose qui vous a plu",
+    "redFlag": "Quelque chose à surveiller",
+    "mutualFriends": "Qui vous connaissez tous les deux",
+    "openerIdea": "Une phrase pour lancer la discussion"
+  },
+  "delete": {
+    "title": "Supprimer cette note ?",
+    "message": "Elle est retirée de l’onglet Infos."
+  }
+}

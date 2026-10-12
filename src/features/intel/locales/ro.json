@@ -1,0 +1,35 @@
+{
+  "tab": {
+    "title": "Informații",
+    "intro": "Note de scouting: ce afli înainte și în timpul întâlnirilor.",
+    "empty": "Nicio informație încă. Adaugă ce știi.",
+    "loadMore": "Încarcă mai multe"
+  },
+  "form": {
+    "category": "Categorie",
+    "text": "Notă",
+    "add": "Adaugă"
+  },
+  "category": {
+    "howWeMet": "Cum ne-am cunoscut",
+    "socials": "Rețele sociale",
+    "interests": "Interese",
+    "greenFlag": "Semnale verzi",
+    "redFlag": "Semnale roșii",
+    "mutualFriends": "Prieteni comuni",
+    "openerIdea": "Idei de început"
+  },
+  "placeholder": {
+    "howWeMet": "Unde și cum v-ați cunoscut",
+    "socials": "Conturi, ce postează",
+    "interests": "Hobby-uri, muzică, mâncare…",
+    "greenFlag": "Ceva ce ți-a plăcut",
+    "redFlag": "Ceva de urmărit",
+    "mutualFriends": "Pe cine cunoașteți amândoi",
+    "openerIdea": "O replică pentru a începe o discuție"
+  },
+  "delete": {
+    "title": "Ștergi această notă?",
+    "message": "Este eliminată din fila Informații."
+  }
+}

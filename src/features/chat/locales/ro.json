@@ -181,6 +181,7 @@
     "thisDevice": "Acest dispozitiv primește mementouri.",
     "unsupported": "Acest browser nu poate primi notificări. Pe iPhone, adaugă întâi aplicația pe ecranul principal și deschide-o de acolo.",
     "denied": "Notificările sunt blocate pentru acest site. Permite-le din setările browserului, apoi încearcă din nou.",
-    "failed": "Mementourile nu au putut fi schimbate. Încearcă din nou."
+    "failed": "Mementourile nu au putut fi schimbate. Încearcă din nou.",
+    "pushService": "Acest browser și-a blocat serviciul de notificări push. În Brave, activează „Use Google services for push messaging” (brave://settings/privacy), repornește browserul și încearcă din nou."
   }
 }

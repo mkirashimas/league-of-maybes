@@ -181,6 +181,7 @@
     "thisDevice": "Questo dispositivo riceve i promemoria.",
     "unsupported": "Questo browser non può ricevere notifiche. Su iPhone, aggiungi prima l’app alla schermata Home e aprila da lì.",
     "denied": "Le notifiche sono bloccate per questo sito. Consentile nelle impostazioni del browser, poi riprova.",
-    "failed": "Impossibile modificare i promemoria. Riprova."
+    "failed": "Impossibile modificare i promemoria. Riprova.",
+    "pushService": "Questo browser ha bloccato il suo servizio di notifiche push. In Brave, attiva «Use Google services for push messaging» (brave://settings/privacy), riavvia il browser e riprova."
   }
 }

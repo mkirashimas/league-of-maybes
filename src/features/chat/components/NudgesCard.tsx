@@ -40,7 +40,11 @@ const writeDeviceId = (deviceId: string | null) => {
   }
 };
 
-type Problem = 'denied' | 'unsupported' | 'failed' | null;
+type Problem = 'denied' | 'unsupported' | 'pushService' | 'failed' | null;
+
+/** The browser refused to reach its push service (Brave blocks Google's by default). */
+const isPushServiceError = (error: unknown) =>
+  error instanceof Error && error.name === 'AbortError' && /push service/i.test(error.message);
 
 /**
  * Nudges on/off. Turning them on asks for notification permission (only from this click),
@@ -100,7 +104,7 @@ export const NudgesCard = ({ enabled }: { enabled: boolean }) => {
         typeof error === 'object' && error !== null && 'code' in error ? String(error.code) : '';
       const message = error instanceof Error ? error.message : String(error);
       setDetail(code ? `${code}: ${message}` : message);
-      setProblem('failed');
+      setProblem(isPushServiceError(error) ? 'pushService' : 'failed');
     } finally {
       setBusy(false);
     }
@@ -143,6 +147,7 @@ export const NudgesCard = ({ enabled }: { enabled: boolean }) => {
         {(support === 'denied' || problem === 'denied') && (
           <Alert severity="warning">{t('nudges.denied')}</Alert>
         )}
+        {problem === 'pushService' && <Alert severity="warning">{t('nudges.pushService')}</Alert>}
         {problem === 'failed' && (
           <Alert severity="error">
             {t('nudges.failed')}

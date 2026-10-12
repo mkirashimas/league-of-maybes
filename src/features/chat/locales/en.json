@@ -181,6 +181,7 @@
     "thisDevice": "This device receives nudges.",
     "unsupported": "This browser cannot receive notifications. On iPhone, add the app to the Home Screen first and open it from there.",
     "denied": "Notifications are blocked for this site. Allow them in the browser settings, then try again.",
-    "failed": "Nudges could not be changed. Try again."
+    "failed": "Nudges could not be changed. Try again.",
+    "pushService": "This browser blocked its push service. In Brave, turn on \"Use Google services for push messaging\" (brave://settings/privacy), restart the browser and try again."
   }
 }

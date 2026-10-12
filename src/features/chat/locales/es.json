@@ -181,6 +181,7 @@
     "thisDevice": "Este dispositivo recibe avisos.",
     "unsupported": "Este navegador no puede recibir notificaciones. En iPhone, añade primero la app a la pantalla de inicio y ábrela desde ahí.",
     "denied": "Las notificaciones están bloqueadas para este sitio. Permítelas en los ajustes del navegador y vuelve a intentarlo.",
-    "failed": "No se pudieron cambiar los avisos. Inténtalo de nuevo."
+    "failed": "No se pudieron cambiar los avisos. Inténtalo de nuevo.",
+    "pushService": "Este navegador bloqueó su servicio de notificaciones push. En Brave, activa «Use Google services for push messaging» (brave://settings/privacy), reinicia el navegador y vuelve a intentarlo."
   }
 }

@@ -181,6 +181,7 @@
     "thisDevice": "Cet appareil reçoit les rappels.",
     "unsupported": "Ce navigateur ne peut pas recevoir de notifications. Sur iPhone, ajoutez d’abord l’app à l’écran d’accueil et ouvrez-la depuis là.",
     "denied": "Les notifications sont bloquées pour ce site. Autorisez-les dans les réglages du navigateur, puis réessayez.",
-    "failed": "Impossible de modifier les rappels. Réessayez."
+    "failed": "Impossible de modifier les rappels. Réessayez.",
+    "pushService": "Ce navigateur a bloqué son service de notifications push. Dans Brave, activez « Use Google services for push messaging » (brave://settings/privacy), redémarrez le navigateur et réessayez."
   }
 }

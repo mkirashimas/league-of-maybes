@@ -19,6 +19,12 @@ export default defineConfig({
               test: /node_modules[\\/]@firebase[\\/]messaging[\\/]/,
               priority: 2,
             },
+            // Functions are called from the Account page only.
+            {
+              name: 'firebase-functions',
+              test: /node_modules[\\/]@firebase[\\/]functions[\\/]/,
+              priority: 2,
+            },
             {
               name: 'firebase',
               test: /node_modules[\\/](@firebase|firebase)[\\/]/,

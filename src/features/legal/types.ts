@@ -27,3 +27,22 @@ export interface LegalSection {
 
 export const hasAcceptedCurrentTerms = (userDocument: UserDocument | null | undefined): boolean =>
   userDocument?.consent?.termsVersion === TERMS_VERSION;
+
+// ---------- Account (callables in functions/src/account) ----------
+
+export const EXPORT_ACCOUNT_FUNCTION = 'exportAccount';
+export const DELETE_ACCOUNT_FUNCTION = 'deleteAccount';
+
+/** One exported document: its fields (timestamps as ISO strings) and its subcollections. */
+export interface ExportedDocument {
+  id: string;
+  data: unknown;
+  collections?: Record<string, ExportedDocument[]>;
+}
+
+/** What exportAccount returns: everything under users/{uid}. */
+export interface AccountExport {
+  exportedAt: string;
+  uid: string;
+  user: ExportedDocument;
+}

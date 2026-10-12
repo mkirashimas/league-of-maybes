@@ -32,10 +32,6 @@
     "create": "Crea",
     "close": "Chiudi"
   },
-  "comingSoon": {
-    "title": "Prossimamente",
-    "body": "Questa sezione verrà realizzata in una fase successiva."
-  },
   "loadError": "Impossibile caricare i dati. Riprova.",
   "saveError": "Impossibile salvare le modifiche. Riprova.",
   "legalLinks": {

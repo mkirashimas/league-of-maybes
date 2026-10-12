@@ -20,6 +20,16 @@ yarn build      # tsc -b && vite build
 yarn lint
 ```
 
+Cloud Functions are a separate package in `functions/`:
+
+```sh
+cd functions
+yarn install
+yarn build      # tsc, output in functions/lib
+yarn lint
+firebase deploy --only functions,firestore:indexes
+```
+
 Sign-in needs the Firebase console steps in [docs/prerequisites.md](docs/prerequisites.md).
 
 ## Docs
@@ -46,8 +56,8 @@ Status: ⬜ planned · 🟡 in progress · ⏸ in review · ✅ done
 | 5   | [Intel and Key Notes](docs/stages/05-intel-keynotes.md)    | ✅     |
 | 6   | [Agenda](docs/stages/06-agenda.md)                         | ✅     |
 | 7   | [Chat core](docs/stages/07-chat-core.md)                   | ✅     |
-| 8   | [AI and push](docs/stages/08-ai-push.md)                   | ⏸      |
-| 9   | [Cloud Functions](docs/stages/09-functions.md)             | ⬜     |
+| 8   | [AI and push](docs/stages/08-ai-push.md)                   | ✅     |
+| 9   | [Cloud Functions](docs/stages/09-functions.md)             | ⏸      |
 | 10  | [Hardening and launch](docs/stages/10-hardening-launch.md) | ⬜     |
 
 Each stage is built on its own branch and merged into `development` by pull request (see [docs/workflow.md](docs/workflow.md)). `yarn build` and `yarn lint` must pass before a merge.

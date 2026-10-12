@@ -1,6 +1,6 @@
 # Stage 8: AI and push
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/08-ai-push`
+**Status:** ✅ done (2026-10-12), PR #9, tag `stage-08`
 
 ## 1. Goal
 
@@ -92,16 +92,18 @@
 - [x] `yarn build` (no chunk warning), `yarn lint`, Prettier: clean.
 - [x] i18n parity: 0 missing keys.
 - [x] Icons rendered and checked visually (512, maskable 512).
-- [ ] `yarn dev`: the console shows `App Check debug token: …`. Register it in the Firebase console.
-- [ ] Suggest openers: 2–3 openers in the UI language, each with a tone. "Use" fills the message, and Copy and WhatsApp work.
+- [x] `yarn dev`: the console shows `App Check debug token: …`. Register it in the Firebase console.
+- [x] Suggest openers: 2–3 openers in the UI language, each with a tone. "Use" fills the message, and Copy and WhatsApp work.
 - [ ] Chat settings → Nudges on: the browser asks for permission once. `users/{uid}/devices` gets exactly one doc. Turning it on again keeps one doc.
 - [ ] Firebase console → Messaging → **Send test message** to that token: it arrives while the tab is in the background. With the app open, the snackbar shows.
-- [ ] Open `/roster/<id>/chat?nudge=1`: the banner shows, and "Looks right, suggest openers" generates once and removes the parameter.
+- [x] Open `/roster/<id>/chat?nudge=1`: the banner shows, and "Looks right, suggest openers" generates once and removes the parameter.
 - [ ] Nudges off: the device doc is removed and `nudgesEnabled` is false.
-- [ ] Install as an app (Chrome: install icon; Android: "Add to Home screen"). The name shows as "Maybes" with the "M" icon.
-- [ ] Firebase console → App Check → APIs → Firebase AI Logic shows mostly "verified" requests.
+- [x] Install as an app (Chrome: install icon; Android: "Add to Home screen"). The name shows as "Maybes" with the "M" icon.
+- [x] Firebase console → App Check → APIs → Firebase AI Logic shows mostly "verified" requests.
 
 ## 9. Open issues / follow-ups
+
+- **Push not yet checked in Brave.** Brave blocks its push service by default. Turn on "Use Google services for push messaging" (brave://settings/privacy), restart Brave, then turn nudges on again. The three unticked push items above are checked again in stage 9, together with `sendNudges`.
 
 - **Enforce App Check** for Firebase AI Logic once the metrics show verified traffic, and for Functions in stage 9.
 - **Test on iPhone** after the first Hosting deploy. Push needs HTTPS and installation; `localhost` only covers desktop.

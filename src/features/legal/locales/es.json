@@ -95,5 +95,25 @@
         "body": "Para cualquier pregunta sobre tus datos, contacta con el propietario de esta aplicación."
       }
     ]
+  },
+  "account": {
+    "title": "Cuenta",
+    "export": {
+      "title": "Exportar tus datos",
+      "body": "Descarga todo lo guardado en tu cuenta como archivo JSON: jugadores, rasgos, notas, citas, planes, ajustes del chat y dispositivos.",
+      "action": "Descargar exportación",
+      "error": "No se pudo crear la exportación. Inténtalo de nuevo."
+    },
+    "delete": {
+      "title": "Eliminar cuenta",
+      "body": "Elimina de forma permanente tu cuenta y todos sus datos. No se puede deshacer. Exporta tus datos antes si quieres conservar una copia.",
+      "action": "Eliminar cuenta…",
+      "confirmTitle": "¿Eliminar tu cuenta?",
+      "confirmBody": "Se eliminará toda tu plantilla y todo lo relacionado, junto con tu acceso. Se cerrará tu sesión.",
+      "understood": "Entiendo que no se puede deshacer.",
+      "cancel": "Cancelar",
+      "confirm": "Eliminar todo",
+      "error": "No se pudo eliminar la cuenta. Inténtalo de nuevo."
+    }
   }
 }

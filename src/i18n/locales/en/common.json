@@ -32,10 +32,6 @@
     "create": "Create",
     "close": "Close"
   },
-  "comingSoon": {
-    "title": "Coming soon",
-    "body": "This section is built in a later stage."
-  },
   "loadError": "The data could not be loaded. Please try again.",
   "saveError": "The changes could not be saved. Please try again.",
   "legalLinks": {

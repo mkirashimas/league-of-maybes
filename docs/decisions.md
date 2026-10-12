@@ -137,4 +137,13 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 | R14 | `CONSENT` sits inside the auth guard but outside `ConsentGate`. Terms and Privacy are public.                                                         | 2     |
 | R15 | After account delete: sign out, `api.util.resetApiState()`, go to `LOGIN`. The server does a recursive delete, then deletes the auth user.            | 9     |
 | R16 | Callables use `enforceAppCheck: true`. The debug token is set only in dev.                                                                            | 8, 9  |
-| R17 | `chatStates.nextNudgeAt` gets a collection-group single-field index.                                                                                  | 10    |
+| R17 | `chatStates.nextNudgeAt` gets a collection-group single-field index.                                                                                  | 9     |
+
+## D-014: Cloud Functions (2026-10-12)
+
+- **Index now:** the `chatStates.nextNudgeAt` collection-group index (R17) ships with stage 9, since `sendNudges` can't run without it.
+- **Quiet hours always hold for pushes.** The quiet-hours rule toggle only controls the reminder in the chat tab.
+- **Undeliverable nudges are dropped.** No devices, or a retired or missing player, clears `nextNudgeAt`. A temporary FCM failure keeps it for the next hourly run.
+- **Precondition writes:** the job only clears a nudge if the chat state hasn't changed since it was read.
+- **Tested on the deployed project.** FCM has no emulator and the callables enforce App Check. `sendNudges` is run by hand with Cloud Scheduler's **Force run**.
+- **Push language** comes from each device doc. Texts are generic and never name the player.

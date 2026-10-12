@@ -32,10 +32,6 @@
     "create": "Créer",
     "close": "Fermer"
   },
-  "comingSoon": {
-    "title": "Bientôt disponible",
-    "body": "Cette section sera construite à une étape ultérieure."
-  },
   "loadError": "Les données n'ont pas pu être chargées. Veuillez réessayer.",
   "saveError": "Les modifications n'ont pas pu être enregistrées. Veuillez réessayer.",
   "legalLinks": {

@@ -1,0 +1,156 @@
+{
+  "tab": {
+    "title": "Chat",
+    "settingsLink": "Chat settings"
+  },
+  "state": {
+    "title": "Chat state",
+    "lastMe": "You wrote last, {{ago}}.",
+    "lastThem": "They wrote last, {{ago}}.",
+    "none": "No chat state yet. Log who wrote last.",
+    "theyReplied": "They replied",
+    "iReplied": "I replied",
+    "at": "At (optional)",
+    "atHelper": "Empty = now"
+  },
+  "reminders": {
+    "title": "Reminders",
+    "noState": "Log who wrote last to get timed reminders. Your enabled rules:",
+    "noneActive": "Nothing to watch right now.",
+    "noDoubleText": "You wrote last. Wait for a reply, or until {{date}}.",
+    "noDoubleTextNoDate": "You wrote last. Wait for a reply.",
+    "noInstantReply": "Don’t reply instantly. Reply after {{time}}.",
+    "matchLength": "Match their message length.",
+    "matchPace": "They usually reply {{pace}}. Match it.",
+    "quietHours": "Quiet hours. Send later.",
+    "resumeAfter": "Time to restart the chat."
+  },
+  "pace": {
+    "minutes": "within minutes",
+    "hours": "within hours",
+    "sameDay": "the same day",
+    "days": "after a few days"
+  },
+  "rules": {
+    "noDoubleText": "Don’t double text",
+    "noInstantReply": "Don’t reply instantly",
+    "matchLength": "Match their message length",
+    "matchPace": "Match their reply pace",
+    "quietHours": "Respect quiet hours",
+    "resumeAfter": "Restart the chat after a pause"
+  },
+  "profile": {
+    "title": "Chat profile",
+    "completeness": "{{filled}} of {{total}} filled",
+    "platform": "Platform",
+    "textingStyle": "Texting style",
+    "replyTime": "Reply time",
+    "initiator": "Who starts",
+    "bestTime": "Best time to text",
+    "topicsThatLand": "Topics that land",
+    "topicsToAvoid": "Topics to avoid",
+    "topicsHelper": "Type and press Enter to add.",
+    "notSet": "Not set",
+    "phone": "Phone (optional)",
+    "phoneHelper": "International format, digits only, e.g. 40712345678.",
+    "phoneInvalid": "Digits only, country code first, no leading zero (7–15 digits).",
+    "saved": "Saved"
+  },
+  "option": {
+    "platform": {
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "sms": "SMS",
+      "other": "Other"
+    },
+    "textingStyle": {
+      "dry": "Short and dry",
+      "chatty": "Chatty",
+      "emoji": "Lots of emoji",
+      "voiceNotes": "Voice notes",
+      "memes": "Memes and links"
+    },
+    "replyTime": {
+      "minutes": "Minutes",
+      "hours": "Hours",
+      "sameDay": "Same day",
+      "days": "Days"
+    },
+    "initiator": {
+      "me": "Mostly me",
+      "them": "Mostly them",
+      "both": "Both"
+    },
+    "bestTime": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "lateNight": "Late night"
+    }
+  },
+  "quirks": {
+    "title": "Quirks log",
+    "category": "Type",
+    "text": "Quirk",
+    "add": "Add",
+    "empty": "No quirks yet. Note how they text.",
+    "loadMore": "Load more"
+  },
+  "category": {
+    "humor": "Humor",
+    "pace": "Pace",
+    "emoji": "Emoji",
+    "pattern": "Pattern",
+    "other": "Other"
+  },
+  "send": {
+    "title": "Send",
+    "message": "Message",
+    "copy": "Copy",
+    "copied": "Copied",
+    "whatsapp": "Open in WhatsApp",
+    "noPhone": "No phone saved: WhatsApp will ask you to pick the contact."
+  },
+  "brief": {
+    "title": "AI brief",
+    "intro": "Copy everything your AI tool needs to help you reply. Then paste their latest messages at the end.",
+    "copy": "Copy AI brief",
+    "copied": "Copied to clipboard",
+    "copyError": "The brief could not be copied. Check your connection and clipboard permission.",
+    "aiNotes": "Notes for this player’s brief",
+    "aiNotesHelper": "Added to \"My style\" when you copy the brief. Saved when you leave the field."
+  },
+  "tpl": {
+    "role": "Role: you are my texting coach. Suggest 2–3 replies I could send.",
+    "rules": "Rules I follow:",
+    "about": "About them ({{nickname}}):",
+    "pinned": "Key facts:",
+    "intel": "What I know:",
+    "state": "Chat state: last message by {{sender}}, {{ago}}.",
+    "stateNone": "Chat state: unknown.",
+    "me": "me",
+    "them": "them",
+    "style": "My style:",
+    "latest": "Their latest messages:",
+    "paste": "[paste here]"
+  },
+  "settings": {
+    "title": "Chat settings",
+    "intro": "Your texting rules, timings and the base of every AI brief.",
+    "aiTitle": "AI brief",
+    "aiInstructions": "My style (base instructions)",
+    "aiInstructionsHelper": "Used in every AI brief. Each player can add their own notes on their Chat tab.",
+    "defaultInstructions": "Keep it short, playful and confident. Sound like me, not like an assistant. No pickup lines, no pressure.",
+    "rulesTitle": "Rules",
+    "timingTitle": "Timing",
+    "resumeAfterHours": "Restart the chat after (hours)",
+    "resumeAfterHelper": "When to suggest restarting a quiet chat.",
+    "minReplyDelayMin": "Wait before replying (minutes)",
+    "minReplyDelayHelper": "Used by \"Don’t reply instantly\".",
+    "quietStart": "Quiet hours start",
+    "quietEnd": "Quiet hours end",
+    "timeZone": "Time zone: {{zone}} (from this device).",
+    "saved": "Saved"
+  }
+}

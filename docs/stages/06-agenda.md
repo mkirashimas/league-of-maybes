@@ -1,6 +1,6 @@
 # Stage 6: Agenda
 
-**Status:** ⏸ in review (2026-10-12), branch `stage/06-agenda`
+**Status:** ✅ done (2026-10-12), PR #7, tag `stage-06`
 
 ## 1. Goal
 

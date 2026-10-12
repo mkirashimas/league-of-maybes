@@ -1,10 +1,23 @@
 rules_version = '2';
 
-// Stage 0 skeleton: deny everything. Stage 1 adds the owner-only rules for users/{uid}/...
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if false;
+    // Deny by default: only the paths matched below are accessible.
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    // Everything a user stores lives under users/{uid}: the user doc itself
+    // (consent) and all collections (players, traitDefinitions, intel, chat*, dates,
+    // dateSummaries, agendaItems, keyNotes, settings, devices). Owner only.
+    // deletionCodes/{uid} has no rule on purpose: only Cloud Functions read and write it.
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+
+      match /{document=**} {
+        allow read, write: if isOwner(uid);
+      }
     }
   }
 }

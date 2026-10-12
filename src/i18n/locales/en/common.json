@@ -1,0 +1,59 @@
+{
+  "appName": "League of Maybes",
+  "motto": "Just date them both (all) and see who's serious.",
+  "language": "Language",
+  "account": "Account",
+  "openMenu": "Open menu",
+  "signOut": "Sign out",
+  "theme": {
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode",
+    "darkOnly": "This theme only has a dark mode",
+    "choose": "Colour theme",
+    "groups": {
+      "lightDark": "Light & dark",
+      "darkOnly": "Dark only"
+    },
+    "names": {
+      "slate": "Slate",
+      "roseCourt": "Rosé Court",
+      "floodlight": "Floodlight",
+      "pitchTrophy": "Pitch & Trophy",
+      "mangoTango": "Mango Tango",
+      "lagoon": "Lagoon",
+      "pride": "Pride",
+      "velvetLounge": "Velvet Lounge",
+      "deepEnd": "Deep End",
+      "blackout": "Blackout"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "it": "Italiano",
+    "ro": "Română"
+  },
+  "nav": {
+    "leagueTable": "League Table",
+    "timeline": "Timeline",
+    "upcoming": "Upcoming",
+    "traits": "Traits",
+    "chatSettings": "Chat settings"
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "create": "Create",
+    "close": "Close"
+  },
+  "loadError": "The data could not be loaded. Please try again.",
+  "saveError": "The changes could not be saved. Please try again.",
+  "legalLinks": {
+    "terms": "Terms",
+    "privacy": "Privacy"
+  }
+}

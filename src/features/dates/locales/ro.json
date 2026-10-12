@@ -1,0 +1,53 @@
+{
+  "tab": {
+    "title": "Întâlniri",
+    "add": "Adaugă întâlnire",
+    "empty": "Nicio întâlnire încă. Adaug-o pe prima după ce vă vedeți.",
+    "loadMore": "Încarcă mai multe"
+  },
+  "form": {
+    "titleNew": "Adaugă întâlnire",
+    "titleEdit": "Editează întâlnirea",
+    "date": "Ziua",
+    "dateRequired": "Alege ziua.",
+    "outcome": "Cum a fost",
+    "activity": "Activitate",
+    "activityHelper": "Un pahar, cină, o plimbare…",
+    "venue": "Loc",
+    "rating": "Notă",
+    "ratingNone": "Fără notă",
+    "highlights": "Momente bune",
+    "nextStep": "Pasul următor",
+    "nextStepHelper": "Ce vrei să faci mai departe."
+  },
+  "outcome": {
+    "great": "Super",
+    "good": "Bine",
+    "meh": "Așa și așa",
+    "bad": "Rău"
+  },
+  "card": {
+    "untitled": "Întâlnire",
+    "edit": "Editează întâlnirea",
+    "delete": "Șterge întâlnirea",
+    "rating": "{{rating}}/10",
+    "nextStep": "Urmează: {{step}}"
+  },
+  "delete": {
+    "title": "Ștergi această întâlnire?",
+    "message": "Este eliminată din jurnal și din cronologie."
+  },
+  "timeline": {
+    "title": "Cronologie",
+    "intro": "Timpul de la ultima întâlnire cu fiecare jucător activ sau de rezervă. Punctele arată întâlnirile din ultimele {{days}} zile.",
+    "legend": {
+      "fresh": "Sub {{days}} zile",
+      "cooling": "{{from}}–{{to}} zile",
+      "cold": "{{days}}+ zile"
+    },
+    "never": "Nicio întâlnire",
+    "total": "Întâlniri: {{total}}",
+    "empty": "Încă nu există jucători activi sau de rezervă.",
+    "dotsLabel": "Întâlniri din ultimele {{days}} zile"
+  }
+}

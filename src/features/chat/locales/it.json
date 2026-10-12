@@ -1,0 +1,187 @@
+{
+  "tab": {
+    "title": "Chat",
+    "settingsLink": "Impostazioni chat"
+  },
+  "state": {
+    "title": "Stato della chat",
+    "lastMe": "Hai scritto tu per ultimo, {{ago}}.",
+    "lastThem": "Ha scritto per ultimo, {{ago}}.",
+    "none": "Nessuno stato ancora. Indica chi ha scritto per ultimo.",
+    "theyReplied": "Ha risposto",
+    "iReplied": "Ho risposto",
+    "at": "Alle (facoltativo)",
+    "atHelper": "Vuoto = adesso"
+  },
+  "reminders": {
+    "title": "Promemoria",
+    "noState": "Indica chi ha scritto per ultimo per ricevere promemoria. Le tue regole attive:",
+    "noneActive": "Niente da tenere d’occhio adesso.",
+    "noDoubleText": "Hai scritto tu per ultimo. Aspetta una risposta, o fino a {{date}}.",
+    "noDoubleTextNoDate": "Hai scritto tu per ultimo. Aspetta una risposta.",
+    "noInstantReply": "Non rispondere subito. Rispondi dopo le {{time}}.",
+    "matchLength": "Adegua la lunghezza dei messaggi alla sua.",
+    "matchPace": "Di solito risponde {{pace}}. Segui quel ritmo.",
+    "quietHours": "Ore di silenzio. Invia più tardi.",
+    "resumeAfter": "È il momento di riprendere la chat."
+  },
+  "pace": {
+    "minutes": "in pochi minuti",
+    "hours": "in poche ore",
+    "sameDay": "in giornata",
+    "days": "dopo qualche giorno"
+  },
+  "rules": {
+    "noDoubleText": "Non scrivere due volte di fila",
+    "noInstantReply": "Non rispondere subito",
+    "matchLength": "Adeguarsi alla lunghezza dei messaggi",
+    "matchPace": "Adeguarsi al ritmo di risposta",
+    "quietHours": "Rispettare le ore di silenzio",
+    "resumeAfter": "Riprendere la chat dopo una pausa"
+  },
+  "profile": {
+    "title": "Profilo chat",
+    "completeness": "{{filled}} su {{total}} compilati",
+    "platform": "Piattaforma",
+    "textingStyle": "Stile di scrittura",
+    "replyTime": "Tempo di risposta",
+    "initiator": "Chi inizia",
+    "bestTime": "Momento migliore per scrivere",
+    "topicsThatLand": "Argomenti che funzionano",
+    "topicsToAvoid": "Argomenti da evitare",
+    "topicsHelper": "Scrivi e premi Invio per aggiungere.",
+    "notSet": "Non impostato",
+    "phone": "Telefono (facoltativo)",
+    "phoneHelper": "Formato internazionale, solo cifre, es. 393412345678.",
+    "phoneInvalid": "Solo cifre, prima il prefisso del paese, senza zero iniziale (7–15 cifre).",
+    "saved": "Salvato"
+  },
+  "option": {
+    "platform": {
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "sms": "SMS",
+      "other": "Altro"
+    },
+    "textingStyle": {
+      "dry": "Breve e asciutto",
+      "chatty": "Chiacchierone",
+      "emoji": "Tante emoji",
+      "voiceNotes": "Messaggi vocali",
+      "memes": "Meme e link"
+    },
+    "replyTime": {
+      "minutes": "Minuti",
+      "hours": "Ore",
+      "sameDay": "In giornata",
+      "days": "Giorni"
+    },
+    "initiator": {
+      "me": "Soprattutto io",
+      "them": "Soprattutto l’altra persona",
+      "both": "Entrambi"
+    },
+    "bestTime": {
+      "morning": "Mattina",
+      "afternoon": "Pomeriggio",
+      "evening": "Sera",
+      "lateNight": "Notte fonda"
+    }
+  },
+  "quirks": {
+    "title": "Manie in chat",
+    "category": "Tipo",
+    "text": "Mania",
+    "add": "Aggiungi",
+    "empty": "Ancora nessuna mania. Annota come scrive.",
+    "loadMore": "Carica altri"
+  },
+  "category": {
+    "humor": "Umorismo",
+    "pace": "Ritmo",
+    "emoji": "Emoji",
+    "pattern": "Abitudine",
+    "other": "Altro"
+  },
+  "send": {
+    "title": "Invia",
+    "message": "Messaggio",
+    "copy": "Copia",
+    "copied": "Copiato",
+    "whatsapp": "Apri in WhatsApp",
+    "noPhone": "Nessun telefono salvato: WhatsApp ti chiederà di scegliere il contatto."
+  },
+  "brief": {
+    "title": "Brief IA",
+    "intro": "Copia tutto ciò che serve al tuo strumento di IA per aiutarti a rispondere, poi incolla i suoi ultimi messaggi alla fine.",
+    "copy": "Copia brief IA",
+    "copied": "Copiato negli appunti",
+    "copyError": "Impossibile copiare il brief. Controlla la connessione e il permesso degli appunti.",
+    "aiNotes": "Note per il brief di questo giocatore",
+    "aiNotesHelper": "Aggiunte a «Il mio stile» quando copi il brief. Salvate quando esci dal campo."
+  },
+  "tpl": {
+    "role": "Ruolo: sei il mio coach per i messaggi. Suggerisci 2–3 risposte che potrei inviare.",
+    "rules": "Regole che seguo:",
+    "about": "Su questa persona ({{nickname}}):",
+    "pinned": "Fatti chiave:",
+    "intel": "Cosa so:",
+    "state": "Stato della chat: ultimo messaggio di {{sender}}, {{ago}}.",
+    "stateNone": "Stato della chat: sconosciuto.",
+    "me": "me",
+    "them": "questa persona",
+    "style": "Il mio stile:",
+    "latest": "I suoi ultimi messaggi:",
+    "paste": "[incolla qui]"
+  },
+  "settings": {
+    "title": "Impostazioni chat",
+    "intro": "Le tue regole di scrittura, i tempi e la base di ogni brief IA.",
+    "aiTitle": "Brief IA",
+    "aiInstructions": "Il mio stile (istruzioni di base)",
+    "aiInstructionsHelper": "Usato in ogni brief IA. Ogni giocatore può aggiungere le sue note nella scheda Chat.",
+    "defaultInstructions": "Breve, giocoso e sicuro. Che sembri scritto da me, non da un assistente. Niente frasi fatte, niente pressione.",
+    "rulesTitle": "Regole",
+    "timingTitle": "Tempi",
+    "resumeAfterHours": "Riprendi la chat dopo (ore)",
+    "resumeAfterHelper": "Quando suggerire di riprendere una chat ferma.",
+    "minReplyDelayMin": "Aspetta prima di rispondere (minuti)",
+    "minReplyDelayHelper": "Usato da «Non rispondere subito».",
+    "quietStart": "Inizio ore di silenzio",
+    "quietEnd": "Fine ore di silenzio",
+    "timeZone": "Fuso orario: {{zone}} (da questo dispositivo).",
+    "saved": "Salvato"
+  },
+  "openers": {
+    "suggest": "Suggerisci messaggi",
+    "privacy": "Invia a Google Gemini il profilo di questo giocatore, le note fissate e le info recenti. Non viene salvato nulla.",
+    "error": "Impossibile generare messaggi. Riprova tra poco.",
+    "none": "Nessun messaggio ricevuto. Riprova.",
+    "use": "Usa",
+    "tone": {
+      "playful": "Giocoso",
+      "warm": "Caloroso",
+      "curious": "Curioso",
+      "bold": "Audace"
+    }
+  },
+  "nudge": {
+    "banner": "Aperto da un promemoria. Controlla lo stato della chat qui sopra, poi chiedi i messaggi.",
+    "confirm": "È giusto, suggerisci messaggi",
+    "foreground": "È il momento di riprendere una chat.",
+    "open": "Apri"
+  },
+  "nudges": {
+    "title": "Promemoria",
+    "intro": "Una notifica quando è il momento di riprendere una chat. Il testo non mostra mai un soprannome.",
+    "on": "I promemoria sono attivi",
+    "off": "I promemoria sono disattivati",
+    "addDevice": "Avvisa anche questo dispositivo",
+    "thisDevice": "Questo dispositivo riceve i promemoria.",
+    "unsupported": "Questo browser non può ricevere notifiche. Su iPhone, aggiungi prima l’app alla schermata Home e aprila da lì.",
+    "denied": "Le notifiche sono bloccate per questo sito. Consentile nelle impostazioni del browser, poi riprova.",
+    "failed": "Impossibile modificare i promemoria. Riprova.",
+    "pushService": "Questo browser ha bloccato il suo servizio di notifiche push. In Brave, attiva «Use Google services for push messaging» (brave://settings/privacy), riavvia il browser e riprova."
+  }
+}

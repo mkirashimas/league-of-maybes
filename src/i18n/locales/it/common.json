@@ -1,0 +1,59 @@
+{
+  "appName": "League of Maybes",
+  "motto": "Esci con entrambi (con tutti) e vedi chi fa sul serio.",
+  "language": "Lingua",
+  "account": "Account",
+  "openMenu": "Apri menu",
+  "signOut": "Esci",
+  "theme": {
+    "switchToDark": "Passa alla modalità scura",
+    "switchToLight": "Passa alla modalità chiara",
+    "darkOnly": "Questo tema ha solo la modalità scura",
+    "choose": "Tema colore",
+    "groups": {
+      "lightDark": "Chiaro e scuro",
+      "darkOnly": "Solo scuro"
+    },
+    "names": {
+      "slate": "Ardesia",
+      "roseCourt": "Campo Rosé",
+      "floodlight": "Riflettori",
+      "pitchTrophy": "Prato e Trofeo",
+      "mangoTango": "Mango Tango",
+      "lagoon": "Laguna",
+      "pride": "Orgoglio",
+      "velvetLounge": "Salotto di Velluto",
+      "deepEnd": "Acque Profonde",
+      "blackout": "Blackout"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "it": "Italiano",
+    "ro": "Română"
+  },
+  "nav": {
+    "leagueTable": "Classifica",
+    "timeline": "Cronologia",
+    "upcoming": "In arrivo",
+    "traits": "Tratti",
+    "chatSettings": "Impostazioni chat"
+  },
+  "actions": {
+    "cancel": "Annulla",
+    "save": "Salva",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "back": "Indietro",
+    "create": "Crea",
+    "close": "Chiudi"
+  },
+  "loadError": "Impossibile caricare i dati. Riprova.",
+  "saveError": "Impossibile salvare le modifiche. Riprova.",
+  "legalLinks": {
+    "terms": "Termini",
+    "privacy": "Privacy"
+  }
+}

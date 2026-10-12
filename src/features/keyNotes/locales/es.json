@@ -1,0 +1,48 @@
+{
+  "tab": {
+    "title": "Notas clave",
+    "intro": "Datos que vale la pena recordar. Fija los que nunca debes olvidar.",
+    "empty": "Todavía no hay notas clave.",
+    "loadMore": "Cargar más"
+  },
+  "form": {
+    "category": "Categoría",
+    "importance": "Importancia",
+    "text": "Nota",
+    "pinned": "Fijar arriba",
+    "add": "Añadir"
+  },
+  "category": {
+    "birthday": "Cumpleaños",
+    "family": "Familia",
+    "pets": "Mascotas",
+    "allergies": "Alergias",
+    "insideJoke": "Broma privada",
+    "giftIdea": "Idea de regalo",
+    "noGoTopic": "Tema prohibido",
+    "other": "Otro"
+  },
+  "placeholder": {
+    "birthday": "Día y mes",
+    "family": "Hermanos, padres…",
+    "pets": "Nombres, especie",
+    "allergies": "Comida, animales, polen…",
+    "insideJoke": "La broma y de dónde salió",
+    "giftIdea": "Algo que le encantaría",
+    "noGoTopic": "De qué no hablar",
+    "other": "Cualquier otra cosa"
+  },
+  "importance": {
+    "high": "Alta",
+    "medium": "Media",
+    "low": "Baja"
+  },
+  "card": {
+    "pin": "Fijar",
+    "unpin": "Desfijar"
+  },
+  "delete": {
+    "title": "¿Eliminar esta nota clave?",
+    "message": "Se quita de la pestaña Notas clave."
+  }
+}

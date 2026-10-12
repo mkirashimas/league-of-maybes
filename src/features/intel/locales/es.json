@@ -1,0 +1,35 @@
+{
+  "tab": {
+    "title": "Información",
+    "intro": "Notas de ojeo: lo que descubres antes y durante las citas.",
+    "empty": "Todavía no hay información. Añade lo que sabes.",
+    "loadMore": "Cargar más"
+  },
+  "form": {
+    "category": "Categoría",
+    "text": "Nota",
+    "add": "Añadir"
+  },
+  "category": {
+    "howWeMet": "Cómo nos conocimos",
+    "socials": "Redes",
+    "interests": "Intereses",
+    "greenFlag": "Señales verdes",
+    "redFlag": "Señales rojas",
+    "mutualFriends": "Amigos en común",
+    "openerIdea": "Ideas para empezar"
+  },
+  "placeholder": {
+    "howWeMet": "Dónde y cómo os conocisteis",
+    "socials": "Perfiles, qué publica",
+    "interests": "Aficiones, música, comida…",
+    "greenFlag": "Algo que te gustó",
+    "redFlag": "Algo a vigilar",
+    "mutualFriends": "A quién conocéis los dos",
+    "openerIdea": "Una frase para empezar a hablar"
+  },
+  "delete": {
+    "title": "¿Eliminar esta nota?",
+    "message": "Se quita de la pestaña Información."
+  }
+}

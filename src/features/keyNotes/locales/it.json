@@ -1,0 +1,48 @@
+{
+  "tab": {
+    "title": "Note chiave",
+    "intro": "Fatti da ricordare. Fissa quelli da non dimenticare mai.",
+    "empty": "Ancora nessuna nota chiave.",
+    "loadMore": "Carica altri"
+  },
+  "form": {
+    "category": "Categoria",
+    "importance": "Importanza",
+    "text": "Nota",
+    "pinned": "Fissa in alto",
+    "add": "Aggiungi"
+  },
+  "category": {
+    "birthday": "Compleanno",
+    "family": "Famiglia",
+    "pets": "Animali",
+    "allergies": "Allergie",
+    "insideJoke": "Battuta interna",
+    "giftIdea": "Idea regalo",
+    "noGoTopic": "Argomento tabù",
+    "other": "Altro"
+  },
+  "placeholder": {
+    "birthday": "Giorno e mese",
+    "family": "Fratelli, genitori…",
+    "pets": "Nomi, specie",
+    "allergies": "Cibo, animali, polline…",
+    "insideJoke": "La battuta e da dove viene",
+    "giftIdea": "Qualcosa che adorerebbe",
+    "noGoTopic": "Di cosa non parlare",
+    "other": "Qualsiasi altra cosa"
+  },
+  "importance": {
+    "high": "Alta",
+    "medium": "Media",
+    "low": "Bassa"
+  },
+  "card": {
+    "pin": "Fissa",
+    "unpin": "Sblocca"
+  },
+  "delete": {
+    "title": "Eliminare questa nota chiave?",
+    "message": "Viene rimossa dalla scheda Note chiave."
+  }
+}

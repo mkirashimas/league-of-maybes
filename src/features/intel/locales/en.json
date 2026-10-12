@@ -1,0 +1,35 @@
+{
+  "tab": {
+    "title": "Intel",
+    "intro": "Scouting notes: what you learn before and while dating.",
+    "empty": "No intel yet. Add what you know so far.",
+    "loadMore": "Load more"
+  },
+  "form": {
+    "category": "Category",
+    "text": "Note",
+    "add": "Add"
+  },
+  "category": {
+    "howWeMet": "How we met",
+    "socials": "Socials",
+    "interests": "Interests",
+    "greenFlag": "Green flags",
+    "redFlag": "Red flags",
+    "mutualFriends": "Mutual friends",
+    "openerIdea": "Opener ideas"
+  },
+  "placeholder": {
+    "howWeMet": "Where and how you met",
+    "socials": "Handles, what they post",
+    "interests": "Hobbies, music, food…",
+    "greenFlag": "Something you liked",
+    "redFlag": "Something to watch",
+    "mutualFriends": "Who you both know",
+    "openerIdea": "A line to start a chat"
+  },
+  "delete": {
+    "title": "Delete this note?",
+    "message": "It is removed from the Intel tab."
+  }
+}

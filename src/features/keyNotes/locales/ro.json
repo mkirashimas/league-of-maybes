@@ -1,0 +1,48 @@
+{
+  "tab": {
+    "title": "Note cheie",
+    "intro": "Lucruri de ținut minte. Fixează-le pe cele pe care nu trebuie să le uiți niciodată.",
+    "empty": "Nicio notă cheie încă.",
+    "loadMore": "Încarcă mai multe"
+  },
+  "form": {
+    "category": "Categorie",
+    "importance": "Importanță",
+    "text": "Notă",
+    "pinned": "Fixează sus",
+    "add": "Adaugă"
+  },
+  "category": {
+    "birthday": "Zi de naștere",
+    "family": "Familie",
+    "pets": "Animale",
+    "allergies": "Alergii",
+    "insideJoke": "Glumă de-a voastră",
+    "giftIdea": "Idee de cadou",
+    "noGoTopic": "Subiect interzis",
+    "other": "Altele"
+  },
+  "placeholder": {
+    "birthday": "Ziua și luna",
+    "family": "Frați, părinți…",
+    "pets": "Nume, specie",
+    "allergies": "Mâncare, animale, polen…",
+    "insideJoke": "Gluma și de unde a pornit",
+    "giftIdea": "Ceva ce i-ar plăcea mult",
+    "noGoTopic": "Despre ce să nu vorbești",
+    "other": "Orice altceva"
+  },
+  "importance": {
+    "high": "Mare",
+    "medium": "Medie",
+    "low": "Mică"
+  },
+  "card": {
+    "pin": "Fixează",
+    "unpin": "Anulează fixarea"
+  },
+  "delete": {
+    "title": "Ștergi această notă cheie?",
+    "message": "Este eliminată din fila Note cheie."
+  }
+}

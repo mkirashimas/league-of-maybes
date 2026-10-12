@@ -1,0 +1,135 @@
+{
+  "version": "Version {{version}}",
+  "gate": {
+    "loadError": "Votre compte n'a pas pu être chargé. Vérifiez votre connexion et réessayez.",
+    "retry": "Réessayer"
+  },
+  "consent": {
+    "title": "Avant de commencer",
+    "intro": "League of Maybes est un carnet privé sur les personnes avec qui vous sortez. Veuillez lire et accepter ces points.",
+    "points": [
+      "Vous êtes responsable de tout ce que vous écrivez sur d'autres personnes.",
+      "Utilisez des surnoms, jamais de vrais noms. Le numéro de téléphone est facultatif.",
+      "Votre effectif est privé : vous seul pouvez le voir.",
+      "Les suggestions de messages envoient les notes pertinentes à Google Gemini.",
+      "Le brief IA est copié par vous, dans l'outil d'IA de votre choix."
+    ],
+    "readFull": "Lire les textes complets :",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "checkbox": "J'ai lu et j'accepte les Conditions d'utilisation et la Politique de confidentialité.",
+    "accept": "Accepter et continuer",
+    "decline": "Se déconnecter",
+    "saveError": "Votre choix n'a pas pu être enregistré. Veuillez réessayer."
+  },
+  "terms": {
+    "title": "Conditions d'utilisation",
+    "sections": [
+      {
+        "title": "Ce qu'est l'application",
+        "body": "League of Maybes est un carnet privé à utilisateur unique qui vous aide à suivre les personnes que vous apprenez à connaître : notes, rendez-vous, projets et habitudes de discussion. Ce n'est pas un service de rencontres et il ne vous met en relation avec personne."
+      },
+      {
+        "title": "Votre compte",
+        "body": "Vous vous connectez avec votre compte Google. Gardez ce compte sécurisé : toute personne pouvant s'y connecter peut voir votre effectif."
+      },
+      {
+        "title": "Votre responsabilité sur les données saisies",
+        "body": "Tout le contenu de l'application est écrit par vous, et une grande partie concerne d'autres personnes. Vous êtes seul responsable de ce contenu et du droit de le conserver.\nUtilisez des surnoms, jamais de vrais noms. N'enregistrez pas plus que nécessaire sur quiconque et évitez les informations sensibles comme la santé, la religion ou les opinions politiques. Le numéro de téléphone est facultatif et sert uniquement à ouvrir une discussion."
+      },
+      {
+        "title": "Utilisation acceptable",
+        "body": "N'utilisez pas l'application pour harceler, suivre, exposer ou nuire à qui que ce soit. Ne partagez ni ne publiez ce que vous enregistrez sur d'autres personnes."
+      },
+      {
+        "title": "Fonctions d'IA",
+        "body": "Lorsque vous demandez des suggestions de messages, les notes pertinentes sur cette personne sont envoyées à Google Gemini via Firebase pour les générer. Les suggestions ne sont pas enregistrées.\nLe brief IA est copié dans votre presse-papiers ; si vous le collez dans un autre outil d'IA, les conditions de cet outil s'appliquent."
+      },
+      {
+        "title": "Absence de garantie",
+        "body": "L'application est fournie en l'état, sans garantie de disponibilité ni d'adéquation à un usage. Les rappels et suggestions sont des indications, pas des conseils."
+      },
+      {
+        "title": "Fin d'utilisation",
+        "body": "Vous pouvez cesser d’utiliser l’application à tout moment. Depuis la page Compte, vous pouvez exporter vos données et supprimer votre compte avec toutes ses données, grâce au code de suppression défini au préalable. La suppression est définitive : les données ne peuvent pas être récupérées."
+      },
+      {
+        "title": "Modifications",
+        "body": "Si ces conditions changent, la version indiquée ci-dessus change et il vous est demandé de les accepter à nouveau avant de continuer."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "sections": [
+      {
+        "title": "Ce qui est enregistré",
+        "body": "Votre profil Google de base (nom, e-mail, photo) tel que fourni par Firebase Authentication, et le contenu que vous saisissez : joueurs, traits, notes, rendez-vous, projets, réglages du chat et, si vous activez les notifications, un jeton d'appareil avec sa langue."
+      },
+      {
+        "title": "Où c'est enregistré",
+        "body": "Dans Google Firebase (Cloud Firestore), dans la multirégion européenne (eur3)."
+      },
+      {
+        "title": "Qui peut le voir",
+        "body": "Vous seul. Les règles de sécurité permettent à chaque compte de lire et d'écrire uniquement ses propres données. Les données ne sont ni partagées, ni vendues, ni utilisées pour la publicité."
+      },
+      {
+        "title": "Traitement par IA",
+        "body": "Uniquement lorsque vous demandez des suggestions de messages, les notes sélectionnées sur cette personne et la langue de votre interface sont envoyées à Google Gemini via Firebase AI Logic. L'application n'enregistre ni la demande ni la réponse."
+      },
+      {
+        "title": "Notifications",
+        "body": "Si vous activez les rappels, le jeton push de votre appareil est enregistré pour que les rappels vous parviennent. Les notifications utilisent un texte générique et n'affichent jamais de surnom."
+      },
+      {
+        "title": "Stocké dans votre navigateur",
+        "body": "Votre thème, votre langue et quelques petites préférences d'affichage sont conservés dans le stockage local de votre navigateur."
+      },
+      {
+        "title": "Conservation et suppression",
+        "body": "Vos données sont conservées jusqu’à ce que vous les supprimiez. Depuis la page Compte, vous pouvez tout exporter dans un fichier, ou supprimer votre compte avec toutes ses données grâce à votre code de suppression. La suppression est immédiate et définitive ; rien ne peut être récupéré ensuite. Le code de suppression n’est conservé que sous forme de hachage sécurisé."
+      },
+      {
+        "title": "Contact",
+        "body": "Pour toute question sur vos données, contactez le propriétaire de cette application."
+      }
+    ]
+  },
+  "account": {
+    "title": "Compte",
+    "export": {
+      "title": "Exporter vos données",
+      "body": "Téléchargez tout ce qui est enregistré dans votre compte sous forme de fichier JSON : joueurs, traits, notes, rendez-vous, projets, réglages du chat et appareils.",
+      "action": "Télécharger l’export",
+      "error": "L’export n’a pas pu être créé. Veuillez réessayer."
+    },
+    "delete": {
+      "title": "Supprimer le compte",
+      "finalTitle": "La suppression est définitive et irréversible",
+      "finalBody": "Supprimer votre compte efface définitivement tout votre effectif et tout son contenu (joueurs, notes, rendez-vous, projets, réglages du chat et appareils), ainsi que votre accès. Rien n’est conservé : pas de sauvegarde, pas de corbeille, aucune annulation possible. Ni vous ni le propriétaire de l’application ne pourrez récupérer les données ensuite. Exportez d’abord vos données si vous pourriez un jour en avoir besoin.",
+      "action": "Supprimer le compte…",
+      "confirmTitle": "Supprimer définitivement votre compte ?",
+      "confirmBody": "Saisissez votre code de suppression pour confirmer. Vos données sont effacées dès que vous appuyez sur le bouton.",
+      "understood": "Je comprends que mon compte et toutes ses données seront supprimés définitivement et ne pourront jamais être récupérés.",
+      "cancel": "Garder mon compte",
+      "confirm": "Supprimer définitivement",
+      "error": "Le compte n’a pas pu être supprimé. Veuillez réessayer."
+    },
+    "code": {
+      "intro": "Supprimer le compte nécessite un code de suppression, pour que cela n’arrive jamais par accident. Définissez-le maintenant et gardez-le en lieu sûr : il vous faudra pour supprimer le compte et pour changer le code.",
+      "current": "Code de suppression actuel",
+      "new": "Nouveau code de suppression",
+      "repeat": "Répétez le code",
+      "label": "Code de suppression",
+      "helper": "Au moins {{min}} caractères.",
+      "mismatch": "Les codes ne correspondent pas.",
+      "set": "Définir le code de suppression",
+      "change": "Changer le code",
+      "setOn": "Code de suppression défini le {{date}}.",
+      "forgot": "Oublié ? Contactez le propriétaire de l’application.",
+      "wrong": "Code de suppression incorrect.",
+      "locked": "Trop de codes incorrects. Le code est bloqué pendant une heure."
+    }
+  }
+}

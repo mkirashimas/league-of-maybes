@@ -1,0 +1,155 @@
+{
+  "title": "Classifica",
+  "addPlayer": "Aggiungi giocatore",
+  "notFound": "Questo giocatore non esiste.",
+  "backToRoster": "Torna alla classifica",
+  "filter": {
+    "label": "Mostra",
+    "current": "Rosa attuale",
+    "all": "Tutti"
+  },
+  "status": {
+    "prospect": "Promessa",
+    "active": "Attivo",
+    "bench": "Panchina",
+    "injuredReserve": "Infortunato",
+    "retired": "Ritirato"
+  },
+  "table": {
+    "nickname": "Soprannome",
+    "status": "Stato",
+    "overall": "Media",
+    "sortBy": "Ordina per"
+  },
+  "empty": {
+    "title": "La tua rosa è vuota",
+    "body": "Aggiungi il primo giocatore per iniziare la stagione.",
+    "filteredTitle": "Nessuno qui",
+    "filteredBody": "Nessun giocatore corrisponde a questo filtro."
+  },
+  "trait": {
+    "height": "Altezza",
+    "weight": "Peso",
+    "hot": "Attraente",
+    "sex": "Sesso",
+    "funny": "Divertente",
+    "communication": "Comunicazione",
+    "chemistry": "Intesa",
+    "consistency": "Costanza",
+    "ambition": "Ambizione",
+    "crazyEyes": "Occhi folli",
+    "attachmentStyle": "Stile di attaccamento",
+    "openness": "Apertura mentale",
+    "conscientiousness": "Coscienziosità",
+    "extraversion": "Estroversione",
+    "agreeableness": "Gradevolezza",
+    "neuroticism": "Nevroticismo"
+  },
+  "traitOption": {
+    "height": {
+      "under160": "Meno di 160 cm",
+      "160to169": "160–169 cm",
+      "170to179": "170–179 cm",
+      "180to189": "180–189 cm",
+      "190plus": "190 cm o più"
+    },
+    "weight": {
+      "under50": "Meno di 50 kg",
+      "50to59": "50–59 kg",
+      "60to69": "60–69 kg",
+      "70to79": "70–79 kg",
+      "80to89": "80–89 kg",
+      "90to99": "90–99 kg",
+      "100plus": "100 kg o più"
+    },
+    "attachmentStyle": {
+      "secure": "Sicuro",
+      "anxious": "Ansioso",
+      "avoidant": "Evitante",
+      "fearfulAvoidant": "Timoroso-evitante"
+    }
+  },
+  "unit": {
+    "cm": "cm",
+    "kg": "kg"
+  },
+  "kind": {
+    "scale": "Scala 1–10",
+    "number": "Numero",
+    "enum": "Scelta"
+  },
+  "color": {
+    "primary": "Ardesia",
+    "secondary": "Acciaio",
+    "info": "Blu",
+    "success": "Verde",
+    "warning": "Ambra",
+    "error": "Rosso"
+  },
+  "form": {
+    "titleNew": "Nuovo giocatore",
+    "titleEdit": "Modifica giocatore",
+    "nickname": "Soprannome",
+    "nicknameHelper": "Solo un soprannome. Mai un nome reale.",
+    "nicknameRequired": "Il soprannome è obbligatorio.",
+    "age": "Età",
+    "ageInvalid": "Inserisci un'età tra 18 e 120.",
+    "occupation": "Professione",
+    "city": "Città",
+    "metAt": "Conosciuto tramite",
+    "metAtHelper": "App, evento, amici…",
+    "metOn": "Conosciuto il",
+    "status": "Stato",
+    "color": "Colore dell'avatar",
+    "create": "Aggiungi alla rosa",
+    "responsibility": {
+      "title": "Sei responsabile di ciò che scrivi",
+      "body": "Qui si parla di persone reali. Usa soprannomi, conserva solo il necessario e non condividere mai nulla.",
+      "dismiss": "Ho capito"
+    }
+  },
+  "profile": {
+    "details": "Dettagli",
+    "traits": "Tratti",
+    "notRated": "Non valutato",
+    "clear": "Cancella",
+    "notSet": "Non impostato",
+    "noTraits": "Nessun tratto attivo. Attivane alcuni nelle impostazioni dei tratti.",
+    "manageTraits": "Gestisci tratti",
+    "delete": "Elimina giocatore",
+    "deleteTitle": "Eliminare {{nickname}}?",
+    "deleteMessage": "Il giocatore e tutto ciò che è collegato (info, chat, appuntamenti, piani e note chiave) verranno eliminati per sempre. Non si può annullare. Per conservare lo storico, imposta invece lo stato su Ritirato.",
+    "deleteError": "Impossibile eliminare il giocatore. Riprova."
+  },
+  "tabs": {
+    "profile": "Profilo e tratti",
+    "intel": "Info",
+    "chat": "Chat",
+    "dates": "Appuntamenti",
+    "now": "Ora e prossimi",
+    "keyNotes": "Note chiave"
+  },
+  "traitSettings": {
+    "title": "Tratti",
+    "intro": "Scegli cosa valuti, in che ordine e quanto conta nella media.",
+    "add": "Aggiungi tratto",
+    "addTitle": "Nuovo tratto",
+    "label": "Nome",
+    "kind": "Tipo",
+    "unit": "Unità",
+    "options": "Opzioni",
+    "optionsHelper": "Almeno due, separate da virgole.",
+    "weight": "Peso",
+    "weightHelper": "Quanto conta nel punteggio complessivo, da 1 (poco) a 10 (molto).",
+    "active": "Visibile",
+    "moveUp": "Sposta su",
+    "moveDown": "Sposta giù",
+    "custom": "personalizzato",
+    "deleteTitle": "Eliminare il tratto?",
+    "deleteMessage": "«{{label}}» sparirà da tutti i giocatori. I valori esistenti restano ma nascosti.",
+    "showInTable": "Mostra in classifica",
+    "scores": "Assegna i punteggi",
+    "scoresTitle": "Punteggi per {{label}}",
+    "scoresIntro": "Quanto vale ogni scelta nel punteggio complessivo, da 1 (basso) a 10 (alto)."
+  }
+}

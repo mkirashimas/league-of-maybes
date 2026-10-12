@@ -1,0 +1,50 @@
+{
+  "tab": {
+    "title": "Now & Next",
+    "add": "Add",
+    "empty": "Nothing here yet. Add what is going on or what you plan.",
+    "loadMore": "Load more",
+    "showPast": "Show past and done ({{total}})",
+    "hidePast": "Hide past and done"
+  },
+  "section": {
+    "now": "Right now",
+    "comingUp": "Coming up",
+    "someday": "Someday",
+    "past": "Past and done"
+  },
+  "kind": {
+    "now": "Now",
+    "event": "Event",
+    "plan": "Plan"
+  },
+  "kindHelp": {
+    "now": "What is going on with them these days.",
+    "event": "Something on a specific day.",
+    "plan": "Something you want to do; the day is optional."
+  },
+  "form": {
+    "titleNew": "Add to Now & Next",
+    "titleEdit": "Edit item",
+    "kind": "Type",
+    "title": "What",
+    "titleRequired": "Say what it is.",
+    "day": "Day",
+    "dayOptional": "Optional for plans.",
+    "time": "Time",
+    "notes": "Notes"
+  },
+  "row": {
+    "markDone": "Mark \"{{title}}\" as done"
+  },
+  "delete": {
+    "title": "Delete this item?",
+    "message": "It is removed from Now & Next and from Upcoming."
+  },
+  "upcoming": {
+    "title": "Upcoming",
+    "intro": "What is going on right now and what is coming up, across the whole roster.",
+    "now": "Right now",
+    "empty": "Nothing coming up. Add events and plans on a player’s Now & Next tab."
+  }
+}

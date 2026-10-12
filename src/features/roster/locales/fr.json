@@ -1,0 +1,155 @@
+{
+  "title": "Classement",
+  "addPlayer": "Ajouter un joueur",
+  "notFound": "Ce joueur n'existe pas.",
+  "backToRoster": "Retour au classement",
+  "filter": {
+    "label": "Afficher",
+    "current": "Effectif actuel",
+    "all": "Tout le monde"
+  },
+  "status": {
+    "prospect": "Espoir",
+    "active": "Actif",
+    "bench": "Banc",
+    "injuredReserve": "Blessé",
+    "retired": "Retraité"
+  },
+  "table": {
+    "nickname": "Surnom",
+    "status": "Statut",
+    "overall": "Note globale",
+    "sortBy": "Trier par"
+  },
+  "empty": {
+    "title": "Votre effectif est vide",
+    "body": "Ajoutez votre premier joueur pour commencer la saison.",
+    "filteredTitle": "Personne ici",
+    "filteredBody": "Aucun joueur ne correspond à ce filtre."
+  },
+  "trait": {
+    "height": "Taille",
+    "weight": "Poids",
+    "hot": "Sexy",
+    "sex": "Sexe",
+    "funny": "Drôle",
+    "communication": "Communication",
+    "chemistry": "Alchimie",
+    "consistency": "Constance",
+    "ambition": "Ambition",
+    "crazyEyes": "Regard fou",
+    "attachmentStyle": "Style d'attachement",
+    "openness": "Ouverture",
+    "conscientiousness": "Conscienciosité",
+    "extraversion": "Extraversion",
+    "agreeableness": "Agréabilité",
+    "neuroticism": "Névrosisme"
+  },
+  "traitOption": {
+    "height": {
+      "under160": "Moins de 160 cm",
+      "160to169": "160–169 cm",
+      "170to179": "170–179 cm",
+      "180to189": "180–189 cm",
+      "190plus": "190 cm ou plus"
+    },
+    "weight": {
+      "under50": "Moins de 50 kg",
+      "50to59": "50–59 kg",
+      "60to69": "60–69 kg",
+      "70to79": "70–79 kg",
+      "80to89": "80–89 kg",
+      "90to99": "90–99 kg",
+      "100plus": "100 kg ou plus"
+    },
+    "attachmentStyle": {
+      "secure": "Sécure",
+      "anxious": "Anxieux",
+      "avoidant": "Évitant",
+      "fearfulAvoidant": "Craintif-évitant"
+    }
+  },
+  "unit": {
+    "cm": "cm",
+    "kg": "kg"
+  },
+  "kind": {
+    "scale": "Échelle 1–10",
+    "number": "Nombre",
+    "enum": "Choix"
+  },
+  "color": {
+    "primary": "Ardoise",
+    "secondary": "Acier",
+    "info": "Bleu",
+    "success": "Vert",
+    "warning": "Ambre",
+    "error": "Rouge"
+  },
+  "form": {
+    "titleNew": "Nouveau joueur",
+    "titleEdit": "Modifier le joueur",
+    "nickname": "Surnom",
+    "nicknameHelper": "Un surnom uniquement. N'utilisez jamais un vrai nom.",
+    "nicknameRequired": "Le surnom est obligatoire.",
+    "age": "Âge",
+    "ageInvalid": "Saisissez un âge entre 18 et 120.",
+    "occupation": "Profession",
+    "city": "Ville",
+    "metAt": "Rencontré via",
+    "metAtHelper": "Appli, événement, amis…",
+    "metOn": "Rencontré le",
+    "status": "Statut",
+    "color": "Couleur de l'avatar",
+    "create": "Ajouter à l'effectif",
+    "responsibility": {
+      "title": "Vous êtes responsable de ce que vous écrivez",
+      "body": "Tout ici concerne de vraies personnes. Utilisez des surnoms, ne gardez que l'essentiel et ne partagez jamais rien.",
+      "dismiss": "Compris"
+    }
+  },
+  "profile": {
+    "details": "Détails",
+    "traits": "Traits",
+    "notRated": "Non noté",
+    "clear": "Effacer",
+    "notSet": "Non défini",
+    "noTraits": "Aucun trait actif. Activez-en dans les réglages des traits.",
+    "manageTraits": "Gérer les traits",
+    "delete": "Supprimer le joueur",
+    "deleteTitle": "Supprimer {{nickname}} ?",
+    "deleteMessage": "Le joueur et tout ce qui y est lié (infos, chat, rendez-vous, projets et notes clés) seront supprimés définitivement. C’est irréversible. Pour garder l’historique, passez plutôt le statut à Retraité.",
+    "deleteError": "Le joueur n’a pas pu être supprimé. Veuillez réessayer."
+  },
+  "tabs": {
+    "profile": "Profil et traits",
+    "intel": "Infos",
+    "chat": "Chat",
+    "dates": "Rendez-vous",
+    "now": "Maintenant et ensuite",
+    "keyNotes": "Notes clés"
+  },
+  "traitSettings": {
+    "title": "Traits",
+    "intro": "Choisissez ce que vous notez, dans quel ordre et combien cela compte dans la note globale.",
+    "add": "Ajouter un trait",
+    "addTitle": "Nouveau trait",
+    "label": "Nom",
+    "kind": "Type",
+    "unit": "Unité",
+    "options": "Options",
+    "optionsHelper": "Au moins deux, séparées par des virgules.",
+    "weight": "Poids",
+    "weightHelper": "Son poids dans le score global, de 1 (peu) à 10 (beaucoup).",
+    "active": "Affiché",
+    "moveUp": "Monter",
+    "moveDown": "Descendre",
+    "custom": "personnalisé",
+    "deleteTitle": "Supprimer le trait ?",
+    "deleteMessage": "« {{label}} » disparaîtra de tous les joueurs. Les valeurs existantes sont conservées mais masquées.",
+    "showInTable": "Afficher dans le classement",
+    "scores": "Noter les choix",
+    "scoresTitle": "Notes pour {{label}}",
+    "scoresIntro": "Ce que vaut chaque choix dans le score global, de 1 (bas) à 10 (haut)."
+  }
+}

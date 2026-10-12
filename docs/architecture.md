@@ -17,6 +17,8 @@ This is the target design. Each stage file records what was actually built and a
 
 ```
 league-of-maybes/
+  README.md                  # overview, how to run, stage status
+  .github/workflows/ci.yml   # lint + build on PRs and pushes to development/main
   docs/                      # this folder
   functions/                 # Cloud Functions (stage 9), own package.json
     src/index.ts             # thin handlers
@@ -62,14 +64,15 @@ Every document gets `createdAt` and `updatedAt` (server timestamps) from the hel
 
 ```
 users/{uid}                          # legal
-│   consent: { termsVersion, acceptedAt }
+│   consent: { termsVersion, acceptedAt }, deletionCodeSetAt?  (set by setDeletionCode)
 ├── players/{playerId}               # roster
-│     nickname, age?, occupation?, city?, metAt?, metOn?, avatarColor
+│     nickname, age | null, occupation, city, metAt, metOn (yyyy-mm-dd | '')
+│     avatarColor: primary | secondary | info | success | warning | error (palette key)
 │     status: prospect | active | bench | injuredReserve | retired
 │     traits: { [traitKey]: number | string }
 ├── traitDefinitions/{traitKey}      # roster; doc id = key, so seeding is idempotent
-│     key, labelKey | customLabel, kind: scale | number | enum
-│     unit?, options?, weight, order, active
+│     key, builtIn, customLabel, kind: scale | number | enum
+│     unit, options[], weight (0–3), order, active
 ├── intel/{intelId}                  # intel
 │     playerId, category, text
 ├── chatProfiles/{playerId}          # chat
@@ -78,7 +81,7 @@ users/{uid}                          # legal
 ├── chatNotes/{noteId}               # chat
 │     playerId, category, text
 ├── chatStates/{playerId}            # chat
-│     lastSender: me | them, lastInboundAt, lastOutboundAt
+│     playerId, lastSender: me | them, lastInboundAt, lastOutboundAt (Timestamps)
 │     nextNudgeAt | null, nudgedAt | null, stateUpdatedAt
 ├── settings/chat                    # chat; missing doc = defaults
 │     aiInstructions, rules: { [ruleKey]: boolean }
@@ -87,14 +90,16 @@ users/{uid}                          # legal
 ├── devices/{sha256(token)}          # chat
 │     token, language, userAgent
 ├── dates/{dateId}                   # dates
-│     playerId, date, venue, activity, rating 1–10
+│     playerId, date (yyyy-mm-dd, local day), venue, activity, rating 1–10 | null
 │     outcome: great | good | meh | bad, highlights, nextStep?
-├── dateSummaries/{playerId}         # dates; recomputed in a transaction
-│     lastDateAt, count, recentDates[] (last 90 days)
+├── dateSummaries/{playerId}         # dates; re-query + overwrite after each date write (D-010)
+│     playerId, lastDateAt (yyyy-mm-dd | null), count, recentDates[] (last 90 days)
 ├── agendaItems/{itemId}             # agenda
 │     playerId, kind: now | event | plan, title, notes?, when | null, done
 └── keyNotes/{noteId}                # keyNotes
-      playerId, category, text, pinned, importance
+      playerId, category, text, pinned, importance (1 low | 2 medium | 3 high)
+
+deletionCodes/{uid}                  # Cloud Functions only (no client rule): salt, hash, failedAttempts, lockedUntil
 ```
 
 **Rules for the data**
@@ -111,14 +116,14 @@ users/{uid}                          # legal
 | `chatNotes` | humor, pace, emoji, pattern, other                                          |
 | `keyNotes`  | birthday, family, pets, allergies, insideJoke, giftIdea, noGoTopic, other   |
 
-**Default traits** (seeded on first login)
+**Default traits** (seeded on first login; built-ins added later are seeded for existing accounts, and stored built-ins follow the kind and options below). Scale and choice (enum) traits weigh 1–10 in `overall`. A choice counts with its option score (1–10, set per option in Trait settings; defaults spread by position, attachmentStyle secure 10, anxious 5, avoidant 4, fearfulAvoidant 2). Number traits don't count. The League Table shows the active scale traits with `showInTable`; it defaults to on for hot, sex and crazyEyes.
 
-| Trait                                                        | Kind       | Weight |
-| ------------------------------------------------------------ | ---------- | ------ |
-| height (cm), weight (kg)                                     | number     | 0      |
-| hot, funny, communication, chemistry, consistency, ambition  | scale 1–10 | 1      |
-| crazyEyes                                                    | scale 1–10 | 0      |
-| attachmentStyle (secure, anxious, avoidant, fearfulAvoidant) | enum       | 0      |
+| Trait                                                                           | Kind       | Weight |
+| ------------------------------------------------------------------------------- | ---------- | ------ |
+| height (ranges: under 160 … 190+ cm), weight (ranges: under 50 … 100+ kg)       | enum       | 1      |
+| hot, sex, funny, communication, chemistry, consistency, ambition, crazyEyes     | scale 1–10 | 1      |
+| Big Five: openness, conscientiousness, extraversion, agreeableness, neuroticism | scale 1–10 | 1      |
+| attachmentStyle (secure, anxious, avoidant, fearfulAvoidant)                    | enum       | 1      |
 
 ## 5. Security rules and indexes
 
@@ -134,8 +139,7 @@ users/{uid}                          # legal
 | -------------------- | ----------------------------------------------- | --------------------------------- |
 | `intel`, `chatNotes` | `playerId ==`, `createdAt desc`                 | collection                        |
 | `dates`              | `playerId ==`, `date desc`                      | collection                        |
-| `agendaItems`        | `playerId ==`, `when asc`                       | collection                        |
-| `agendaItems`        | `done ==`, `kind ==`                            | collection                        |
+| `agendaItems`        | `playerId ==`, `createdAt desc`                 | collection                        |
 | `agendaItems`        | `done ==`, `when asc`                           | collection                        |
 | `keyNotes`           | `playerId ==`, `pinned desc`, `importance desc` | collection                        |
 | `chatStates`         | `nextNudgeAt asc`                               | collection group (field override) |
@@ -191,8 +195,8 @@ AuthGuard → redirects to LOGIN if signed out
 
 | Feature    | Endpoints                                                                                                                                                                                                                                       |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `legal`    | `getConsent*`, `acceptTerms`, `exportAccount`, `deleteAccount`                                                                                                                                                                                  |
-| `roster`   | `getPlayers*`, `getPlayer`, `createPlayer`, `updatePlayer`, `setPlayerStatus`, `updatePlayerTraits`, `getTraitDefinitions*`, `upsertTraitDefinition`, `reorderTraitDefinitions`, `seedDefaultTraits`                                            |
+| `legal`    | `getConsent*`, `acceptTerms`, `exportAccount`, `setDeletionCode`, `deleteAccount`                                                                                                                                                               |
+| `roster`   | `getPlayers*`, `getPlayer`, `createPlayer`, `updatePlayer`, `setPlayerStatus`, `updatePlayerTraits`, `deletePlayer`, `getTraitDefinitions*`, `upsertTraitDefinition`, `reorderTraitDefinitions`, `syncTraitDefinitions`                         |
 | `intel`    | `getIntel*`, `addIntel`, `updateIntel`, `deleteIntel`                                                                                                                                                                                           |
 | `chat`     | `getChatProfile`, `setChatProfile`, `getChatNotes`, `addChatNote`, `deleteChatNote`, `getChatState*`, `logInbound`, `logOutbound`, `getChatSettings`, `setChatSettings`, `registerDevice`, `removeDevice`, `getBriefContext`, `generateOpeners` |
 | `dates`    | `getDates`, `getDateSummaries*`, `getPlayerRefs*`, `createDate`, `updateDate`, `deleteDate`                                                                                                                                                     |

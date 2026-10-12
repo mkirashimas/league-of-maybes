@@ -1,0 +1,135 @@
+{
+  "version": "Version {{version}}",
+  "gate": {
+    "loadError": "Your account could not be loaded. Please check your connection and try again.",
+    "retry": "Retry"
+  },
+  "consent": {
+    "title": "Before you start",
+    "intro": "League of Maybes is a private notebook about the people you date. Please read and accept these points.",
+    "points": [
+      "You are responsible for everything you write about other people.",
+      "Use nicknames, never real names. A phone number is optional.",
+      "Your roster is private: only you can see it.",
+      "Opener suggestions send the relevant notes to Google Gemini.",
+      "The AI brief is copied by you, into the AI tool of your choice."
+    ],
+    "readFull": "Read the full texts:",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "checkbox": "I have read and accept the Terms of Use and the Privacy Policy.",
+    "accept": "Accept and continue",
+    "decline": "Sign out",
+    "saveError": "Your choice could not be saved. Please try again."
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "sections": [
+      {
+        "title": "What the app is",
+        "body": "League of Maybes is a private, single-user notebook that helps you keep track of the people you are getting to know: notes, dates, plans and chat habits. It is not a dating service and does not connect you with anyone."
+      },
+      {
+        "title": "Your account",
+        "body": "You sign in with your Google account. Keep that account secure: anyone who can sign in to it can see your roster."
+      },
+      {
+        "title": "Your responsibility for the data you enter",
+        "body": "Everything in the app is written by you, and much of it is about other people. You are solely responsible for that content and for having the right to keep it.\nUse nicknames, never real names. Do not record more about anyone than you need, and avoid sensitive details such as health, religion or political views. A phone number is optional and only used to open a chat."
+      },
+      {
+        "title": "Acceptable use",
+        "body": "Do not use the app to harass, track, expose or harm anyone. Do not share or publish what you store about other people."
+      },
+      {
+        "title": "AI features",
+        "body": "When you ask for opener suggestions, the relevant notes about that person are sent to Google Gemini through Firebase to generate them. The suggestions are not stored.\nThe AI brief is copied to your clipboard; if you paste it into another AI tool, that tool's own terms apply."
+      },
+      {
+        "title": "No warranty",
+        "body": "The app is provided as is, without any guarantee of availability or fitness for a purpose. Reminders and suggestions are hints, not advice."
+      },
+      {
+        "title": "Ending use",
+        "body": "You can stop using the app at any time. From the Account page you can export your data and delete your account with all its data, using the deletion code you set beforehand. Deletion is final: the data cannot be recovered."
+      },
+      {
+        "title": "Changes",
+        "body": "If these terms change, the version above changes and you are asked to accept them again before continuing."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": [
+      {
+        "title": "What is stored",
+        "body": "Your basic Google profile (name, email, photo) as provided by Firebase Authentication, and the content you enter: players, traits, notes, dates, plans, chat settings and, if you enable notifications, a device token with its language."
+      },
+      {
+        "title": "Where it is stored",
+        "body": "In Google Firebase (Cloud Firestore), in the European multi-region (eur3)."
+      },
+      {
+        "title": "Who can see it",
+        "body": "Only you. Security rules allow each account to read and write its own data only. The data is not shared, sold or used for advertising."
+      },
+      {
+        "title": "AI processing",
+        "body": "Only when you request opener suggestions, the selected notes about that person and your interface language are sent to Google Gemini through Firebase AI Logic. The app does not store the request or the answer."
+      },
+      {
+        "title": "Notifications",
+        "body": "If you turn on nudges, your device's push token is stored so reminders can reach you. Notifications use generic text and never show a nickname."
+      },
+      {
+        "title": "Stored in your browser",
+        "body": "Your theme, your language and a few small display preferences are kept in your browser's local storage."
+      },
+      {
+        "title": "Retention and deletion",
+        "body": "Your data is kept until you delete it. From the Account page you can export everything as a file, or delete your account with all its data using your deletion code. Deletion is immediate and permanent; nothing can be recovered afterwards. The deletion code is stored only as a secure hash."
+      },
+      {
+        "title": "Contact",
+        "body": "For any question about your data, contact the owner of this app."
+      }
+    ]
+  },
+  "account": {
+    "title": "Account",
+    "export": {
+      "title": "Export your data",
+      "body": "Download everything stored in your account as a JSON file: players, traits, notes, dates, plans, chat settings and devices.",
+      "action": "Download export",
+      "error": "The export could not be created. Please try again."
+    },
+    "delete": {
+      "title": "Delete account",
+      "finalTitle": "Deletion is final and cannot be undone",
+      "finalBody": "Deleting your account permanently erases your whole roster and everything in it (players, notes, dates, plans, chat settings and devices), together with your sign-in. Nothing is kept: there is no backup, no recycle bin and no undo. Neither you nor the owner of the app can recover the data afterwards. Export your data first if you might ever want it again.",
+      "action": "Delete account…",
+      "confirmTitle": "Delete your account for good?",
+      "confirmBody": "Enter your deletion code to confirm. Your data is erased the moment you press the button.",
+      "understood": "I understand that my account and all its data will be permanently deleted and can never be recovered.",
+      "cancel": "Keep my account",
+      "confirm": "Delete permanently",
+      "error": "The account could not be deleted. Please try again."
+    },
+    "code": {
+      "intro": "Deleting the account needs a deletion code, so it can never happen by accident. Set one now and keep it somewhere safe: you need it to delete the account and to change the code.",
+      "current": "Current deletion code",
+      "new": "New deletion code",
+      "repeat": "Repeat the code",
+      "label": "Deletion code",
+      "helper": "At least {{min}} characters.",
+      "mismatch": "The codes don’t match.",
+      "set": "Set deletion code",
+      "change": "Change code",
+      "setOn": "Deletion code set on {{date}}.",
+      "forgot": "Forgot it? Contact the owner of the app.",
+      "wrong": "Wrong deletion code.",
+      "locked": "Too many wrong codes. The code is locked for an hour."
+    }
+  }
+}

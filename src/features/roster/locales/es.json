@@ -1,0 +1,155 @@
+{
+  "title": "Clasificación",
+  "addPlayer": "Añadir jugador",
+  "notFound": "Este jugador no existe.",
+  "backToRoster": "Volver a la clasificación",
+  "filter": {
+    "label": "Mostrar",
+    "current": "Plantilla actual",
+    "all": "Todos"
+  },
+  "status": {
+    "prospect": "Promesa",
+    "active": "Activo",
+    "bench": "Banquillo",
+    "injuredReserve": "Lesionado",
+    "retired": "Retirado"
+  },
+  "table": {
+    "nickname": "Apodo",
+    "status": "Estado",
+    "overall": "Media",
+    "sortBy": "Ordenar por"
+  },
+  "empty": {
+    "title": "Tu plantilla está vacía",
+    "body": "Añade tu primer jugador para empezar la temporada.",
+    "filteredTitle": "Aquí no hay nadie",
+    "filteredBody": "Ningún jugador coincide con este filtro."
+  },
+  "trait": {
+    "height": "Altura",
+    "weight": "Peso",
+    "hot": "Atractivo",
+    "sex": "Sexo",
+    "funny": "Gracioso",
+    "communication": "Comunicación",
+    "chemistry": "Química",
+    "consistency": "Constancia",
+    "ambition": "Ambición",
+    "crazyEyes": "Mirada loca",
+    "attachmentStyle": "Estilo de apego",
+    "openness": "Apertura",
+    "conscientiousness": "Responsabilidad",
+    "extraversion": "Extraversión",
+    "agreeableness": "Amabilidad",
+    "neuroticism": "Neuroticismo"
+  },
+  "traitOption": {
+    "height": {
+      "under160": "Menos de 160 cm",
+      "160to169": "160–169 cm",
+      "170to179": "170–179 cm",
+      "180to189": "180–189 cm",
+      "190plus": "190 cm o más"
+    },
+    "weight": {
+      "under50": "Menos de 50 kg",
+      "50to59": "50–59 kg",
+      "60to69": "60–69 kg",
+      "70to79": "70–79 kg",
+      "80to89": "80–89 kg",
+      "90to99": "90–99 kg",
+      "100plus": "100 kg o más"
+    },
+    "attachmentStyle": {
+      "secure": "Seguro",
+      "anxious": "Ansioso",
+      "avoidant": "Evitativo",
+      "fearfulAvoidant": "Temeroso-evitativo"
+    }
+  },
+  "unit": {
+    "cm": "cm",
+    "kg": "kg"
+  },
+  "kind": {
+    "scale": "Escala 1–10",
+    "number": "Número",
+    "enum": "Opción"
+  },
+  "color": {
+    "primary": "Pizarra",
+    "secondary": "Acero",
+    "info": "Azul",
+    "success": "Verde",
+    "warning": "Ámbar",
+    "error": "Rojo"
+  },
+  "form": {
+    "titleNew": "Nuevo jugador",
+    "titleEdit": "Editar jugador",
+    "nickname": "Apodo",
+    "nicknameHelper": "Solo un apodo. Nunca uses un nombre real.",
+    "nicknameRequired": "El apodo es obligatorio.",
+    "age": "Edad",
+    "ageInvalid": "Introduce una edad entre 18 y 120.",
+    "occupation": "Ocupación",
+    "city": "Ciudad",
+    "metAt": "Conocido en",
+    "metAtHelper": "App, evento, amigos…",
+    "metOn": "Conocido el",
+    "status": "Estado",
+    "color": "Color del avatar",
+    "create": "Añadir a la plantilla",
+    "responsibility": {
+      "title": "Eres responsable de lo que escribes",
+      "body": "Todo aquí trata sobre personas reales. Usa apodos, guarda solo lo necesario y nunca lo compartas.",
+      "dismiss": "Entendido"
+    }
+  },
+  "profile": {
+    "details": "Detalles",
+    "traits": "Rasgos",
+    "notRated": "Sin valorar",
+    "clear": "Borrar",
+    "notSet": "Sin definir",
+    "noTraits": "No hay rasgos activos. Activa algunos en los ajustes de rasgos.",
+    "manageTraits": "Gestionar rasgos",
+    "delete": "Eliminar jugador",
+    "deleteTitle": "¿Eliminar a {{nickname}}?",
+    "deleteMessage": "El jugador y todo lo relacionado (información, chat, citas, planes y notas clave) se eliminará para siempre. No se puede deshacer. Para conservar el historial, cambia el estado a Retirado.",
+    "deleteError": "No se pudo eliminar el jugador. Inténtalo de nuevo."
+  },
+  "tabs": {
+    "profile": "Perfil y rasgos",
+    "intel": "Información",
+    "chat": "Chat",
+    "dates": "Citas",
+    "now": "Ahora y próximo",
+    "keyNotes": "Notas clave"
+  },
+  "traitSettings": {
+    "title": "Rasgos",
+    "intro": "Elige qué valoras, en qué orden y cuánto cuenta en la media.",
+    "add": "Añadir rasgo",
+    "addTitle": "Nuevo rasgo",
+    "label": "Nombre",
+    "kind": "Tipo",
+    "unit": "Unidad",
+    "options": "Opciones",
+    "optionsHelper": "Al menos dos, separadas por comas.",
+    "weight": "Peso",
+    "weightHelper": "Cuánto cuenta en la puntuación global, de 1 (poco) a 10 (mucho).",
+    "active": "Visible",
+    "moveUp": "Subir",
+    "moveDown": "Bajar",
+    "custom": "personalizado",
+    "deleteTitle": "¿Eliminar rasgo?",
+    "deleteMessage": "«{{label}}» desaparecerá de todos los jugadores. Los valores existentes se conservan pero quedan ocultos.",
+    "showInTable": "Mostrar en la clasificación",
+    "scores": "Puntuar las opciones",
+    "scoresTitle": "Puntuaciones de {{label}}",
+    "scoresIntro": "Lo que vale cada opción en la puntuación global, de 1 (bajo) a 10 (alto)."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "tab": {
+    "title": "Ahora y próximo",
+    "add": "Añadir",
+    "empty": "Aún no hay nada. Añade lo que está pasando o lo que planeas.",
+    "loadMore": "Cargar más",
+    "showPast": "Mostrar pasado y hecho ({{total}})",
+    "hidePast": "Ocultar pasado y hecho"
+  },
+  "section": {
+    "now": "Ahora mismo",
+    "comingUp": "Próximamente",
+    "someday": "Algún día",
+    "past": "Pasado y hecho"
+  },
+  "kind": {
+    "now": "Ahora",
+    "event": "Evento",
+    "plan": "Plan"
+  },
+  "kindHelp": {
+    "now": "Lo que pasa con esa persona estos días.",
+    "event": "Algo en un día concreto.",
+    "plan": "Algo que quieres hacer; el día es opcional."
+  },
+  "form": {
+    "titleNew": "Añadir a Ahora y próximo",
+    "titleEdit": "Editar elemento",
+    "kind": "Tipo",
+    "title": "Qué",
+    "titleRequired": "Di qué es.",
+    "day": "Día",
+    "dayOptional": "Opcional para planes.",
+    "time": "Hora",
+    "notes": "Notas"
+  },
+  "row": {
+    "markDone": "Marcar «{{title}}» como hecho"
+  },
+  "delete": {
+    "title": "¿Eliminar este elemento?",
+    "message": "Se quita de Ahora y próximo y de Próximamente."
+  },
+  "upcoming": {
+    "title": "Próximamente",
+    "intro": "Lo que pasa ahora mismo y lo que viene, en toda la plantilla.",
+    "now": "Ahora mismo",
+    "empty": "No hay nada próximo. Añade eventos y planes en la pestaña Ahora y próximo de un jugador."
+  }
+}

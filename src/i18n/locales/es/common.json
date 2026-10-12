@@ -1,0 +1,59 @@
+{
+  "appName": "League of Maybes",
+  "motto": "Sal con los dos (con todos) y mira quién va en serio.",
+  "language": "Idioma",
+  "account": "Cuenta",
+  "openMenu": "Abrir menú",
+  "signOut": "Cerrar sesión",
+  "theme": {
+    "switchToDark": "Cambiar a modo oscuro",
+    "switchToLight": "Cambiar a modo claro",
+    "darkOnly": "Este tema solo tiene modo oscuro",
+    "choose": "Tema de color",
+    "groups": {
+      "lightDark": "Claro y oscuro",
+      "darkOnly": "Solo oscuro"
+    },
+    "names": {
+      "slate": "Pizarra",
+      "roseCourt": "Cancha Rosé",
+      "floodlight": "Focos",
+      "pitchTrophy": "Césped y Trofeo",
+      "mangoTango": "Mango Tango",
+      "lagoon": "Laguna",
+      "pride": "Orgullo",
+      "velvetLounge": "Salón de Terciopelo",
+      "deepEnd": "Aguas Profundas",
+      "blackout": "Apagón"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "it": "Italiano",
+    "ro": "Română"
+  },
+  "nav": {
+    "leagueTable": "Clasificación",
+    "timeline": "Cronología",
+    "upcoming": "Próximamente",
+    "traits": "Rasgos",
+    "chatSettings": "Ajustes de chat"
+  },
+  "actions": {
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "back": "Atrás",
+    "create": "Crear",
+    "close": "Cerrar"
+  },
+  "loadError": "No se pudieron cargar los datos. Inténtalo de nuevo.",
+  "saveError": "No se pudieron guardar los cambios. Inténtalo de nuevo.",
+  "legalLinks": {
+    "terms": "Condiciones",
+    "privacy": "Privacidad"
+  }
+}

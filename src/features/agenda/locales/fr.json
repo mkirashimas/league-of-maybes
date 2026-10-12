@@ -1,0 +1,50 @@
+{
+  "tab": {
+    "title": "Maintenant et ensuite",
+    "add": "Ajouter",
+    "empty": "Rien pour l’instant. Ajoutez ce qui se passe ou ce que vous prévoyez.",
+    "loadMore": "Voir plus",
+    "showPast": "Afficher passé et fait ({{total}})",
+    "hidePast": "Masquer passé et fait"
+  },
+  "section": {
+    "now": "En ce moment",
+    "comingUp": "À venir",
+    "someday": "Un jour",
+    "past": "Passé et fait"
+  },
+  "kind": {
+    "now": "Maintenant",
+    "event": "Événement",
+    "plan": "Projet"
+  },
+  "kindHelp": {
+    "now": "Ce qui se passe avec cette personne ces jours-ci.",
+    "event": "Quelque chose à une date précise.",
+    "plan": "Quelque chose que vous voulez faire ; la date est facultative."
+  },
+  "form": {
+    "titleNew": "Ajouter à Maintenant et ensuite",
+    "titleEdit": "Modifier l’élément",
+    "kind": "Type",
+    "title": "Quoi",
+    "titleRequired": "Dites ce que c’est.",
+    "day": "Jour",
+    "dayOptional": "Facultatif pour les projets.",
+    "time": "Heure",
+    "notes": "Notes"
+  },
+  "row": {
+    "markDone": "Marquer « {{title}} » comme fait"
+  },
+  "delete": {
+    "title": "Supprimer cet élément ?",
+    "message": "Il est retiré de Maintenant et ensuite et de À venir."
+  },
+  "upcoming": {
+    "title": "À venir",
+    "intro": "Ce qui se passe en ce moment et ce qui arrive, pour tout l’effectif.",
+    "now": "En ce moment",
+    "empty": "Rien à venir. Ajoutez des événements et des projets dans l’onglet Maintenant et ensuite d’un joueur."
+  }
+}

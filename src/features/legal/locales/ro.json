@@ -51,7 +51,7 @@
       },
       {
         "title": "Încetarea utilizării",
-        "body": "Poți înceta oricând să folosești aplicația și îți poți șterge contul împreună cu toate datele din pagina Cont."
+        "body": "Poți înceta oricând să folosești aplicația. Îți poți exporta datele din pagina Cont. Pentru ștergerea contului și a tuturor datelor, contactează proprietarul acestei aplicații."
       },
       {
         "title": "Modificări",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Păstrare și ștergere",
-        "body": "Datele tale sunt păstrate până când le ștergi. Din pagina Cont poți exporta totul într-un fișier sau îți poți șterge contul împreună cu toate datele."
+        "body": "Datele tale sunt păstrate până când sunt șterse. Din pagina Cont poți exporta totul într-un fișier. Poți șterge un singur jucător împreună cu toate înregistrările lui. Pentru ștergerea întregului cont, contactează proprietarul acestei aplicații."
       },
       {
         "title": "Contact",
@@ -103,17 +103,6 @@
       "body": "Descarcă tot ce este salvat în contul tău ca fișier JSON: jucători, trăsături, notițe, întâlniri, planuri, setări de chat și dispozitive.",
       "action": "Descarcă exportul",
       "error": "Exportul nu a putut fi creat. Încearcă din nou."
-    },
-    "delete": {
-      "title": "Șterge contul",
-      "body": "Șterge definitiv contul tău și toate datele lui. Acțiunea nu poate fi anulată. Exportă mai întâi datele dacă vrei să păstrezi o copie.",
-      "action": "Șterge contul…",
-      "confirmTitle": "Ștergi contul?",
-      "confirmBody": "Tot lotul tău și tot ce ține de el vor fi șterse, împreună cu accesul tău. Vei fi deconectat.",
-      "understood": "Înțeleg că acțiunea nu poate fi anulată.",
-      "cancel": "Anulează",
-      "confirm": "Șterge tot",
-      "error": "Contul nu a putut fi șters. Încearcă din nou."
     }
   }
 }

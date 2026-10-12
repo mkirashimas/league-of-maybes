@@ -3,7 +3,7 @@ import type { BaseDocument } from '../../types';
 export const LEGAL_NAMESPACE = 'legal';
 
 /** Bump this when the Terms or Privacy text changes materially: every user is asked to accept again. */
-export const TERMS_VERSION = '2026-10-12';
+export const TERMS_VERSION = '2026-10-12.2';
 
 /** The users collection; this feature owns the users/{uid} document itself. */
 export const USERS_COLLECTION = 'users';
@@ -31,7 +31,6 @@ export const hasAcceptedCurrentTerms = (userDocument: UserDocument | null | unde
 // ---------- Account (callables in functions/src/account) ----------
 
 export const EXPORT_ACCOUNT_FUNCTION = 'exportAccount';
-export const DELETE_ACCOUNT_FUNCTION = 'deleteAccount';
 
 /** One exported document: its fields (timestamps as ISO strings) and its subcollections. */
 export interface ExportedDocument {

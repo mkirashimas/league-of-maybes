@@ -31,6 +31,7 @@
     "height": "Altura",
     "weight": "Peso",
     "hot": "Atractivo",
+    "sex": "Sexo",
     "funny": "Gracioso",
     "communication": "Comunicación",
     "chemistry": "Química",
@@ -93,7 +94,11 @@
     "clear": "Borrar",
     "notSet": "Sin definir",
     "noTraits": "No hay rasgos activos. Activa algunos en los ajustes de rasgos.",
-    "manageTraits": "Gestionar rasgos"
+    "manageTraits": "Gestionar rasgos",
+    "delete": "Eliminar jugador",
+    "deleteTitle": "¿Eliminar a {{nickname}}?",
+    "deleteMessage": "El jugador y todo lo relacionado (información, chat, citas, planes y notas clave) se eliminará para siempre. No se puede deshacer. Para conservar el historial, cambia el estado a Retirado.",
+    "deleteError": "No se pudo eliminar el jugador. Inténtalo de nuevo."
   },
   "tabs": {
     "profile": "Perfil y rasgos",
@@ -120,6 +125,7 @@
     "moveDown": "Bajar",
     "custom": "personalizado",
     "deleteTitle": "¿Eliminar rasgo?",
-    "deleteMessage": "«{{label}}» desaparecerá de todos los jugadores. Los valores existentes se conservan pero quedan ocultos."
+    "deleteMessage": "«{{label}}» desaparecerá de todos los jugadores. Los valores existentes se conservan pero quedan ocultos.",
+    "showInTable": "Mostrar en la clasificación"
   }
 }

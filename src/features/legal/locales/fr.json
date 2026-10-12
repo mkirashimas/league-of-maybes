@@ -51,7 +51,7 @@
       },
       {
         "title": "Fin d'utilisation",
-        "body": "Vous pouvez cesser d'utiliser l'application à tout moment et supprimer votre compte et toutes ses données depuis la page Compte."
+        "body": "Vous pouvez cesser d'utiliser l'application à tout moment. Vous pouvez exporter vos données depuis la page Compte. Pour faire supprimer votre compte et toutes ses données, contactez le propriétaire de cette application."
       },
       {
         "title": "Modifications",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Conservation et suppression",
-        "body": "Vos données sont conservées jusqu'à ce que vous les supprimiez. Depuis la page Compte, vous pouvez tout exporter dans un fichier ou supprimer votre compte avec toutes ses données."
+        "body": "Vos données sont conservées jusqu'à leur suppression. Depuis la page Compte, vous pouvez tout exporter dans un fichier. Vous pouvez supprimer un joueur avec tous ses enregistrements. Pour faire supprimer tout votre compte, contactez le propriétaire de cette application."
       },
       {
         "title": "Contact",
@@ -103,17 +103,6 @@
       "body": "Téléchargez tout ce qui est enregistré dans votre compte sous forme de fichier JSON : joueurs, traits, notes, rendez-vous, projets, réglages du chat et appareils.",
       "action": "Télécharger l’export",
       "error": "L’export n’a pas pu être créé. Veuillez réessayer."
-    },
-    "delete": {
-      "title": "Supprimer le compte",
-      "body": "Supprime définitivement votre compte et toutes ses données. C’est irréversible. Exportez d’abord vos données si vous voulez en garder une copie.",
-      "action": "Supprimer le compte…",
-      "confirmTitle": "Supprimer votre compte ?",
-      "confirmBody": "Tout votre effectif et tout ce qui y est lié seront supprimés, avec votre accès. Vous serez déconnecté.",
-      "understood": "Je comprends que c’est irréversible.",
-      "cancel": "Annuler",
-      "confirm": "Tout supprimer",
-      "error": "Le compte n’a pas pu être supprimé. Veuillez réessayer."
     }
   }
 }

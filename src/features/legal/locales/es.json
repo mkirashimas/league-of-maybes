@@ -51,7 +51,7 @@
       },
       {
         "title": "Fin del uso",
-        "body": "Puedes dejar de usar la aplicación en cualquier momento y eliminar tu cuenta y todos sus datos desde la página Cuenta."
+        "body": "Puedes dejar de usar la aplicación en cualquier momento. Puedes exportar tus datos desde la página Cuenta. Para que se eliminen tu cuenta y todos sus datos, contacta con el propietario de esta aplicación."
       },
       {
         "title": "Cambios",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Conservación y eliminación",
-        "body": "Tus datos se conservan hasta que los eliminas. Desde la página Cuenta puedes exportarlo todo en un archivo o eliminar tu cuenta junto con todos sus datos."
+        "body": "Tus datos se conservan hasta que se eliminan. Desde la página Cuenta puedes exportarlo todo en un archivo. Puedes eliminar un jugador junto con todos sus registros. Para que se elimine toda tu cuenta, contacta con el propietario de esta aplicación."
       },
       {
         "title": "Contacto",
@@ -103,17 +103,6 @@
       "body": "Descarga todo lo guardado en tu cuenta como archivo JSON: jugadores, rasgos, notas, citas, planes, ajustes del chat y dispositivos.",
       "action": "Descargar exportación",
       "error": "No se pudo crear la exportación. Inténtalo de nuevo."
-    },
-    "delete": {
-      "title": "Eliminar cuenta",
-      "body": "Elimina de forma permanente tu cuenta y todos sus datos. No se puede deshacer. Exporta tus datos antes si quieres conservar una copia.",
-      "action": "Eliminar cuenta…",
-      "confirmTitle": "¿Eliminar tu cuenta?",
-      "confirmBody": "Se eliminará toda tu plantilla y todo lo relacionado, junto con tu acceso. Se cerrará tu sesión.",
-      "understood": "Entiendo que no se puede deshacer.",
-      "cancel": "Cancelar",
-      "confirm": "Eliminar todo",
-      "error": "No se pudo eliminar la cuenta. Inténtalo de nuevo."
     }
   }
 }

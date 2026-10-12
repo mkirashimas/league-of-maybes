@@ -31,6 +31,7 @@
     "height": "Altezza",
     "weight": "Peso",
     "hot": "Attraente",
+    "sex": "Sesso",
     "funny": "Divertente",
     "communication": "Comunicazione",
     "chemistry": "Intesa",
@@ -93,7 +94,11 @@
     "clear": "Cancella",
     "notSet": "Non impostato",
     "noTraits": "Nessun tratto attivo. Attivane alcuni nelle impostazioni dei tratti.",
-    "manageTraits": "Gestisci tratti"
+    "manageTraits": "Gestisci tratti",
+    "delete": "Elimina giocatore",
+    "deleteTitle": "Eliminare {{nickname}}?",
+    "deleteMessage": "Il giocatore e tutto ciò che è collegato (info, chat, appuntamenti, piani e note chiave) verranno eliminati per sempre. Non si può annullare. Per conservare lo storico, imposta invece lo stato su Ritirato.",
+    "deleteError": "Impossibile eliminare il giocatore. Riprova."
   },
   "tabs": {
     "profile": "Profilo e tratti",
@@ -120,6 +125,7 @@
     "moveDown": "Sposta giù",
     "custom": "personalizzato",
     "deleteTitle": "Eliminare il tratto?",
-    "deleteMessage": "«{{label}}» sparirà da tutti i giocatori. I valori esistenti restano ma nascosti."
+    "deleteMessage": "«{{label}}» sparirà da tutti i giocatori. I valori esistenti restano ma nascosti.",
+    "showInTable": "Mostra in classifica"
   }
 }

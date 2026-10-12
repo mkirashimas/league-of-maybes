@@ -1,11 +1,9 @@
-import { getAuth } from 'firebase-admin/auth';
 import {
   getFirestore,
   Timestamp,
   type DocumentData,
   type DocumentReference,
 } from 'firebase-admin/firestore';
-import { logger } from 'firebase-functions';
 import { HttpsError, onCall, type CallableRequest } from 'firebase-functions/https';
 import { FUNCTION_OPTIONS } from '../options';
 
@@ -63,14 +61,4 @@ export const exportAccount = onCall(CALLABLE_OPTIONS, async (request): Promise<A
   const uid = requireUid(request);
   const user = await exportDocument(getFirestore().doc(`users/${uid}`));
   return { exportedAt: new Date().toISOString(), uid, user };
-});
-
-/** Deletes users/{uid} with everything under it, then the auth user (R15). */
-export const deleteAccount = onCall(CALLABLE_OPTIONS, async (request): Promise<null> => {
-  const uid = requireUid(request);
-  const db = getFirestore();
-  await db.recursiveDelete(db.doc(`users/${uid}`));
-  await getAuth().deleteUser(uid);
-  logger.info('Account deleted', { uid });
-  return null;
 });

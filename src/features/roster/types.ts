@@ -68,6 +68,8 @@ export interface TraitDefinition extends BaseDocument {
   weight: number;
   order: number;
   active: boolean;
+  /** Shows a scale trait as a League Table column. Missing on older docs: see isShownInTable. */
+  showInTable?: boolean;
 }
 
 export type TraitDefinitionInput = Omit<TraitDefinition, keyof BaseDocument>;
@@ -90,21 +92,37 @@ const builtIn = (
   ...extra,
 });
 
-/** Seeded on first use. "crazyEyes" has weight 0 so it never raises the overall score. */
+/** The scale traits shown in the League Table until the user changes it in the trait settings. */
+export const TABLE_DEFAULT_KEYS: readonly string[] = ['hot', 'sex', 'crazyEyes'];
+
+/**
+ * Seeded on first use; built-ins added later are seeded for existing accounts too.
+ * "crazyEyes" has weight 0 so it never raises the overall score.
+ */
 export const DEFAULT_TRAITS: TraitDefinitionInput[] = [
   builtIn('height', 'number', 0, { unit: 'cm' }),
   builtIn('weight', 'number', 1, { unit: 'kg' }),
   builtIn('hot', 'scale', 2),
-  builtIn('funny', 'scale', 3),
-  builtIn('communication', 'scale', 4),
-  builtIn('chemistry', 'scale', 5),
-  builtIn('consistency', 'scale', 6),
-  builtIn('ambition', 'scale', 7),
-  builtIn('crazyEyes', 'scale', 8, { weight: 0 }),
-  builtIn('attachmentStyle', 'enum', 9, {
+  builtIn('sex', 'scale', 3),
+  builtIn('funny', 'scale', 4),
+  builtIn('communication', 'scale', 5),
+  builtIn('chemistry', 'scale', 6),
+  builtIn('consistency', 'scale', 7),
+  builtIn('ambition', 'scale', 8),
+  builtIn('crazyEyes', 'scale', 9, { weight: 0 }),
+  builtIn('attachmentStyle', 'enum', 10, {
     options: ['secure', 'anxious', 'avoidant', 'fearfulAvoidant'],
   }),
-];
+].map((definition) => ({
+  ...definition,
+  showInTable: TABLE_DEFAULT_KEYS.includes(definition.key),
+}));
+
+/** Whether a trait is a League Table column: active scale traits, on by user choice or default. */
+export const isShownInTable = (definition: TraitDefinition): boolean =>
+  definition.active &&
+  definition.kind === 'scale' &&
+  (definition.showInTable ?? TABLE_DEFAULT_KEYS.includes(definition.key));
 
 export const MAX_TRAIT_WEIGHT = 3;
 

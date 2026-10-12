@@ -31,6 +31,7 @@
     "height": "Taille",
     "weight": "Poids",
     "hot": "Sexy",
+    "sex": "Sexe",
     "funny": "Drôle",
     "communication": "Communication",
     "chemistry": "Alchimie",
@@ -93,7 +94,11 @@
     "clear": "Effacer",
     "notSet": "Non défini",
     "noTraits": "Aucun trait actif. Activez-en dans les réglages des traits.",
-    "manageTraits": "Gérer les traits"
+    "manageTraits": "Gérer les traits",
+    "delete": "Supprimer le joueur",
+    "deleteTitle": "Supprimer {{nickname}} ?",
+    "deleteMessage": "Le joueur et tout ce qui y est lié (infos, chat, rendez-vous, projets et notes clés) seront supprimés définitivement. C’est irréversible. Pour garder l’historique, passez plutôt le statut à Retraité.",
+    "deleteError": "Le joueur n’a pas pu être supprimé. Veuillez réessayer."
   },
   "tabs": {
     "profile": "Profil et traits",
@@ -120,6 +125,7 @@
     "moveDown": "Descendre",
     "custom": "personnalisé",
     "deleteTitle": "Supprimer le trait ?",
-    "deleteMessage": "« {{label}} » disparaîtra de tous les joueurs. Les valeurs existantes sont conservées mais masquées."
+    "deleteMessage": "« {{label}} » disparaîtra de tous les joueurs. Les valeurs existantes sont conservées mais masquées.",
+    "showInTable": "Afficher dans le classement"
   }
 }

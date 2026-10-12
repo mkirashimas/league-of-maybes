@@ -2,5 +2,6 @@ import { initializeApp } from 'firebase-admin/app';
 
 initializeApp();
 
-export { deleteAccount, exportAccount } from './account/account';
+export { exportAccount } from './account/account';
 export { sendNudges } from './nudges/sendNudges';
+export { onPlayerDeleted } from './players/onPlayerDeleted';

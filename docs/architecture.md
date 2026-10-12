@@ -114,14 +114,14 @@ users/{uid}                          # legal
 | `chatNotes` | humor, pace, emoji, pattern, other                                          |
 | `keyNotes`  | birthday, family, pets, allergies, insideJoke, giftIdea, noGoTopic, other   |
 
-**Default traits** (seeded on first login)
+**Default traits** (seeded on first login; built-ins added later are seeded for existing accounts too). The League Table shows the active scale traits with `showInTable`; it defaults to on for hot, sex and crazyEyes.
 
-| Trait                                                        | Kind       | Weight |
-| ------------------------------------------------------------ | ---------- | ------ |
-| height (cm), weight (kg)                                     | number     | 0      |
-| hot, funny, communication, chemistry, consistency, ambition  | scale 1–10 | 1      |
-| crazyEyes                                                    | scale 1–10 | 0      |
-| attachmentStyle (secure, anxious, avoidant, fearfulAvoidant) | enum       | 0      |
+| Trait                                                            | Kind       | Weight |
+| ---------------------------------------------------------------- | ---------- | ------ |
+| height (cm), weight (kg)                                         | number     | 0      |
+| hot, sex, funny, communication, chemistry, consistency, ambition | scale 1–10 | 1      |
+| crazyEyes                                                        | scale 1–10 | 0      |
+| attachmentStyle (secure, anxious, avoidant, fearfulAvoidant)     | enum       | 0      |
 
 ## 5. Security rules and indexes
 
@@ -193,8 +193,8 @@ AuthGuard → redirects to LOGIN if signed out
 
 | Feature    | Endpoints                                                                                                                                                                                                                                       |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `legal`    | `getConsent*`, `acceptTerms`, `exportAccount`, `deleteAccount`                                                                                                                                                                                  |
-| `roster`   | `getPlayers*`, `getPlayer`, `createPlayer`, `updatePlayer`, `setPlayerStatus`, `updatePlayerTraits`, `getTraitDefinitions*`, `upsertTraitDefinition`, `reorderTraitDefinitions`, `seedDefaultTraits`                                            |
+| `legal`    | `getConsent*`, `acceptTerms`, `exportAccount`                                                                                                                                                                                                   |
+| `roster`   | `getPlayers*`, `getPlayer`, `createPlayer`, `updatePlayer`, `setPlayerStatus`, `updatePlayerTraits`, `deletePlayer`, `getTraitDefinitions*`, `upsertTraitDefinition`, `reorderTraitDefinitions`, `seedDefaultTraits`                            |
 | `intel`    | `getIntel*`, `addIntel`, `updateIntel`, `deleteIntel`                                                                                                                                                                                           |
 | `chat`     | `getChatProfile`, `setChatProfile`, `getChatNotes`, `addChatNote`, `deleteChatNote`, `getChatState*`, `logInbound`, `logOutbound`, `getChatSettings`, `setChatSettings`, `registerDevice`, `removeDevice`, `getBriefContext`, `generateOpeners` |
 | `dates`    | `getDates`, `getDateSummaries*`, `getPlayerRefs*`, `createDate`, `updateDate`, `deleteDate`                                                                                                                                                     |

@@ -3,11 +3,14 @@ import {
   ArrowDownwardOutlined,
   ArrowUpwardOutlined,
   DeleteOutlined,
+  TableChart,
+  TableChartOutlined,
 } from '@mui/icons-material';
 import {
   Alert,
   Box,
   Button,
+  Checkbox,
   CircularProgress,
   IconButton,
   List,
@@ -33,6 +36,7 @@ import { useTraitLabels } from '../hooks/useTraitLabels';
 import {
   MAX_TRAIT_WEIGHT,
   ROSTER_NAMESPACE,
+  TABLE_DEFAULT_KEYS,
   type TraitDefinition,
   type TraitDefinitionInput,
 } from '../types';
@@ -49,6 +53,7 @@ const toInput = (definition: TraitDefinition): TraitDefinitionInput => ({
   weight: definition.weight,
   order: definition.order,
   active: definition.active,
+  showInTable: definition.showInTable ?? TABLE_DEFAULT_KEYS.includes(definition.key),
 });
 
 export const TraitSettingsPage = () => {
@@ -146,6 +151,23 @@ export const TraitSettingsPage = () => {
                         </MenuItem>
                       ))}
                     </TextField>
+                  )}
+                  {definition.kind === 'scale' && (
+                    <Tooltip title={t('traitSettings.showInTable')}>
+                      <Checkbox
+                        icon={<TableChartOutlined />}
+                        checkedIcon={<TableChart />}
+                        checked={toInput(definition).showInTable}
+                        onChange={(event) =>
+                          void upsert({ ...toInput(definition), showInTable: event.target.checked })
+                        }
+                        slotProps={{
+                          input: {
+                            'aria-label': `${t('traitSettings.showInTable')}: ${traitLabel(definition)}`,
+                          },
+                        }}
+                      />
+                    </Tooltip>
                   )}
                   <Tooltip title={t('traitSettings.active')}>
                     <Switch

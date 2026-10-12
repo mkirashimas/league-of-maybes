@@ -51,7 +51,7 @@
       },
       {
         "title": "Fine dell'utilizzo",
-        "body": "Puoi smettere di usare l'app in qualsiasi momento ed eliminare il tuo account e tutti i suoi dati dalla pagina Account."
+        "body": "Puoi smettere di usare l'app in qualsiasi momento. Puoi esportare i tuoi dati dalla pagina Account. Per far eliminare il tuo account e tutti i suoi dati, contatta il proprietario di questa app."
       },
       {
         "title": "Modifiche",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Conservazione ed eliminazione",
-        "body": "I tuoi dati vengono conservati finché non li elimini. Dalla pagina Account puoi esportare tutto in un file oppure eliminare il tuo account insieme a tutti i suoi dati."
+        "body": "I tuoi dati vengono conservati finché non vengono eliminati. Dalla pagina Account puoi esportare tutto in un file. Puoi eliminare un singolo giocatore insieme a tutti i suoi dati. Per far eliminare tutto il tuo account, contatta il proprietario di questa app."
       },
       {
         "title": "Contatti",
@@ -103,17 +103,6 @@
       "body": "Scarica tutto ciò che è salvato nel tuo account come file JSON: giocatori, tratti, note, appuntamenti, piani, impostazioni della chat e dispositivi.",
       "action": "Scarica esportazione",
       "error": "Impossibile creare l’esportazione. Riprova."
-    },
-    "delete": {
-      "title": "Elimina account",
-      "body": "Elimina definitivamente il tuo account e tutti i suoi dati. Non si può annullare. Esporta prima i tuoi dati se vuoi conservarne una copia.",
-      "action": "Elimina account…",
-      "confirmTitle": "Eliminare il tuo account?",
-      "confirmBody": "Tutta la tua rosa e tutto ciò che è collegato verranno eliminati, insieme al tuo accesso. Verrai disconnesso.",
-      "understood": "Capisco che non si può annullare.",
-      "cancel": "Annulla",
-      "confirm": "Elimina tutto",
-      "error": "Impossibile eliminare l’account. Riprova."
     }
   }
 }

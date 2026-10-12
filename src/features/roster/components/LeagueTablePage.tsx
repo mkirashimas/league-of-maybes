@@ -31,6 +31,7 @@ import { useTraitDefinitions } from '../hooks/useTraitDefinitions';
 import { useTraitLabels } from '../hooks/useTraitLabels';
 import {
   computeOverall,
+  isShownInTable,
   PLAYER_STATUSES,
   ROSTER_NAMESPACE,
   type Player,
@@ -71,7 +72,8 @@ export const LeagueTablePage = () => {
   const [sortKey, setSortKey] = useState<SortKey>('overall');
   const [direction, setDirection] = useState<Direction>('desc');
 
-  const scaleTraits = traits.activeDefinitions.filter((definition) => definition.kind === 'scale');
+  // Only the traits picked in the trait settings get a column (and a sort option).
+  const tableTraits = traits.definitions.filter(isShownInTable);
 
   const rows = useMemo<Row[]>(() => {
     const visible = (players ?? []).filter((player) =>
@@ -120,7 +122,7 @@ export const LeagueTablePage = () => {
     { key: 'overall', label: t('table.overall') },
     { key: 'nickname', label: t('table.nickname') },
     { key: 'status', label: t('table.status') },
-    ...scaleTraits.map((definition) => ({
+    ...tableTraits.map((definition) => ({
       key: `trait:${definition.key}` as SortKey,
       label: traitLabel(definition),
     })),
@@ -260,11 +262,13 @@ export const LeagueTablePage = () => {
     );
   }
 
-  const sortableHeader = (key: SortKey, label: string, numeric = false) => (
+  // The name column takes the spare width; every other column is centered.
+  const sortableHeader = (key: SortKey, label: string) => (
     <TableCell
       key={key}
-      align={numeric ? 'right' : 'left'}
+      align={key === 'nickname' ? 'left' : 'center'}
       sortDirection={sortKey === key ? direction : false}
+      sx={key === 'nickname' ? { width: '40%' } : undefined}
     >
       <TableSortLabel
         active={sortKey === key}
@@ -285,9 +289,9 @@ export const LeagueTablePage = () => {
             <TableRow>
               {sortableHeader('nickname', t('table.nickname'))}
               {sortableHeader('status', t('table.status'))}
-              {sortableHeader('overall', t('table.overall'), true)}
-              {scaleTraits.map((definition) =>
-                sortableHeader(`trait:${definition.key}`, traitLabel(definition), true),
+              {sortableHeader('overall', t('table.overall'))}
+              {tableTraits.map((definition) =>
+                sortableHeader(`trait:${definition.key}`, traitLabel(definition)),
               )}
             </TableRow>
           </TableHead>
@@ -321,16 +325,16 @@ export const LeagueTablePage = () => {
                     </Typography>
                   </Stack>
                 </TableCell>
-                <TableCell>
+                <TableCell align="center">
                   <StatusChip status={player.status} />
                 </TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'fontWeightBold' }}>
+                <TableCell align="center" sx={{ fontWeight: 'fontWeightBold' }}>
                   {formatScore(overall)}
                 </TableCell>
-                {scaleTraits.map((definition) => {
+                {tableTraits.map((definition) => {
                   const value = player.traits[definition.key];
                   return (
-                    <TableCell key={definition.key} align="right">
+                    <TableCell key={definition.key} align="center">
                       {typeof value === 'number' ? value : '–'}
                     </TableCell>
                   );

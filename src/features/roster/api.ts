@@ -14,7 +14,6 @@ import {
 import { api } from '../../store/api';
 import { requireUid, runQuery, syncWhileCached } from '../../store/realtime';
 import {
-  DEFAULT_TRAITS,
   PLAYERS_COLLECTION,
   TRAIT_DEFINITIONS_COLLECTION,
   type Player,
@@ -93,6 +92,14 @@ const rosterApi = api
             return null;
           }),
       }),
+      /** Deletes the player doc only; the onPlayerDeleted function removes their records. */
+      rosterDeletePlayer: build.mutation<null, string>({
+        queryFn: (playerId, { getState }) =>
+          runQuery(async () => {
+            await deleteDocument(playersPath(requireUid(getState)), playerId);
+            return null;
+          }),
+      }),
 
       rosterGetTraitDefinitions: build.query<TraitDefinition[], void>({
         queryFn: (_arg, { getState }) =>
@@ -140,13 +147,16 @@ const rosterApi = api
             return null;
           }),
       }),
-      /** Idempotent: the document id is the trait key, so a repeated run rewrites the same docs. */
-      rosterSeedDefaultTraits: build.mutation<null, void>({
-        queryFn: (_arg, { getState }) =>
+      /**
+       * Writes the given built-in definitions. Idempotent: the document id is the trait key,
+       * so a repeated run rewrites the same docs.
+       */
+      rosterSeedDefaultTraits: build.mutation<null, TraitDefinitionInput[]>({
+        queryFn: (definitions, { getState }) =>
           runQuery(async () => {
             const path = traitsPath(requireUid(getState));
             await runBatch(
-              DEFAULT_TRAITS.map((definition) => ({
+              definitions.map((definition) => ({
                 type: 'set',
                 path,
                 id: definition.key,
@@ -166,6 +176,7 @@ export const {
   useRosterUpdatePlayerMutation,
   useRosterSetPlayerStatusMutation,
   useRosterUpdatePlayerTraitsMutation,
+  useRosterDeletePlayerMutation,
   useRosterGetTraitDefinitionsQuery,
   useRosterUpsertTraitDefinitionMutation,
   useRosterDeleteTraitDefinitionMutation,

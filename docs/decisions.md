@@ -4,17 +4,17 @@ Each entry has an id, a date and a reason. New decisions go at the bottom. A dec
 
 ## D-001: Product decisions (2026-10-12)
 
-| Decision            | Detail                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------- |
-| Private data        | Everything lives under `users/{uid}/…` and only the owner can read it. Nothing is shared.   |
-| No linking          | Players are never linked to real app users.                                                 |
-| No real names       | Players have a `nickname` only. The form tells the user not to use real names.              |
-| User responsibility | The user is responsible for the data they enter, and accepts the terms after first sign-in. |
-| Live chat AI        | The user uses their own AI tool. The app gives them a copyable "AI brief".                  |
-| App AI              | Used only to suggest 2–3 openers when a nudge is opened.                                    |
-| Chat rules          | Reminders only. The app never reads WhatsApp.                                               |
-| Backend             | Cloud Functions only. No separate Node service.                                             |
-| Deleting players    | Players are retired, never hard-deleted. Deleting the account removes everything.           |
+| Decision            | Detail                                                                                                            |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Private data        | Everything lives under `users/{uid}/…` and only the owner can read it. Nothing is shared.                         |
+| No linking          | Players are never linked to real app users.                                                                       |
+| No real names       | Players have a `nickname` only. The form tells the user not to use real names.                                    |
+| User responsibility | The user is responsible for the data they enter, and accepts the terms after first sign-in.                       |
+| Live chat AI        | The user uses their own AI tool. The app gives them a copyable "AI brief".                                        |
+| App AI              | Used only to suggest 2–3 openers when a nudge is opened.                                                          |
+| Chat rules          | Reminders only. The app never reads WhatsApp.                                                                     |
+| Backend             | Cloud Functions only. No separate Node service.                                                                   |
+| Deleting players    | Players can be retired or deleted with all their records (D-015). The account itself is not deleted from the app. |
 
 ## D-002: Additions to the workspace stack (2026-10-12)
 
@@ -147,3 +147,15 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 - **Precondition writes:** the job only clears a nudge if the chat state hasn't changed since it was read.
 - **Tested on the deployed project.** FCM has no emulator and the callables enforce App Check. `sendNudges` is run by hand with Cloud Scheduler's **Force run**.
 - **Push language** comes from each device doc. Texts are generic and never name the player.
+
+## D-015: Player delete, no account delete, League Table columns (2026-10-12)
+
+- **No account delete in the app.** The `deleteAccount` callable, the Account page card and its texts are removed. The Account page keeps the export. Terms and Privacy now say to contact the owner for a full deletion. `TERMS_VERSION` is bumped, so the terms are accepted again. This reverses the account part of R15.
+- **Players can be hard-deleted.** "Delete player" is on the profile page, with a confirmation. `roster` deletes only the player doc. The `onPlayerDeleted` Firestore trigger then deletes the player's records:
+  - by `playerId` in `intel`, `chatNotes`, `dates`, `agendaItems`, `keyNotes`
+  - by doc id in `chatProfiles`, `chatStates`, `dateSummaries`
+
+  So features stay isolated on the client. Retiring stays the way to keep the history.
+
+- **New built-in trait `sex`** (scale 1–10, weight 1, right after `hot`). `useTraitDefinitions` now seeds every missing built-in, not only an empty list. Built-ins can't be deleted, so a missing key is always a new one.
+- **League Table columns:** Name (40% wide, left), then Status, Overall and the traits with `showInTable`, all centered. Each scale trait has a table toggle in Trait settings. Docs without the field use the defaults: hot, sex, crazyEyes.

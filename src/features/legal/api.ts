@@ -2,7 +2,6 @@ import { getDocument, setDocument, subscribeToDocument } from '../../firebase/fi
 import { api } from '../../store/api';
 import { runQuery, syncWhileCached } from '../../store/realtime';
 import {
-  DELETE_ACCOUNT_FUNCTION,
   EXPORT_ACCOUNT_FUNCTION,
   TERMS_VERSION,
   USERS_COLLECTION,
@@ -44,13 +43,10 @@ const legalApi = api.enhanceEndpoints({ addTagTypes: ['UserDocument'] }).injectE
         }),
       invalidatesTags: (_result, _error, uid) => [{ type: 'UserDocument', id: uid }],
     }),
-    // Both run server-side for the signed-in user only; the uid comes from the auth token.
+    // Runs server-side for the signed-in user only; the uid comes from the auth token.
     legalExportAccount: build.mutation<AccountExport, void>({
       queryFn: () =>
         runQuery(() => callFunction<null, AccountExport>(EXPORT_ACCOUNT_FUNCTION, null)),
-    }),
-    legalDeleteAccount: build.mutation<null, void>({
-      queryFn: () => runQuery(() => callFunction<null, null>(DELETE_ACCOUNT_FUNCTION, null)),
     }),
   }),
 });
@@ -59,5 +55,4 @@ export const {
   useLegalGetUserDocumentQuery,
   useLegalAcceptTermsMutation,
   useLegalExportAccountMutation,
-  useLegalDeleteAccountMutation,
 } = legalApi;

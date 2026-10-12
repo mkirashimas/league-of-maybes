@@ -51,7 +51,7 @@
       },
       {
         "title": "Ending use",
-        "body": "You can stop using the app at any time and delete your account and all its data from the Account page."
+        "body": "You can stop using the app at any time. You can export your data from the Account page. To have your account and all its data deleted, contact the owner of this app."
       },
       {
         "title": "Changes",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Retention and deletion",
-        "body": "Your data is kept until you delete it. From the Account page you can export everything as a file or delete your account together with all its data."
+        "body": "Your data is kept until it is deleted. From the Account page you can export everything as a file. You can delete a single player together with all their records. To have your whole account deleted, contact the owner of this app."
       },
       {
         "title": "Contact",
@@ -103,17 +103,6 @@
       "body": "Download everything stored in your account as a JSON file: players, traits, notes, dates, plans, chat settings and devices.",
       "action": "Download export",
       "error": "The export could not be created. Please try again."
-    },
-    "delete": {
-      "title": "Delete account",
-      "body": "Permanently deletes your account and all its data. This cannot be undone. Export your data first if you want to keep a copy.",
-      "action": "Delete account…",
-      "confirmTitle": "Delete your account?",
-      "confirmBody": "Your whole roster and everything linked to it will be deleted, together with your sign-in. You will be signed out.",
-      "understood": "I understand that this cannot be undone.",
-      "cancel": "Cancel",
-      "confirm": "Delete everything",
-      "error": "The account could not be deleted. Please try again."
     }
   }
 }

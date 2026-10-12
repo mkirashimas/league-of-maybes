@@ -64,7 +64,7 @@ Every document gets `createdAt` and `updatedAt` (server timestamps) from the hel
 
 ```
 users/{uid}                          # legal
-│   consent: { termsVersion, acceptedAt }
+│   consent: { termsVersion, acceptedAt }, deletionCodeSetAt?  (set by setDeletionCode)
 ├── players/{playerId}               # roster
 │     nickname, age | null, occupation, city, metAt, metOn (yyyy-mm-dd | '')
 │     avatarColor: primary | secondary | info | success | warning | error (palette key)
@@ -98,6 +98,8 @@ users/{uid}                          # legal
 │     playerId, kind: now | event | plan, title, notes?, when | null, done
 └── keyNotes/{noteId}                # keyNotes
       playerId, category, text, pinned, importance (1 low | 2 medium | 3 high)
+
+deletionCodes/{uid}                  # Cloud Functions only (no client rule): salt, hash, failedAttempts, lockedUntil
 ```
 
 **Rules for the data**
@@ -193,7 +195,7 @@ AuthGuard → redirects to LOGIN if signed out
 
 | Feature    | Endpoints                                                                                                                                                                                                                                       |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `legal`    | `getConsent*`, `acceptTerms`, `exportAccount`                                                                                                                                                                                                   |
+| `legal`    | `getConsent*`, `acceptTerms`, `exportAccount`, `setDeletionCode`, `deleteAccount`                                                                                                                                                               |
 | `roster`   | `getPlayers*`, `getPlayer`, `createPlayer`, `updatePlayer`, `setPlayerStatus`, `updatePlayerTraits`, `deletePlayer`, `getTraitDefinitions*`, `upsertTraitDefinition`, `reorderTraitDefinitions`, `syncTraitDefinitions`                         |
 | `intel`    | `getIntel*`, `addIntel`, `updateIntel`, `deleteIntel`                                                                                                                                                                                           |
 | `chat`     | `getChatProfile`, `setChatProfile`, `getChatNotes`, `addChatNote`, `deleteChatNote`, `getChatState*`, `logInbound`, `logOutbound`, `getChatSettings`, `setChatSettings`, `registerDevice`, `removeDevice`, `getBriefContext`, `generateOpeners` |

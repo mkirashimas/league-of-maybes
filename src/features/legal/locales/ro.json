@@ -51,7 +51,7 @@
       },
       {
         "title": "Încetarea utilizării",
-        "body": "Poți înceta oricând să folosești aplicația. Îți poți exporta datele din pagina Cont. Pentru ștergerea contului și a tuturor datelor, contactează proprietarul acestei aplicații."
+        "body": "Poți înceta oricând să folosești aplicația. Din pagina Cont îți poți exporta datele și îți poți șterge contul cu toate datele, folosind codul de ștergere setat dinainte. Ștergerea este definitivă: datele nu mai pot fi recuperate."
       },
       {
         "title": "Modificări",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Păstrare și ștergere",
-        "body": "Datele tale sunt păstrate până când sunt șterse. Din pagina Cont poți exporta totul într-un fișier. Poți șterge un singur jucător împreună cu toate înregistrările lui. Pentru ștergerea întregului cont, contactează proprietarul acestei aplicații."
+        "body": "Datele tale sunt păstrate până când le ștergi. Din pagina Cont poți exporta totul într-un fișier sau îți poți șterge contul cu toate datele folosind codul de ștergere. Ștergerea este imediată și definitivă; după aceea nu se mai poate recupera nimic. Codul de ștergere este păstrat doar ca hash securizat."
       },
       {
         "title": "Contact",
@@ -103,6 +103,33 @@
       "body": "Descarcă tot ce este salvat în contul tău ca fișier JSON: jucători, trăsături, notițe, întâlniri, planuri, setări de chat și dispozitive.",
       "action": "Descarcă exportul",
       "error": "Exportul nu a putut fi creat. Încearcă din nou."
+    },
+    "delete": {
+      "title": "Șterge contul",
+      "finalTitle": "Ștergerea este definitivă și nu poate fi anulată",
+      "finalBody": "Ștergerea contului elimină definitiv tot lotul tău și tot ce conține (jucători, notițe, întâlniri, planuri, setări de chat și dispozitive), împreună cu accesul tău. Nu se păstrează nimic: nu există copie de rezervă, coș de gunoi sau anulare. Nici tu, nici proprietarul aplicației nu veți mai putea recupera datele. Exportă-ți mai întâi datele dacă s-ar putea să ai vreodată nevoie de ele.",
+      "action": "Șterge contul…",
+      "confirmTitle": "Ștergi contul definitiv?",
+      "confirmBody": "Introdu codul de ștergere pentru a confirma. Datele tale sunt șterse în momentul în care apeși butonul.",
+      "understood": "Înțeleg că contul meu și toate datele lui vor fi șterse definitiv și nu vor mai putea fi recuperate niciodată.",
+      "cancel": "Păstrează contul",
+      "confirm": "Șterge definitiv",
+      "error": "Contul nu a putut fi șters. Încearcă din nou."
+    },
+    "code": {
+      "intro": "Ștergerea contului cere un cod de ștergere, ca să nu se poată întâmpla niciodată din greșeală. Setează-l acum și păstrează-l într-un loc sigur: ai nevoie de el ca să ștergi contul și ca să schimbi codul.",
+      "current": "Codul de ștergere actual",
+      "new": "Cod de ștergere nou",
+      "repeat": "Repetă codul",
+      "label": "Cod de ștergere",
+      "helper": "Cel puțin {{min}} caractere.",
+      "mismatch": "Codurile nu se potrivesc.",
+      "set": "Setează codul de ștergere",
+      "change": "Schimbă codul",
+      "setOn": "Cod de ștergere setat pe {{date}}.",
+      "forgot": "L-ai uitat? Contactează proprietarul aplicației.",
+      "wrong": "Cod de ștergere greșit.",
+      "locked": "Prea multe coduri greșite. Codul este blocat pentru o oră."
     }
   }
 }

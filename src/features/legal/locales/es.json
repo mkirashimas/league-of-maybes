@@ -51,7 +51,7 @@
       },
       {
         "title": "Fin del uso",
-        "body": "Puedes dejar de usar la aplicación en cualquier momento. Puedes exportar tus datos desde la página Cuenta. Para que se eliminen tu cuenta y todos sus datos, contacta con el propietario de esta aplicación."
+        "body": "Puedes dejar de usar la aplicación en cualquier momento. Desde la página Cuenta puedes exportar tus datos y eliminar tu cuenta con todos sus datos, usando el código de eliminación que hayas creado antes. La eliminación es definitiva: los datos no se pueden recuperar."
       },
       {
         "title": "Cambios",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Conservación y eliminación",
-        "body": "Tus datos se conservan hasta que se eliminan. Desde la página Cuenta puedes exportarlo todo en un archivo. Puedes eliminar un jugador junto con todos sus registros. Para que se elimine toda tu cuenta, contacta con el propietario de esta aplicación."
+        "body": "Tus datos se conservan hasta que los eliminas. Desde la página Cuenta puedes exportarlo todo en un archivo, o eliminar tu cuenta con todos sus datos usando tu código de eliminación. La eliminación es inmediata y permanente; después no se puede recuperar nada. El código de eliminación solo se guarda como un hash seguro."
       },
       {
         "title": "Contacto",
@@ -103,6 +103,33 @@
       "body": "Descarga todo lo guardado en tu cuenta como archivo JSON: jugadores, rasgos, notas, citas, planes, ajustes del chat y dispositivos.",
       "action": "Descargar exportación",
       "error": "No se pudo crear la exportación. Inténtalo de nuevo."
+    },
+    "delete": {
+      "title": "Eliminar cuenta",
+      "finalTitle": "La eliminación es definitiva y no se puede deshacer",
+      "finalBody": "Eliminar tu cuenta borra para siempre toda tu plantilla y todo su contenido (jugadores, notas, citas, planes, ajustes del chat y dispositivos), junto con tu acceso. No se conserva nada: no hay copia de seguridad, ni papelera, ni forma de deshacerlo. Ni tú ni el propietario de la aplicación podréis recuperar los datos después. Exporta tus datos antes si alguna vez podrías quererlos.",
+      "action": "Eliminar cuenta…",
+      "confirmTitle": "¿Eliminar tu cuenta para siempre?",
+      "confirmBody": "Introduce tu código de eliminación para confirmar. Tus datos se borran en cuanto pulses el botón.",
+      "understood": "Entiendo que mi cuenta y todos sus datos se eliminarán para siempre y nunca podrán recuperarse.",
+      "cancel": "Conservar mi cuenta",
+      "confirm": "Eliminar para siempre",
+      "error": "No se pudo eliminar la cuenta. Inténtalo de nuevo."
+    },
+    "code": {
+      "intro": "Eliminar la cuenta requiere un código de eliminación, para que nunca ocurra por accidente. Créalo ahora y guárdalo en un lugar seguro: lo necesitarás para eliminar la cuenta y para cambiar el código.",
+      "current": "Código de eliminación actual",
+      "new": "Nuevo código de eliminación",
+      "repeat": "Repite el código",
+      "label": "Código de eliminación",
+      "helper": "Al menos {{min}} caracteres.",
+      "mismatch": "Los códigos no coinciden.",
+      "set": "Crear código de eliminación",
+      "change": "Cambiar código",
+      "setOn": "Código de eliminación creado el {{date}}.",
+      "forgot": "¿Lo olvidaste? Contacta con el propietario de la aplicación.",
+      "wrong": "Código de eliminación incorrecto.",
+      "locked": "Demasiados códigos incorrectos. El código queda bloqueado durante una hora."
     }
   }
 }

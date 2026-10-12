@@ -3,7 +3,7 @@ import type { BaseDocument } from '../../types';
 export const LEGAL_NAMESPACE = 'legal';
 
 /** Bump this when the Terms or Privacy text changes materially: every user is asked to accept again. */
-export const TERMS_VERSION = '2026-10-12.2';
+export const TERMS_VERSION = '2026-10-12.3';
 
 /** The users collection; this feature owns the users/{uid} document itself. */
 export const USERS_COLLECTION = 'users';
@@ -14,9 +14,11 @@ export interface Consent {
   acceptedAt: number;
 }
 
-/** users/{uid}. Only `consent` for now; the account features add nothing here. */
+/** users/{uid}: the consent, and when a deletion code was set (written by the server). */
 export interface UserDocument extends BaseDocument {
   consent?: Consent;
+  /** Epoch millis; missing until the user sets a deletion code. The code itself is server-only. */
+  deletionCodeSetAt?: number;
 }
 
 /** A titled block of legal text, read from the locale files with returnObjects. */
@@ -31,6 +33,17 @@ export const hasAcceptedCurrentTerms = (userDocument: UserDocument | null | unde
 // ---------- Account (callables in functions/src/account) ----------
 
 export const EXPORT_ACCOUNT_FUNCTION = 'exportAccount';
+export const SET_DELETION_CODE_FUNCTION = 'setDeletionCode';
+export const DELETE_ACCOUNT_FUNCTION = 'deleteAccount';
+
+/** Same limit as functions/src/account/deletion.ts. */
+export const MIN_DELETION_CODE_LENGTH = 6;
+
+export interface SetDeletionCodeRequest {
+  code: string;
+  /** Needed when a code is already set. */
+  currentCode?: string;
+}
 
 /** One exported document: its fields (timestamps as ISO strings) and its subcollections. */
 export interface ExportedDocument {

@@ -150,7 +150,11 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 
 ## D-015: Player delete, no account delete, League Table columns (2026-10-12)
 
-- **No account delete in the app.** The `deleteAccount` callable, the Account page card and its texts are removed. The Account page keeps the export. Terms and Privacy now say to contact the owner for a full deletion. `TERMS_VERSION` is bumped, so the terms are accepted again. This reverses the account part of R15.
+- **Account delete needs a deletion code.** The user sets the code beforehand on the Account page. Changing it needs the current code.
+  - `setDeletionCode` hashes it with scrypt and a random salt into `deletionCodes/{uid}`. That path is outside `users/{uid}`, so the client can neither read nor rewrite it. The function also writes `users/{uid}.deletionCodeSetAt`, so the client knows a code exists.
+  - `deleteAccount` checks the code first. 5 wrong codes in a row lock it for an hour. It then deletes `users/{uid}`, the code and the auth user (R15).
+  - The card and the dialog warn that deletion is final and the data can't be recovered. The dialog also needs an "I understand" checkbox. A forgotten code means contacting the owner.
+  - Terms and Privacy describe the code and the finality. `TERMS_VERSION` is bumped.
 - **Players can be hard-deleted.** "Delete player" is in the player's Edit dialog, with a confirmation. `roster` deletes only the player doc. The `onPlayerDeleted` Firestore trigger then deletes the player's records:
   - by `playerId` in `intel`, `chatNotes`, `dates`, `agendaItems`, `keyNotes`
   - by doc id in `chatProfiles`, `chatStates`, `dateSummaries`

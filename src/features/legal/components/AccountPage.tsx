@@ -5,6 +5,7 @@ import { useAppSelector } from '../../../store';
 import { selectCurrentUser } from '../../../store/authSlice';
 import { useLegalExportAccountMutation } from '../api';
 import { LEGAL_NAMESPACE, type AccountExport } from '../types';
+import { DeleteAccountCard } from './DeleteAccountCard';
 
 /** Saves the export as league-of-maybes-YYYY-MM-DD.json. */
 const download = (data: AccountExport) => {
@@ -17,7 +18,7 @@ const download = (data: AccountExport) => {
   URL.revokeObjectURL(url);
 };
 
-/** Account: who is signed in, and an export of everything as JSON. */
+/** Account: who is signed in, an export of everything as JSON, and deleting the account. */
 export const AccountPage = () => {
   const { t } = useTranslation(LEGAL_NAMESPACE);
   const user = useAppSelector(selectCurrentUser);
@@ -73,6 +74,8 @@ export const AccountPage = () => {
           </Button>
         </Stack>
       </Paper>
+
+      <DeleteAccountCard />
     </Stack>
   );
 };

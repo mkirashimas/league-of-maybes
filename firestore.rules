@@ -11,6 +11,7 @@ service cloud.firestore {
     // Everything a user stores lives under users/{uid}: the user doc itself
     // (consent) and all collections (players, traitDefinitions, intel, chat*, dates,
     // dateSummaries, agendaItems, keyNotes, settings, devices). Owner only.
+    // deletionCodes/{uid} has no rule on purpose: only Cloud Functions read and write it.
     match /users/{uid} {
       allow read, write: if isOwner(uid);
 

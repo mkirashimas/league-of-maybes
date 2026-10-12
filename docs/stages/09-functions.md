@@ -1,6 +1,6 @@
 # Stage 9: Cloud Functions and Account
 
-**Status:** ✅ done (2026-10-12), PR #10, tag `stage-09`. Follow-up `fix/feedback-after-stage-9` removed `deleteAccount` (D-015).
+**Status:** ✅ done (2026-10-12), PR #10, tag `stage-09`. Follow-up `fix/feedback-after-stage-9` puts `deleteAccount` behind a deletion code (D-015).
 
 ## 1. Goal
 
@@ -70,7 +70,7 @@
 - [ ] In the Firestore console, set a chat state's `nextNudgeAt` in the past. Google Cloud console → Cloud Scheduler → `firebase-schedule-sendNudges-europe-west1` → **Force run**. The push arrives, a click opens the chat tab with the nudge banner, and `nextNudgeAt` becomes null with `nudgedAt` set.
 - [ ] Set quiet hours around the current time and repeat: nothing arrives and `nextNudgeAt` stays. A retired player's state is cleared without a push.
 - [ ] Account → **Download export**: the JSON file holds the players and their records.
-- [x] ~~Account → Delete account~~: removed (D-015).
+- [ ] Account → set a deletion code, then **Delete account** on a test account with it: all of `users/{uid}`, `deletionCodes/{uid}` and the auth user are gone, and the app lands on Login. A wrong code is refused, and 5 wrong codes lock it (D-015).
 
 ## 9. Open issues / follow-ups
 

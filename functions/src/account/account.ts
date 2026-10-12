@@ -4,16 +4,8 @@ import {
   type DocumentData,
   type DocumentReference,
 } from 'firebase-admin/firestore';
-import { HttpsError, onCall, type CallableRequest } from 'firebase-functions/https';
-import { FUNCTION_OPTIONS } from '../options';
-
-/** Callables accept requests only from the app (App Check) and act on the caller's own uid (R16). */
-const CALLABLE_OPTIONS = { ...FUNCTION_OPTIONS, enforceAppCheck: true };
-
-const requireUid = (request: CallableRequest): string => {
-  if (!request.auth) throw new HttpsError('unauthenticated', 'Sign in first.');
-  return request.auth.uid;
-};
+import { onCall } from 'firebase-functions/https';
+import { CALLABLE_OPTIONS, requireUid } from '../callable';
 
 /** Timestamps become ISO strings, at any depth, so the export is plain JSON. */
 const toJson = (value: unknown): unknown => {

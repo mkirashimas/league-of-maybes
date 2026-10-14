@@ -43,11 +43,11 @@ yarn build      # tsc, output in functions/lib
 yarn lint
 ```
 
-Deploy (from the app root):
+Deploy: automatic. Every merge into `main` runs the CI checks, then deploys Hosting, Firestore rules and indexes, and functions (`.github/workflows/deploy.yml`; setup in [docs/workflow.md](docs/workflow.md#automatic-deploy)). Manual fallback, from the app root:
 
 ```sh
 yarn build
-firebase deploy   # Hosting, Firestore rules and indexes, functions
+firebase deploy --project league-of-maybes
 ```
 
 The Firebase console steps are listed in [docs/prerequisites.md](docs/prerequisites.md).

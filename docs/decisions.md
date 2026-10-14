@@ -180,3 +180,10 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 - **Notes:** each note stores the phase and cycle day of its date. Saving cycle data re-tags the notes and rewrites `phaseSummaries` on the profile, so badges never read notes.
 - **Health data:** `gender` and `healthNotes` on players and in `settings/personal`. Terms and Privacy now allow optional health data; `TERMS_VERSION` raised to `2026-10-14`.
 - **League Table:** choice traits can be columns too (label shown, sorted by option score).
+
+## D-018: Automatic deploy from main (2026-10-14)
+
+- **Trigger:** every push to `main` (a merged release) deploys Hosting, Firestore rules and indexes, and functions. Nothing deploys from `development` or pull requests: there is a single Firebase project and no staging.
+- **Gate:** `deploy.yml` first calls `ci.yml` (lint, build, functions, rule tests) through `workflow_call`. `ci.yml` no longer runs on pushes to `main`, to avoid running twice.
+- **Auth:** Workload Identity Federation, with no service-account key. The provider only accepts tokens from `mkirashimas/league-of-maybes` on `refs/heads/main`. The `github-deployer` service account has only the deploy roles.
+- **CLI:** `firebase-tools` is pinned (15.32.0) in CI and deploy, so a CLI release can't change deploys unexpectedly. `--force` lets non-interactive deploys remove deleted functions.

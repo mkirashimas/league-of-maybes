@@ -2,6 +2,7 @@ import {
   EventOutlined,
   ForumOutlined,
   LeaderboardOutlined,
+  PersonOutlined,
   Menu as MenuIcon,
   TimelineOutlined,
   TuneOutlined,
@@ -48,6 +49,7 @@ const NAV_ITEMS = [
   { key: 'upcoming', to: PATHS.AGENDA, icon: <EventOutlined /> },
   { key: 'traits', to: PATHS.TRAIT_SETTINGS, icon: <TuneOutlined /> },
   { key: 'chatSettings', to: PATHS.CHAT_SETTINGS, icon: <ForumOutlined /> },
+  { key: 'personalDetails', to: PATHS.PERSONAL_DETAILS, icon: <PersonOutlined /> },
 ] as const;
 
 export const Layout = () => {

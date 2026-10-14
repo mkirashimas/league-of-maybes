@@ -100,6 +100,8 @@
     "metAtHelper": "App, evento, amici…",
     "metOn": "Conosciuto il",
     "status": "Stato",
+    "gender": "Genere",
+    "genderHelper": "Le donne hanno una scheda Ciclo e un badge di fase.",
     "color": "Colore dell'avatar",
     "create": "Aggiungi alla rosa",
     "responsibility": {
@@ -118,7 +120,7 @@
     "manageTraits": "Gestisci tratti",
     "delete": "Elimina giocatore",
     "deleteTitle": "Eliminare {{nickname}}?",
-    "deleteMessage": "Il giocatore e tutto ciò che è collegato (info, chat, appuntamenti, piani e note chiave) verranno eliminati per sempre. Non si può annullare. Per conservare lo storico, imposta invece lo stato su Ritirato.",
+    "deleteMessage": "Il giocatore e tutto ciò che è collegato (info, chat, appuntamenti, piani, note chiave e dati del ciclo) verranno eliminati per sempre. Non si può annullare. Per conservare lo storico, imposta invece lo stato su Ritirato.",
     "deleteError": "Impossibile eliminare il giocatore. Riprova."
   },
   "tabs": {
@@ -127,7 +129,8 @@
     "chat": "Chat",
     "dates": "Appuntamenti",
     "now": "Ora e prossimi",
-    "keyNotes": "Note chiave"
+    "keyNotes": "Note chiave",
+    "cycle": "Ciclo"
   },
   "traitSettings": {
     "title": "Tratti",

@@ -1,0 +1,85 @@
+{
+  "phase": {
+    "menstrual": "Menstruelle",
+    "follicular": "Folliculaire",
+    "ovulation": "Ovulation",
+    "earlyLuteal": "Lutéale précoce",
+    "lateLuteal": "Lutéale tardive (SPM)"
+  },
+  "description": {
+    "menstrual": "Règles. L'énergie est souvent plus basse ; confort, repos et plans tranquilles sont généralement bienvenus.",
+    "follicular": "L'énergie et l'humeur remontent souvent. Bon moment pour de nouveaux plans, de l'activité et des sorties.",
+    "ovulation": "Souvent les jours les plus extravertis et sûrs de soi, avec la libido la plus haute du cycle.",
+    "earlyLuteal": "L'énergie se stabilise en général. Des plans plus calmes et cosy conviennent bien.",
+    "lateLuteal": "Jours de SPM : irritabilité, fatigue ou baisse de moral sont fréquentes. Un peu plus de patience aide."
+  },
+  "rating": {
+    "mood": "Humeur",
+    "energy": "Énergie",
+    "libido": "Libido",
+    "sociability": "Sociabilité"
+  },
+  "gender": {
+    "unset": "Non renseigné",
+    "female": "Femme",
+    "male": "Homme",
+    "other": "Autre"
+  },
+  "health": {
+    "label": "Problèmes de santé",
+    "placeholder": "Pathologies, allergies, traitements…",
+    "helper": "Facultatif. Données de santé : ne gardez que le nécessaire."
+  },
+  "badge": {
+    "label": "Phase du cycle : {{phase}}, jour {{day}}",
+    "day": "Jour {{day}} sur ~{{length}}",
+    "nextPeriod": "prochaines règles ~{{date}}",
+    "notes": "Notes : {{value}}",
+    "stale": "Estimation basée sur des règles anciennes. Enregistrez les dernières."
+  },
+  "strip": {
+    "day": "Jour {{day}}"
+  },
+  "current": {
+    "title": "Aujourd'hui",
+    "noData": "Enregistrez un début de règles pour voir la phase actuelle.",
+    "averaged": "Durée du cycle : {{length}} jours, moyenne des règles enregistrées.",
+    "manual": "Durée du cycle : {{length}} jours, selon le réglage ci-dessous.",
+    "disclaimer": "Les phases sont des estimations et chaque corps est différent."
+  },
+  "setup": {
+    "title": "Données du cycle",
+    "intro": "Enregistrez le premier jour de chaque cycle. Avec deux cycles complets ou plus, la durée est une moyenne.",
+    "startDate": "Début des règles",
+    "addStart": "Ajouter",
+    "removeStart": "Retirer",
+    "noStarts": "Aucunes règles enregistrées pour l'instant.",
+    "cycleLength": "Durée du cycle",
+    "cycleLengthHelper": "Utilisée tant que deux cycles complets ne sont pas enregistrés.",
+    "cycleLengthAveraged": "Non utilisée : les règles enregistrées donnent la moyenne.",
+    "periodLength": "Durée des règles",
+    "days": "{{value}} jours"
+  },
+  "notes": {
+    "title": "Notes par phase",
+    "intro": "Observations datées. Chacune est rangée dans la phase de sa date, pour voir les tendances par phase.",
+    "add": "Ajouter une note",
+    "addTitle": "Nouvelle note",
+    "editTitle": "Modifier la note",
+    "date": "Date",
+    "dateHelper": "La phase est déduite de cette date.",
+    "text": "Ce que vous avez remarqué",
+    "textPlaceholder": "Humeur, comportement, ce qui a marché ou non…",
+    "now": "Maintenant",
+    "emptyPhase": "Pas encore de notes pour cette phase.",
+    "untagged": "Sans phase (aucunes règles enregistrées avant la date)",
+    "deleteTitle": "Supprimer cette note ?",
+    "deleteMessage": "Elle est retirée des notes par phase."
+  },
+  "personal": {
+    "title": "Infos personnelles",
+    "intro": "Des informations sur vous. Vous seul·e pouvez les voir.",
+    "gender": "Genre",
+    "genderHelper": "Choisissez Femme pour suivre votre propre cycle."
+  }
+}

@@ -26,6 +26,9 @@ const chat = () => import('../features/chat');
 const ChatTab = lazy(() => chat().then((m) => ({ default: m.ChatTab })));
 const ChatSettingsPage = lazy(() => chat().then((m) => ({ default: m.ChatSettingsPage })));
 const NudgeListener = lazy(() => chat().then((m) => ({ default: m.NudgeListener })));
+const cycle = () => import('../features/cycle');
+const CycleTab = lazy(() => cycle().then((m) => ({ default: m.CycleTab })));
+const PersonalDetailsPage = lazy(() => cycle().then((m) => ({ default: m.PersonalDetailsPage })));
 const IntelTab = lazy(() => import('../features/intel').then((m) => ({ default: m.IntelTab })));
 const KeyNotesTab = lazy(() =>
   import('../features/keyNotes').then((m) => ({ default: m.KeyNotesTab })),
@@ -87,12 +90,14 @@ export const Routing = () => (
             <Route path={PATHS.PLAYER_DATES} element={<DatesTab />} />
             <Route path={PATHS.PLAYER_AGENDA} element={<AgendaTab />} />
             <Route path={PATHS.PLAYER_KEY_NOTES} element={<KeyNotesTab />} />
+            <Route path={PATHS.PLAYER_CYCLE} element={<CycleTab />} />
           </Route>
 
           <Route path={PATHS.TIMELINE} element={<TimelinePage />} />
           <Route path={PATHS.AGENDA} element={<UpcomingPage />} />
           <Route path={PATHS.TRAIT_SETTINGS} element={<TraitSettingsPage />} />
           <Route path={PATHS.CHAT_SETTINGS} element={<ChatSettingsPage />} />
+          <Route path={PATHS.PERSONAL_DETAILS} element={<PersonalDetailsPage />} />
           <Route path={PATHS.ACCOUNT} element={<AccountPage />} />
         </Route>
       </Route>

@@ -35,7 +35,7 @@
       },
       {
         "title": "Your responsibility for the data you enter",
-        "body": "Everything in the app is written by you, and much of it is about other people. You are solely responsible for that content and for having the right to keep it.\nUse nicknames, never real names. Do not record more about anyone than you need, and avoid sensitive details such as health, religion or political views. A phone number is optional and only used to open a chat."
+        "body": "Everything in the app is written by you, and much of it is about other people. You are solely responsible for that content and for having the right to keep it.\nUse nicknames, never real names. Do not record more about anyone than you need, and avoid sensitive details such as religion or political views. Health notes and cycle tracking are optional health data: enter them only when they help, and only what you need. A phone number is optional and only used to open a chat."
       },
       {
         "title": "Acceptable use",
@@ -64,7 +64,7 @@
     "sections": [
       {
         "title": "What is stored",
-        "body": "Your basic Google profile (name, email, photo) as provided by Firebase Authentication, and the content you enter: players, traits, notes, dates, plans, chat settings and, if you enable notifications, a device token with its language."
+        "body": "Your basic Google profile (name, email, photo) as provided by Firebase Authentication, and the content you enter: players, traits, notes, dates, plans, chat settings, optional health notes and cycle data, your personal details and, if you enable notifications, a device token with its language."
       },
       {
         "title": "Where it is stored",
@@ -73,6 +73,10 @@
       {
         "title": "Who can see it",
         "body": "Only you. Security rules allow each account to read and write its own data only. The data is not shared, sold or used for advertising."
+      },
+      {
+        "title": "Health data",
+        "body": "Health notes and cycle tracking (period dates, cycle lengths and phase notes) are optional health data that you enter yourself. They are stored and protected like the rest of your data, visible only to you, never sent to AI, and deleted with the player they belong to or with your account. Phases are estimates, not medical advice."
       },
       {
         "title": "AI processing",

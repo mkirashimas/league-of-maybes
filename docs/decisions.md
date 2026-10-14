@@ -172,3 +172,18 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 - **Weights:** choice (enum) traits now have a 1–10 weight, like scale traits. Stored choice traits with weight 0 become 1. Number traits still don't count.
 - **Option scores:** each choice has a 1–10 score, set in Trait settings with "Score the choices" and stored in `traitDefinitions.optionScores`. Without stored scores, the default is spread evenly by position (first 1, last 10). attachmentStyle has fixed defaults: secure 10, anxious 5, avoidant 4, fearfulAvoidant 2.
 - **Overall:** the weighted average of active scale values and choice scores. Empty values are skipped, as before.
+
+## D-017: Cycle tracking, health notes, choice columns (2026-10-14)
+
+- **Feature imports:** features may import each other's public API (`index.ts`). The roster shows the `PhaseBadge` and the Cycle tab of the `cycle` feature instead of copying its logic.
+- **Cycle:** 5 phases (menstrual, follicular, ovulation, early luteal, late luteal/PMS). The cycle length is the average of the last ≤6 plausible gaps (21–45 days) once two exist, else the manual length. Ovulation is the 3 days around L − 14, late luteal the last 5 days.
+- **Notes:** each note stores the phase and cycle day of its date. Saving cycle data re-tags the notes and rewrites `phaseSummaries` on the profile, so badges never read notes.
+- **Health data:** `gender` and `healthNotes` on players and in `settings/personal`. Terms and Privacy now allow optional health data; `TERMS_VERSION` raised to `2026-10-14`.
+- **League Table:** choice traits can be columns too (label shown, sorted by option score).
+
+## D-018: Automatic deploy from main (2026-10-14)
+
+- **Trigger:** every push to `main` (a merged release) deploys Hosting, Firestore rules and indexes, and functions. Nothing deploys from `development` or pull requests: there is a single Firebase project and no staging.
+- **Gate:** `deploy.yml` first calls `ci.yml` (lint, build, functions, rule tests) through `workflow_call`. `ci.yml` no longer runs on pushes to `main`, to avoid running twice.
+- **Auth:** Workload Identity Federation, with no service-account key. The provider only accepts tokens from `mkirashimas/league-of-maybes` on `refs/heads/main`. The `github-deployer` service account has only the deploy roles.
+- **CLI:** `firebase-tools` is pinned (15.32.0) in CI and deploy, so a CLI release can't change deploys unexpectedly. `--force` lets non-interactive deploys remove deleted functions.

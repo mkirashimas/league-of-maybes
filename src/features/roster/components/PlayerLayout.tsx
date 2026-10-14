@@ -14,6 +14,7 @@ import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { generatePath, Outlet, Link as RouterLink, useLocation, useParams } from 'react-router';
 import { PATHS } from '../../../types';
+import { PhaseBadge } from '../../cycle';
 import { useRosterGetPlayerQuery } from '../api';
 import { ROSTER_NAMESPACE } from '../types';
 import { PlayerAvatar } from './PlayerAvatar';
@@ -26,6 +27,8 @@ const TABS = [
   { key: 'dates', path: PATHS.PLAYER_DATES },
   { key: 'now', path: PATHS.PLAYER_AGENDA },
   { key: 'keyNotes', path: PATHS.PLAYER_KEY_NOTES },
+  // Women only (see below).
+  { key: 'cycle', path: PATHS.PLAYER_CYCLE },
 ] as const;
 
 /** Player page shell: header plus one tab per feature. Each feature renders its tab in the Outlet. */
@@ -62,7 +65,9 @@ export const PlayerLayout = () => {
     );
   }
 
-  const tabPaths = TABS.map((tab) => generatePath(tab.path, { playerId }));
+  const isWoman = player.gender === 'female';
+  const tabs = TABS.filter((tab) => tab.key !== 'cycle' || isWoman);
+  const tabPaths = tabs.map((tab) => generatePath(tab.path, { playerId }));
   const currentTab = Math.max(0, tabPaths.indexOf(pathname.replace(/\/$/, '')));
 
   return (
@@ -78,7 +83,12 @@ export const PlayerLayout = () => {
             <ArrowBackOutlined />
           </IconButton>
         </Tooltip>
-        <PlayerAvatar nickname={player.nickname} color={player.avatarColor} size="large" />
+        <PlayerAvatar
+          nickname={player.nickname}
+          color={player.avatarColor}
+          size="large"
+          badge={isWoman ? <PhaseBadge subjectId={player.id} size="large" /> : undefined}
+        />
         <Box sx={{ minWidth: 0 }}>
           <Typography variant="h4" component="h1" noWrap>
             {player.nickname}
@@ -94,7 +104,7 @@ export const PlayerLayout = () => {
         allowScrollButtonsMobile
         sx={(theme) => ({ borderBottom: `1px solid ${theme.palette.divider}` })}
       >
-        {TABS.map((tab, index) => (
+        {tabs.map((tab, index) => (
           <Tab
             key={tab.key}
             label={t(`tabs.${tab.key}`)}

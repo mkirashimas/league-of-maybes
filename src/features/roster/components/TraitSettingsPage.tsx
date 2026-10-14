@@ -148,8 +148,13 @@ export const TraitSettingsPage = () => {
                       : `${describe(definition)} · ${t('traitSettings.custom')}`
                   }
                 />
-                {/* Fixed-width slots, so a missing control leaves its space empty. */}
-                <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+                {/* Fixed-width slots, so a missing control leaves its space empty. Wraps on phones. */}
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  useFlexGap
+                  sx={{ alignItems: 'center', flexWrap: 'wrap' }}
+                >
                   <Box sx={(theme) => ({ width: theme.spacing(12), flexShrink: 0 })}>
                     {isWeighted(definition.kind) && (
                       <TextField
@@ -184,7 +189,9 @@ export const TraitSettingsPage = () => {
                         </IconButton>
                       </Tooltip>
                     )}
-                    {definition.kind === 'scale' && (
+                  </Slot>
+                  <Slot>
+                    {isWeighted(definition.kind) && (
                       <Tooltip title={t('traitSettings.showInTable')}>
                         <Checkbox
                           icon={<TableChartOutlined />}

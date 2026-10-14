@@ -1,0 +1,85 @@
+{
+  "phase": {
+    "menstrual": "Menstrual",
+    "follicular": "Folicular",
+    "ovulation": "Ovulación",
+    "earlyLuteal": "Lútea temprana",
+    "lateLuteal": "Lútea tardía (SPM)"
+  },
+  "description": {
+    "menstrual": "Regla. La energía suele estar más baja; el confort, el descanso y los planes tranquilos suelen sentar bien.",
+    "follicular": "La energía y el ánimo suelen subir. Buen momento para planes nuevos, actividad y vida social.",
+    "ovulation": "A menudo los días más extrovertidos y seguros, con la libido más alta del ciclo.",
+    "earlyLuteal": "La energía suele estabilizarse. Los planes más tranquilos y acogedores encajan bien.",
+    "lateLuteal": "Días de SPM: irritabilidad, cansancio o bajón de ánimo son frecuentes. Ayuda tener más paciencia."
+  },
+  "rating": {
+    "mood": "Ánimo",
+    "energy": "Energía",
+    "libido": "Libido",
+    "sociability": "Sociabilidad"
+  },
+  "gender": {
+    "unset": "Sin indicar",
+    "female": "Mujer",
+    "male": "Hombre",
+    "other": "Otro"
+  },
+  "health": {
+    "label": "Problemas de salud",
+    "placeholder": "Afecciones, alergias, medicación…",
+    "helper": "Opcional. Son datos de salud: guarda solo lo necesario."
+  },
+  "badge": {
+    "label": "Fase del ciclo: {{phase}}, día {{day}}",
+    "day": "Día {{day}} de ~{{length}}",
+    "nextPeriod": "próxima regla ~{{date}}",
+    "notes": "Notas: {{value}}",
+    "stale": "Estimación basada en una regla antigua. Registra la última."
+  },
+  "strip": {
+    "day": "Día {{day}}"
+  },
+  "current": {
+    "title": "Hoy",
+    "noData": "Registra el inicio de una regla para ver la fase actual.",
+    "averaged": "Duración del ciclo: {{length}} días, media de las reglas registradas.",
+    "manual": "Duración del ciclo: {{length}} días, según el ajuste de abajo.",
+    "disclaimer": "Las fases son estimaciones y cada cuerpo es distinto."
+  },
+  "setup": {
+    "title": "Datos del ciclo",
+    "intro": "Registra el primer día de cada regla. Con dos o más ciclos completos registrados, se calcula la media.",
+    "startDate": "Inicio de la regla",
+    "addStart": "Añadir",
+    "removeStart": "Quitar",
+    "noStarts": "Aún no hay ninguna regla registrada.",
+    "cycleLength": "Duración del ciclo",
+    "cycleLengthHelper": "Se usa hasta tener dos ciclos completos registrados.",
+    "cycleLengthAveraged": "No se usa: las reglas registradas dan la media.",
+    "periodLength": "Duración de la regla",
+    "days": "{{value}} días"
+  },
+  "notes": {
+    "title": "Notas por fase",
+    "intro": "Observaciones por fecha. Cada una va a la fase de su fecha, así se ven los patrones por fase.",
+    "add": "Añadir nota",
+    "addTitle": "Nueva nota",
+    "editTitle": "Editar nota",
+    "date": "Fecha",
+    "dateHelper": "La fase se calcula a partir de esta fecha.",
+    "text": "Lo que notaste",
+    "textPlaceholder": "Ánimo, comportamiento, qué funcionó, qué no…",
+    "now": "Ahora",
+    "emptyPhase": "Aún no hay notas para esta fase.",
+    "untagged": "Sin fase (ninguna regla registrada antes de la fecha)",
+    "deleteTitle": "¿Eliminar esta nota?",
+    "deleteMessage": "Se quita de las notas por fase."
+  },
+  "personal": {
+    "title": "Datos personales",
+    "intro": "Datos sobre ti. Solo tú puedes verlos.",
+    "gender": "Género",
+    "genderHelper": "Elige Mujer para seguir tu propio ciclo."
+  }
+}

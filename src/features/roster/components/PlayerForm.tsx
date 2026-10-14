@@ -1,6 +1,7 @@
 import { Box, MenuItem, Stack, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { useState, type FormEvent, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { GENDERS, MAX_HEALTH_NOTES_LENGTH, type Gender } from '../../cycle';
 import {
   AVATAR_COLORS,
   PLAYER_STATUSES,
@@ -27,7 +28,7 @@ interface PlayerFormProps {
 const MAX_AGE = 120;
 
 export const PlayerForm = ({ initial, formId, onSubmit, children }: PlayerFormProps) => {
-  const { t } = useTranslation(ROSTER_NAMESPACE);
+  const { t } = useTranslation([ROSTER_NAMESPACE, 'cycle']);
   const [nickname, setNickname] = useState(initial?.nickname ?? '');
   const [age, setAge] = useState(initial?.age != null ? String(initial.age) : '');
   const [occupation, setOccupation] = useState(initial?.occupation ?? '');
@@ -35,6 +36,8 @@ export const PlayerForm = ({ initial, formId, onSubmit, children }: PlayerFormPr
   const [metAt, setMetAt] = useState(initial?.metAt ?? '');
   const [metOn, setMetOn] = useState(initial?.metOn ?? '');
   const [status, setStatus] = useState<PlayerStatus>(initial?.status ?? 'prospect');
+  const [gender, setGender] = useState<Gender>(initial?.gender ?? '');
+  const [healthNotes, setHealthNotes] = useState(initial?.healthNotes ?? '');
   const [avatarColor, setAvatarColor] = useState<AvatarColor>(initial?.avatarColor ?? 'primary');
   const [touched, setTouched] = useState(false);
 
@@ -57,6 +60,8 @@ export const PlayerForm = ({ initial, formId, onSubmit, children }: PlayerFormPr
       metAt: metAt.trim(),
       metOn,
       status,
+      gender,
+      healthNotes: healthNotes.trim(),
       avatarColor,
     });
   };
@@ -102,6 +107,20 @@ export const PlayerForm = ({ initial, formId, onSubmit, children }: PlayerFormPr
             ))}
           </TextField>
           <TextField
+            select
+            label={t('form.gender')}
+            value={gender}
+            onChange={(event) => setGender(event.target.value as Gender)}
+            helperText={t('form.genderHelper')}
+          >
+            <MenuItem value="">{t('cycle:gender.unset')}</MenuItem>
+            {GENDERS.map((value) => (
+              <MenuItem key={value} value={value}>
+                {t(`cycle:gender.${value}`)}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
             label={t('form.age')}
             type="number"
             value={age}
@@ -134,6 +153,17 @@ export const PlayerForm = ({ initial, formId, onSubmit, children }: PlayerFormPr
             slotProps={{ inputLabel: { shrink: true } }}
           />
         </Box>
+
+        <TextField
+          label={t('cycle:health.label')}
+          placeholder={t('cycle:health.placeholder')}
+          helperText={t('cycle:health.helper')}
+          value={healthNotes}
+          onChange={(event) => setHealthNotes(event.target.value)}
+          multiline
+          minRows={2}
+          slotProps={{ htmlInput: { maxLength: MAX_HEALTH_NOTES_LENGTH } }}
+        />
 
         <Stack spacing={1}>
           <Box sx={{ typography: 'body2', color: 'text.secondary' }}>{t('form.color')}</Box>

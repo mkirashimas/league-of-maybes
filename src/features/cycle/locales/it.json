@@ -1,0 +1,85 @@
+{
+  "phase": {
+    "menstrual": "Mestruale",
+    "follicular": "Follicolare",
+    "ovulation": "Ovulazione",
+    "earlyLuteal": "Luteale iniziale",
+    "lateLuteal": "Luteale tardiva (SPM)"
+  },
+  "description": {
+    "menstrual": "Ciclo mestruale. L'energia è spesso più bassa; comodità, riposo e piani tranquilli di solito sono graditi.",
+    "follicular": "Energia e umore di solito risalgono. Buon momento per nuovi piani, attività e vita sociale.",
+    "ovulation": "Spesso i giorni più estroversi e sicuri, con la libido più alta del ciclo.",
+    "earlyLuteal": "L'energia di solito si stabilizza. Piani più calmi e accoglienti si adattano bene.",
+    "lateLuteal": "Giorni di SPM: irritabilità, stanchezza o umore basso sono comuni. Un po' più di pazienza aiuta."
+  },
+  "rating": {
+    "mood": "Umore",
+    "energy": "Energia",
+    "libido": "Libido",
+    "sociability": "Socievolezza"
+  },
+  "gender": {
+    "unset": "Non indicato",
+    "female": "Donna",
+    "male": "Uomo",
+    "other": "Altro"
+  },
+  "health": {
+    "label": "Problemi di salute",
+    "placeholder": "Patologie, allergie, farmaci…",
+    "helper": "Facoltativo. Dati sanitari: conserva solo il necessario."
+  },
+  "badge": {
+    "label": "Fase del ciclo: {{phase}}, giorno {{day}}",
+    "day": "Giorno {{day}} di ~{{length}}",
+    "nextPeriod": "prossimo ciclo ~{{date}}",
+    "notes": "Note: {{value}}",
+    "stale": "Stima basata su un ciclo vecchio. Registra l'ultimo."
+  },
+  "strip": {
+    "day": "Giorno {{day}}"
+  },
+  "current": {
+    "title": "Oggi",
+    "noData": "Registra l'inizio di un ciclo per vedere la fase attuale.",
+    "averaged": "Durata del ciclo: {{length}} giorni, media dei cicli registrati.",
+    "manual": "Durata del ciclo: {{length}} giorni, come impostato sotto.",
+    "disclaimer": "Le fasi sono stime e ogni corpo è diverso."
+  },
+  "setup": {
+    "title": "Dati del ciclo",
+    "intro": "Registra il primo giorno di ogni ciclo. Con due o più cicli completi registrati, la durata è una media.",
+    "startDate": "Inizio del ciclo",
+    "addStart": "Aggiungi",
+    "removeStart": "Rimuovi",
+    "noStarts": "Nessun ciclo registrato.",
+    "cycleLength": "Durata del ciclo",
+    "cycleLengthHelper": "Usata finché non ci sono due cicli completi registrati.",
+    "cycleLengthAveraged": "Non usata: i cicli registrati danno la media.",
+    "periodLength": "Durata delle mestruazioni",
+    "days": "{{value}} giorni"
+  },
+  "notes": {
+    "title": "Note per fase",
+    "intro": "Osservazioni per data. Ognuna finisce nella fase della sua data, così emergono gli schemi per fase.",
+    "add": "Aggiungi nota",
+    "addTitle": "Nuova nota",
+    "editTitle": "Modifica nota",
+    "date": "Data",
+    "dateHelper": "La fase viene calcolata da questa data.",
+    "text": "Cosa hai notato",
+    "textPlaceholder": "Umore, comportamento, cosa ha funzionato e cosa no…",
+    "now": "Ora",
+    "emptyPhase": "Ancora nessuna nota per questa fase.",
+    "untagged": "Nessuna fase (nessun ciclo registrato prima della data)",
+    "deleteTitle": "Eliminare questa nota?",
+    "deleteMessage": "Viene rimossa dalle note per fase."
+  },
+  "personal": {
+    "title": "Dati personali",
+    "intro": "Informazioni su di te. Solo tu puoi vederle.",
+    "gender": "Genere",
+    "genderHelper": "Scegli Donna per monitorare il tuo ciclo."
+  }
+}

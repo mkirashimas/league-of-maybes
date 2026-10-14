@@ -34,6 +34,8 @@ beforeEach(async () => {
     await setDoc(doc(db, `users/${ALICE}`), { consent: { termsVersion: 'x', acceptedAt: 1 } });
     await setDoc(doc(db, `users/${ALICE}/players/p1`), { nickname: 'Sunny', status: 'active' });
     await setDoc(doc(db, `users/${ALICE}/settings/chat`), { nudgesEnabled: true });
+    await setDoc(doc(db, `users/${ALICE}/cycleProfiles/p1`), { periodStarts: ['2026-10-01'] });
+    await setDoc(doc(db, `users/${ALICE}/cycleNotes/n1`), { playerId: 'p1', date: '2026-10-02' });
     await setDoc(doc(db, `deletionCodes/${ALICE}`), { salt: 's', hash: 'h' });
   });
 });
@@ -53,6 +55,8 @@ describe('the owner', () => {
     await assertSucceeds(getDocs(collection(db, `users/${ALICE}/players`)));
     await assertSucceeds(setDoc(doc(db, `users/${ALICE}/players/p2`), { nickname: 'Nova' }));
     await assertSucceeds(getDoc(doc(db, `users/${ALICE}/settings/chat`)));
+    await assertSucceeds(getDoc(doc(db, `users/${ALICE}/cycleProfiles/p1`)));
+    await assertSucceeds(getDocs(collection(db, `users/${ALICE}/cycleNotes`)));
     await assertSucceeds(deleteDoc(doc(db, `users/${ALICE}/players/p1`)));
   });
 
@@ -78,6 +82,13 @@ describe('another signed-in user', () => {
     await assertFails(setDoc(doc(db, `users/${ALICE}/players/p2`), { nickname: 'Nova' }));
     await assertFails(deleteDoc(doc(db, `users/${ALICE}/players/p1`)));
     await assertFails(getDoc(doc(db, `users/${ALICE}/settings/chat`)));
+  });
+
+  test('cannot read or list cycle (health) data', async () => {
+    const db = as(BOB);
+    await assertFails(getDoc(doc(db, `users/${ALICE}/cycleProfiles/p1`)));
+    await assertFails(getDocs(collection(db, `users/${ALICE}/cycleNotes`)));
+    await assertFails(setDoc(doc(db, `users/${ALICE}/cycleNotes/n2`), { playerId: 'p1' }));
   });
 
   test('cannot read the deletion code', async () => {

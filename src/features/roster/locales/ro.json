@@ -100,6 +100,8 @@
     "metAtHelper": "Aplicație, eveniment, prieteni…",
     "metOn": "Cunoscut pe",
     "status": "Stare",
+    "gender": "Gen",
+    "genderHelper": "Femeile au o filă Ciclu și o insignă de fază.",
     "color": "Culoarea avatarului",
     "create": "Adaugă în lot",
     "responsibility": {
@@ -127,7 +129,8 @@
     "chat": "Chat",
     "dates": "Întâlniri",
     "now": "Acum și urmează",
-    "keyNotes": "Note cheie"
+    "keyNotes": "Note cheie",
+    "cycle": "Ciclu"
   },
   "traitSettings": {
     "title": "Trăsături",

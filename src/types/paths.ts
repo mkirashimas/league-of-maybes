@@ -12,10 +12,12 @@ export const PATHS = {
   PLAYER_DATES: '/roster/:playerId/dates',
   PLAYER_AGENDA: '/roster/:playerId/now',
   PLAYER_KEY_NOTES: '/roster/:playerId/key-notes',
+  PLAYER_CYCLE: '/roster/:playerId/cycle',
   TIMELINE: '/timeline',
   AGENDA: '/upcoming',
   TRAIT_SETTINGS: '/settings/traits',
   CHAT_SETTINGS: '/settings/chat',
+  PERSONAL_DETAILS: '/settings/personal',
   ACCOUNT: '/settings/account',
   NOT_FOUND: '*',
 } as const;

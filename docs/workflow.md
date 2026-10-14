@@ -129,7 +129,20 @@ echo "GCP_DEPLOY_SERVICE_ACCOUNT     = $SA"
 
 Then go to GitHub → the repo → Settings → Secrets and variables → Actions → **Variables** tab → **New repository variable**, and add both printed values under those names. They are identifiers, not secrets.
 
-**If a deploy fails on a permission,** the log names the missing permission (e.g. `...permission denied on resource...`). Grant the matching role with step 4's command, then use **Re-run jobs** on the failed run.
+Set up and verified on 2026-10-14 (release PR #21 deployed automatically).
+
+### Troubleshooting
+
+- **`Invalid value for "audience"` in the auth step:** `GCP_WORKLOAD_IDENTITY_PROVIDER` isn't the provider's full resource name. It must be exactly `projects/<project number>/locations/global/workloadIdentityPools/github/providers/league-of-maybes`, with digits only for the number and no spaces. Print the right value in Cloud Shell and paste it into the variable:
+
+  ```sh
+  gcloud iam workload-identity-pools providers describe league-of-maybes     --project=league-of-maybes --location=global --workload-identity-pool=github     --format='value(name)'
+  ```
+
+- **`iam.serviceAccounts.getAccessToken` denied:** the repo isn't allowed to act as the service account. Run step 3 of the setup again.
+- **A permission missing in the deploy step:** the log names the missing permission (e.g. `...permission denied on resource...`). Grant the matching role with step 4's command.
+
+After any fix, open the failed run and use **Re-run jobs → Re-run failed jobs**.
 
 ## Protecting branches (optional)
 

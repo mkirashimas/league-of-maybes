@@ -107,12 +107,14 @@ Status: ⬜ planned · 🟡 in progress · ⏸ in review · ✅ done
 | 8   | [AI and push](docs/stages/08-ai-push.md)                   | ✅     |
 | 9   | [Cloud Functions](docs/stages/09-functions.md)             | ✅     |
 | 10  | [Hardening and launch](docs/stages/10-hardening-launch.md) | ⏸      |
+| 11  | [Cycle tracking](docs/stages/11-cycle.md)                  | ✅     |
 
 Changes after stage 9, from testing feedback (see [docs/decisions.md](docs/decisions.md)):
 
 - **D-015:** player delete with cascade, account delete behind a deletion code, League Table columns per trait, the Sex trait, height and weight ranges, 1–10 weights, the Big Five.
 - **D-016:** choice traits count in Overall, with a 1–10 score per choice.
 - **D-017:** [cycle tracking](docs/stages/11-cycle.md), health notes, choice traits as League Table columns, features may import each other's `index.ts`.
+- **D-018:** [automatic deploy](docs/workflow.md#automatic-deploy) on every merge into `main`, keyless (Workload Identity Federation).
 
 Each stage is built on its own branch and merged into `development` by pull request (see [docs/workflow.md](docs/workflow.md)). CI runs `yarn lint` and `yarn build` at the root and in `functions/`, and the rule tests.
 

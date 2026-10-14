@@ -100,6 +100,8 @@
     "metAtHelper": "App, evento, amigos…",
     "metOn": "Conocido el",
     "status": "Estado",
+    "gender": "Género",
+    "genderHelper": "Las mujeres tienen una pestaña Ciclo y un distintivo de fase.",
     "color": "Color del avatar",
     "create": "Añadir a la plantilla",
     "responsibility": {
@@ -118,7 +120,7 @@
     "manageTraits": "Gestionar rasgos",
     "delete": "Eliminar jugador",
     "deleteTitle": "¿Eliminar a {{nickname}}?",
-    "deleteMessage": "El jugador y todo lo relacionado (información, chat, citas, planes y notas clave) se eliminará para siempre. No se puede deshacer. Para conservar el historial, cambia el estado a Retirado.",
+    "deleteMessage": "El jugador y todo lo relacionado (información, chat, citas, planes, notas clave y datos del ciclo) se eliminará para siempre. No se puede deshacer. Para conservar el historial, cambia el estado a Retirado.",
     "deleteError": "No se pudo eliminar el jugador. Inténtalo de nuevo."
   },
   "tabs": {
@@ -127,7 +129,8 @@
     "chat": "Chat",
     "dates": "Citas",
     "now": "Ahora y próximo",
-    "keyNotes": "Notas clave"
+    "keyNotes": "Notas clave",
+    "cycle": "Ciclo"
   },
   "traitSettings": {
     "title": "Rasgos",

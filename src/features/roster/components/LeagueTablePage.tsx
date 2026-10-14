@@ -26,16 +26,20 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { generatePath, Link as RouterLink, useNavigate } from 'react-router';
 import { PATHS } from '../../../types';
+import { PhaseBadge } from '../../cycle';
 import { useRosterGetPlayersQuery } from '../api';
 import { useTraitDefinitions } from '../hooks/useTraitDefinitions';
 import { useTraitLabels } from '../hooks/useTraitLabels';
 import {
   computeOverall,
   isShownInTable,
+  optionScore,
   PLAYER_STATUSES,
   ROSTER_NAMESPACE,
   type Player,
   type PlayerStatus,
+  type TraitDefinition,
+  type TraitValue,
 } from '../types';
 import { PlayerAvatar } from './PlayerAvatar';
 import { StatusChip } from './StatusChip';
@@ -52,6 +56,17 @@ interface Row {
 const formatScore = (value: number | null | undefined) =>
   typeof value === 'number' ? value.toFixed(1) : '–';
 
+/** What a trait value sorts by: a scale's number, a choice's score. */
+const sortValue = (definition: TraitDefinition | undefined, value: TraitValue | undefined) => {
+  if (!definition) return null;
+  if (definition.kind === 'scale') return typeof value === 'number' ? value : null;
+  return typeof value === 'string' ? optionScore(definition, value) : null;
+};
+
+/** The cycle phase on a woman's avatar. */
+const phaseBadge = (player: Player, size: 'small' | 'medium') =>
+  player.gender === 'female' ? <PhaseBadge subjectId={player.id} size={size} /> : undefined;
+
 /** Numbers sort with empty values last, whatever the direction. */
 const compareNumbers = (a: number | null, b: number | null, direction: Direction) => {
   if (a === null && b === null) return 0;
@@ -67,7 +82,7 @@ export const LeagueTablePage = () => {
   const navigate = useNavigate();
   const { data: players, isLoading, isError } = useRosterGetPlayersQuery();
   const traits = useTraitDefinitions();
-  const { traitLabel } = useTraitLabels();
+  const { traitLabel, optionLabel } = useTraitLabels();
   const [filter, setFilter] = useState<Filter>('current');
   const [sortKey, setSortKey] = useState<SortKey>('overall');
   const [direction, setDirection] = useState<Direction>('desc');
@@ -101,10 +116,8 @@ export const LeagueTablePage = () => {
         return compareNumbers(a.overall, b.overall, direction);
       }
       const key = sortKey.slice('trait:'.length);
-      const valueOf = (row: Row) => {
-        const value = row.player.traits[key];
-        return typeof value === 'number' ? value : null;
-      };
+      const definition = traits.definitions.find((candidate) => candidate.key === key);
+      const valueOf = (row: Row) => sortValue(definition, row.player.traits[key]);
       return compareNumbers(valueOf(a), valueOf(b), direction);
     });
   }, [players, traits.definitions, filter, sortKey, direction]);
@@ -237,7 +250,11 @@ export const LeagueTablePage = () => {
               <CardActionArea component={RouterLink} to={playerPath(player)}>
                 <CardContent>
                   <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-                    <PlayerAvatar nickname={player.nickname} color={player.avatarColor} />
+                    <PlayerAvatar
+                      nickname={player.nickname}
+                      color={player.avatarColor}
+                      badge={phaseBadge(player, 'medium')}
+                    />
                     <Box sx={{ flexGrow: 1, minWidth: 0 }}>
                       <Typography variant="subtitle1" noWrap>
                         {player.nickname}
@@ -309,6 +326,7 @@ export const LeagueTablePage = () => {
                       nickname={player.nickname}
                       color={player.avatarColor}
                       size="small"
+                      badge={phaseBadge(player, 'small')}
                     />
                     <Typography
                       component={RouterLink}
@@ -335,7 +353,11 @@ export const LeagueTablePage = () => {
                   const value = player.traits[definition.key];
                   return (
                     <TableCell key={definition.key} align="center">
-                      {typeof value === 'number' ? value : '–'}
+                      {typeof value === 'number'
+                        ? value
+                        : typeof value === 'string' && definition.options.includes(value)
+                          ? optionLabel(definition, value)
+                          : '–'}
                     </TableCell>
                   );
                 })}

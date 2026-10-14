@@ -3,7 +3,7 @@ import type { BaseDocument } from '../../types';
 export const LEGAL_NAMESPACE = 'legal';
 
 /** Bump this when the Terms or Privacy text changes materially: every user is asked to accept again. */
-export const TERMS_VERSION = '2026-10-12.3';
+export const TERMS_VERSION = '2026-10-14';
 
 /** The users collection; this feature owns the users/{uid} document itself. */
 export const USERS_COLLECTION = 'users';

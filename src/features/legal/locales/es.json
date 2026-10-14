@@ -35,7 +35,7 @@
       },
       {
         "title": "Tu responsabilidad sobre los datos que introduces",
-        "body": "Todo lo que hay en la aplicación lo escribes tú, y gran parte trata sobre otras personas. Eres el único responsable de ese contenido y de tener derecho a conservarlo.\nUsa apodos, nunca nombres reales. No registres sobre nadie más de lo necesario y evita datos sensibles como salud, religión u opiniones políticas. El número de teléfono es opcional y solo sirve para abrir un chat."
+        "body": "Todo lo que hay en la aplicación lo escribes tú, y gran parte trata sobre otras personas. Eres el único responsable de ese contenido y de tener derecho a conservarlo.\nUsa apodos, nunca nombres reales. No registres sobre nadie más de lo necesario y evita datos sensibles como religión u opiniones políticas. Las notas de salud y el seguimiento del ciclo son datos de salud opcionales: introdúcelos solo cuando ayuden y solo lo necesario. El número de teléfono es opcional y solo sirve para abrir un chat."
       },
       {
         "title": "Uso aceptable",
@@ -64,7 +64,7 @@
     "sections": [
       {
         "title": "Qué se guarda",
-        "body": "Tu perfil básico de Google (nombre, correo, foto) tal como lo proporciona Firebase Authentication, y el contenido que introduces: jugadores, rasgos, notas, citas, planes, ajustes de chat y, si activas las notificaciones, un token del dispositivo con su idioma."
+        "body": "Tu perfil básico de Google (nombre, correo, foto) tal como lo proporciona Firebase Authentication, y el contenido que introduces: jugadores, rasgos, notas, citas, planes, ajustes de chat, notas de salud y datos del ciclo opcionales, tus datos personales y, si activas las notificaciones, un token del dispositivo con su idioma."
       },
       {
         "title": "Dónde se guarda",
@@ -73,6 +73,10 @@
       {
         "title": "Quién puede verlo",
         "body": "Solo tú. Las reglas de seguridad permiten que cada cuenta lea y escriba únicamente sus propios datos. Los datos no se comparten, no se venden ni se usan para publicidad."
+      },
+      {
+        "title": "Datos de salud",
+        "body": "Las notas de salud y el seguimiento del ciclo (fechas de la regla, duración del ciclo y notas por fase) son datos de salud opcionales que introduces tú. Se guardan y protegen como el resto de tus datos, solo tú puedes verlos, nunca se envían a la IA y se eliminan con el jugador al que pertenecen o con tu cuenta. Las fases son estimaciones, no consejo médico."
       },
       {
         "title": "Procesamiento con IA",

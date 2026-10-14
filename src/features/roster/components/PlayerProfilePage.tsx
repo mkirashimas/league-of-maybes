@@ -53,7 +53,7 @@ const Section = ({
 );
 
 export const PlayerProfilePage = () => {
-  const { t, i18n } = useTranslation([ROSTER_NAMESPACE, 'common']);
+  const { t, i18n } = useTranslation([ROSTER_NAMESPACE, 'common', 'cycle']);
   const { playerId = '' } = useParams();
   const { data: player } = useRosterGetPlayerQuery(playerId, { skip: !playerId });
   const traits = useTraitDefinitions();
@@ -85,6 +85,7 @@ export const PlayerProfilePage = () => {
     : '';
 
   const details: { label: string; value: string }[] = [
+    { label: t('form.gender'), value: player.gender ? t(`cycle:gender.${player.gender}`) : '' },
     { label: t('form.age'), value: player.age != null ? String(player.age) : '' },
     { label: t('form.occupation'), value: player.occupation },
     { label: t('form.city'), value: player.city },
@@ -140,6 +141,16 @@ export const PlayerProfilePage = () => {
             </Box>
           ))}
         </Box>
+        {player.healthNotes && (
+          <Stack spacing={0.5}>
+            <Typography variant="body2" color="text.secondary">
+              {t('cycle:health.label')}
+            </Typography>
+            <Typography variant="body2" sx={{ whiteSpace: 'pre-line', overflowWrap: 'anywhere' }}>
+              {player.healthNotes}
+            </Typography>
+          </Stack>
+        )}
       </Section>
 
       <Section

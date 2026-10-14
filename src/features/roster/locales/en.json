@@ -100,6 +100,8 @@
     "metAtHelper": "App, event, friends…",
     "metOn": "Met on",
     "status": "Status",
+    "gender": "Gender",
+    "genderHelper": "Women get a Cycle tab and a phase badge.",
     "color": "Avatar color",
     "create": "Add to roster",
     "responsibility": {
@@ -118,7 +120,7 @@
     "manageTraits": "Manage traits",
     "delete": "Delete player",
     "deleteTitle": "Delete {{nickname}}?",
-    "deleteMessage": "The player and everything linked to them (intel, chat, dates, plans and key notes) will be deleted for good. This cannot be undone. To keep the history, set the status to Retired instead.",
+    "deleteMessage": "The player and everything linked to them (intel, chat, dates, plans, key notes and cycle data) will be deleted for good. This cannot be undone. To keep the history, set the status to Retired instead.",
     "deleteError": "The player could not be deleted. Please try again."
   },
   "tabs": {
@@ -127,7 +129,8 @@
     "chat": "Chat",
     "dates": "Dates",
     "now": "Now & Next",
-    "keyNotes": "Key Notes"
+    "keyNotes": "Key Notes",
+    "cycle": "Cycle"
   },
   "traitSettings": {
     "title": "Traits",

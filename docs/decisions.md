@@ -187,3 +187,4 @@ These came out of reviewing the plan. Each is applied in the stage listed.
 - **Gate:** `deploy.yml` first calls `ci.yml` (lint, build, functions, rule tests) through `workflow_call`. `ci.yml` no longer runs on pushes to `main`, to avoid running twice.
 - **Auth:** Workload Identity Federation, with no service-account key. The provider only accepts tokens from `mkirashimas/league-of-maybes` on `refs/heads/main`. The `github-deployer` service account has only the deploy roles.
 - **CLI:** `firebase-tools` is pinned (15.32.0) in CI and deploy, so a CLI release can't change deploys unexpectedly. `--force` lets non-interactive deploys remove deleted functions.
+- **Verified:** the first automatic deploy (release PR #21) succeeded in production on 2026-10-14.

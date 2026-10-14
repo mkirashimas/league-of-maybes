@@ -1,6 +1,6 @@
 # Stage 11: Cycle tracking
 
-**Status:** 🚧 built on `feat/cycle-tracking` (2026-10-14), not merged yet
+**Status:** ✅ done (2026-10-14), PR #19, released in PR #21, tag `stage-11`
 
 ## 1. Goal
 
@@ -56,7 +56,9 @@ Track the hormonal cycle of women players, and of the user, so each player's cur
 
 ## 5. Checklist
 
-- [ ] `yarn lint`, `yarn build` and `yarn test:rules` pass
+The unticked items are manual UI checks still to verify in production.
+
+- [x] `yarn lint`, `yarn build` and `yarn test:rules` pass
 - [ ] A woman player with 3 logged periods uses the averaged length and shows the badge in the table (desktop and phone) and in the header
 - [ ] The tooltip works on hover, keyboard focus and tap, and tapping it doesn't open the player
 - [ ] Notes are tagged by date. Groups, averages and the tooltip summary update.

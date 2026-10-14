@@ -35,7 +35,7 @@
       },
       {
         "title": "La tua responsabilità sui dati inseriti",
-        "body": "Tutto ciò che c'è nell'app è scritto da te, e gran parte riguarda altre persone. Sei l'unico responsabile di quei contenuti e di avere il diritto di conservarli.\nUsa soprannomi, mai nomi reali. Non registrare su nessuno più del necessario ed evita dati sensibili come salute, religione o opinioni politiche. Il numero di telefono è facoltativo e serve solo ad aprire una chat."
+        "body": "Tutto ciò che c'è nell'app è scritto da te, e gran parte riguarda altre persone. Sei l'unico responsabile di quei contenuti e di avere il diritto di conservarli.\nUsa soprannomi, mai nomi reali. Non registrare su nessuno più del necessario ed evita dati sensibili come religione o opinioni politiche. Le note sulla salute e il monitoraggio del ciclo sono dati sanitari facoltativi: inseriscili solo quando servono e solo il necessario. Il numero di telefono è facoltativo e serve solo ad aprire una chat."
       },
       {
         "title": "Uso consentito",
@@ -64,7 +64,7 @@
     "sections": [
       {
         "title": "Cosa viene salvato",
-        "body": "Il tuo profilo Google di base (nome, email, foto) come fornito da Firebase Authentication, e i contenuti che inserisci: giocatori, tratti, note, appuntamenti, piani, impostazioni chat e, se attivi le notifiche, un token del dispositivo con la sua lingua."
+        "body": "Il tuo profilo Google di base (nome, email, foto) come fornito da Firebase Authentication, e i contenuti che inserisci: giocatori, tratti, note, appuntamenti, piani, impostazioni chat, note sulla salute e dati del ciclo facoltativi, i tuoi dati personali e, se attivi le notifiche, un token del dispositivo con la sua lingua."
       },
       {
         "title": "Dove viene salvato",
@@ -73,6 +73,10 @@
       {
         "title": "Chi può vederlo",
         "body": "Solo tu. Le regole di sicurezza consentono a ogni account di leggere e scrivere solo i propri dati. I dati non vengono condivisi, venduti né usati per la pubblicità."
+      },
+      {
+        "title": "Dati sanitari",
+        "body": "Le note sulla salute e il monitoraggio del ciclo (date delle mestruazioni, durata del ciclo e note per fase) sono dati sanitari facoltativi che inserisci tu. Sono conservati e protetti come il resto dei tuoi dati, visibili solo a te, mai inviati all'IA, ed eliminati insieme al giocatore a cui si riferiscono o al tuo account. Le fasi sono stime, non consigli medici."
       },
       {
         "title": "Elaborazione con IA",

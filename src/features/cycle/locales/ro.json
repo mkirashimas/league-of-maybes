@@ -1,0 +1,85 @@
+{
+  "phase": {
+    "menstrual": "Menstruală",
+    "follicular": "Foliculară",
+    "ovulation": "Ovulație",
+    "earlyLuteal": "Luteală timpurie",
+    "lateLuteal": "Luteală târzie (SPM)"
+  },
+  "description": {
+    "menstrual": "Menstruație. Energia e adesea mai scăzută; confortul, odihna și planurile liniștite sunt de obicei binevenite.",
+    "follicular": "Energia și starea de spirit cresc de obicei. Moment bun pentru planuri noi, activitate și ieșiri.",
+    "ovulation": "Adesea cele mai sociabile și sigure zile, cu cel mai ridicat libido din ciclu.",
+    "earlyLuteal": "Energia se stabilizează de obicei. Planurile mai calme și relaxante se potrivesc bine.",
+    "lateLuteal": "Zile de SPM: iritabilitatea, oboseala sau starea proastă sunt frecvente. Mai multă răbdare ajută."
+  },
+  "rating": {
+    "mood": "Dispoziție",
+    "energy": "Energie",
+    "libido": "Libido",
+    "sociability": "Sociabilitate"
+  },
+  "gender": {
+    "unset": "Nesetat",
+    "female": "Femeie",
+    "male": "Bărbat",
+    "other": "Altul"
+  },
+  "health": {
+    "label": "Probleme de sănătate",
+    "placeholder": "Afecțiuni, alergii, medicație…",
+    "helper": "Opțional. Date medicale: păstrează doar ce e necesar."
+  },
+  "badge": {
+    "label": "Faza ciclului: {{phase}}, ziua {{day}}",
+    "day": "Ziua {{day}} din ~{{length}}",
+    "nextPeriod": "următoarea menstruație ~{{date}}",
+    "notes": "Notițe: {{value}}",
+    "stale": "Estimare pe baza unei menstruații vechi. Înregistreaz-o pe cea mai recentă."
+  },
+  "strip": {
+    "day": "Ziua {{day}}"
+  },
+  "current": {
+    "title": "Azi",
+    "noData": "Înregistrează începutul unei menstruații ca să vezi faza curentă.",
+    "averaged": "Durata ciclului: {{length}} zile, media menstruațiilor înregistrate.",
+    "manual": "Durata ciclului: {{length}} zile, conform setării de mai jos.",
+    "disclaimer": "Fazele sunt estimări și fiecare corp e diferit."
+  },
+  "setup": {
+    "title": "Datele ciclului",
+    "intro": "Înregistrează prima zi a fiecărei menstruații. Cu două sau mai multe cicluri complete, durata e o medie.",
+    "startDate": "Început menstruație",
+    "addStart": "Adaugă",
+    "removeStart": "Elimină",
+    "noStarts": "Nicio menstruație înregistrată încă.",
+    "cycleLength": "Durata ciclului",
+    "cycleLengthHelper": "Folosită până sunt înregistrate două cicluri complete.",
+    "cycleLengthAveraged": "Nefolosită: menstruațiile înregistrate dau media.",
+    "periodLength": "Durata menstruației",
+    "days": "{{value}} zile"
+  },
+  "notes": {
+    "title": "Notițe pe faze",
+    "intro": "Observații pe date. Fiecare ajunge în faza datei sale, ca să se vadă tiparele pe faze.",
+    "add": "Adaugă notiță",
+    "addTitle": "Notiță nouă",
+    "editTitle": "Editează notița",
+    "date": "Data",
+    "dateHelper": "Faza se calculează din această dată.",
+    "text": "Ce ai observat",
+    "textPlaceholder": "Dispoziție, comportament, ce a mers, ce nu…",
+    "now": "Acum",
+    "emptyPhase": "Încă nicio notiță pentru această fază.",
+    "untagged": "Fără fază (nicio menstruație înregistrată înainte de dată)",
+    "deleteTitle": "Ștergi această notiță?",
+    "deleteMessage": "Va fi eliminată din notițele pe faze."
+  },
+  "personal": {
+    "title": "Date personale",
+    "intro": "Detalii despre tine. Doar tu le poți vedea.",
+    "gender": "Gen",
+    "genderHelper": "Alege Femeie ca să îți urmărești propriul ciclu."
+  }
+}

@@ -12,6 +12,7 @@ League of Maybes is a private, single-user "league manager" for dating. You keep
 | **Players**              | Nickname-only profiles with status (prospect, active, bench, injured reserve, retired). Edit or delete from the Edit dialog; deleting removes all of the player's records.                                                                                           |
 | **Traits**               | Built-ins: Height and Weight (ranges), Hot, Sex, Funny, Communication, Chemistry, Consistency, Ambition, Crazy eyes, Attachment style, and the Big Five. Add your own (1–10 scale, number or choice). Reorder, hide, and choose which ones show in the League Table. |
 | **Overall score**        | Weighted average of the 1–10 traits and the choice traits. Every weight is 1–10, and each choice has its own 1–10 score ("Score the choices"). Empty values are skipped.                                                                                             |
+| **Cycle tracking**       | For women players and for you (Personal details): logged periods, today's phase of 5 as an avatar badge with a tooltip, and dated phase notes with 1–5 ratings, grouped by phase. Free-text health notes for every player and for you.                               |
 | **Intel and Key Notes**  | Scouting notes by category, and pinned facts (birthday, family, allergies, gift ideas…), with "Load more".                                                                                                                                                           |
 | **Dates and Timeline**   | Date log with rating and outcome. The Timeline shows days since the last date, colored by freshness, and a 90-day dot row.                                                                                                                                           |
 | **Now & Next, Upcoming** | Per-player plans and "now" items. Upcoming lists open items and future plans by day.                                                                                                                                                                                 |
@@ -68,7 +69,7 @@ All in `europe-west1`, `maxInstances: 2`. Callables enforce App Check and act on
 ```
 src/
   hoc/        App shell: providers, routing, layout
-  features/   auth, legal, roster, intel, keyNotes, dates, agenda, chat (each self-contained)
+  features/   auth, legal, roster, intel, keyNotes, dates, agenda, chat, cycle
   firebase/   config, auth, firestore helpers, functions, messaging, ai
   store/      Redux store, base RTK Query api, auth and theme slices
   i18n/       i18next setup and common strings
@@ -111,6 +112,7 @@ Changes after stage 9, from testing feedback (see [docs/decisions.md](docs/decis
 
 - **D-015:** player delete with cascade, account delete behind a deletion code, League Table columns per trait, the Sex trait, height and weight ranges, 1–10 weights, the Big Five.
 - **D-016:** choice traits count in Overall, with a 1–10 score per choice.
+- **D-017:** [cycle tracking](docs/stages/11-cycle.md), health notes, choice traits as League Table columns, features may import each other's `index.ts`.
 
 Each stage is built on its own branch and merged into `development` by pull request (see [docs/workflow.md](docs/workflow.md)). CI runs `yarn lint` and `yarn build` at the root and in `functions/`, and the rule tests.
 

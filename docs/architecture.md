@@ -36,7 +36,7 @@ league-of-maybes/
     store/      index.ts, api.ts, authSlice.ts, themeSlice.ts
     i18n/       index.ts, locales/{en,es,fr,it,ro}/common.json
     theme/      index.ts, theme.ts, palette.ts, typography.ts, components.ts, augmentation.d.ts
-    features/   auth, legal, roster, intel, chat, dates, agenda, keyNotes
+    features/   auth, legal, roster, intel, chat, dates, agenda, keyNotes, cycle
   firestore.rules
   firestore.indexes.json
   firebase.json
@@ -45,7 +45,7 @@ league-of-maybes/
 
 ## 3. Features and data ownership
 
-No feature imports another feature. When a feature needs another feature's data, it defines its own small type and a **read-only** endpoint. Shared logic is copied into each feature that needs it.
+Features may import each other's public API (`index.ts`). The owning feature keeps the writes; other features reuse its hooks and components.
 
 | Feature    | Purpose                                                                                   | Owns (`users/{uid}/…`)                                                | Read-only cross reads                   |
 | ---------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------- |
@@ -57,6 +57,7 @@ No feature imports another feature. When a feature needs another feature's data,
 | `dates`    | Date log, Timeline                                                                        | `dates`, `dateSummaries`                                              | `players` → `getPlayerRefs`             |
 | `agenda`   | Now & Next, Upcoming                                                                      | `agendaItems`                                                         | `players` → `getPlayerRefs`             |
 | `keyNotes` | Key facts, pinned and ranked                                                              | `keyNotes`                                                            | none                                    |
+| `cycle`    | Cycle tab, phase badge (used by `roster`), Personal details page                          | `cycleProfiles`, `cycleNotes`, `settings/personal`                    | none                                    |
 
 ## 4. Data model
 
@@ -69,6 +70,8 @@ users/{uid}                          # legal
 │     nickname, age | null, occupation, city, metAt, metOn (yyyy-mm-dd | '')
 │     avatarColor: primary | secondary | info | success | warning | error (palette key)
 │     status: prospect | active | bench | injuredReserve | retired
+│     gender?: female | male | other | '' (women get the Cycle tab and phase badge)
+│     healthNotes?: free text
 │     traits: { [traitKey]: number | string }
 ├── traitDefinitions/{traitKey}      # roster; doc id = key, so seeding is idempotent
 │     key, builtIn, customLabel, kind: scale | number | enum
@@ -96,8 +99,16 @@ users/{uid}                          # legal
 │     playerId, lastDateAt (yyyy-mm-dd | null), count, recentDates[] (last 90 days)
 ├── agendaItems/{itemId}             # agenda
 │     playerId, kind: now | event | plan, title, notes?, when | null, done
-└── keyNotes/{noteId}                # keyNotes
-      playerId, category, text, pinned, importance (1 low | 2 medium | 3 high)
+├── keyNotes/{noteId}                # keyNotes
+│     playerId, category, text, pinned, importance (1 low | 2 medium | 3 high)
+├── cycleProfiles/{subjectId}        # cycle; subjectId = playerId, or 'self' for the user
+│     periodStarts[] (yyyy-mm-dd, newest first, max 12), cycleLength (21–45), periodLength (2–10)
+│     phaseSummaries: { [phase]: { count, avg: { mood, energy, libido, sociability }, lastText } }
+├── cycleNotes/{noteId}              # cycle; playerId = player id or 'self'
+│     playerId, date (yyyy-mm-dd), phase | null, cycleDay | null, text
+│     ratings: { mood, energy, libido, sociability: 1–5 | null }
+└── settings/personal                # cycle
+      gender, healthNotes
 
 deletionCodes/{uid}                  # Cloud Functions only (no client rule): salt, hash, failedAttempts, lockedUntil
 ```
@@ -116,7 +127,7 @@ deletionCodes/{uid}                  # Cloud Functions only (no client rule): sa
 | `chatNotes` | humor, pace, emoji, pattern, other                                          |
 | `keyNotes`  | birthday, family, pets, allergies, insideJoke, giftIdea, noGoTopic, other   |
 
-**Default traits** (seeded on first login; built-ins added later are seeded for existing accounts, and stored built-ins follow the kind and options below). Scale and choice (enum) traits weigh 1–10 in `overall`. A choice counts with its option score (1–10, set per option in Trait settings; defaults spread by position, attachmentStyle secure 10, anxious 5, avoidant 4, fearfulAvoidant 2). Number traits don't count. The League Table shows the active scale traits with `showInTable`; it defaults to on for hot, sex and crazyEyes.
+**Default traits** (seeded on first login; built-ins added later are seeded for existing accounts, and stored built-ins follow the kind and options below). Scale and choice (enum) traits weigh 1–10 in `overall`. A choice counts with its option score (1–10, set per option in Trait settings; defaults spread by position, attachmentStyle secure 10, anxious 5, avoidant 4, fearfulAvoidant 2). Number traits don't count. The League Table shows the active scale and choice traits with `showInTable` (choices show their label and sort by score); it defaults to on for hot, sex and crazyEyes.
 
 | Trait                                                                           | Kind       | Weight |
 | ------------------------------------------------------------------------------- | ---------- | ------ |
@@ -142,6 +153,7 @@ deletionCodes/{uid}                  # Cloud Functions only (no client rule): sa
 | `agendaItems`        | `playerId ==`, `createdAt desc`                 | collection                        |
 | `agendaItems`        | `done ==`, `when asc`                           | collection                        |
 | `keyNotes`           | `playerId ==`, `pinned desc`, `importance desc` | collection                        |
+| `cycleNotes`         | `playerId ==`, `date desc`                      | collection                        |
 | `chatStates`         | `nextNudgeAt asc`                               | collection group (field override) |
 
 ## 6. Routes (`src/types/paths.ts`)
@@ -161,10 +173,12 @@ deletionCodes/{uid}                  # Cloud Functions only (no client rule): sa
 | `PLAYER_DATES`     | `/roster/:playerId/dates`     | app                                      |
 | `PLAYER_AGENDA`    | `/roster/:playerId/now`       | app                                      |
 | `PLAYER_KEY_NOTES` | `/roster/:playerId/key-notes` | app                                      |
+| `PLAYER_CYCLE`     | `/roster/:playerId/cycle`     | app (tab shown for women only)           |
 | `TIMELINE`         | `/timeline`                   | app                                      |
 | `AGENDA`           | `/upcoming`                   | app                                      |
 | `TRAIT_SETTINGS`   | `/settings/traits`            | app                                      |
 | `CHAT_SETTINGS`    | `/settings/chat`              | app                                      |
+| `PERSONAL_DETAILS` | `/settings/personal`          | app                                      |
 | `ACCOUNT`          | `/settings/account`           | app                                      |
 
 "Signed in" means past the auth guard. "App" means past the auth guard and `ConsentGate`. Links with params use `generatePath(PATHS.X, { playerId })`.
@@ -178,10 +192,11 @@ AuthGuard → redirects to LOGIN if signed out
   CONSENT
   ConsentGate (legal) → redirects to CONSENT until TERMS_VERSION is accepted
     Layout (top bar + sidebar)
-      HOME → ROSTER, ROSTER, PLAYER_NEW, TIMELINE, AGENDA, TRAIT_SETTINGS, CHAT_SETTINGS, ACCOUNT
+      HOME → ROSTER, ROSTER, PLAYER_NEW, TIMELINE, AGENDA, TRAIT_SETTINGS, CHAT_SETTINGS, PERSONAL_DETAILS (cycle), ACCOUNT
       PlayerLayout (roster): header + tabs
         PLAYER (roster), PLAYER_INTEL (intel), PLAYER_CHAT (chat),
-        PLAYER_DATES (dates), PLAYER_AGENDA (agenda), PLAYER_KEY_NOTES (keyNotes)
+        PLAYER_DATES (dates), PLAYER_AGENDA (agenda), PLAYER_KEY_NOTES (keyNotes),
+        PLAYER_CYCLE (cycle)
 ```
 
 - **Top bar:** app name, language `Select`, light/dark toggle, user menu (Account, Sign out).

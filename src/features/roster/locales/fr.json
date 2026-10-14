@@ -100,6 +100,8 @@
     "metAtHelper": "Appli, événement, amis…",
     "metOn": "Rencontré le",
     "status": "Statut",
+    "gender": "Genre",
+    "genderHelper": "Les femmes ont un onglet Cycle et un badge de phase.",
     "color": "Couleur de l'avatar",
     "create": "Ajouter à l'effectif",
     "responsibility": {
@@ -118,7 +120,7 @@
     "manageTraits": "Gérer les traits",
     "delete": "Supprimer le joueur",
     "deleteTitle": "Supprimer {{nickname}} ?",
-    "deleteMessage": "Le joueur et tout ce qui y est lié (infos, chat, rendez-vous, projets et notes clés) seront supprimés définitivement. C’est irréversible. Pour garder l’historique, passez plutôt le statut à Retraité.",
+    "deleteMessage": "Le joueur et tout ce qui y est lié (infos, chat, rendez-vous, projets, notes clés et données du cycle) seront supprimés définitivement. C’est irréversible. Pour garder l’historique, passez plutôt le statut à Retraité.",
     "deleteError": "Le joueur n’a pas pu être supprimé. Veuillez réessayer."
   },
   "tabs": {
@@ -127,7 +129,8 @@
     "chat": "Chat",
     "dates": "Rendez-vous",
     "now": "Maintenant et ensuite",
-    "keyNotes": "Notes clés"
+    "keyNotes": "Notes clés",
+    "cycle": "Cycle"
   },
   "traitSettings": {
     "title": "Traits",

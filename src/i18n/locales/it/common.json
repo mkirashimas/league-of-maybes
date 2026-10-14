@@ -39,7 +39,8 @@
     "timeline": "Cronologia",
     "upcoming": "In arrivo",
     "traits": "Tratti",
-    "chatSettings": "Impostazioni chat"
+    "chatSettings": "Impostazioni chat",
+    "personalDetails": "Dati personali"
   },
   "actions": {
     "cancel": "Annulla",

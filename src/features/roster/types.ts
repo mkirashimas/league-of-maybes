@@ -1,4 +1,5 @@
 import type { BaseDocument } from '../../types';
+import type { Gender } from '../cycle';
 
 export const ROSTER_NAMESPACE = 'roster';
 
@@ -40,6 +41,10 @@ export interface Player extends BaseDocument {
   metOn: string;
   avatarColor: AvatarColor;
   status: PlayerStatus;
+  /** Empty when not set (and on players saved before it existed). Women get cycle tracking. */
+  gender?: Gender;
+  /** Free-text health problems; empty or missing when none. */
+  healthNotes?: string;
   traits: Record<string, TraitValue>;
 }
 
@@ -68,7 +73,7 @@ export interface TraitDefinition extends BaseDocument {
   weight: number;
   order: number;
   active: boolean;
-  /** Shows a scale trait as a League Table column. Missing on older docs: see isShownInTable. */
+  /** Shows a scale or choice trait as a League Table column. Missing on older docs: see isShownInTable. */
   showInTable?: boolean;
   /** Choice traits: the 1–10 score of each option in the overall. Missing: see optionScore. */
   optionScores?: Record<string, number>;
@@ -159,10 +164,10 @@ export const DEFAULT_TRAITS: TraitDefinitionInput[] = [
   showInTable: TABLE_DEFAULT_KEYS.includes(definition.key),
 }));
 
-/** Whether a trait is a League Table column: active scale traits, on by user choice or default. */
+/** Whether a trait is a League Table column: active scale and choice traits, on by user choice or default. */
 export const isShownInTable = (definition: TraitDefinition): boolean =>
   definition.active &&
-  definition.kind === 'scale' &&
+  isWeighted(definition.kind) &&
   (definition.showInTable ?? TABLE_DEFAULT_KEYS.includes(definition.key));
 
 /** Weight in the overall score: 1–10 for scale and choice traits. Number traits don't count (0). */

@@ -3,11 +3,11 @@ import { logger } from 'firebase-functions';
 import { onDocumentDeleted } from 'firebase-functions/firestore';
 import { FUNCTION_OPTIONS } from '../options';
 
-/** Per-player records keyed by a `playerId` field (owned by intel, chat, dates, agenda, keyNotes). */
-const BY_PLAYER_ID = ['intel', 'chatNotes', 'dates', 'agendaItems', 'keyNotes'];
+/** Per-player records keyed by a `playerId` field (owned by intel, chat, dates, agenda, keyNotes, cycle). */
+const BY_PLAYER_ID = ['intel', 'chatNotes', 'dates', 'agendaItems', 'keyNotes', 'cycleNotes'];
 
-/** Per-player records whose document id is the player id (owned by chat and dates). */
-const BY_DOC_ID = ['chatProfiles', 'chatStates', 'dateSummaries'];
+/** Per-player records whose document id is the player id (owned by chat, dates and cycle). */
+const BY_DOC_ID = ['chatProfiles', 'chatStates', 'dateSummaries', 'cycleProfiles'];
 
 /**
  * When the roster deletes a player, removes every record linked to them, so the features stay

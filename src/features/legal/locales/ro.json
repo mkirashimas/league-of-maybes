@@ -35,7 +35,7 @@
       },
       {
         "title": "Responsabilitatea ta pentru datele introduse",
-        "body": "Tot ce există în aplicație este scris de tine, iar o mare parte se referă la alte persoane. Ești singurul responsabil pentru acest conținut și pentru dreptul de a-l păstra.\nFolosește porecle, niciodată nume reale. Nu înregistra despre nimeni mai mult decât este necesar și evită datele sensibile, cum ar fi sănătatea, religia sau opiniile politice. Numărul de telefon este opțional și servește doar la deschiderea unui chat."
+        "body": "Tot ce există în aplicație este scris de tine, iar o mare parte se referă la alte persoane. Ești singurul responsabil pentru acest conținut și pentru dreptul de a-l păstra.\nFolosește porecle, niciodată nume reale. Nu înregistra despre nimeni mai mult decât este necesar și evită datele sensibile, cum ar fi religia sau opiniile politice. Notițele de sănătate și urmărirea ciclului sunt date medicale opționale: introdu-le doar când ajută și doar cât e necesar. Numărul de telefon este opțional și servește doar la deschiderea unui chat."
       },
       {
         "title": "Utilizare acceptabilă",
@@ -64,7 +64,7 @@
     "sections": [
       {
         "title": "Ce se salvează",
-        "body": "Profilul tău Google de bază (nume, e-mail, fotografie), așa cum îl furnizează Firebase Authentication, și conținutul pe care îl introduci: jucători, trăsături, notițe, întâlniri, planuri, setări de chat și, dacă activezi notificările, un token al dispozitivului împreună cu limba acestuia."
+        "body": "Profilul tău Google de bază (nume, e-mail, fotografie), așa cum îl furnizează Firebase Authentication, și conținutul pe care îl introduci: jucători, trăsături, notițe, întâlniri, planuri, setări de chat, notițe de sănătate și date ale ciclului opționale, datele tale personale și, dacă activezi notificările, un token al dispozitivului împreună cu limba acestuia."
       },
       {
         "title": "Unde se salvează",
@@ -73,6 +73,10 @@
       {
         "title": "Cine le poate vedea",
         "body": "Doar tu. Regulile de securitate permit fiecărui cont să citească și să scrie doar propriile date. Datele nu sunt distribuite, vândute sau folosite pentru publicitate."
+      },
+      {
+        "title": "Date medicale",
+        "body": "Notițele de sănătate și urmărirea ciclului (datele menstruației, durata ciclului și notițele pe faze) sunt date medicale opționale introduse de tine. Sunt stocate și protejate ca restul datelor tale, vizibile doar ție, nu sunt trimise niciodată către AI și se șterg odată cu jucătorul de care țin sau cu contul tău. Fazele sunt estimări, nu sfaturi medicale."
       },
       {
         "title": "Procesare AI",

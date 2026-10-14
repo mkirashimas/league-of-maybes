@@ -35,7 +35,7 @@
       },
       {
         "title": "Votre responsabilité sur les données saisies",
-        "body": "Tout le contenu de l'application est écrit par vous, et une grande partie concerne d'autres personnes. Vous êtes seul responsable de ce contenu et du droit de le conserver.\nUtilisez des surnoms, jamais de vrais noms. N'enregistrez pas plus que nécessaire sur quiconque et évitez les informations sensibles comme la santé, la religion ou les opinions politiques. Le numéro de téléphone est facultatif et sert uniquement à ouvrir une discussion."
+        "body": "Tout le contenu de l'application est écrit par vous, et une grande partie concerne d'autres personnes. Vous êtes seul responsable de ce contenu et du droit de le conserver.\nUtilisez des surnoms, jamais de vrais noms. N'enregistrez pas plus que nécessaire sur quiconque et évitez les informations sensibles comme la religion ou les opinions politiques. Les notes de santé et le suivi du cycle sont des données de santé facultatives : ne les saisissez que si elles sont utiles, et seulement le nécessaire. Le numéro de téléphone est facultatif et sert uniquement à ouvrir une discussion."
       },
       {
         "title": "Utilisation acceptable",
@@ -64,7 +64,7 @@
     "sections": [
       {
         "title": "Ce qui est enregistré",
-        "body": "Votre profil Google de base (nom, e-mail, photo) tel que fourni par Firebase Authentication, et le contenu que vous saisissez : joueurs, traits, notes, rendez-vous, projets, réglages du chat et, si vous activez les notifications, un jeton d'appareil avec sa langue."
+        "body": "Votre profil Google de base (nom, e-mail, photo) tel que fourni par Firebase Authentication, et le contenu que vous saisissez : joueurs, traits, notes, rendez-vous, projets, réglages du chat, notes de santé et données du cycle facultatives, vos infos personnelles et, si vous activez les notifications, un jeton d'appareil avec sa langue."
       },
       {
         "title": "Où c'est enregistré",
@@ -73,6 +73,10 @@
       {
         "title": "Qui peut le voir",
         "body": "Vous seul. Les règles de sécurité permettent à chaque compte de lire et d'écrire uniquement ses propres données. Les données ne sont ni partagées, ni vendues, ni utilisées pour la publicité."
+      },
+      {
+        "title": "Données de santé",
+        "body": "Les notes de santé et le suivi du cycle (dates des règles, durées du cycle et notes par phase) sont des données de santé facultatives que vous saisissez vous-même. Elles sont stockées et protégées comme le reste de vos données, visibles par vous seul, jamais envoyées à l'IA, et supprimées avec le joueur concerné ou avec votre compte. Les phases sont des estimations, pas un avis médical."
       },
       {
         "title": "Traitement par IA",

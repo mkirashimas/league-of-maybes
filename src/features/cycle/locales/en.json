@@ -1,0 +1,85 @@
+{
+  "phase": {
+    "menstrual": "Menstrual",
+    "follicular": "Follicular",
+    "ovulation": "Ovulation",
+    "earlyLuteal": "Early luteal",
+    "lateLuteal": "Late luteal (PMS)"
+  },
+  "description": {
+    "menstrual": "Period. Energy is often lower; comfort, rest and low-key plans tend to go down well.",
+    "follicular": "Energy and mood commonly rise. A good time for new plans, activity and socialising.",
+    "ovulation": "Often the most outgoing and confident days, with the highest libido of the cycle.",
+    "earlyLuteal": "Energy usually settles. Calmer, cosier plans tend to suit this stretch.",
+    "lateLuteal": "PMS days: irritability, tiredness or low mood are common. Extra patience helps."
+  },
+  "rating": {
+    "mood": "Mood",
+    "energy": "Energy",
+    "libido": "Libido",
+    "sociability": "Sociability"
+  },
+  "gender": {
+    "unset": "Not set",
+    "female": "Woman",
+    "male": "Man",
+    "other": "Other"
+  },
+  "health": {
+    "label": "Health problems",
+    "placeholder": "Conditions, allergies, medication…",
+    "helper": "Optional. Health data: keep only what you need."
+  },
+  "badge": {
+    "label": "Cycle phase: {{phase}}, day {{day}}",
+    "day": "Day {{day}} of ~{{length}}",
+    "nextPeriod": "next period ~{{date}}",
+    "notes": "Notes: {{value}}",
+    "stale": "Estimate based on an old period. Log the latest one."
+  },
+  "strip": {
+    "day": "Day {{day}}"
+  },
+  "current": {
+    "title": "Today",
+    "noData": "Log a period start to see the current phase.",
+    "averaged": "Cycle length: {{length}} days, averaged from the logged periods.",
+    "manual": "Cycle length: {{length}} days, as set below.",
+    "disclaimer": "Phases are estimates and every body is different."
+  },
+  "setup": {
+    "title": "Cycle data",
+    "intro": "Log the first day of each period. With two or more full cycles logged, the length is averaged.",
+    "startDate": "Period start",
+    "addStart": "Add",
+    "removeStart": "Remove",
+    "noStarts": "No period logged yet.",
+    "cycleLength": "Cycle length",
+    "cycleLengthHelper": "Used until two full cycles are logged.",
+    "cycleLengthAveraged": "Not used: the logged periods give the average.",
+    "periodLength": "Period length",
+    "days": "{{value}} days"
+  },
+  "notes": {
+    "title": "Phase notes",
+    "intro": "Observations by date. Each one lands in the phase of its date, so patterns show per phase.",
+    "add": "Add note",
+    "addTitle": "New note",
+    "editTitle": "Edit note",
+    "date": "Date",
+    "dateHelper": "The phase is worked out from this date.",
+    "text": "What you noticed",
+    "textPlaceholder": "Mood, behaviour, what worked, what didn't…",
+    "now": "Now",
+    "emptyPhase": "No notes for this phase yet.",
+    "untagged": "No phase (no period logged before the date)",
+    "deleteTitle": "Delete this note?",
+    "deleteMessage": "It is removed from the phase notes."
+  },
+  "personal": {
+    "title": "Personal details",
+    "intro": "Details about you. Only you can see them.",
+    "gender": "Gender",
+    "genderHelper": "Choose Woman to track your own cycle."
+  }
+}

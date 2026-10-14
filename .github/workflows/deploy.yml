@@ -1,0 +1,53 @@
+name: deploy
+
+# Deploys the live app when a release merges into main: Hosting, Firestore rules and indexes,
+# Cloud Functions. Runs only after the CI checks pass. Auth is keyless (Workload Identity
+# Federation): no service-account key exists. Setup: docs/workflow.md → Automatic deploy.
+on:
+  push:
+    branches: [main]
+  # Manual re-run from the Actions tab. Google only accepts tokens from main (provider condition).
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-production
+  # Never stop a deploy halfway; a newer run waits instead.
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    needs: checks
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: yarn
+          cache-dependency-path: |
+            yarn.lock
+            functions/yarn.lock
+      - run: yarn install --frozen-lockfile
+      - run: yarn install --frozen-lockfile
+        working-directory: functions
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SERVICE_ACCOUNT }}
+      - run: yarn build
+      # --force: allows deleting functions removed from the code and the Artifact Registry
+      # cleanup policy without an interactive prompt.
+      - run: >-
+          npx --yes firebase-tools@15.32.0 deploy
+          --only hosting,firestore,functions
+          --project league-of-maybes
+          --non-interactive
+          --force

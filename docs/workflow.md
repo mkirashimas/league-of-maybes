@@ -62,33 +62,74 @@ Use `-D` if git refuses to delete the branch after a squash merge. A squash merg
 
 When `development` has something worth shipping, open a pull request from `development` into `main` titled `release: <summary>`. Use **Create a merge commit**, not squash. That keeps `main` and `development` sharing the same history, so later releases stay simple.
 
-Deploying is manual until GitHub Actions deploys are set up (below):
+Merging the release pull request deploys automatically (see "Automatic deploy" below). To deploy again without a new merge, go to GitHub → Actions → **deploy** → **Run workflow** on `main`. To deploy by hand from the PC as a fallback:
 
 ```powershell
 yarn build
-firebase deploy --only hosting,firestore
+firebase deploy --project league-of-maybes
 ```
 
 ## CI
 
-`.github/workflows/ci.yml` runs on every pull request into `development` or `main`, and on every push to them. It runs on Node 22:
+`.github/workflows/ci.yml` runs on Node 22:
 
-1. `yarn install --frozen-lockfile`
-2. `yarn lint`
-3. `yarn build`
+- on every pull request into `development` or `main`
+- on every push to `development`
+- when `deploy.yml` calls it, before each deploy (pushes to `main`)
 
-## Later: preview and live deploys
+Two jobs:
 
-Once the Firebase CLI is logged in (`firebase login`), run `firebase init hosting:github` and answer:
+1. **`ci`**: `yarn install --frozen-lockfile`, then `yarn lint` and `yarn build`, for the root and for `functions/`.
+2. **`rules`**: the Firestore rule tests in the emulator (`yarn test:rules`).
 
-- the build script: `yarn install --frozen-lockfile && yarn build`
-- deploy on merge: yes, branch `main`
+## Automatic deploy
 
-This adds:
+`.github/workflows/deploy.yml` runs on every push to `main`, i.e. each merged release:
 
-- a preview URL posted on each pull request
-- a live deploy when anything merges into `main`
-- a GitHub secret `FIREBASE_SERVICE_ACCOUNT_LEAGUE_OF_MAYBES`. It lives only in GitHub and is never committed.
+1. The `checks` job runs `ci.yml`. If anything fails, nothing is deployed.
+2. The `deploy` job runs `yarn build`, then `firebase deploy --only hosting,firestore,functions --force`, to project `league-of-maybes`.
+
+Its history is in GitHub → Actions → **deploy**, and in Settings → Environments → `production`.
+
+**Auth is keyless (Workload Identity Federation).**
+
+- GitHub gets a short-lived token from Google for this one repository and for the `main` branch only. Pull requests, other branches and forks can't deploy.
+- No service-account key exists, so there is nothing to leak or rotate.
+
+### One-time setup
+
+Open [Cloud Shell](https://console.cloud.google.com/?project=league-of-maybes&cloudshell=true) (Google Cloud console, project `league-of-maybes`, the `>_` icon) and paste:
+
+```sh
+PROJECT_ID=league-of-maybes
+REPO=mkirashimas/league-of-maybes
+SA=github-deployer@$PROJECT_ID.iam.gserviceaccount.com
+PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
+gcloud config set project $PROJECT_ID
+
+# 1. The deploy service account.
+gcloud iam service-accounts create github-deployer --display-name="GitHub Actions deploy"
+
+# 2. Trust GitHub's tokens, but only from this repo's main branch.
+gcloud iam workload-identity-pools create github --location=global --display-name="GitHub Actions"
+gcloud iam workload-identity-pools providers create-oidc league-of-maybes   --location=global --workload-identity-pool=github   --issuer-uri="https://token.actions.githubusercontent.com"   --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository,attribute.ref=assertion.ref"   --attribute-condition="assertion.repository=='$REPO' && assertion.ref=='refs/heads/main'"
+
+# 3. Let that repo act as the service account.
+gcloud iam service-accounts add-iam-policy-binding $SA   --role=roles/iam.workloadIdentityUser   --member="principalSet://iam.googleapis.com/projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/github/attribute.repository/$REPO"
+
+# 4. What a deploy needs: Hosting, rules, indexes, Functions v2 with Scheduler and Firestore triggers.
+for ROLE in firebase.admin cloudfunctions.admin run.admin eventarc.admin cloudscheduler.admin   artifactregistry.admin iam.serviceAccountUser serviceusage.serviceUsageConsumer; do
+  gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SA"     --role="roles/$ROLE" --condition=None --quiet > /dev/null && echo "granted $ROLE"
+done
+
+# 5. The two values for GitHub.
+echo "GCP_WORKLOAD_IDENTITY_PROVIDER = projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/github/providers/league-of-maybes"
+echo "GCP_DEPLOY_SERVICE_ACCOUNT     = $SA"
+```
+
+Then go to GitHub → the repo → Settings → Secrets and variables → Actions → **Variables** tab → **New repository variable**, and add both printed values under those names. They are identifiers, not secrets.
+
+**If a deploy fails on a permission,** the log names the missing permission (e.g. `...permission denied on resource...`). Grant the matching role with step 4's command, then use **Re-run jobs** on the failed run.
 
 ## Protecting branches (optional)
 

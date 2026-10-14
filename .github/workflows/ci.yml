@@ -3,8 +3,10 @@ name: ci
 on:
   pull_request:
     branches: [development, main]
+  # Pushes to main get these checks from deploy.yml, which calls this workflow before deploying.
   push:
-    branches: [development, main]
+    branches: [development]
+  workflow_call:
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -47,6 +49,6 @@ jobs:
           node-version: 22
           cache: yarn
       - run: yarn install --frozen-lockfile
-      - run: yarn global add firebase-tools
+      - run: yarn global add firebase-tools@15.32.0
       - run: echo "$(yarn global bin)" >> "$GITHUB_PATH"
       - run: yarn test:rules
